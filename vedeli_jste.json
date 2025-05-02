@@ -1,0 +1,406 @@
+[
+  {
+    "id": 1,
+    "fact": "Věděli jste, že žirafa má stejně krčních obratlů jako člověk – sedm?"
+  },
+  {
+    "id": 2,
+    "fact": "Věděli jste, že ve vesmíru můžeš plakat, ale slzy ti nestekou dolů?"
+  },
+  {
+    "id": 3,
+    "fact": "Věděli jste, že med nikdy nezkazí – byl nalezen i v hrobkách starověkého Egypta?"
+  },
+  {
+    "id": 4,
+    "fact": "Věděli jste, že okurka obsahuje 95 % vody?"
+  },
+  {
+    "id": 5,
+    "fact": "Věděli jste, že blesk je pětkrát teplejší než povrch Slunce?"
+  },
+  {
+    "id": 6,
+    "fact": "Věděli jste, že voda může být horká i studená zároveň – při tzv. přechlazení?"
+  },
+  {
+    "id": 7,
+    "fact": "Věděli jste, že mravenec unese až 50násobek své hmotnosti?"
+  },
+  {
+    "id": 8,
+    "fact": "Věděli jste, že kočka spí v průměru 13–16 hodin denně?"
+  },
+  {
+    "id": 9,
+    "fact": "Věděli jste, že lidské srdce za život bije asi 3 miliardy krát?"
+  },
+  {
+    "id": 10,
+    "fact": "Věděli jste, že krávy mají nejlepší kamarády a stresují se, když jsou od sebe oddělené?"
+  },
+  {
+    "id": 11,
+    "fact": "Věděli jste, že pavouci neumí žvýkat – trávicí šťávy vstřikují dovnitř kořisti?"
+  },
+  {
+    "id": 12,
+    "fact": "Věděli jste, že planeta Uran se otáčí „naležato“ – má rotaci skoro vodorovnou?"
+  },
+  {
+    "id": 13,
+    "fact": "Věděli jste, že ve starém Římě se zubní pasta vyráběla z popela a medu?"
+  },
+  {
+    "id": 14,
+    "fact": "Věděli jste, že banán je vlastně bobule, zatímco jahoda není?"
+  },
+  {
+    "id": 15,
+    "fact": "Věděli jste, že včely mohou rozpoznat lidské obličeje?"
+  },
+  {
+    "id": 16,
+    "fact": "Věděli jste, že žraloci jsou starší než dinosauři?"
+  },
+  {
+    "id": 17,
+    "fact": "Věděli jste, že lidské tělo má více bakterií než vlastních buněk?"
+  },
+  {
+    "id": 18,
+    "fact": "Věděli jste, že v Antarktidě neprší, ale je to poušť?"
+  },
+  {
+    "id": 19,
+    "fact": "Věděli jste, že v Japonsku existuje ostrov plný králíků?"
+  },
+  {
+    "id": 20,
+    "fact": "Věděli jste, že motýli ochutnávají nožičkami?"
+  },
+  {
+    "id": 21,
+    "fact": "Věděli jste, že lidský mozek spotřebuje asi 20 % energie těla?"
+  },
+  {
+    "id": 22,
+    "fact": "Věděli jste, že delfíni mají jména – specifické zvuky, kterými se oslovují?"
+  },
+  {
+    "id": 23,
+    "fact": "Věděli jste, že většina tučňáků žije v teplých oblastech, ne na ledu?"
+  },
+  {
+    "id": 24,
+    "fact": "Věděli jste, že každý otisk jazyka je jedinečný – jako otisk prstu?"
+  },
+  {
+    "id": 25,
+    "fact": "Věděli jste, že chobotnice mají tři srdce?"
+  },
+  {
+    "id": 26,
+    "fact": "Věděli jste, že ve stavu beztíže astronauti ztrácejí kostní hmotu?"
+  },
+  {
+    "id": 27,
+    "fact": "Věděli jste, že všechny labutě v Británii patří královně?"
+  },
+  {
+    "id": 28,
+    "fact": "Věděli jste, že největší květ na světě váží až 11 kilogramů?"
+  },
+  {
+    "id": 29,
+    "fact": "Věděli jste, že želvy dýchají i přes zadek – kloakální dýchání?"
+  },
+  {
+    "id": 30,
+    "fact": "Věděli jste, že některé žáby mohou přežít zamrznutí?"
+  },
+  {
+    "id": 31,
+    "fact": "Věděli jste, že krokodýl nemůže vypláznout jazyk?"
+  },
+  {
+    "id": 32,
+    "fact": "Věděli jste, že některé houby svítí ve tmě?"
+  },
+  {
+    "id": 33,
+    "fact": "Věděli jste, že létající veverky opravdu nelétají, ale klouzají?"
+  },
+  {
+    "id": 34,
+    "fact": "Věděli jste, že papoušci se mohou naučit až 1000 slov?"
+  },
+  {
+    "id": 35,
+    "fact": "Věděli jste, že když se mračíme, spotřebujeme více svalů než při smíchu?"
+  },
+  {
+    "id": 36,
+    "fact": "Věděli jste, že vosa může žihadlo použít opakovaně, včela ne?"
+  },
+  {
+    "id": 37,
+    "fact": "Věděli jste, že sloni neumějí skákat?"
+  },
+  {
+    "id": 38,
+    "fact": "Věděli jste, že mrkev byla původně fialová?"
+  },
+  {
+    "id": 39,
+    "fact": "Věděli jste, že sněhová vločka má vždy šestiúhelníkový tvar?"
+  },
+  {
+    "id": 40,
+    "fact": "Věděli jste, že v některých částech světa ryby chodí po souši?"
+  },
+  {
+    "id": 41,
+    "fact": "Věděli jste, že tygr má pruhy i na kůži, nejen na srsti?"
+  },
+  {
+    "id": 42,
+    "fact": "Věděli jste, že některé stromy spolu komunikují pomocí kořenů?"
+  },
+  {
+    "id": 43,
+    "fact": "Věděli jste, že některé rostliny „počítají“ – např. mucholapka počítá doteky?"
+  },
+  {
+    "id": 44,
+    "fact": "Věděli jste, že nejvyšší hora sluneční soustavy je Olympus Mons na Marsu?"
+  },
+  {
+    "id": 45,
+    "fact": "Věděli jste, že žáby nemají žebra?"
+  },
+  {
+    "id": 46,
+    "fact": "Věděli jste, že měsíc se každým rokem vzdaluje od Země?"
+  },
+  {
+    "id": 47,
+    "fact": "Věděli jste, že voda je jediná látka, která existuje přirozeně v pevném, kapalném i plynném stavu?"
+  },
+  {
+    "id": 48,
+    "fact": "Věděli jste, že nejdelší slovo v češtině má 30 písmen?"
+  },
+  {
+    "id": 49,
+    "fact": "Věděli jste, že některé želvy žijí přes 150 let?"
+  },
+  {
+    "id": 50,
+    "fact": "Věděli jste, že medúzy nemají mozek?"
+  },
+  {
+    "id": 51,
+    "fact": "Věděli jste, že včely komunikují tancem?"
+  },
+  {
+    "id": 52,
+    "fact": "Věděli jste, že hlemýžď může spát i tři roky v kuse?"
+  },
+  {
+    "id": 53,
+    "fact": "Věděli jste, že některé žraloky mohou svítit ve tmě?"
+  },
+  {
+    "id": 54,
+    "fact": "Věděli jste, že v Austrálii existují stromy, které „vypouštějí“ oheň?"
+  },
+  {
+    "id": 55,
+    "fact": "Věděli jste, že slunečnice se vždy otáčí za sluncem?"
+  },
+  {
+    "id": 56,
+    "fact": "Věděli jste, že lidské tělo má 206 kostí?"
+  },
+  {
+    "id": 57,
+    "fact": "Věděli jste, že koaly mají otisky prstů podobné lidským?"
+  },
+  {
+    "id": 58,
+    "fact": "Věděli jste, že delfíni spí s jedním okem otevřeným?"
+  },
+  {
+    "id": 59,
+    "fact": "Věděli jste, že oči pštrosa jsou větší než jeho mozek?"
+  },
+  {
+    "id": 60,
+    "fact": "Věděli jste, že měsíček v kalendáři je starý tisíce let?"
+  },
+  {
+    "id": 61,
+    "fact": "Věděli jste, že voda se dá přehřát bez varu?"
+  },
+  {
+    "id": 62,
+    "fact": "Věděli jste, že člověk vyprodukuje asi 1 litr slin denně?"
+  },
+  {
+    "id": 63,
+    "fact": "Věděli jste, že některé kachny umí spát s jedním okem otevřeným?"
+  },
+  {
+    "id": 64,
+    "fact": "Věděli jste, že včelí královna snese až 2000 vajíček denně?"
+  },
+  {
+    "id": 65,
+    "fact": "Věděli jste, že planetka Ceres má podzemní oceán?"
+  },
+  {
+    "id": 66,
+    "fact": "Věděli jste, že některé ryby mění pohlaví během života?"
+  },
+  {
+    "id": 67,
+    "fact": "Věděli jste, že zebra je černá s bílými pruhy – ne naopak?"
+  },
+  {
+    "id": 68,
+    "fact": "Věděli jste, že některé ptáky nikdy neuvidíš pít – získávají vodu z potravy?"
+  },
+  {
+    "id": 69,
+    "fact": "Věděli jste, že zvuk se šíří rychleji ve vodě než ve vzduchu?"
+  },
+  {
+    "id": 70,
+    "fact": "Věděli jste, že netopýři se orientují pomocí echolokace?"
+  },
+  {
+    "id": 71,
+    "fact": "Věděli jste, že sloni mají výbornou paměť?"
+  },
+  {
+    "id": 72,
+    "fact": "Věděli jste, že nejrychlejší zvíře na světě je sokol stěhovavý?"
+  },
+  {
+    "id": 73,
+    "fact": "Věděli jste, že v ledovcích je 70 % sladké vody na Zemi?"
+  },
+  {
+    "id": 74,
+    "fact": "Věděli jste, že některé rostliny „vidí“ světlo a hýbou se za ním?"
+  },
+  {
+    "id": 75,
+    "fact": "Věděli jste, že někteří hadi dokážou plavat i pod vodou?"
+  },
+  {
+    "id": 76,
+    "fact": "Věděli jste, že krab poustevníček si hledá prázdné ulity na ochranu?"
+  },
+  {
+    "id": 77,
+    "fact": "Věděli jste, že některé ryby dokážou létat nad vodou?"
+  },
+  {
+    "id": 78,
+    "fact": "Věděli jste, že žraloci nemají kosti, jen chrupavku?"
+  },
+  {
+    "id": 79,
+    "fact": "Věděli jste, že některé druhy hmyzu umí napodobit větvičky?"
+  },
+  {
+    "id": 80,
+    "fact": "Věděli jste, že existuje červený sníh – způsobují ho řasy?"
+  },
+  {
+    "id": 81,
+    "fact": "Věděli jste, že kočky slyší ultrazvuk?"
+  },
+  {
+    "id": 82,
+    "fact": "Věděli jste, že paprsky slunce jsou bílé – barvy vznikají až v atmosféře?"
+  },
+  {
+    "id": 83,
+    "fact": "Věděli jste, že duha může být dvojitá?"
+  },
+  {
+    "id": 84,
+    "fact": "Věděli jste, že některé žáby nosí vajíčka na zádech?"
+  },
+  {
+    "id": 85,
+    "fact": "Věděli jste, že sopky mohou existovat i pod mořem?"
+  },
+  {
+    "id": 86,
+    "fact": "Věděli jste, že včely mají pět očí?"
+  },
+  {
+    "id": 87,
+    "fact": "Věděli jste, že některé stromy přežijí požár a znovu obrazí?"
+  },
+  {
+    "id": 88,
+    "fact": "Věděli jste, že voda má největší hustotu při 4 °C?"
+  },
+  {
+    "id": 89,
+    "fact": "Věděli jste, že některé houby žijí tisíce let?"
+  },
+  {
+    "id": 90,
+    "fact": "Věděli jste, že největší oko v živočišné říši má obrovská oliheň?"
+  },
+  {
+    "id": 91,
+    "fact": "Věděli jste, že slunce je tak daleko, že jeho světlo k nám letí 8 minut?"
+  },
+  {
+    "id": 92,
+    "fact": "Věděli jste, že některé bakterie svítí?"
+  },
+  {
+    "id": 93,
+    "fact": "Věděli jste, že mravenčí královna může žít přes 20 let?"
+  },
+  {
+    "id": 94,
+    "fact": "Věděli jste, že písek na různých plážích má různou barvu podle hornin?"
+  },
+  {
+    "id": 95,
+    "fact": "Věděli jste, že některé ptáky dokážou napodobit lidský hlas?"
+  },
+  {
+    "id": 96,
+    "fact": "Věděli jste, že některé viry napadají jen bakterie?"
+  },
+  {
+    "id": 97,
+    "fact": "Věděli jste, že měsíční prach je ostrý jako sklo?"
+  },
+  {
+    "id": 98,
+    "fact": "Věděli jste, že některé houby dokážou zabíjet hmyz?"
+  },
+  {
+    "id": 99,
+    "fact": "Věděli jste, že duha je vždy kruh, ale vidíme jen půlku?"
+  },
+  {
+    "id": 100,
+    "fact": "Věděli jste, že lidské oko rozezná asi 10 milionů barev?"
+  },
+  {
+    "id": 101,
+    "fact": "Věděli jste, že některé stromy rostou vzhůru nohama – např. baobab?"
+  }
+]
