@@ -12,19 +12,19 @@
     {
       "id": "Q002",
       "question": "Který prvek robota slouží jako jeho „mozek“ a řídí ostatní části?",
-      "A": "Řídicí jednotka (mikrořadič) na elektronické desce robota.",
+      "A": "Senzor vzdálenosti.",
       "B": "Kola robota.",
-      "C": "Senzor vzdálenosti.",
-      "correct": "A",
+      "C": "Řídicí jednotka (mikrořadič/procesor) na elektronické desce robota.",
+      "correct": "C",
       "image": "https://example.com/image_Q002.png"
     },
     {
       "id": "Q003",
       "question": "Která z uvedených věcí NENÍ vstupním zařízením (senzorem) pro robota?",
-      "A": "Ozubené kolo.",
+      "A": "Mikrofon.",
       "B": "Infračervené čidlo.",
-      "C": "Mikrofon.",
-      "correct": "A",
+      "C": "Ozubené kolo.",
+      "correct": "C",
       "image": "https://example.com/image_Q003.png"
     },
     {
@@ -453,73 +453,60 @@
     {
     "id": "Q051",
     "question": "Co je modul CyberPi v robotu mBot2?",
-    "options": {
       "A": "Mozek robota – malý počítač se senzory a displejem",
       "B": "Motorek pro pohyb kol robota",
       "C": "Dálkový ovladač robota"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q051.png"
   },
   {
     "id": "Q052",
     "question": "Jaké zařízení potřebuješ k programování mBota2?",
-    "options": {
       "A": "Počítač nebo tablet s programem mBlock 5",
       "B": "Televizi s herní konzolí",
       "C": "Žádné – mBot2 se programuje sám"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q052.png"
   },
   {
     "id": "Q053",
     "question": "Jak lze mBot2 připojit k počítači pro nahrání programu?",
-    "options": {
       "A": "USB kabelem nebo přes Bluetooth",
       "B": "Wi-Fi routerem",
       "C": "Nelze ho propojit s počítačem"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q053.png"
   },
   {
     "id": "Q054",
     "question": "Který z těchto senzorů je vestavěný v modulu CyberPi?",
-    "options": {
       "A": "Gyroskop (pro snímání pohybu a náklonu)",
       "B": "Teploměr (senzor teploty)",
       "C": "Detektor kovů"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q054.png"
   },
   {
     "id": "Q055",
     "question": "K čemu slouží LED pásek na modulu CyberPi?",
-    "options": {
       "A": "K zobrazování barevných světelných efektů jako výstup programu",
       "B": "K osvícení cesty před robotem jako svítilna",
       "C": "Jako senzor na detekci barvy okolí"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q055.png"
   },
   {
     "id": "Q056",
     "question": "Kolik programů lze maximálně uložit přímo do paměti modulu CyberPi?",
-    "options": {
       "A": "8 programů",
       "B": "1 program",
       "C": "Neomezeně programů"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q056.png"
   },
   {
     "id": "Q057",
     "question": "Která z těchto možností je příkladem sekvence instrukcí v programu robota?",
-    "options": {
       "A": "Robot jede rovně, pak zahne vlevo a zastaví.",
       "B": "Robot opakuje blikání světla stále dokola.",
       "C": "Robot náhodně vybere, co udělá."
@@ -530,7 +517,6 @@
   {
     "id": "Q058",
     "question": "Co v programování znamená pojem smyčka (cyklus)?",
-    "options": {
       "A": "Opakování části programu několikrát",
       "B": "Rozhodnutí mezi dvěma různými akcemi",
       "C": "Jedno spuštění programu od začátku do konce"
@@ -541,132 +527,108 @@
   {
     "id": "Q059",
     "question": "Který z následujících příkazů by byl příkladem smyčky?",
-    "options": {
       "A": "opakuj 5krát: rozsvítit LED, potom zhasnout",
       "B": "pokud je tlačítko stisknuto, rozsvítit LED",
       "C": "nastav rychlost robota na 50%"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q059.png"
   },
   {
     "id": "Q060",
     "question": "Co znamená v informatice pojem \"ladění kódu\" (debugging)?",
-    "options": {
       "A": "Hledání a opravování chyb v programu",
       "B": "Zrychlování běhu programu",
       "C": "Překládání programu do cizího jazyka"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q060.png"
   },
   {
     "id": "Q061",
     "question": "Když program robota nefunguje správně, co by měl programátor udělat jako první?",
-    "options": {
       "A": "Zkontrolovat kód a najít chybu (zahájit ladění)",
       "B": "Zpanikařit a přestat se snažit",
       "C": "Hned smazat celý program a začít znovu od začátku"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q061.png"
   },
   {
     "id": "Q062",
     "question": "Proč je důležité správné pořadí (sekvence) instrukcí v programu?",
-    "options": {
       "A": "Protože změna pořadí může vést k úplně jinému výsledku",
       "B": "Není důležité, pořadí instrukcí neovlivňuje funkci programu",
       "C": "Aby program zabíral méně paměti"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q062.png"
   },
   {
     "id": "Q063",
     "question": "Jak můžeme složitý problém vyřešit snadněji pomocí informatického myšlení?",
-    "options": {
       "A": "Rozdělit ho na menší, lépe řešitelné části",
       "B": "Ignorovat složité části a řešit jen jednoduché",
       "C": "Zkusit náhodné postupy bez plánování"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q063.png"
   },
   {
     "id": "Q064",
     "question": "Co je algoritmus?",
-    "options": {
       "A": "Přesný postup (sada kroků) k vyřešení určitého úkolu",
       "B": "Počítačový programovací jazyk",
       "C": "Druh robota"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q064.png"
   },
   {
     "id": "Q065",
     "question": "Který z následujících je příkladem algoritmu v běžném životě?",
-    "options": {
       "A": "Recept na upečení dortu podle jednotlivých kroků",
       "B": "Náhodné hádání čísla bez postupu",
       "C": "Telefonní číslo kamaráda"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q065.png"
   },
   {
     "id": "Q066",
     "question": "Které tvrzení o chybách v programu je pravdivé?",
-    "options": {
       "A": "Chyby jsou běžné a pomáhají nám se z nich poučit při ladění programu",
       "B": "Dobrý programátor nikdy neudělá chybu",
       "C": "Když program nefunguje, je vždy chyba v počítači, ne v kódu"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q066.png"
   },
   {
     "id": "Q067",
     "question": "K čemu slouží sada LEGO WeDo 2.0?",
-    "options": {
       "A": "K tvorbě jednoduchých pohyblivých modelů a jejich programování",
       "B": "K stavbě velkých soch z lega bez elektroniky",
       "C": "Jde o počítačovou hru"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q067.png"
   },
   {
     "id": "Q068",
     "question": "Která z následujících součástí NENÍ součástí LEGO WeDo 2.0 sady?",
-    "options": {
       "A": "Gyroskopický senzor",
       "B": "Motor s ozubeným převodem",
       "C": "Smarthub (řídicí kostka s Bluetooth)"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q068.png"
   },
   {
     "id": "Q069",
     "question": "Jak se k počítači nebo tabletu připojuje LEGO WeDo 2.0 Smarthub?",
-    "options": {
       "A": "Bezdrátově pomocí Bluetooth",
       "B": "USB kabelem",
       "C": "Přes Wi-Fi síť"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q069.png"
   },
   {
     "id": "Q070",
     "question": "V jakém prostředí se typicky programují modely s LEGO WeDo 2.0?",
-    "options": {
       "A": "V grafickém (blokovém) programu od LEGO (např. WeDo 2.0 aplikace)",
       "B": "Psaním kódu v jazyce Python",
       "C": "V textovém editoru (např. Word)"
-    },
     "correct": "A",
     "image": "https://example.com/image_Q070.png"
   }
