@@ -1,0 +1,674 @@
+{
+  "questions": [
+    {
+      "id": "Q001",
+      "question": "Čím se liší servomotor od obyčejného stejnosměrného (DC) motoru?",
+      "A": "Servomotor lze ovládat tak, aby se nastavil na konkrétní úhel, a obsahuje i řídicí elektroniku.",
+      "B": "Servomotor je mnohem větší a nelze ho elektronicky řídit.",
+      "C": "Servomotor nepotřebuje ke své činnosti elektrickou energii.",
+      "correct": "A",
+      "image": "https://example.com/image_Q001.png"
+    },
+    {
+      "id": "Q002",
+      "question": "Který prvek robota slouží jako jeho „mozek“ a řídí ostatní části?",
+      "A": "Řídicí jednotka (mikrořadič) na elektronické desce robota.",
+      "B": "Kola robota.",
+      "C": "Senzor vzdálenosti.",
+      "correct": "A",
+      "image": "https://example.com/image_Q002.png"
+    },
+    {
+      "id": "Q003",
+      "question": "Která z uvedených věcí NENÍ vstupním zařízením (senzorem) pro robota?",
+      "A": "Ozubené kolo.",
+      "B": "Infračervené čidlo.",
+      "C": "Mikrofon.",
+      "correct": "A",
+      "image": "https://example.com/image_Q003.png"
+    },
+    {
+      "id": "Q004",
+      "question": "Čím se liší Blue-Bot od Bee-Bot?",
+      "A": "Blue-Bot lze připojit přes Bluetooth a programovat také pomocí tabletu nebo počítače.",
+      "B": "Blue-Bot umí létat na krátké vzdálenosti.",
+      "C": "Blue-Bot je určen pouze pro venkovní použití.",
+      "correct": "A",
+      "image": "https://example.com/image_Q004.png"
+    },
+    {
+      "id": "Q005",
+      "question": "Jaké senzory má základní robot mBot (verze 1)?",
+      "A": "Ultrazvukový senzor vzdálenosti a infračervené senzory pro sledování čáry.",
+      "B": "Vestavěnou kameru a laserový senzor.",
+      "C": "Teplotní čidlo a tlakoměr vzduchu.",
+      "correct": "A",
+      "image": "https://example.com/image_Q005.png"
+    },
+    {
+      "id": "Q006",
+      "question": "Co bys měl/a udělat před tím, než poprvé použiješ nové robotické zařízení (např. mBot)?",
+      "A": "Přečíst si nejprve návod k použití a bezpečnostní pokyny.",
+      "B": "Hned ho zapnout na plný výkon bez jakékoli kontroly.",
+      "C": "Nejprve ho celý rozebrat na součástky, abys zjistil/a, co je uvnitř.",
+      "correct": "A",
+      "image": "https://example.com/image_Q006.png"
+    },
+    {
+      "id": "Q007",
+      "question": "Jaký je hlavní účel senzoru sledujícího čáru (line follower) u robota, jako je mBot?",
+      "A": "Umožňuje robotu rozpoznat a sledovat čáru nakreslenou na zemi.",
+      "B": "Měří rychlost otáčení jeho kol.",
+      "C": "Detekuje překážky ve výšce očí robota.",
+      "correct": "A",
+      "image": "https://example.com/image_Q007.png"
+    },
+    {
+      "id": "Q008",
+      "question": "Který robot z uvedených lze pomocí Bluetooth propojit s tabletem pro programování?",
+      "A": "Blue-Bot.",
+      "B": "Bee-Bot.",
+      "C": "Ozobot Bit.",
+      "correct": "A",
+      "image": "https://example.com/image_Q008.png"
+    },
+    {
+      "id": "Q009",
+      "question": "Jaký typ senzoru by robot použil, aby rozpoznal tlesknutí nebo jiné hlasité zvuky?",
+      "A": "Mikrofon (zvukový senzor).",
+      "B": "Ultrazvukový senzor.",
+      "C": "Infračervený senzor čáry.",
+      "correct": "A",
+      "image": "https://example.com/image_Q009.png"
+    },
+    {
+      "id": "Q010",
+      "question": "K čemu slouží ultrazvukový senzor na robotu?",
+      "A": "Měří vzdálenost od překážek pomocí odrazu zvukových vln.",
+      "B": "Snímá barvy povrchu pod robotem.",
+      "C": "Řídí otáčky motoru podle zátěže.",
+      "correct": "A",
+      "image": "https://example.com/image_Q010.png"
+    },
+    {
+      "id": "Q011",
+      "question": "Který z těchto pojmů představuje opakování instrukcí v programu?",
+      "A": "Smyčka (cyklus).",
+      "B": "Podmínka (větvení).",
+      "C": "Proměnná.",
+      "correct": "A",
+      "image": "https://example.com/image_Q011.png"
+    },
+    {
+      "id": "Q012",
+      "question": "Proč robot využívá ozubená kola (převody)?",
+      "A": "Aby mohl měnit poměr rychlosti a síly otáčení (zvyšovat sílu nebo rychlost podle potřeby).",
+      "B": "Aby lépe slyšel zvuky z okolí.",
+      "C": "Aby mohl komunikovat s počítačem přes Bluetooth.",
+      "correct": "A",
+      "image": "https://example.com/image_Q012.png"
+    },
+    {
+      "id": "Q013",
+      "question": "Jak může robot Ozobot sledovat nakreslenou trasu?",
+      "A": "Pomocí senzorů, které čtou barevné čáry a kódy na papíře.",
+      "B": "Pomocí magnetu, který se táhne podél kovové stopy.",
+      "C": "Nedokáže sledovat trasu – pohybuje se náhodně.",
+      "correct": "A",
+      "image": "https://example.com/image_Q013.png"
+    },
+    {
+      "id": "Q014",
+      "question": "Jak lze robota mBot ovládat?",
+      "A": "Přes počítač nebo tablet (nahráním programu přes USB/Bluetooth) nebo pomocí dálkového ovladače.",
+      "B": "Pouze ručním tlačením po podlaze.",
+      "C": "Myšlenkami pomocí speciální helmy.",
+      "correct": "A",
+      "image": "https://example.com/image_Q014.png"
+    },
+    {
+      "id": "Q015",
+      "question": "Který z uvedených je nástroj pro grafické programování často používaný při výuce robotiky?",
+      "A": "Scratch nebo jeho upravená verze mBlock.",
+      "B": "Microsoft Word.",
+      "C": "YouTube.",
+      "correct": "A",
+      "image": "https://example.com/image_Q015.png"
+    },
+    {
+      "id": "Q016",
+      "question": "Co označujeme jako \"kód\" v informatice?",
+      "A": "Sadu instrukcí nebo program napsaný v nějakém programovacím jazyce.",
+      "B": "Tajné heslo, kterým lze odemknout robota.",
+      "C": "Barevný QR štítek nalepený na robotovi.",
+      "correct": "A",
+      "image": "https://example.com/image_Q016.png"
+    },
+    {
+      "id": "Q017",
+      "question": "Jak se u robota Bee-Bot zadává program (sekvence pohybů)?",
+      "A": "Stisknutím tlačítek se šipkami na jeho těle v požadovaném pořadí.",
+      "B": "Nakreslením trasy na papír, po které se pak sám vydá.",
+      "C": "Napsáním kódu v počítači a nahráním přes USB.",
+      "correct": "A",
+      "image": "https://example.com/image_Q017.png"
+    },
+    {
+      "id": "Q018",
+      "question": "Které zařízení převádí elektrickou energii na pohyb u robota?",
+      "A": "Elektromotor.",
+      "B": "LED dioda.",
+      "C": "Napájecí baterie.",
+      "correct": "A",
+      "image": "https://example.com/image_Q018.png"
+    },
+    {
+      "id": "Q019",
+      "question": "Která z následujících možností je příklad proměnné v programu robota?",
+      "A": "Hodnota v paměti, ve které je uložena aktuální rychlost robota.",
+      "B": "Tělo (konstrukce) robota na kolech.",
+      "C": "Tlačítko na robotovi pro jeho zapnutí.",
+      "correct": "A",
+      "image": "https://example.com/image_Q019.png"
+    },
+    {
+      "id": "Q020",
+      "question": "Které tvrzení nejlépe popisuje robot mBot?",
+      "A": "Malý programovatelný robot na kolečkách pro výuku robotiky.",
+      "B": "Hračka ovládaná hlasem ve tvaru včely.",
+      "C": "Mobilní aplikace pro kreslení.",
+      "correct": "A",
+      "image": "https://example.com/image_Q020.png"
+    },
+    {
+      "id": "Q021",
+      "question": "Proč je důležité aktualizovat firmware nebo software robota na nejnovější verzi?",
+      "A": "Protože aktualizace opravují chyby a mohou přidávat nové funkce, takže robot funguje spolehlivěji.",
+      "B": "Protože pak robot spotřebuje mnohem méně baterie.",
+      "C": "Protože bez aktualizace robot automaticky přestane po týdnu fungovat.",
+      "correct": "A",
+      "image": "https://example.com/image_Q021.png"
+    },
+    {
+      "id": "Q022",
+      "question": "Co je to servomotor?",
+      "A": "Motor, který lze nastavit do konkrétní polohy (úhlu) a má v sobě řídicí elektroniku.",
+      "B": "Speciální senzor na kontrolu technického stavu (servisu) robota.",
+      "C": "Druh počítačového programu pro roboty.",
+      "correct": "A",
+      "image": "https://example.com/image_Q022.png"
+    },
+    {
+      "id": "Q023",
+      "question": "Co je to \"debugging\" v informatice?",
+      "A": "Proces hledání a odstraňování chyb (bugů) v programu.",
+      "B": "Způsob, jak zrychlit běh programu na maximum.",
+      "C": "Zálohování programu na externí disk.",
+      "correct": "A",
+      "image": "https://example.com/image_Q023.png"
+    },
+    {
+      "id": "Q024",
+      "question": "Co znamená pojem \"digitální gramotnost\" v kontextu práce s robotickými hračkami?",
+      "A": "Schopnost bezpečně a efektivně používat digitální technologie (např. programovat a ovládat roboty).",
+      "B": "Schopnost velmi rychle psát na klávesnici počítače.",
+      "C": "Schopnost robota přečíst nahlas libovolný text.",
+      "correct": "A",
+      "image": "https://example.com/image_Q024.png"
+    },
+    {
+      "id": "Q025",
+      "question": "Co znamená, že robot pracuje \"autonomně\"?",
+      "A": "Je schopen fungovat samostatně podle naprogramovaných instrukcí, bez přímého řízení člověkem.",
+      "B": "Je neustále dálkově řízen člověkem.",
+      "C": "Má umělou inteligenci a chová se nerozeznatelně od člověka.",
+      "correct": "A",
+      "image": "https://example.com/image_Q025.png"
+    },
+    {
+      "id": "Q026",
+      "question": "Co znamená pojem \"algoritmus\"?",
+      "A": "Postup (série kroků) k vyřešení určitého problému nebo úkolu.",
+      "B": "Robotický stroj s umělou inteligencí.",
+      "C": "Název jednoho z programovacích jazyků.",
+      "correct": "A",
+      "image": "https://example.com/image_Q026.png"
+    },
+    {
+      "id": "Q027",
+      "question": "K čemu slouží světelný senzor na robotu?",
+      "A": "Měří úroveň okolního osvětlení (světla), aby robot \"věděl\", jak je kolem něj světlo nebo tma.",
+      "B": "Detekuje přítomnost magnetického pole kolem robota.",
+      "C": "Napájí robota elektřinou za tmy.",
+      "correct": "A",
+      "image": "https://example.com/image_Q027.png"
+    },
+    {
+      "id": "Q028",
+      "question": "Jaký senzor robot používá, aby dokázal následovat černou čáru na podlaze?",
+      "A": "Optický/infračervený senzor odrazivosti (sledovač čáry).",
+      "B": "Ultrazvukový dálkoměr.",
+      "C": "Mikrofon.",
+      "correct": "A",
+      "image": "https://example.com/image_Q028.png"
+    },
+    {
+      "id": "Q029",
+      "question": "Co je to podvozek robota?",
+      "A": "Základní rám nebo konstrukce robota, na které jsou připevněny ostatní části.",
+      "B": "Speciální druh senzoru pro vyhýbání překážkám.",
+      "C": "Programový kód, který řídí pohyb robota.",
+      "correct": "A",
+      "image": "https://example.com/image_Q029.png"
+    },
+    {
+      "id": "Q030",
+      "question": "Které z následujících slov NEPOPISUJE vlastnost dobře naprogramovaného robota?",
+      "A": "Chaotický.",
+      "B": "Přehledný.",
+      "C": "Spolehlivý.",
+      "correct": "A",
+      "image": "https://example.com/image_Q030.png"
+    },
+    {
+      "id": "Q031",
+      "question": "Proč je důležité kalibrovat senzory (např. čidla čáry) u robota před použitím?",
+      "A": "Aby měřily přesně a robot podle nich reagoval správně.",
+      "B": "Aby robot jezdil výrazně rychleji.",
+      "C": "Kalibrace není důležitá – moderní senzory to nevyžadují.",
+      "correct": "A",
+      "image": "https://example.com/image_Q031.png"
+    },
+    {
+      "id": "Q032",
+      "question": "Jaký význam má v programu robota příkaz \"čekej 1 sekundu\"?",
+      "A": "Způsobí pauzu – robot na uvedený čas čeká, než pokračuje dál.",
+      "B": "Kalibruje senzory po dobu 1 sekundy.",
+      "C": "Nastaví vnitřní hodiny robota na 1:00.",
+      "correct": "A",
+      "image": "https://example.com/image_Q032.png"
+    },
+    {
+      "id": "Q033",
+      "question": "Jak se nazývá konstrukce v programu, která vykoná instrukce pouze při splnění určité podmínky?",
+      "A": "Podmíněný příkaz (např. příkaz \"if\" – pokud).",
+      "B": "Sekvence příkazů.",
+      "C": "Smyčka (cyklus).",
+      "correct": "A",
+      "image": "https://example.com/image_Q033.png"
+    },
+    {
+      "id": "Q034",
+      "question": "Jaká je správná zásada pro zacházení s bateriemi v robotických hračkách?",
+      "A": "Používat správný typ baterií, vkládat je ve správné polaritě a vybité baterie včas dobít nebo vyměnit.",
+      "B": "Baterie nosit volně v kapse s kovovými předměty, aby byly po ruce.",
+      "C": "Napájet robota zároveň ze sítě i z baterií, aby měl větší výkon.",
+      "correct": "A",
+      "image": "https://example.com/image_Q034.png"
+    },
+    {
+      "id": "Q035",
+      "question": "Čím lze programovat robota Ozobot?",
+      "A": "Kombinacemi barevných kódů nakreslených na papíře nebo blokovým programováním v aplikaci (např. OzoBlockly).",
+      "B": "Psaním kódu v textovém jazyce C++ přímo do robota.",
+      "C": "Hlasovými povely, kterým Ozobot rozumí po kalibraci.",
+      "correct": "A",
+      "image": "https://example.com/image_Q035.png"
+    },
+    {
+      "id": "Q036",
+      "question": "Co by měl student udělat, když si není jistý, jak správně použít nějakou funkci robota nebo programu?",
+      "A": "Podívat se do dokumentace k robotu nebo se zeptat učitele, aby získal vysvětlení.",
+      "B": "Zkoušet to opakovaně náhodně metodou pokus-omyl bez přemýšlení.",
+      "C": "Vzdát to a raději už úkol dále neřešit.",
+      "correct": "A",
+      "image": "https://example.com/image_Q036.png"
+    },
+    {
+      "id": "Q037",
+      "question": "Jaká je výhoda toho, když se žáci učí programovat pomocí robotů (jako mBot nebo Ozobot)?",
+      "A": "Učí se tím prakticky řešit problémy a rozvíjejí informatické myšlení zábavnou formou.",
+      "B": "Nemusí se pak vůbec učit matematiku ani logické myšlení.",
+      "C": "Roboti za ně následně mohou udělat všechny domácí úkoly.",
+      "correct": "A",
+      "image": "https://example.com/image_Q037.png"
+    },
+    {
+      "id": "Q038",
+      "question": "Jaký typ programování se nejčastěji používá pro robota mBot?",
+      "A": "Grafické blokové programování v prostředí mBlock (podobné Scratchi).",
+      "B": "Psaní textových příkazů v textovém editoru.",
+      "C": "Žádné – mBot je z výroby naprogramován a program nelze změnit.",
+      "correct": "A",
+      "image": "https://example.com/image_Q038.png"
+    },
+    {
+      "id": "Q039",
+      "question": "Co měří gyroskopický senzor v robotice?",
+      "A": "Úhlovou orientaci nebo rotační pohyb (náklon či otočení robota).",
+      "B": "Vzdálenost od magnetu v okolí robota.",
+      "C": "Hlasitost zvuku v místnosti.",
+      "correct": "A",
+      "image": "https://example.com/image_Q039.png"
+    },
+    {
+      "id": "Q040",
+      "question": "Co by měl udělat programátor, když robot neprovádí program podle očekávání?",
+      "A": "Zkontrolovat kód a najít chyby, následně je opravit (tzv. debuggovat program).",
+      "B": "Ihned robota vypnout a už ho znovu nezapínat.",
+      "C": "Praštit do robota, aby se \"probral\" a začal fungovat.",
+      "correct": "A",
+      "image": "https://example.com/image_Q040.png"
+    },
+    {
+      "id": "Q041",
+      "question": "Který z těchto robotů je stavebnice, kterou si musíte nejprve sestavit z dílů?",
+      "A": "mBot.",
+      "B": "Bee-Bot.",
+      "C": "Ozobot.",
+      "correct": "A",
+      "image": "https://example.com/image_Q041.png"
+    },
+    {
+      "id": "Q042",
+      "question": "Proč je užitečné rozdělit velký problém na menší části při programování robota?",
+      "A": "Protože řešení menších dílčích úloh je jednodušší (princip dekompozice problému).",
+      "B": "Protože robot pak bude díky tomu rychlejší.",
+      "C": "Protože tím program záměrně zabere více paměti.",
+      "correct": "A",
+      "image": "https://example.com/image_Q042.png"
+    },
+    {
+      "id": "Q043",
+      "question": "Co je součástí rozšiřující sady mBot Camera Add-on?",
+      "A": "Chytrá kamera, která umožňuje robotovi rozeznávat čáry a objekty.",
+      "B": "Extra silný motor, který zvyšuje rychlost robota.",
+      "C": "Vodotěsné pouzdro pro provoz robota pod vodou.",
+      "correct": "A",
+      "image": "https://example.com/image_Q043.png"
+    },
+    {
+      "id": "Q044",
+      "question": "Který z těchto robotů má vzhled, který připomíná zvíře?",
+      "A": "Bee-Bot.",
+      "B": "mBot.",
+      "C": "Ozobot.",
+      "correct": "A",
+      "image": "https://example.com/image_Q044.png"
+    },
+    {
+      "id": "Q045",
+      "question": "Co udělá Ozobot, když narazí na speciální sekvenci barevných kódů na čáře?",
+      "A": "Provede podle této sekvence určitou akci (např. změní rychlost, směr nebo provede otočku).",
+      "B": "Nic – barevné kódy pro něj nemají žádný zvláštní význam.",
+      "C": "Okamžitě se zastaví a vypne, aby se ochránil.",
+      "correct": "A",
+      "image": "https://example.com/image_Q045.png"
+    },
+    {
+      "id": "Q046",
+      "question": "Který z následujících přístrojů je příkladem senzoru v robotice?",
+      "A": "Ultrazvukové čidlo.",
+      "B": "Elektrický motor.",
+      "C": "Plastové kolo.",
+      "correct": "A",
+      "image": "https://example.com/image_Q046.png"
+    },
+    {
+      "id": "Q047",
+      "question": "Který z těchto komponent robota zajišťuje pohyb?",
+      "A": "Motor.",
+      "B": "Senzor.",
+      "C": "Procesor.",
+      "correct": "A",
+      "image": "https://example.com/image_Q047.png"
+    },
+    {
+      "id": "Q048",
+      "question": "Která z nových vlastností mBot2 jej odlišuje od původního mBot1?",
+      "A": "Má vylepšený řídicí modul s Wi-Fi a výkonnějším procesorem.",
+      "B": "Je mnohem menší než mBot1.",
+      "C": "Lze ho ovládat pouze hlasovými povely.",
+      "correct": "A",
+      "image": "https://example.com/image_Q048.png"
+    },
+    {
+      "id": "Q049",
+      "question": "Kolik různých modelů robotů lze postavit z Makeblock sady Ultimate 2.0?",
+      "A": "10.",
+      "B": "2.",
+      "C": "50.",
+      "correct": "A",
+      "image": "https://example.com/image_Q049.png"
+    },
+    {
+      "id": "Q050",
+      "question": "Proč je vhodné psát komentáře do kódu programu robota?",
+      "A": "Aby programátor nebo jiní lidé později snáze pochopili, co kód dělá.",
+      "B": "Aby program běžel rychleji a efektivněji.",
+      "C": "Aby robot lépe rozuměl tomu, co má dělat.",
+      "correct": "A",
+      "image": "https://example.com/image_Q050.png"
+    },
+    {
+    "id": "Q051",
+    "question": "Co je modul CyberPi v robotu mBot2?",
+    "options": {
+      "A": "Mozek robota – malý počítač se senzory a displejem",
+      "B": "Motorek pro pohyb kol robota",
+      "C": "Dálkový ovladač robota"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q051.png"
+  },
+  {
+    "id": "Q052",
+    "question": "Jaké zařízení potřebuješ k programování mBota2?",
+    "options": {
+      "A": "Počítač nebo tablet s programem mBlock 5",
+      "B": "Televizi s herní konzolí",
+      "C": "Žádné – mBot2 se programuje sám"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q052.png"
+  },
+  {
+    "id": "Q053",
+    "question": "Jak lze mBot2 připojit k počítači pro nahrání programu?",
+    "options": {
+      "A": "USB kabelem nebo přes Bluetooth",
+      "B": "Wi-Fi routerem",
+      "C": "Nelze ho propojit s počítačem"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q053.png"
+  },
+  {
+    "id": "Q054",
+    "question": "Který z těchto senzorů je vestavěný v modulu CyberPi?",
+    "options": {
+      "A": "Gyroskop (pro snímání pohybu a náklonu)",
+      "B": "Teploměr (senzor teploty)",
+      "C": "Detektor kovů"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q054.png"
+  },
+  {
+    "id": "Q055",
+    "question": "K čemu slouží LED pásek na modulu CyberPi?",
+    "options": {
+      "A": "K zobrazování barevných světelných efektů jako výstup programu",
+      "B": "K osvícení cesty před robotem jako svítilna",
+      "C": "Jako senzor na detekci barvy okolí"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q055.png"
+  },
+  {
+    "id": "Q056",
+    "question": "Kolik programů lze maximálně uložit přímo do paměti modulu CyberPi?",
+    "options": {
+      "A": "8 programů",
+      "B": "1 program",
+      "C": "Neomezeně programů"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q056.png"
+  },
+  {
+    "id": "Q057",
+    "question": "Která z těchto možností je příkladem sekvence instrukcí v programu robota?",
+    "options": {
+      "A": "Robot jede rovně, pak zahne vlevo a zastaví.",
+      "B": "Robot opakuje blikání světla stále dokola.",
+      "C": "Robot náhodně vybere, co udělá."
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q057.png"
+  },
+  {
+    "id": "Q058",
+    "question": "Co v programování znamená pojem smyčka (cyklus)?",
+    "options": {
+      "A": "Opakování části programu několikrát",
+      "B": "Rozhodnutí mezi dvěma různými akcemi",
+      "C": "Jedno spuštění programu od začátku do konce"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q058.png"
+  },
+  {
+    "id": "Q059",
+    "question": "Který z následujících příkazů by byl příkladem smyčky?",
+    "options": {
+      "A": "opakuj 5krát: rozsvítit LED, potom zhasnout",
+      "B": "pokud je tlačítko stisknuto, rozsvítit LED",
+      "C": "nastav rychlost robota na 50%"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q059.png"
+  },
+  {
+    "id": "Q060",
+    "question": "Co znamená v informatice pojem \"ladění kódu\" (debugging)?",
+    "options": {
+      "A": "Hledání a opravování chyb v programu",
+      "B": "Zrychlování běhu programu",
+      "C": "Překládání programu do cizího jazyka"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q060.png"
+  },
+  {
+    "id": "Q061",
+    "question": "Když program robota nefunguje správně, co by měl programátor udělat jako první?",
+    "options": {
+      "A": "Zkontrolovat kód a najít chybu (zahájit ladění)",
+      "B": "Zpanikařit a přestat se snažit",
+      "C": "Hned smazat celý program a začít znovu od začátku"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q061.png"
+  },
+  {
+    "id": "Q062",
+    "question": "Proč je důležité správné pořadí (sekvence) instrukcí v programu?",
+    "options": {
+      "A": "Protože změna pořadí může vést k úplně jinému výsledku",
+      "B": "Není důležité, pořadí instrukcí neovlivňuje funkci programu",
+      "C": "Aby program zabíral méně paměti"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q062.png"
+  },
+  {
+    "id": "Q063",
+    "question": "Jak můžeme složitý problém vyřešit snadněji pomocí informatického myšlení?",
+    "options": {
+      "A": "Rozdělit ho na menší, lépe řešitelné části",
+      "B": "Ignorovat složité části a řešit jen jednoduché",
+      "C": "Zkusit náhodné postupy bez plánování"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q063.png"
+  },
+  {
+    "id": "Q064",
+    "question": "Co je algoritmus?",
+    "options": {
+      "A": "Přesný postup (sada kroků) k vyřešení určitého úkolu",
+      "B": "Počítačový programovací jazyk",
+      "C": "Druh robota"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q064.png"
+  },
+  {
+    "id": "Q065",
+    "question": "Který z následujících je příkladem algoritmu v běžném životě?",
+    "options": {
+      "A": "Recept na upečení dortu podle jednotlivých kroků",
+      "B": "Náhodné hádání čísla bez postupu",
+      "C": "Telefonní číslo kamaráda"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q065.png"
+  },
+  {
+    "id": "Q066",
+    "question": "Které tvrzení o chybách v programu je pravdivé?",
+    "options": {
+      "A": "Chyby jsou běžné a pomáhají nám se z nich poučit při ladění programu",
+      "B": "Dobrý programátor nikdy neudělá chybu",
+      "C": "Když program nefunguje, je vždy chyba v počítači, ne v kódu"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q066.png"
+  },
+  {
+    "id": "Q067",
+    "question": "K čemu slouží sada LEGO WeDo 2.0?",
+    "options": {
+      "A": "K tvorbě jednoduchých pohyblivých modelů a jejich programování",
+      "B": "K stavbě velkých soch z lega bez elektroniky",
+      "C": "Jde o počítačovou hru"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q067.png"
+  },
+  {
+    "id": "Q068",
+    "question": "Která z následujících součástí NENÍ součástí LEGO WeDo 2.0 sady?",
+    "options": {
+      "A": "Gyroskopický senzor",
+      "B": "Motor s ozubeným převodem",
+      "C": "Smarthub (řídicí kostka s Bluetooth)"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q068.png"
+  },
+  {
+    "id": "Q069",
+    "question": "Jak se k počítači nebo tabletu připojuje LEGO WeDo 2.0 Smarthub?",
+    "options": {
+      "A": "Bezdrátově pomocí Bluetooth",
+      "B": "USB kabelem",
+      "C": "Přes Wi-Fi síť"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q069.png"
+  },
+  {
+    "id": "Q070",
+    "question": "V jakém prostředí se typicky programují modely s LEGO WeDo 2.0?",
+    "options": {
+      "A": "V grafickém (blokovém) programu od LEGO (např. WeDo 2.0 aplikace)",
+      "B": "Psaním kódu v jazyce Python",
+      "C": "V textovém editoru (např. Word)"
+    },
+    "correct": "A",
+    "image": "https://example.com/image_Q070.png"
+  }
+  ]
+}
