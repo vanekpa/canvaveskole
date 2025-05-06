@@ -21,7 +21,8 @@
         "promo",
         "veřejnost"
       ],
-      "status": "potvrzeno"
+      "status": "potvrzeno",
+      "color": "#ffc107"
     },
     {
       "id": "liga-finale",
@@ -45,6 +46,7 @@
         "baraz"
       ],
       "status": "potvrzeno"
+      "color": null,
     },
     {
       "id": "soustredeni-20250523",
@@ -68,6 +70,7 @@
         "trénink"
       ],
       "status": "potvrzeno"
+      "color": null,
     },
     {
       "id": "mcr-20250607",
@@ -92,6 +95,7 @@
         "děti"
       ],
       "status": "potvrzeno"
+      "color": null,
     },
     {
       "id": "tabor-20250721",
@@ -115,6 +119,7 @@
         "léto"
       ],
       "status": "potvrzeno"
+      "color": null,
     },
     {
       "id": "promo-20250801",
@@ -139,7 +144,8 @@
         "město",
         "promo"
       ],
-      "status": "potvrzeno"
+      "status": "potvrzeno",
+      "color": null,
     },
     {
       "id": "festival-20250902",
@@ -163,7 +169,8 @@
         "děti",
         "promo"
       ],
-      "status": "potvrzeno"
+      "status": "potvrzeno",
+      "color": null,
     }
   ]
 }
