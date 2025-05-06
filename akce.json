@@ -25,6 +25,31 @@
       "color": "#ffc107"
     },
     {
+      "id": "pratelakChemnizt",
+      "title": "Přátelský zápas vs USG Chemnitz",
+      "dateStart": "2025-05-24",
+      "dateEnd": "2025-05-24",
+      "timeStart": "11:00",
+      "timeEnd": "15:00",
+      "location": "Sportovní hala Toužim",
+      "categories": [
+        "děti",
+        "junioři"
+      ],
+      "type": "propagace",
+      "highlight": true,
+      "image": "https://usg-chemnitz.org/files/Sportarten/Dodgeball/Bilder/IMG_8291.JPG",
+      "link": null,
+      "description": "Přátelské utkání dětí a juniorů s německým soupeřem.",
+      "tags": [
+        "friendly",
+        "kids",
+        "veřejnost"
+      ],
+      "status": "potvrzeno",
+      "color": "#ffc107"
+    },
+    {
       "id": "liga-finale",
       "title": "baráž + Finálový víkend I. + II. liga – Muži+Ženy+MIX",
       "dateStart": "2025-04-26",
