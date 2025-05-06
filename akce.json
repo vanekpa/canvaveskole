@@ -124,8 +124,8 @@
     {
       "id": "promo-20250801",
       "title": "Sportmánie Plzeň",
-      "dateStart": "2025-08-01",
-      "dateEnd": "2025-08-31",
+      "dateStart": "2025-08-16",
+      "dateEnd": "2025-08-24",
       "timeStart": null,
       "timeEnd": null,
       "location": "Plzeň",
@@ -145,7 +145,7 @@
         "promo"
       ],
       "status": "potvrzeno",
-      "color": null
+      "color": "#18a435"
     },
     {
       "id": "festival-20250902",
