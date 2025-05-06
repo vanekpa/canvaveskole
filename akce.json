@@ -46,7 +46,7 @@
         "baraz"
       ],
       "status": "potvrzeno"
-      "color": null,
+      "color": null
     },
     {
       "id": "soustredeni-20250523",
@@ -70,7 +70,7 @@
         "trénink"
       ],
       "status": "potvrzeno"
-      "color": null,
+      "color": null
     },
     {
       "id": "mcr-20250607",
@@ -95,7 +95,7 @@
         "děti"
       ],
       "status": "potvrzeno"
-      "color": null,
+      "color": null
     },
     {
       "id": "tabor-20250721",
@@ -119,7 +119,7 @@
         "léto"
       ],
       "status": "potvrzeno"
-      "color": null,
+      "color": null
     },
     {
       "id": "promo-20250801",
@@ -145,7 +145,7 @@
         "promo"
       ],
       "status": "potvrzeno",
-      "color": null,
+      "color": null
     },
     {
       "id": "festival-20250902",
@@ -170,7 +170,7 @@
         "promo"
       ],
       "status": "potvrzeno",
-      "color": null,
+      "color": null
     }
   ]
 }
