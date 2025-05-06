@@ -1,0 +1,146 @@
+{
+  "events": [
+    {
+      "id": "propagace-20250514",
+      "title": "Sportovní den se ZČU",
+      "dateStart": "2025-05-14",
+      "dateEnd": "2025-05-14",
+      "timeStart": "14:00",
+      "timeEnd": null,
+      "location": "Kampus Bory",
+      "categories": [
+        "A"
+      ],
+      "type": "propagace",
+      "highlight": false,
+      "image": null,
+      "link": null,
+      "description": "Prezentace sportů a týmů na Západočeské univerzitě.",
+      "tags": [
+        "ZČU",
+        "promo",
+        "veřejnost"
+      ],
+      "status": "potvrzeno"
+    },
+    {
+      "id": "soustredeni-20250523",
+      "title": "Soustředění – Toužim",
+      "dateStart": "2025-05-23",
+      "dateEnd": "2025-05-25",
+      "timeStart": null,
+      "timeEnd": null,
+      "location": "Toužim",
+      "categories": [
+        "A",
+        "junioři"
+      ],
+      "type": "soustredeni",
+      "highlight": false,
+      "image": null,
+      "link": null,
+      "description": "Společné herní i kondiční soustředění pro A tým a juniory.",
+      "tags": [
+        "výjezd",
+        "trénink"
+      ],
+      "status": "potvrzeno"
+    },
+    {
+      "id": "mcr-20250607",
+      "title": "Junioři a děti – Mistrovství ČR",
+      "dateStart": "2025-06-07",
+      "dateEnd": "2025-06-08",
+      "timeStart": null,
+      "timeEnd": null,
+      "location": "Liberec",
+      "categories": [
+        "junioři",
+        "děti"
+      ],
+      "type": "liga",
+      "highlight": true,
+      "image": null,
+      "link": null,
+      "description": "Národní finále soutěže juniorů a dětí.",
+      "tags": [
+        "MČR",
+        "junioři",
+        "děti"
+      ],
+      "status": "potvrzeno"
+    },
+    {
+      "id": "tabor-20250721",
+      "title": "Summer Camp 2025 // Příměstský tábor",
+      "dateStart": "2025-07-21",
+      "dateEnd": "2025-07-25",
+      "timeStart": null,
+      "timeEnd": null,
+      "location": "Plzeň",
+      "categories": [
+        "děti"
+      ],
+      "type": "volnocas",
+      "highlight": true,
+      "image": null,
+      "link": null,
+      "description": "Letní sportovní příměstský tábor pro děti.",
+      "tags": [
+        "tábor",
+        "děti",
+        "léto"
+      ],
+      "status": "plánováno"
+    },
+    {
+      "id": "promo-20250801",
+      "title": "Sportmánie Plzeň",
+      "dateStart": "2025-08-01",
+      "dateEnd": "2025-08-31",
+      "timeStart": null,
+      "timeEnd": null,
+      "location": "Plzeň",
+      "categories": [
+        "A",
+        "junioři",
+        "děti"
+      ],
+      "type": "propagace",
+      "highlight": false,
+      "image": null,
+      "link": null,
+      "description": "Každoroční městská akce s prezentací sportů a organizací.",
+      "tags": [
+        "sportmánie",
+        "město",
+        "promo"
+      ],
+      "status": "plánováno"
+    },
+    {
+      "id": "festival-20250902",
+      "title": "Festival volného času v Plzni",
+      "dateStart": "2025-09-02",
+      "dateEnd": "2025-09-02",
+      "timeStart": null,
+      "timeEnd": null,
+      "location": "Chvojkovy lomy, Plzeň",
+      "categories": [
+        "děti",
+        "junioři"
+      ],
+      "type": "propagace",
+      "highlight": false,
+      "image": null,
+      "link": null,
+      "description": "Zábavný festival s ukázkami volnočasových aktivit.",
+      "tags": [
+        "festival",
+        "děti",
+        "promo"
+      ],
+      "status": "plánováno"
+    }
+  ]
+}
