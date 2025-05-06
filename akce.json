@@ -12,14 +12,37 @@
         "A"
       ],
       "type": "propagace",
-      "highlight": false,
+      "highlight": true,
       "image": null,
-      "link": null,
+      "link": "https://sportovniden.zcu.cz/",
       "description": "Prezentace sportů a týmů na Západočeské univerzitě.",
       "tags": [
         "ZČU",
         "promo",
         "veřejnost"
+      ],
+      "status": "potvrzeno"
+    },
+    {
+      "id": "liga-finale",
+      "title": "baráž + Finálový víkend I. + II. liga – Muži+Ženy+MIX",
+      "dateStart": "2025-04-26",
+      "dateEnd": "2025-04-27",
+      "timeStart": "14:00",
+      "timeEnd": null,
+      "location": "Brno - Tuřany",
+      "categories": [
+        "A"
+      ],
+      "type": "liga",
+      "highlight": false,
+      "image": null,
+      "link": null,
+      "description": "Vyhlášení ligy, I. + II. liga – Muži+Ženy+MIX, Baráž, Brno-Tuřany - Sportovní hala Tuřany, Měšťanská 23",
+      "tags": [
+        "liga",
+        "finale",
+        "baraz"
       ],
       "status": "potvrzeno"
     },
@@ -91,7 +114,7 @@
         "děti",
         "léto"
       ],
-      "status": "plánováno"
+      "status": "potvrzeno"
     },
     {
       "id": "promo-20250801",
@@ -116,7 +139,7 @@
         "město",
         "promo"
       ],
-      "status": "plánováno"
+      "status": "potvrzeno"
     },
     {
       "id": "festival-20250902",
@@ -140,7 +163,7 @@
         "děti",
         "promo"
       ],
-      "status": "plánováno"
+      "status": "potvrzeno"
     }
   ]
 }
