@@ -22,7 +22,13 @@
         "veřejnost"
       ],
       "status": "potvrzeno",
-      "color": "#ffc107"
+      "color": "#ffc107",
+      "repeat": {
+        "frequency": null,
+        "interval": null,
+        "weekdays": [],
+        "until": null
+      }
     },
     {
       "id": "pratelakChemnizt",
@@ -47,7 +53,13 @@
         "veřejnost"
       ],
       "status": "potvrzeno",
-      "color": "#ffc107"
+      "color": "#ffc107",
+      "repeat": {
+        "frequency": null,
+        "interval": null,
+        "weekdays": [],
+        "until": null
+      }
     },
     {
       "id": "liga-finale",
@@ -71,7 +83,13 @@
         "baraz"
       ],
       "status": "potvrzeno",
-      "color": null
+      "color": null,
+      "repeat": {
+        "frequency": null,
+        "interval": null,
+        "weekdays": [],
+        "until": null
+      }
     },
     {
       "id": "soustredeni-20250523",
@@ -95,7 +113,13 @@
         "trénink"
       ],
       "status": "potvrzeno",
-      "color": null
+      "color": null,
+      "repeat": {
+        "frequency": null,
+        "interval": null,
+        "weekdays": [],
+        "until": null
+      }
     },
     {
       "id": "mcr-20250607",
@@ -120,7 +144,13 @@
         "děti"
       ],
       "status": "potvrzeno",
-      "color": null
+      "color": null,
+      "repeat": {
+        "frequency": null,
+        "interval": null,
+        "weekdays": [],
+        "until": null
+      }
     },
     {
       "id": "tabor-20250721",
@@ -144,7 +174,13 @@
         "léto"
       ],
       "status": "potvrzeno",
-      "color": null
+      "color": null,
+      "repeat": {
+        "frequency": null,
+        "interval": null,
+        "weekdays": [],
+        "until": null
+      }
     },
     {
       "id": "promo-20250801",
@@ -170,7 +206,13 @@
         "promo"
       ],
       "status": "potvrzeno",
-      "color": "#18a435"
+      "color": "#18a435",
+      "repeat": {
+        "frequency": null,
+        "interval": null,
+        "weekdays": [],
+        "until": null
+      }
     },
     {
       "id": "festival-20250902",
@@ -195,7 +237,106 @@
         "promo"
       ],
       "status": "potvrzeno",
-      "color": null
+      "color": null,
+      "repeat": {
+        "frequency": null,
+        "interval": null,
+        "weekdays": [],
+        "until": null
+      }
+    },
+    {
+      "id": "trening-deti-pondeli",
+      "title": "Trénink dětí",
+      "dateStart": "2025-01-06",
+      "dateEnd": "2025-01-06",
+      "timeStart": "15:15",
+      "timeEnd": "16:30",
+      "location": "16. ZŠ a MŠ Plzeň",
+      "categories": [
+        "děti"
+      ],
+      "type": "trening",
+      "highlight": false,
+      "image": null,
+      "link": null,
+      "description": "Pravidelný pondělní trénink dětí na 16. ZŠ a MŠ Plzeň.",
+      "tags": [
+        "trénink",
+        "děti"
+      ],
+      "status": "plánováno",
+      "color": "#4caf50",
+      "repeat": {
+        "frequency": "weekly",
+        "interval": 1,
+        "weekdays": [
+          "monday"
+        ],
+        "until": "2025-06-23"
+      }
+    },
+    {
+      "id": "trening-juniori-pondeli",
+      "title": "Trénink juniorů",
+      "dateStart": "2025-01-06",
+      "dateEnd": "2025-01-06",
+      "timeStart": "17:00",
+      "timeEnd": "18:30",
+      "location": "16. ZŠ a MŠ Plzeň",
+      "categories": [
+        "junioři"
+      ],
+      "type": "trening",
+      "highlight": false,
+      "image": null,
+      "link": null,
+      "description": "Pravidelný pondělní trénink juniorů na 16. ZŠ a MŠ Plzeň.",
+      "tags": [
+        "trénink",
+        "junioři"
+      ],
+      "status": "plánováno",
+      "color": "#03a9f4",
+      "repeat": {
+        "frequency": "weekly",
+        "interval": 1,
+        "weekdays": [
+          "monday"
+        ],
+        "until": "2025-06-23"
+      }
+    },
+    {
+      "id": "trening-a-tym-streda",
+      "title": "Trénink A týmu",
+      "dateStart": "2025-01-08",
+      "dateEnd": "2025-01-08",
+      "timeStart": "17:00",
+      "timeEnd": "19:00",
+      "location": "4. ZŠ Plzeň",
+      "categories": [
+        "A"
+      ],
+      "type": "trening",
+      "highlight": false,
+      "image": null,
+      "link": null,
+      "description": "Pravidelný středeční trénink A týmu na 4. ZŠ Plzeň.",
+      "tags": [
+        "trénink",
+        "A tým"
+      ],
+      "status": "plánováno",
+      "color": "#f44336",
+      "repeat": {
+        "frequency": "weekly",
+        "interval": 1,
+        "weekdays": [
+          "wednesday"
+        ],
+        "until": "2025-06-25"
+      }
     }
   ]
 }
