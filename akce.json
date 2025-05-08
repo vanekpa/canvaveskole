@@ -8,19 +8,13 @@
       "timeStart": "14:00",
       "timeEnd": null,
       "location": "Kampus Bory",
-      "categories": [
-        "A"
-      ],
+      "categories": ["A"],
       "type": "propagace",
       "highlight": true,
       "image": "https://www.kts.zcu.cz/Galerie-obrazku/ZCU_Sportovni_den__A5.jpg",
       "link": "https://sportovniden.zcu.cz/",
       "description": "Prezentace sportů a týmů na Západočeské univerzitě.",
-      "tags": [
-        "ZČU",
-        "promo",
-        "veřejnost"
-      ],
+      "tags": ["ZČU", "promo", "veřejnost"],
       "status": "potvrzeno",
       "color": "#ffc107",
       "repeat": {
@@ -38,20 +32,13 @@
       "timeStart": "11:00",
       "timeEnd": "15:00",
       "location": "Sportovní hala Toužim",
-      "categories": [
-        "děti",
-        "junioři"
-      ],
+      "categories": ["děti", "junioři"],
       "type": "propagace",
       "highlight": true,
       "image": "https://usg-chemnitz.org/files/Sportarten/Dodgeball/Bilder/IMG_8291.JPG",
       "link": null,
       "description": "Přátelské utkání dětí a juniorů s německým soupeřem.",
-      "tags": [
-        "friendly",
-        "kids",
-        "veřejnost"
-      ],
+      "tags": ["friendly", "kids", "veřejnost"],
       "status": "potvrzeno",
       "color": "#ffc107",
       "repeat": {
@@ -69,19 +56,13 @@
       "timeStart": "14:00",
       "timeEnd": null,
       "location": "Brno - Tuřany",
-      "categories": [
-        "A"
-      ],
+      "categories": ["A"],
       "type": "liga",
       "highlight": false,
       "image": null,
       "link": null,
       "description": "Vyhlášení ligy, I. + II. liga – Muži+Ženy+MIX, Baráž, Brno-Tuřany - Sportovní hala Tuřany, Měšťanská 23",
-      "tags": [
-        "liga",
-        "finale",
-        "baraz"
-      ],
+      "tags": ["liga", "finale", "baraz"],
       "status": "potvrzeno",
       "color": null,
       "repeat": {
@@ -99,19 +80,13 @@
       "timeStart": null,
       "timeEnd": null,
       "location": "Sportovní areál SK Toužim",
-      "categories": [
-        "A",
-        "junioři"
-      ],
+      "categories": ["A", "junioři"],
       "type": "soustredeni",
       "highlight": false,
       "image": "https://iscus.cz/media/files/facility/00/00/02/24/64ba6c5662417.jpg",
       "link": null,
       "description": "Společné herní i kondiční soustředění pro A tým a juniory.",
-      "tags": [
-        "výjezd",
-        "trénink"
-      ],
+      "tags": ["výjezd", "trénink"],
       "status": "potvrzeno",
       "color": null,
       "repeat": {
@@ -129,20 +104,13 @@
       "timeStart": null,
       "timeEnd": null,
       "location": "Liberec",
-      "categories": [
-        "junioři",
-        "děti"
-      ],
+      "categories": ["junioři", "děti"],
       "type": "liga",
       "highlight": true,
       "image": "https://c19a14bb33.clvaw-cdnwnd.com/961693cd7540d50e1450217c3052e6a7/200000062-8d86f8e813/image-crop-200000041-8.jpeg?ph=c19a14bb33",
       "link": null,
       "description": "Národní finále soutěže juniorů a dětí.",
-      "tags": [
-        "MČR",
-        "junioři",
-        "děti"
-      ],
+      "tags": ["MČR", "junioři", "děti"],
       "status": "potvrzeno",
       "color": null,
       "repeat": {
@@ -160,19 +128,13 @@
       "timeStart": null,
       "timeEnd": null,
       "location": "Plzeň",
-      "categories": [
-        "děti"
-      ],
+      "categories": ["děti"],
       "type": "volnocas",
       "highlight": true,
       "image": null,
       "link": null,
       "description": "Letní sportovní příměstský tábor pro děti.",
-      "tags": [
-        "tábor",
-        "děti",
-        "léto"
-      ],
+      "tags": ["tábor", "děti", "léto"],
       "status": "potvrzeno",
       "color": null,
       "repeat": {
@@ -190,21 +152,13 @@
       "timeStart": null,
       "timeEnd": null,
       "location": "Plzeň - Park za OC Plaza",
-      "categories": [
-        "A",
-        "junioři",
-        "děti"
-      ],
+      "categories": ["A", "junioři", "děti"],
       "type": "propagace",
       "highlight": false,
       "image": null,
       "link": null,
       "description": "Každoroční městská akce s prezentací sportů a organizací.",
-      "tags": [
-        "sportmánie",
-        "město",
-        "promo"
-      ],
+      "tags": ["sportmánie", "město", "promo"],
       "status": "potvrzeno",
       "color": "#18a435",
       "repeat": {
@@ -222,20 +176,13 @@
       "timeStart": null,
       "timeEnd": null,
       "location": "Chvojkovy lomy, Plzeň",
-      "categories": [
-        "děti",
-        "junioři"
-      ],
+      "categories": ["děti", "junioři"],
       "type": "propagace",
       "highlight": false,
       "image": null,
       "link": null,
       "description": "Zábavný festival s ukázkami volnočasových aktivit.",
-      "tags": [
-        "festival",
-        "děti",
-        "promo"
-      ],
+      "tags": ["festival", "děti", "promo"],
       "status": "potvrzeno",
       "color": null,
       "repeat": {
@@ -245,7 +192,7 @@
         "until": null
       }
     },
-      {
+    {
       "id": "trening-deti-pondeli",
       "title": "Trénink dětí",
       "dateStart": "2025-01-06",
@@ -253,26 +200,19 @@
       "timeStart": "15:15",
       "timeEnd": "16:30",
       "location": "16. ZŠ a MŠ Plzeň",
-      "categories": [
-        "děti"
-      ],
+      "categories": ["děti"],
       "type": "trening",
       "highlight": false,
       "image": null,
       "link": null,
       "description": "Pravidelný pondělní trénink dětí na 16. ZŠ a MŠ Plzeň.",
-      "tags": [
-        "trénink",
-        "děti"
-      ],
+      "tags": ["trénink", "děti"],
       "status": "plánováno",
       "color": "#4caf50",
       "repeat": {
         "frequency": "weekly",
         "interval": 1,
-        "weekdays": [
-          "monday"
-        ],
+        "weekdays": [1],
         "until": "2025-06-23"
       }
     },
@@ -284,26 +224,19 @@
       "timeStart": "17:00",
       "timeEnd": "18:30",
       "location": "16. ZŠ a MŠ Plzeň",
-      "categories": [
-        "junioři"
-      ],
+      "categories": ["junioři"],
       "type": "trening",
       "highlight": false,
       "image": null,
       "link": null,
       "description": "Pravidelný pondělní trénink juniorů na 16. ZŠ a MŠ Plzeň.",
-      "tags": [
-        "trénink",
-        "junioři"
-      ],
+      "tags": ["trénink", "junioři"],
       "status": "plánováno",
       "color": "#03a9f4",
       "repeat": {
         "frequency": "weekly",
         "interval": 1,
-        "weekdays": [
-          "monday"
-        ],
+        "weekdays": [1],
         "until": "2025-06-23"
       }
     },
@@ -315,26 +248,19 @@
       "timeStart": "17:00",
       "timeEnd": "19:00",
       "location": "4. ZŠ Plzeň",
-      "categories": [
-        "A"
-      ],
+      "categories": ["A"],
       "type": "trening",
       "highlight": false,
       "image": null,
       "link": null,
       "description": "Pravidelný středeční trénink A týmu na 4. ZŠ Plzeň.",
-      "tags": [
-        "trénink",
-        "A tým"
-      ],
+      "tags": ["trénink", "A tým"],
       "status": "plánováno",
       "color": "#f44336",
       "repeat": {
         "frequency": "weekly",
         "interval": 1,
-        "weekdays": [
-          "wednesday"
-        ],
+        "weekdays": [3],
         "until": "2025-06-25"
       }
     }
