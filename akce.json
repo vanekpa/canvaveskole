@@ -162,9 +162,9 @@
       "status": "potvrzeno",
       "color": null,
       "repeat": {
-        "frequency": null,
-        "interval": null,
-        "weekdays": [],
+        "frequency": "daily",
+        "interval": 1,
+        "weekdays": [1],[2],[3],[4],[5],
         "until": null
       }
     },
