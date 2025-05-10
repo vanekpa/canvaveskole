@@ -165,7 +165,7 @@
         "frequency": "daily",
         "interval": 1,
         "weekdays": [1],[2],[3],[4],[5],
-        "until": null
+        "until": "2025-07-25"
       }
     },
     {
