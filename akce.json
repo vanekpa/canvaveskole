@@ -164,7 +164,7 @@
       "repeat": {
         "frequency": "daily",
         "interval": 1,
-        "weekdays": [1, 2, 3, 4, 5],
+        "weekdays": [1],
         "until": "2025-07-25"
       }
     },
