@@ -493,5 +493,13 @@
     },
     "area": 0.44,
     "population": 825
-  }
+  },
+  {
+  "code": "TUR",
+  "name": "Turkey",
+  "flag": "https://flagcdn.com/tr.svg",
+  "position": { "x": 35, "y": 39 },
+  "area": 783562,
+  "population": 85600000
+}
 ]
