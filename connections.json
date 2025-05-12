@@ -1,0 +1,54 @@
+[
+  {
+    "from": "USA",
+    "to": "CAN"
+  },
+  {
+    "from": "USA",
+    "to": "MEX"
+  },
+  {
+    "from": "BRA",
+    "to": "ARG"
+  },
+  {
+    "from": "GBR",
+    "to": "FRA"
+  },
+  {
+    "from": "FRA",
+    "to": "DEU"
+  },
+  {
+    "from": "DEU",
+    "to": "RUS"
+  },
+  {
+    "from": "RUS",
+    "to": "CHN"
+  },
+  {
+    "from": "CHN",
+    "to": "IND"
+  },
+  {
+    "from": "IND",
+    "to": "CHN"
+  },
+  {
+    "from": "JPN",
+    "to": "CHN"
+  },
+  {
+    "from": "AUS",
+    "to": "CHN"
+  },
+  {
+    "from": "EGY",
+    "to": "DEU"
+  },
+  {
+    "from": "EGY",
+    "to": "ZAF"
+  }
+]

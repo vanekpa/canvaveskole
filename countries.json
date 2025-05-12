@@ -1,0 +1,137 @@
+[
+  {
+    "code": "USA",
+    "name": "United States",
+    "flag": "https://flagcdn.com/us.svg",
+    "position": {
+      "x": -100,
+      "y": 40
+    }
+  },
+  {
+    "code": "CAN",
+    "name": "Canada",
+    "flag": "https://flagcdn.com/ca.svg",
+    "position": {
+      "x": -110,
+      "y": 60
+    }
+  },
+  {
+    "code": "MEX",
+    "name": "Mexico",
+    "flag": "https://flagcdn.com/mx.svg",
+    "position": {
+      "x": -100,
+      "y": 25
+    }
+  },
+  {
+    "code": "BRA",
+    "name": "Brazil",
+    "flag": "https://flagcdn.com/br.svg",
+    "position": {
+      "x": -50,
+      "y": -10
+    }
+  },
+  {
+    "code": "ARG",
+    "name": "Argentina",
+    "flag": "https://flagcdn.com/ar.svg",
+    "position": {
+      "x": -60,
+      "y": -35
+    }
+  },
+  {
+    "code": "GBR",
+    "name": "United Kingdom",
+    "flag": "https://flagcdn.com/gb.svg",
+    "position": {
+      "x": 0,
+      "y": 55
+    }
+  },
+  {
+    "code": "FRA",
+    "name": "France",
+    "flag": "https://flagcdn.com/fr.svg",
+    "position": {
+      "x": 2,
+      "y": 46
+    }
+  },
+  {
+    "code": "DEU",
+    "name": "Germany",
+    "flag": "https://flagcdn.com/de.svg",
+    "position": {
+      "x": 10,
+      "y": 51
+    }
+  },
+  {
+    "code": "RUS",
+    "name": "Russia",
+    "flag": "https://flagcdn.com/ru.svg",
+    "position": {
+      "x": 100,
+      "y": 60
+    }
+  },
+  {
+    "code": "CHN",
+    "name": "China",
+    "flag": "https://flagcdn.com/cn.svg",
+    "position": {
+      "x": 115,
+      "y": 35
+    }
+  },
+  {
+    "code": "IND",
+    "name": "India",
+    "flag": "https://flagcdn.com/in.svg",
+    "position": {
+      "x": 80,
+      "y": 20
+    }
+  },
+  {
+    "code": "JPN",
+    "name": "Japan",
+    "flag": "https://flagcdn.com/jp.svg",
+    "position": {
+      "x": 140,
+      "y": 38
+    }
+  },
+  {
+    "code": "AUS",
+    "name": "Australia",
+    "flag": "https://flagcdn.com/au.svg",
+    "position": {
+      "x": 135,
+      "y": -25
+    }
+  },
+  {
+    "code": "ZAF",
+    "name": "South Africa",
+    "flag": "https://flagcdn.com/za.svg",
+    "position": {
+      "x": 25,
+      "y": -30
+    }
+  },
+  {
+    "code": "EGY",
+    "name": "Egypt",
+    "flag": "https://flagcdn.com/eg.svg",
+    "position": {
+      "x": 30,
+      "y": 26
+    }
+  }
+]
