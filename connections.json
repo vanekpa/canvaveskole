@@ -295,8 +295,12 @@
     "from": "CHE",
     "to": "DEU"
   },
-  { "from": "TUR", 
-    "to": "GRC" },
-{ "from": "TUR", 
-  "to": "BGR" }
+  { 
+    "from": "TUR", 
+    "to": "GRC" 
+  },
+{ 
+  "from": "TUR", 
+  "to": "BGR" 
+}
 ]
