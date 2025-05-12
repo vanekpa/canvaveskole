@@ -1,54 +1,298 @@
 [
   {
-    "from": "USA",
-    "to": "CAN"
+    "from": "ALB",
+    "to": "MNE"
   },
   {
-    "from": "USA",
-    "to": "MEX"
+    "from": "ALB",
+    "to": "MKD"
   },
   {
-    "from": "BRA",
-    "to": "ARG"
+    "from": "ALB",
+    "to": "GRC"
   },
   {
-    "from": "GBR",
+    "from": "AND",
     "to": "FRA"
+  },
+  {
+    "from": "AND",
+    "to": "ESP"
+  },
+  {
+    "from": "AUT",
+    "to": "CZE"
+  },
+  {
+    "from": "AUT",
+    "to": "DEU"
+  },
+  {
+    "from": "AUT",
+    "to": "HUN"
+  },
+  {
+    "from": "AUT",
+    "to": "ITA"
+  },
+  {
+    "from": "AUT",
+    "to": "LIE"
+  },
+  {
+    "from": "AUT",
+    "to": "SVK"
+  },
+  {
+    "from": "AUT",
+    "to": "SVN"
+  },
+  {
+    "from": "BLR",
+    "to": "LVA"
+  },
+  {
+    "from": "BLR",
+    "to": "LTU"
+  },
+  {
+    "from": "BLR",
+    "to": "POL"
+  },
+  {
+    "from": "BLR",
+    "to": "RUS"
+  },
+  {
+    "from": "BLR",
+    "to": "UKR"
+  },
+  {
+    "from": "BEL",
+    "to": "FRA"
+  },
+  {
+    "from": "BEL",
+    "to": "DEU"
+  },
+  {
+    "from": "BEL",
+    "to": "LUX"
+  },
+  {
+    "from": "BEL",
+    "to": "NLD"
+  },
+  {
+    "from": "BIH",
+    "to": "HRV"
+  },
+  {
+    "from": "BIH",
+    "to": "MNE"
+  },
+  {
+    "from": "BIH",
+    "to": "SRB"
+  },
+  {
+    "from": "BGR",
+    "to": "GRC"
+  },
+  {
+    "from": "BGR",
+    "to": "MKD"
+  },
+  {
+    "from": "BGR",
+    "to": "ROU"
+  },
+  {
+    "from": "BGR",
+    "to": "SRB"
+  },
+  {
+    "from": "HRV",
+    "to": "HUN"
+  },
+  {
+    "from": "HRV",
+    "to": "SVN"
+  },
+  {
+    "from": "HRV",
+    "to": "SRB"
+  },
+  {
+    "from": "CZE",
+    "to": "DEU"
+  },
+  {
+    "from": "CZE",
+    "to": "POL"
+  },
+  {
+    "from": "CZE",
+    "to": "SVK"
+  },
+  {
+    "from": "DNK",
+    "to": "DEU"
+  },
+  {
+    "from": "EST",
+    "to": "LVA"
+  },
+  {
+    "from": "FIN",
+    "to": "NOR"
+  },
+  {
+    "from": "FIN",
+    "to": "SWE"
+  },
+  {
+    "from": "FIN",
+    "to": "RUS"
   },
   {
     "from": "FRA",
     "to": "DEU"
   },
   {
+    "from": "FRA",
+    "to": "ITA"
+  },
+  {
+    "from": "FRA",
+    "to": "LUX"
+  },
+  {
+    "from": "FRA",
+    "to": "ESP"
+  },
+  {
+    "from": "FRA",
+    "to": "CHE"
+  },
+  {
     "from": "DEU",
+    "to": "LUX"
+  },
+  {
+    "from": "DEU",
+    "to": "NLD"
+  },
+  {
+    "from": "DEU",
+    "to": "POL"
+  },
+  {
+    "from": "DEU",
+    "to": "CHE"
+  },
+  {
+    "from": "GRC",
+    "to": "MKD"
+  },
+  {
+    "from": "GRC",
+    "to": "TUR"
+  },
+  {
+    "from": "HUN",
+    "to": "ROU"
+  },
+  {
+    "from": "HUN",
+    "to": "SRB"
+  },
+  {
+    "from": "HUN",
+    "to": "SVK"
+  },
+  {
+    "from": "HUN",
+    "to": "SVN"
+  },
+  {
+    "from": "ITA",
+    "to": "CHE"
+  },
+  {
+    "from": "ITA",
+    "to": "SMR"
+  },
+  {
+    "from": "ITA",
+    "to": "SVN"
+  },
+  {
+    "from": "LVA",
+    "to": "LTU"
+  },
+  {
+    "from": "LVA",
     "to": "RUS"
   },
   {
+    "from": "LIE",
+    "to": "CHE"
+  },
+  {
+    "from": "LTU",
+    "to": "POL"
+  },
+  {
+    "from": "LUX",
+    "to": "NLD"
+  },
+  {
+    "from": "MDA",
+    "to": "ROU"
+  },
+  {
+    "from": "MDA",
+    "to": "UKR"
+  },
+  {
+    "from": "MNE",
+    "to": "SRB"
+  },
+  {
+    "from": "MKD",
+    "to": "SRB"
+  },
+  {
+    "from": "NOR",
+    "to": "SWE"
+  },
+  {
+    "from": "POL",
+    "to": "SVK"
+  },
+  {
+    "from": "ROU",
+    "to": "SRB"
+  },
+  {
+    "from": "ROU",
+    "to": "UKR"
+  },
+  {
     "from": "RUS",
-    "to": "CHN"
+    "to": "UKR"
   },
   {
-    "from": "CHN",
-    "to": "IND"
+    "from": "SRB",
+    "to": "SVN"
   },
   {
-    "from": "IND",
-    "to": "CHN"
+    "from": "SVK",
+    "to": "UKR"
   },
   {
-    "from": "JPN",
-    "to": "CHN"
-  },
-  {
-    "from": "AUS",
-    "to": "CHN"
-  },
-  {
-    "from": "EGY",
+    "from": "CHE",
     "to": "DEU"
-  },
-  {
-    "from": "EGY",
-    "to": "ZAF"
   }
 ]
