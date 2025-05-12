@@ -1,57 +1,146 @@
 [
   {
-    "code": "USA",
-    "name": "United States",
-    "flag": "https://flagcdn.com/us.svg",
+    "code": "ALB",
+    "name": "Albania",
+    "flag": "https://flagcdn.com/al.svg",
     "position": {
-      "x": -100,
-      "y": 40
-    }
+      "x": 20,
+      "y": 41
+    },
+    "area": 28748,
+    "population": 2877797
   },
   {
-    "code": "CAN",
-    "name": "Canada",
-    "flag": "https://flagcdn.com/ca.svg",
+    "code": "AND",
+    "name": "Andorra",
+    "flag": "https://flagcdn.com/ad.svg",
     "position": {
-      "x": -110,
-      "y": 60
-    }
+      "x": 1.6,
+      "y": 42.5
+    },
+    "area": 468,
+    "population": 77265
   },
   {
-    "code": "MEX",
-    "name": "Mexico",
-    "flag": "https://flagcdn.com/mx.svg",
+    "code": "AUT",
+    "name": "Austria",
+    "flag": "https://flagcdn.com/at.svg",
     "position": {
-      "x": -100,
-      "y": 25
-    }
+      "x": 14,
+      "y": 47
+    },
+    "area": 83879,
+    "population": 8917205
   },
   {
-    "code": "BRA",
-    "name": "Brazil",
-    "flag": "https://flagcdn.com/br.svg",
+    "code": "BLR",
+    "name": "Belarus",
+    "flag": "https://flagcdn.com/by.svg",
     "position": {
-      "x": -50,
-      "y": -10
-    }
+      "x": 28,
+      "y": 53
+    },
+    "area": 207600,
+    "population": 9408400
   },
   {
-    "code": "ARG",
-    "name": "Argentina",
-    "flag": "https://flagcdn.com/ar.svg",
+    "code": "BEL",
+    "name": "Belgium",
+    "flag": "https://flagcdn.com/be.svg",
     "position": {
-      "x": -60,
-      "y": -35
-    }
+      "x": 4,
+      "y": 51
+    },
+    "area": 30528,
+    "population": 11589623
   },
   {
-    "code": "GBR",
-    "name": "United Kingdom",
-    "flag": "https://flagcdn.com/gb.svg",
+    "code": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "flag": "https://flagcdn.com/ba.svg",
     "position": {
-      "x": 0,
-      "y": 55
-    }
+      "x": 18,
+      "y": 44
+    },
+    "area": 51197,
+    "population": 3280819
+  },
+  {
+    "code": "BGR",
+    "name": "Bulgaria",
+    "flag": "https://flagcdn.com/bg.svg",
+    "position": {
+      "x": 25,
+      "y": 43
+    },
+    "area": 110994,
+    "population": 6927288
+  },
+  {
+    "code": "HRV",
+    "name": "Croatia",
+    "flag": "https://flagcdn.com/hr.svg",
+    "position": {
+      "x": 16,
+      "y": 45
+    },
+    "area": 56594,
+    "population": 4047200
+  },
+  {
+    "code": "CYP",
+    "name": "Cyprus",
+    "flag": "https://flagcdn.com/cy.svg",
+    "position": {
+      "x": 33,
+      "y": 35
+    },
+    "area": 9251,
+    "population": 1207359
+  },
+  {
+    "code": "CZE",
+    "name": "Czech Republic",
+    "flag": "https://flagcdn.com/cz.svg",
+    "position": {
+      "x": 15,
+      "y": 49
+    },
+    "area": 78865,
+    "population": 10693939
+  },
+  {
+    "code": "DNK",
+    "name": "Denmark",
+    "flag": "https://flagcdn.com/dk.svg",
+    "position": {
+      "x": 10,
+      "y": 56
+    },
+    "area": 42931,
+    "population": 5818553
+  },
+  {
+    "code": "EST",
+    "name": "Estonia",
+    "flag": "https://flagcdn.com/ee.svg",
+    "position": {
+      "x": 25,
+      "y": 58.6
+    },
+    "area": 45227,
+    "population": 1326535
+  },
+  {
+    "code": "FIN",
+    "name": "Finland",
+    "flag": "https://flagcdn.com/fi.svg",
+    "position": {
+      "x": 25,
+      "y": 65
+    },
+    "area": 338145,
+    "population": 5536146
   },
   {
     "code": "FRA",
@@ -60,7 +149,9 @@
     "position": {
       "x": 2,
       "y": 46
-    }
+    },
+    "area": 551695,
+    "population": 67081000
   },
   {
     "code": "DEU",
@@ -69,7 +160,218 @@
     "position": {
       "x": 10,
       "y": 51
-    }
+    },
+    "area": 357022,
+    "population": 83166711
+  },
+  {
+    "code": "GRC",
+    "name": "Greece",
+    "flag": "https://flagcdn.com/gr.svg",
+    "position": {
+      "x": 22,
+      "y": 39
+    },
+    "area": 131957,
+    "population": 10423054
+  },
+  {
+    "code": "HUN",
+    "name": "Hungary",
+    "flag": "https://flagcdn.com/hu.svg",
+    "position": {
+      "x": 20,
+      "y": 47
+    },
+    "area": 93028,
+    "population": 9769526
+  },
+  {
+    "code": "ISL",
+    "name": "Iceland",
+    "flag": "https://flagcdn.com/is.svg",
+    "position": {
+      "x": -18,
+      "y": 65
+    },
+    "area": 103000,
+    "population": 366425
+  },
+  {
+    "code": "IRL",
+    "name": "Ireland",
+    "flag": "https://flagcdn.com/ie.svg",
+    "position": {
+      "x": -8,
+      "y": 53
+    },
+    "area": 70273,
+    "population": 5000000
+  },
+  {
+    "code": "ITA",
+    "name": "Italy",
+    "flag": "https://flagcdn.com/it.svg",
+    "position": {
+      "x": 12,
+      "y": 42
+    },
+    "area": 301340,
+    "population": 59000000
+  },
+  {
+    "code": "LVA",
+    "name": "Latvia",
+    "flag": "https://flagcdn.com/lv.svg",
+    "position": {
+      "x": 25,
+      "y": 57
+    },
+    "area": 64589,
+    "population": 1901548
+  },
+  {
+    "code": "LIE",
+    "name": "Liechtenstein",
+    "flag": "https://flagcdn.com/li.svg",
+    "position": {
+      "x": 9.5,
+      "y": 47.1
+    },
+    "area": 160,
+    "population": 38749
+  },
+  {
+    "code": "LTU",
+    "name": "Lithuania",
+    "flag": "https://flagcdn.com/lt.svg",
+    "position": {
+      "x": 24,
+      "y": 55
+    },
+    "area": 65300,
+    "population": 2722289
+  },
+  {
+    "code": "LUX",
+    "name": "Luxembourg",
+    "flag": "https://flagcdn.com/lu.svg",
+    "position": {
+      "x": 6,
+      "y": 49.6
+    },
+    "area": 2586,
+    "population": 645397
+  },
+  {
+    "code": "MLT",
+    "name": "Malta",
+    "flag": "https://flagcdn.com/mt.svg",
+    "position": {
+      "x": 14.4,
+      "y": 35.9
+    },
+    "area": 316,
+    "population": 514564
+  },
+  {
+    "code": "MDA",
+    "name": "Moldova",
+    "flag": "https://flagcdn.com/md.svg",
+    "position": {
+      "x": 28.6,
+      "y": 47
+    },
+    "area": 33843,
+    "population": 2640438
+  },
+  {
+    "code": "MCO",
+    "name": "Monaco",
+    "flag": "https://flagcdn.com/mc.svg",
+    "position": {
+      "x": 7.4,
+      "y": 43.7
+    },
+    "area": 2,
+    "population": 39242
+  },
+  {
+    "code": "MNE",
+    "name": "Montenegro",
+    "flag": "https://flagcdn.com/me.svg",
+    "position": {
+      "x": 19,
+      "y": 42.5
+    },
+    "area": 13812,
+    "population": 621718
+  },
+  {
+    "code": "NLD",
+    "name": "Netherlands",
+    "flag": "https://flagcdn.com/nl.svg",
+    "position": {
+      "x": 5,
+      "y": 52
+    },
+    "area": 41543,
+    "population": 17407585
+  },
+  {
+    "code": "MKD",
+    "name": "North Macedonia",
+    "flag": "https://flagcdn.com/mk.svg",
+    "position": {
+      "x": 21.7,
+      "y": 41.6
+    },
+    "area": 25713,
+    "population": 2083459
+  },
+  {
+    "code": "NOR",
+    "name": "Norway",
+    "flag": "https://flagcdn.com/no.svg",
+    "position": {
+      "x": 10,
+      "y": 65
+    },
+    "area": 385207,
+    "population": 5421241
+  },
+  {
+    "code": "POL",
+    "name": "Poland",
+    "flag": "https://flagcdn.com/pl.svg",
+    "position": {
+      "x": 20,
+      "y": 52
+    },
+    "area": 312696,
+    "population": 37958138
+  },
+  {
+    "code": "PRT",
+    "name": "Portugal",
+    "flag": "https://flagcdn.com/pt.svg",
+    "position": {
+      "x": -8,
+      "y": 39
+    },
+    "area": 92090,
+    "population": 10295909
+  },
+  {
+    "code": "ROU",
+    "name": "Romania",
+    "flag": "https://flagcdn.com/ro.svg",
+    "position": {
+      "x": 25,
+      "y": 46
+    },
+    "area": 238397,
+    "population": 19286123
   },
   {
     "code": "RUS",
@@ -78,60 +380,118 @@
     "position": {
       "x": 100,
       "y": 60
-    }
+    },
+    "area": 17098242,
+    "population": 144104080
   },
   {
-    "code": "CHN",
-    "name": "China",
-    "flag": "https://flagcdn.com/cn.svg",
+    "code": "SMR",
+    "name": "San Marino",
+    "flag": "https://flagcdn.com/sm.svg",
     "position": {
-      "x": 115,
-      "y": 35
-    }
+      "x": 12.5,
+      "y": 43.9
+    },
+    "area": 61,
+    "population": 33931
   },
   {
-    "code": "IND",
-    "name": "India",
-    "flag": "https://flagcdn.com/in.svg",
+    "code": "SRB",
+    "name": "Serbia",
+    "flag": "https://flagcdn.com/rs.svg",
     "position": {
-      "x": 80,
-      "y": 20
-    }
+      "x": 20.5,
+      "y": 44
+    },
+    "area": 88361,
+    "population": 6908224
   },
   {
-    "code": "JPN",
-    "name": "Japan",
-    "flag": "https://flagcdn.com/jp.svg",
+    "code": "SVK",
+    "name": "Slovakia",
+    "flag": "https://flagcdn.com/sk.svg",
     "position": {
-      "x": 140,
-      "y": 38
-    }
+      "x": 19,
+      "y": 48
+    },
+    "area": 49035,
+    "population": 5458827
   },
   {
-    "code": "AUS",
-    "name": "Australia",
-    "flag": "https://flagcdn.com/au.svg",
+    "code": "SVN",
+    "name": "Slovenia",
+    "flag": "https://flagcdn.com/si.svg",
     "position": {
-      "x": 135,
-      "y": -25
-    }
+      "x": 14.5,
+      "y": 46
+    },
+    "area": 20273,
+    "population": 2100126
   },
   {
-    "code": "ZAF",
-    "name": "South Africa",
-    "flag": "https://flagcdn.com/za.svg",
+    "code": "ESP",
+    "name": "Spain",
+    "flag": "https://flagcdn.com/es.svg",
     "position": {
-      "x": 25,
-      "y": -30
-    }
+      "x": -3,
+      "y": 40
+    },
+    "area": 505990,
+    "population": 47329981
   },
   {
-    "code": "EGY",
-    "name": "Egypt",
-    "flag": "https://flagcdn.com/eg.svg",
+    "code": "SWE",
+    "name": "Sweden",
+    "flag": "https://flagcdn.com/se.svg",
     "position": {
-      "x": 30,
-      "y": 26
-    }
+      "x": 15,
+      "y": 62
+    },
+    "area": 450295,
+    "population": 10353442
+  },
+  {
+    "code": "CHE",
+    "name": "Switzerland",
+    "flag": "https://flagcdn.com/ch.svg",
+    "position": {
+      "x": 8,
+      "y": 47
+    },
+    "area": 41285,
+    "population": 8715494
+  },
+  {
+    "code": "UKR",
+    "name": "Ukraine",
+    "flag": "https://flagcdn.com/ua.svg",
+    "position": {
+      "x": 31,
+      "y": 49
+    },
+    "area": 603628,
+    "population": 41250000
+  },
+  {
+    "code": "GBR",
+    "name": "United Kingdom",
+    "flag": "https://flagcdn.com/gb.svg",
+    "position": {
+      "x": -1,
+      "y": 55
+    },
+    "area": 243610,
+    "population": 67215293
+  },
+  {
+    "code": "VAT",
+    "name": "Vatican City",
+    "flag": "https://flagcdn.com/va.svg",
+    "position": {
+      "x": 12.45,
+      "y": 41.9
+    },
+    "area": 0.44,
+    "population": 825
   }
 ]
