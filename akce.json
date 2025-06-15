@@ -2,6 +2,29 @@
   "events": [    
     {
       "id": "beta2025",
+      "title": "SIGMA Beasts U15",
+      "dateStart": "2025-09-01",
+      "dateEnd": "2025-09-01",
+      "timeStart": "16:45",
+      "timeEnd": "18:30",
+      "location": "16. ZŠ Plzeň - TV2",
+      "categories": ["sigma", "junioři"],
+      "type": "trnénink",
+      "highlight": true,
+      "image": "https://i.imgur.com/MkKQ8wg.png",
+      "link": "https://dbpilsen.cz/treninky/",
+      "description": "Trénink juniorů, ročníky 2010 - 2012",
+      "tags": ["nábor", "beta", "treninky"],
+      "status": "potvrzeno",
+      "color": "#c21d1d",
+      "repeat": {
+        "frequency": "weekly",
+        "interval": 1,
+        "weekdays": [1],
+        "until": "2025-12-22"
+      }
+    },    {
+      "id": "beta2025",
       "title": "BETA Beasts U12",
       "dateStart": "2025-09-01",
       "dateEnd": "2025-09-01",
@@ -13,7 +36,7 @@
       "highlight": true,
       "image": "https://i.imgur.com/MkKQ8wg.png",
       "link": "https://dbpilsen.cz/treninky/",
-      "description": "Tréninky nejmladších hráčů, ročníku 2016 - 2013",
+      "description": "Trénink nejmladších hráčů, ročníky 2016 - 2013",
       "tags": ["nábor", "beta", "treninky"],
       "status": "potvrzeno",
       "color": "#ffc107",
