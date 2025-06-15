@@ -285,7 +285,7 @@
         "frequency": "weekly",
         "interval": 1,
         "weekdays": [3],
-        "until": "2025-06-25"
+        "until": "2025-06-18"
       }
     }
   ]
