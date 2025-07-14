@@ -1,6 +1,6 @@
 {
   "tym1": {
-    "pozice": 7,
+    "pozice": 0,
     "nazev": "Galaktičtí vlci",
     "barva": "#4FC3F7",
     "skore": 120,
@@ -9,7 +9,7 @@
     "zprava": "Letíte jak kometa!"
   },
   "tym2": {
-    "pozice": 11,
+    "pozice": 0,
     "nazev": "Plazmoví piráti",
     "barva": "#81C784",
     "skore": 150,
@@ -18,7 +18,7 @@
     "zprava": "Už jste skoro u Marsu!"
   },
   "tym3": {
-    "pozice": 20,
+    "pozice": 1,
     "nazev": "Měsíční myši",
     "barva": "#FFB74D",
     "skore": 190,
