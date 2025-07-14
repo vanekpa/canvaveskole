@@ -1,0 +1,58 @@
+{
+  "2025-07-21": {
+    "nazev": "Den 1 – Vzlet ze Země",
+    "aktivity": [
+      { "cas_od": "08:00", "cas_do": "08:30", "nazev": "Převzetí skafandrů" },
+      { "cas_od": "08:30", "cas_do": "10:00", "nazev": "Raketový rozcvič" },
+      { "cas_od": "10:00", "cas_do": "10:05", "nazev": "Testovací siréna (5 minut)" },
+      { "cas_od": "10:05", "cas_do": "11:45", "nazev": "Stavba vesmírné stanice z lega" },
+      { "cas_od": "12:30", "cas_do": "13:00", "nazev": "Oběd ve stavu beztíže" },
+      { "cas_od": "13:00", "cas_do": "14:00", "nazev": "Volný let ve výcvikové kapsli" }
+    ],
+    "poznamka": "Dnes hlavně uvítání a kreativita – první den v klidu."
+  },
+  "2025-07-22": {
+    "nazev": "Den 2 – Let na Mars",
+    "aktivity": [
+      { "cas_od": "08:00", "cas_do": "09:00", "nazev": "Zahřívací orbitální běh" },
+      { "cas_od": "09:00", "cas_do": "11:00", "nazev": "Malování Marsu poslepu" },
+      { "cas_od": "11:00", "cas_do": "11:45", "nazev": "Krmení mimozemšťanů (hra)" },
+      { "cas_od": "13:00", "cas_do": "14:30", "nazev": "Laserová střelnice" },
+      { "cas_od": "14:30", "cas_do": "15:00", "nazev": "Oprava solárního panelu" }
+    ],
+    "poznamka": "Venku může být horko – klobouk s sebou!"
+  },
+  "2025-07-23": {
+    "nazev": "Den 3 – Saturn a jeho prstence",
+    "aktivity": [
+      { "cas_od": "08:00", "cas_do": "09:30", "nazev": "Simulátor chůze v prstenci" },
+      { "cas_od": "09:30", "cas_do": "09:45", "nazev": "Pauza na vesmírný banán" },
+      { "cas_od": "09:45", "cas_do": "11:00", "nazev": "Kvíz: Kdo je tu Saturn?" },
+      { "cas_od": "13:00", "cas_do": "14:30", "nazev": "Tvorba planet z modelíny" },
+      { "cas_od": "14:30", "cas_do": "15:30", "nazev": "Skákání přes červí díru" }
+    ],
+    "poznamka": "Dopoledne bude hlavně uvnitř, odpoledne venku."
+  },
+  "2025-07-24": {
+    "nazev": "Den 4 – Bojovka v mlhovině",
+    "aktivity": [
+      { "cas_od": "08:00", "cas_do": "10:00", "nazev": "Boj o kyslíkovou stanici" },
+      { "cas_od": "10:00", "cas_do": "11:00", "nazev": "Lov kosmických kamenů" },
+      { "cas_od": "11:00", "cas_do": "12:00", "nazev": "Kosmické sudoku" },
+      { "cas_od": "13:00", "cas_do": "14:00", "nazev": "Oprava navigace podle hvězd" },
+      { "cas_od": "14:00", "cas_do": "15:00", "nazev": "Volná hra ve stavu beztíže" }
+    ],
+    "poznamka": "Děti budou běhat hodně venku – láhev s pitím nutností!"
+  },
+  "2025-07-25": {
+    "nazev": "Den 5 – Přistání na Měsíci",
+    "aktivity": [
+      { "cas_od": "08:00", "cas_do": "09:00", "nazev": "Ranní rekapitulace misí" },
+      { "cas_od": "09:00", "cas_do": "10:30", "nazev": "Přistání a dobytí Měsíce" },
+      { "cas_od": "10:30", "cas_do": "11:00", "nazev": "Selfie s vlajkou na Měsíci" },
+      { "cas_od": "13:00", "cas_do": "14:00", "nazev": "Měsíční hostina (slavnostní oběd)" },
+      { "cas_od": "14:00", "cas_do": "15:00", "nazev": "Závěrečný ceremoniál a diplomy" }
+    ],
+    "poznamka": "Rodiče vítáni od 14:00 na ceremoniál! Bude i dort."
+  }
+}
