@@ -13,9 +13,9 @@
     "nazev": "Plazmoví piráti",
     "barva": "#81C784",
     "skore": 150,
-    "bonusy": [],
+    "bonusy": ["❎ NO Block"],
     "dokonceno": false,
-    "zprava": "Už jste skoro u Marsu!"
+    "zprava": "Ještě je potřeba získat další palivo!"
   },
   "tym3": {
     "pozice": 1,
