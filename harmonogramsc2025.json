@@ -14,7 +14,7 @@
     "poznamka": "Bude doplněno :))"
   },
   "2025-07-22": {
-    "nazev": "Den 2 – Let na Mars",
+    "nazev": "Den 2 – Příprava pilotů",
     "aktivity": [
       { "cas_od": "07:30", "cas_do": "08:30", "nazev": "Příchod, Lunární dílna, práce na projektech" },
       { "cas_od": "08:30", "cas_do": "10:00", "nazev": "CyberPi LED animace „Měsíční noc“" },
@@ -27,7 +27,7 @@
     "poznamka": "-"
   },
   "2025-07-23": {
-    "nazev": "Den 3 – Saturn a jeho prstence",
+    "nazev": "Den 3 – Nástrahy noční oblohy",
     "aktivity": [
       { "cas_od": "07:30", "cas_do": "08:30", "nazev": "Příchod, Lunární dílna, práce na projektech" },
       { "cas_od": "08:30", "cas_do": "10:00", "nazev": "Ultimate mBot - rozšíření modulu" },
