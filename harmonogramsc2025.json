@@ -11,7 +11,7 @@
       { "cas_od": "13:30", "cas_do": "14:30", "nazev": "Závod, úniková hra, kreativní výzva" },
       { "cas_od": "14:30", "cas_do": "15:30", "nazev": "Debrief & hvězdná dráha s míčem" }
     ],
-    "poznamka": "Dnes hlavně uvítání a kreativita – první den v klidu."
+    "poznamka": "Bude doplněno :))"
   },
   "2025-07-22": {
     "nazev": "Den 2 – Let na Mars",
@@ -24,33 +24,45 @@
       { "cas_od": "13:30", "cas_do": "14:30", "nazev": "CyberPi - Vysíláme signál" },
       { "cas_od": "14:30", "cas_do": "15:30", "nazev": "Venkovní hra Zero Gravity Tag, reflexe dne" }
     ],
-    "poznamka": "Venku může být horko – klobouk s sebou!"
+    "poznamka": "-"
   },
   "2025-07-23": {
     "nazev": "Den 3 – Saturn a jeho prstence",
     "aktivity": [
       { "cas_od": "07:30", "cas_do": "08:30", "nazev": "Příchod, Lunární dílna, práce na projektech" },
+      { "cas_od": "08:30", "cas_do": "10:00", "nazev": "Ultimate mBot - rozšíření modulu" },
       { "cas_od": "10:00", "cas_do": "10:15", "nazev": "Pauza - svačina" },
-      { "cas_od": "12:00", "cas_do": "13:30", "nazev": "Oběd (Hotel Victoria) & polední klid" }
+      { "cas_od": "10:15", "cas_do": "12:00", "nazev": "Escape Game - podpalubí" },
+      { "cas_od": "12:00", "cas_do": "13:30", "nazev": "Oběd (Hotel Victoria) & polední klid" },
+      { "cas_od": "13:30", "cas_do": "14:30", "nazev": "AI aplikace - Moon mode" },
+      { "cas_od": "14:30", "cas_do": "15:30", "nazev": "3v3 turnaj, reflexe dne" }
     ],
-    "poznamka": "Dopoledne bude hlavně uvnitř, odpoledne venku."
+    "poznamka": "-"
   },
   "2025-07-24": {
     "nazev": "Den 4 – Bojovka v mlhovině",
     "aktivity": [
       { "cas_od": "07:30", "cas_do": "08:30", "nazev": "Příchod, Lunární dílna, práce na projektech" },
+      { "cas_od": "08:30", "cas_do": "10:00", "nazev": "AI Coder – Lunar Control Panel" },
       { "cas_od": "10:00", "cas_do": "10:15", "nazev": "Pauza - svačina" },
-      { "cas_od": "12:00", "cas_do": "13:30", "nazev": "Oběd (Hotel Victoria) & polední klid" }
+      { "cas_od": "10:15", "cas_do": "12:00", "nazev": "Monkey Games - turnaj" },
+      { "cas_od": "12:00", "cas_do": "13:30", "nazev": "Oběd (Hotel Victoria) & polední klid" },
+      { "cas_od": "13:30", "cas_do": "14:30", "nazev": "AI aplikace - Suno a Magic Write" },
+      { "cas_od": "14:30", "cas_do": "15:30", "nazev": "Reflexe, příprava expa + Vybíjená" }
     ],
-    "poznamka": "Děti budou běhat hodně venku – láhev s pitím nutností!"
+    "poznamka": "-"
   },
   "2025-07-25": {
     "nazev": "Den 5 – Přistání na Měsíci",
     "aktivity": [
       { "cas_od": "07:30", "cas_do": "08:30", "nazev": "Příchod, Lunární dílna, práce na projektech" },
+      { "cas_od": "08:30", "cas_do": "10:00", "nazev": "Příprava výstupů, zkouška expa" },
       { "cas_od": "10:00", "cas_do": "10:15", "nazev": "Pauza - svačina" },
-      { "cas_od": "12:00", "cas_do": "13:30", "nazev": "Oběd (Hotel Victoria) & polední klid" }
+      { "cas_od": "10:15", "cas_do": "12:00", "nazev": "Grand Finale All‑Stars Match" },
+      { "cas_od": "12:00", "cas_do": "13:30", "nazev": "Oběd (Hotel Victoria) & polední klid" },
+      { "cas_od": "13:30", "cas_do": "14:30", "nazev": "Expo & odemknutí lunárního modulu" },
+      { "cas_od": "14:30", "cas_do": "15:30", "nazev": "Závěrečné vyhodnocení a prezentace týmů" }
     ],
-    "poznamka": "Rodiče vítáni od 14:00 na ceremoniál! Bude i dort."
+    "poznamka": "-"
   }
 }
