@@ -17,8 +17,12 @@
     "nazev": "Den 2 – Let na Mars",
     "aktivity": [
       { "cas_od": "07:30", "cas_do": "08:30", "nazev": "Příchod, Lunární dílna, práce na projektech" },
+      { "cas_od": "08:30", "cas_do": "10:00", "nazev": "CyberPi LED animace „Měsíční noc“" },
       { "cas_od": "10:00", "cas_do": "10:15", "nazev": "Pauza - svačina" },
-      { "cas_od": "12:00", "cas_do": "13:30", "nazev": "Oběd (Hotel Victoria) & polední klid" }
+      { "cas_od": "10:15", "cas_do": "12:00", "nazev": "Skill drills: měření rychlosti hodu" },
+      { "cas_od": "12:00", "cas_do": "13:30", "nazev": "Oběd (Hotel Victoria) & polední klid" },
+      { "cas_od": "13:30", "cas_do": "14:30", "nazev": "CyberPi - Vysíláme signál" },
+      { "cas_od": "14:30", "cas_do": "15:30", "nazev": "Venkovní hra Zero Gravity Tag, reflexe dne" }
     ],
     "poznamka": "Venku může být horko – klobouk s sebou!"
   },
