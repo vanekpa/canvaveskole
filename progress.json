@@ -1,29 +1,29 @@
 {
   "tym1": {
-    "pozice": 14,
-    "nazev": "Vesmířští cestovatelé",
+    "pozice": 20,
+    "nazev": "Vesmírní cestovatelé",
     "barva": "#4FC3F7",
-    "skore": 1750,
+    "skore": 2750,
     "bonusy": [""],
-    "dokonceno": false,
+    "dokonceno": true,
     "zprava": "Barča, Maxim, Áďa, Matyáš"
   },
   "tym2": {
-    "pozice": 15,
+    "pozice": 20,
     "nazev": "Vesmírná morčata",
     "barva": "#81C784",
-    "skore": 2100,
+    "skore": 2980,
     "bonusy": [""],
-    "dokonceno": false,
+    "dokonceno": true,
     "zprava": "Jáchym, Klára, Tonda, Verča"
   },
   "tym3": {
-    "pozice": 13,
+    "pozice": 20,
     "nazev": "Měsíční Vlci",
     "barva": "#FFB74D",
-    "skore": 1650,
+    "skore": 2900,
     "bonusy": [""],
-    "dokonceno": false,
+    "dokonceno": true,
     "zprava": "František, Ondra, Dalibor, Stas"
   }
 }
