@@ -1,29 +1,29 @@
 {
   "tym1": {
-    "pozice": 2,
-    "nazev": "Galaktičtí vlci",
+    "pozice": 17,
+    "nazev": "Vesmířští cestovatelé",
     "barva": "#4FC3F7",
-    "skore": 120,
+    "skore": 1750,
     "bonusy": ["🚀 rychlost", "🛡️ štít"],
     "dokonceno": false,
-    "zprava": "Každá správná Bestie, vyhne se a vykryje!"
+    "zprava": "Barča, Maxim, Áďa, Matyáš"
   },
   "tym2": {
-    "pozice": 3,
-    "nazev": "Plazmoví piráti",
+    "pozice": 18,
+    "nazev": "Vesmírná morčata",
     "barva": "#81C784",
-    "skore": 150,
+    "skore": 2100,
     "bonusy": ["❎ NO Block"],
     "dokonceno": false,
-    "zprava": "Ještě je potřeba získat další palivo!"
+    "zprava": "Jáchym, Klára, Tonda, Verča"
   },
   "tym3": {
-    "pozice": 1,
-    "nazev": "Měsíční myši",
+    "pozice": 12,
+    "nazev": "Měsíční Vlci",
     "barva": "#FFB74D",
-    "skore": 190,
+    "skore": 1650,
     "bonusy": ["⚡ warp"],
     "dokonceno": false,
-    "zprava": "Gratulujeme! Jste na Měsíci!"
+    "zprava": "František, Ondra, Dalibor, Stas"
   }
 }
