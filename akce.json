@@ -382,5 +382,29 @@
         "until": "2025-06-18"
       }
     }
+    {
+      "id": "Liga25261",
+      "title": "Kategorie Mix - Praha, 1. a 2. liga",
+      "dateStart": "2025-11-09",
+      "dateEnd": "2025-11-09",
+      "timeStart": "09:00",
+      "timeEnd": "20:00",
+      "location": "Sportovní areál Třebešín, Na Třebešíně 3215/1, Praha 3 - Strašnice",
+      "categories": ["A","B"],
+      "type": "Česká liga",
+      "highlight": true,
+      "image": "https://g.denik.cz/46/d6/dodgeball-plzen-01_denik-galerie-450.jpg",
+      "link": null,
+      "description": "Česká dodgeballová liga v kategorii MIX",
+      "tags": ["A a B tým"],
+      "status": "Členové ČAD",
+      "color": "#f44336",
+      "repeat": {
+        "frequency": null,
+        "interval": null,
+        "weekdays": [],
+        "until": null
+      }
+    },
   ]
 }
