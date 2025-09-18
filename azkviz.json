@@ -37,6 +37,7 @@
     { "letter":"R","prompt":"Jaké je hlavní město Itálie?","correct":"Řím","alt":[],"category":"geografie","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"R","prompt":"Jak se jmenuje český vynálezce lodního šroubu?","correct":"Ressel","alt":["Josef Ressel"],"category":"historie","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"S","prompt":"Jaké je hlavní město Španělska?","correct":"Madrid","alt":[],"category":"geografie","difficulty":"ZŠ1","lang":"cs" },
+    { "letter":"S","prompt":"Který fotbalista vyhrál Český zlatý míč za sezónu 2024/2025?","correct":"Šulc Pavel","alt":["Šulc"],"category":"sport","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"S","prompt":"Kolik sekund má 1 minuta?","correct":"šedesát","alt":["60"],"category":"matematika","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"T","prompt":"Jak se nazývá český hokejista s číslem 68?","correct":"Jágr","alt":["Jaromír Jágr"],"category":"sport","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"T","prompt":"Jak se jmenuje planeta třetí od Slunce?","correct":"Třetí Země","alt":["Země"],"category":"prirodoveda","difficulty":"ZŠ1","lang":"cs" },
@@ -48,5 +49,15 @@
     { "letter":"W","prompt":"Který americký prezident byl v úřadu během občanské války?","correct":"Washington","alt":["Abraham Lincoln"],"category":"historie","difficulty":"SŠ","lang":"cs" },
     { "letter":"Z","prompt":"Jaký český vynálezce sestrojil lodní šroub?","correct":"Zeman","alt":[],"category":"historie","difficulty":"SŠ","lang":"cs" },
     { "letter":"Z","prompt":"Jaký prvek má značku Zn?","correct":"Zinek","alt":[],"category":"chemie","difficulty":"ZŠ2","lang":"cs" }
+  ],
+  "yesno": [
+    { "prompt":"Světlo je rychlejší než zvuk.","answer_bool":true,"category":"fyzika","difficulty":"ZŠ1","lang":"cs" },
+    { "prompt":"Praha je hlavní město Slovenska.","answer_bool":false,"category":"geografie","difficulty":"ZŠ1","lang":"cs" },
+    { "prompt":"Měsíc je větší než Země.","answer_bool":false,"category":"prirodoveda","difficulty":"ZŠ1","lang":"cs" },
+    { "prompt":"Lidé potřebují kyslík k dýchání.","answer_bool":true,"category":"prirodoveda","difficulty":"ZŠ1","lang":"cs" }
+  ],
+  "ads": [
+    { "text":"Hraj v Plzni americkou vybíjenou!","url":"https://dbpilsen.cz","durationSec":12 },
+    { "text":"Nakladatelství pro základní školy, které nabízí učitelům vše potřebné pro moderní a smysluplnou výuku.","url":"https://www.vividbooks.com/","durationSec":15 }
   ]
 }
