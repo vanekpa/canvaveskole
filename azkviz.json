@@ -57,7 +57,8 @@
     { "prompt":"Lidé potřebují kyslík k dýchání.","answer_bool":true,"category":"Přírodověda","difficulty":"ZŠ1","lang":"cs" }
   ],
   "ads": [
-    { "text":"Hraj v Plzni americkou vybíjenou!","url":"https://dbpilsen.cz","durationSec":12 },
-    { "text":"Nakladatelství pro základní školy, které nabízí učitelům vše potřebné pro moderní a smysluplnou výuku.","url":"https://www.vividbooks.com/","durationSec":15 }
+    { "text":"Hraj v Plzni americkou vybíjenou!","url":"https://dbpilsen.cz","durationSec":20 },
+    { "text":"Únikové hry ve škole - mrkni na web a měj přehled!","url":"https://unikovkyveskole.cz","durationSec":20 },
+    { "text":"Nakladatelství pro základní školy, které nabízí učitelům vše potřebné pro moderní a smysluplnou výuku.","url":"https://www.vividbooks.com/","durationSec":20 }
   ]
 }
