@@ -23,7 +23,7 @@
     { "letter":"B","prompt":"Jak se nazývá rovnice popisující proudění tekutin, pojmenovaná po švýcarském vědci?","correct":"Bernoulliho rovnice","alt":["bernoulliho rovnice"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
     { "letter":"B","prompt":"Jak se nazývá druh radioaktivního záření, při kterém se z jádra uvolňují elektrony nebo pozitrony?","correct":"Beta záření","alt":["beta záření","β záření"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
     { "letter":"B","prompt":"Jak se nazývá jev, při kterém dochází k prudkému elektrickému výboji mezi mraky nebo mezi mrakem a zemí?","correct":"Blesk","alt":["blesk"],"category":"Fyzika","difficulty":"ZŠ1","lang":"cs" },
-    { "letter":"B","prompt":"Jak se nazývá dráha, kterou ujede vozidlo od okamžiku sešlápnutí brzdového pedálu až do zastavení?","correct":"Brzdná dráha","alt":["brzdná dráha"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" }
+    { "letter":"B","prompt":"Jak se nazývá dráha, kterou ujede vozidlo od okamžiku sešlápnutí brzdového pedálu až do zastavení?","correct":"Brzdná dráha","alt":["brzdná dráha"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"B","prompt":"Jaké je chemické značení bóru?","correct":"B","alt":["b"],"category":"Chemie","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"B","prompt":"Kdo složil symfonii 'Osudová'?","correct":"Beethoven","alt":["Ludwig van Beethoven"],"category":"Kultura","difficulty":"SŠ","lang":"cs" },
     { "letter":"B","prompt":"Jak se nazývá základní stavební a funkční jednotka organismu?","correct":"Buňka","alt":["buňka", "Buňka"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
