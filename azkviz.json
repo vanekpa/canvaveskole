@@ -66,7 +66,7 @@
     { "letter":"CH","prompt":"Jakou mají žraloci kostru?","correct":"Chrupavčitou","alt":["chrupavčitou", "Chrupavčitou"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"CH","prompt":"Jak se jmenuje živočich, který využívá ohrané zbarvení?","correct":"Chameleon Obecný","alt":["Chameleon Obecný", "chameleon obecný"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"CH","prompt":"Jak se nazývají mořské řasy?","correct":"Chaluhy","alt":["chaluhy", "Chaluhy"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
-    { "letter":"I","prompt":"Jak se jmenuje pták s dlouhým zahnutým zobákem, který žije u řek a mokřadů?","correct":"Ibis","alt":["ibis"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" }
+    { "letter":"I","prompt":"Jak se jmenuje pták s dlouhým zahnutým zobákem, který žije u řek a mokřadů?","correct":"Ibis","alt":["ibis"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"I","prompt":"Jak se nazývá schopnost organismu bránit se nemocem a infekcím?","correct":"Imunita","alt":["imunita"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"I","prompt":"Jak se nazývají elektricky nabité částice vzniklé z atomů přijetím nebo odevzdáním elektronů?","correct":"Ionty","alt":["ionty"],"category":"chemie","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"I","prompt":"Jak se nazývá fyzikální veličina vyjadřující elektrický proud?","correct":"Intenzita","alt":["intenzita"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
@@ -82,7 +82,7 @@
     { "letter":"I","prompt":"Jak se nazývá číslo, které vzniká odmocněním záporného čísla?","correct":"Imaginární","alt":["imaginární"],"category":"Matematika","difficulty":"SŠ","lang":"cs" },
     { "letter":"I","prompt":"Jak se nazývá funkce, která má hodnotu 1, pokud je podmínka splněna, a jinak 0?","correct":"Indikátor","alt":["indikátor"],"category":"Matematika","difficulty":"SŠ","lang":"cs" },
     { "letter":"I","prompt":"Jak se jmenuje slavný fotbalový klub z Milána, který hraje v černomodrých dresech?","correct":"Inter","alt":["inter","inter milán"],"category":"Sport","difficulty":"ZŠ2","lang":"cs" },
-    { "letter":"I","prompt":"Jak se jmenuje slavný hokejový klub NHL z New Yorku?","correct":"Islanders","alt":["new york islanders"],"category":"Sport","difficulty":"ZŠ2","lang":"cs" }
+    { "letter":"I","prompt":"Jak se jmenuje slavný hokejový klub NHL z New Yorku?","correct":"Islanders","alt":["new york islanders"],"category":"Sport","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"I","prompt":"Jaký je hlavní město Itálie?","correct":"Řím","alt":[],"category":"Geografie","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"I","prompt":"Jak se nazývá trojúhelník se dvěma stejnými stranami?","correct":"Isosceles","alt":["Rovnoramenný"],"category":"Matematika","difficulty":"SŠ","lang":"cs" },
     { "letter":"J","prompt":"Jaký prvek má značku J?","correct":"Jód","alt":[],"category":"chemie","difficulty":"ZŠ2","lang":"cs" },
@@ -94,7 +94,7 @@
     { "letter":"J","prompt":"Jak se jmenuje nejznámější český hokejista s číslem 68?","correct":"Jágr","alt":["jaromír jágr"],"category":"Sport","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"J","prompt":"Jak se jmenuje řecký hrdina, který se vydal hledat Zlaté rouno?","correct":"Jason","alt":["jason"],"category":"Kultura","difficulty":"SŠ","lang":"cs" },
     { "letter":"J","prompt":"Jaké je české označení pro prvek se značkou I (Iodum)?","correct":"Jód","alt":["jód"],"category":"Chemie","difficulty":"ZŠ2","lang":"cs" },
-    { "letter":"J","prompt":"Jak se jmenuje trojúhelník, který má všechny tři strany různě dlouhé?","correct":"Jichostranný","alt":["jichostranný"],"category":"Matematika","difficulty":"SŠ","lang":"cs" }
+    { "letter":"J","prompt":"Jak se jmenuje trojúhelník, který má všechny tři strany různě dlouhé?","correct":"Jichostranný","alt":["jichostranný"],"category":"Matematika","difficulty":"SŠ","lang":"cs" },
     { "letter":"K","prompt":"Jak se jmenuje české město, kde se nachází Vřídelní kolonáda a známý filmový festival?","correct":"Karlovy Vary","alt":["karlovy vary"],"category":"Geografie","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"K","prompt":"Jak se jmenuje druhá nejvyšší hora světa v pohoří Karákoram?","correct":"K2","alt":["k2"],"category":"Geografie","difficulty":"SŠ","lang":"cs" },
     { "letter":"K","prompt":"Jak se jmenuje fyzikální jednotka termodynamické teploty?","correct":"Kelvin","alt":["kelvin"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
@@ -104,7 +104,7 @@
     { "letter":"K","prompt":"Jaký chemický prvek má latinský název Kalium?","correct":"Kalium","alt":["draslík"],"category":"Chemie","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"K","prompt":"Jaký chemický prvek má značku Kr a je vzácným plynem?","correct":"Krypton","alt":["krypton"],"category":"Chemie","difficulty":"SŠ","lang":"cs" },
     { "letter":"K","prompt":"Jak se jmenuje tradiční míčová hra pocházející z Japonska s dřevěným náčiním?","correct":"Kendó","alt":["kendó"],"category":"Sport","difficulty":"SŠ","lang":"cs" },
-    { "letter":"K","prompt":"Jak se jmenuje bojový sport původem z Japonska, kde se používají chvaty a hody?","correct":"Karate","alt":["karate"],"category":"Sport","difficulty":"ZŠ2","lang":"cs" }
+    { "letter":"K","prompt":"Jak se jmenuje bojový sport původem z Japonska, kde se používají chvaty a hody?","correct":"Karate","alt":["karate"],"category":"Sport","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"K","prompt":"Kdo byl autorem teorie přitažlivosti planet?","correct":"Kepler","alt":["Johannes Kepler"],"category":"fyzika","difficulty":"SŠ","lang":"cs" },
     { "letter":"K","prompt":"Jak se řekne česky 'queen'?","correct":"Královna","alt":[],"category":"Jazyky","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"K","prompt":"Co kryje blanitá křídla brouků?","correct":"Krovky","alt":["krovky", "Krovky"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
@@ -149,7 +149,7 @@
     { "prompt":"Světlo je rychlejší než zvuk.","answer_bool":true,"category":"fyzika","difficulty":"ZŠ1","lang":"cs" },
     { "prompt":"Praha je hlavní město Slovenska.","answer_bool":false,"category":"Geografie","difficulty":"ZŠ1","lang":"cs" },
     { "prompt":"Měsíc je větší než Země.","answer_bool":false,"category":"Přírodověda","difficulty":"ZŠ1","lang":"cs" },
-    { "prompt":"Lidé potřebují kyslík k dýchání.","answer_bool":true,"category":"Přírodověda","difficulty":"ZŠ1","lang":"cs" }
+    { "prompt":"Lidé potřebují kyslík k dýchání.","answer_bool":true,"category":"Přírodověda","difficulty":"ZŠ1","lang":"cs" },
     { "prompt":"Zvuk se šíří ve vakuu rychleji než ve vzduchu.","answer_bool":false,"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
     { "prompt":"Voda mrzne při 0 °C.","answer_bool":true,"category":"Fyzika","difficulty":"ZŠ1","lang":"cs" },
     { "prompt":"Elektrony mají kladný elektrický náboj.","answer_bool":false,"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
@@ -170,7 +170,6 @@
 { "prompt":"Slovo 'kino' pochází z latiny.","answer_bool":false,"category":"Jazyk","difficulty":"ZŠ2","lang":"cs" },
 { "prompt":"Fotbal je olympijský sport.","answer_bool":true,"category":"Sport","difficulty":"ZŠ1","lang":"cs" },
 { "prompt":"Jaromír Jágr hrál v NHL.","answer_bool":true,"category":"Sport","difficulty":"ZŠ2","lang":"cs" }
-
   ],
   "ads": [
     { "text":"Hraj v Plzni americkou vybíjenou!","url":"https://dbpilsen.cz","durationSec":20 },
