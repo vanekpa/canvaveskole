@@ -121,7 +121,7 @@
     { "letter":"F","prompt":"Jak se nazývá veličina udávající počet kmitů za jednotku času?","correct":"Frekvence","alt":["frekvence"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"F","prompt":"Jak se nazývá proces slučování lehkých atomových jader na jádra těžší za uvolnění energie?","correct":"Fúze","alt":["fúze","termonukleární fúze"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
     { "letter":"F","prompt":"Jak se nazývá jev, při kterém látka po osvícení světlem vydává viditelné záření?","correct":"Fluorescence","alt":["fluorescence"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
-    { "letter":"F","prompt":"Jak se jmenoval americký fyzik, nositel Nobelovy ceny, známý také popularizací vědy a přednáškami?","correct":"Feynman","alt":["feynman","richard feynman"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" }
+    { "letter":"F","prompt":"Jak se jmenoval americký fyzik, nositel Nobelovy ceny, známý také popularizací vědy a přednáškami?","correct":"Feynman","alt":["feynman","richard feynman"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
     { "letter":"G","prompt":"Jak se nazývá síla, kterou se tělesa přitahují k Zemi nebo mezi sebou navzájem?","correct":"Gravitační síla","alt":["gravitační síla","gravitace"],"category":"Fyzika","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"G","prompt":"Jak se nazývají slavné pokusy, při kterých žabí svaly reagovaly na elektrické impulzy?","correct":"Galvaniho pokusy","alt":["galvaniho pokusy"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
     { "letter":"G","prompt":"Jak se nazývá zařízení, které přeměňuje mechanickou energii na elektrickou?","correct":"Generátor","alt":["generátor"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
