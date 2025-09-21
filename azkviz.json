@@ -167,7 +167,7 @@
     { "letter":"CH","prompt":"Jak se nazývá propojený systém zařízení v domácnosti, které lze ovládat na dálku pomocí internetu?","correct":"Chytrá domácnost","alt":["chytrá domácnost","smart home"],"category":"Informatika","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"CH","prompt":"Jak se jmenuje lehký operační systém od Googlu určený hlavně pro práci s webovými aplikacemi?","correct":"ChromeOS","alt":["chromeos","chrome os"],"category":"Informatika","difficulty":"SŠ","lang":"cs" },
     { "letter":"CH","prompt":"Která část buňky obsahuje zelené barvivo (chlorofyl)?","correct":"Chloroplasty","alt":["Chloroplasty", "chloroplasty"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
-    { "letter":"CH","prompt":"Je to zelené barvivo?","correct":"Chlorofyl","alt":["chlorofyl", "Chlorofyl"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
+    { "letter":"CH","prompt":"Zelený pigment obsažený v zelených rostlinách na Ch se jmenuje:","correct":"Chlorofyl","alt":["chlorofyl", "Chlorofyl"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"CH","prompt":"Co má rostlinná buňka oproti živočišné buňce?","correct":"Chloroplasty","alt":["Chloroplasty", "chloroplasty"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"CH","prompt":"Jak se nazývá látka, která tvoří vnější kostru hmyzu?","correct":"Chitin","alt":["chitin", "Chitin"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"CH","prompt":"Jakou mají žraloci kostru?","correct":"Chrupavčitou","alt":["chrupavčitou", "Chrupavčitou"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
