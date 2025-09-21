@@ -727,6 +727,7 @@
   { "letter":"F","prompt":"Jak se jmenuje pejsek z pohádky Maxipes?","correct":"Fík","alt":["fík","maxipes fík"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"G","prompt":"Jak se jmenuje nepřítel Šmoulů?","correct":"Gargamel","alt":["gargamel"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"H","prompt":"Jak se jmenuje silný hrdina z řeckých bájí, známý svými dvanácti úkoly?","correct":"Herkules","alt":["herkules","hercules"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
+  { "letter":"CH","prompt":"Jak se jmenuje šéf Rychlé Roty a nejlepší kamarád Dejla.","correct":"Chip","alt":["chip"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"I","prompt":"Jakou bytost často zobrazují pohádky z amerického Divokého západu?","correct":"Indián","alt":["indián"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"J","prompt":"Jak se jmenuje kamarád Mařenky z pohádky o perníkové chaloupce?","correct":"Jeníček","alt":["jeníček"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"K","prompt":"Jak se jmenuje pán hor z Krkonošských pohádek?","correct":"Krakonoš","alt":["krakonoš"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
