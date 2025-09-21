@@ -1026,7 +1026,7 @@
   { "letter":"Z","prompt":"Jak se obecně nazývá sloučenina vzniklá neutralizací kyseliny bází?","correct":"Zásada","alt":["zásada","zasada","base"],"category":"Chemie","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"Z","prompt":"Jak se jmenuje ušlechtilý kov se značkou Au v českém názvosloví?","correct":"Zlato","alt":["zlato","gold"],"category":"Chemie","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"Ž","prompt":"Jak se jmenuje prvek se značkou Fe v českém názvosloví?","correct":"Železo","alt":["železo","zelezo","iron"],"category":"Chemie","difficulty":"ZŠ2","lang":"cs" },
-  { "letter":"Ž","prompt":"Jak nazveme silně korozivní látku poškozující tkáně i materiály?","correct":"Žíravina","alt":["žíravina","ziravina","corrosive"],"category":"Chemie","difficulty":"ZŠ2","lang":"cs" },
+  { "letter":"Ž","prompt":"Jak nazveme silně korozivní látku poškozující tkáně i materiály?","correct":"Žíravina","alt":["žíravina","ziravina","corrosive"],"category":"Chemie","difficulty":"ZŠ2","lang":"cs" }
   ],
   "yesno": [
     { "prompt":"Světlo je rychlejší než zvuk.","answer_bool":true,"category":"Fyzika","difficulty":"ZŠ1","lang":"cs" },
