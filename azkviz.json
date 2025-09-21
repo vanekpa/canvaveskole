@@ -799,8 +799,7 @@
 { "prompt":"Je ultrazvuk slyšitelný pro lidské ucho?","correct":"Ne","category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
 { "prompt":"Je Ampér jednotka elektrického napětí?","correct":"Ne","category":"Fyzika","difficulty":"ZŠ1","lang":"cs" },
 { "prompt":"Je dynamika část mechaniky zabývající se silami a pohybem?","correct":"Ano","category":"Fyzika","difficulty":"SŠ","lang":"cs" },
-{ "prompt":"Je entropie mírou neuspořádanosti systému?","correct":"Ano","category":"Fyzika","difficulty":"SŠ","lang":"cs" },
-    
+{ "prompt":"Je entropie mírou neuspořádanosti systému?","correct":"Ano","category":"Fyzika","difficulty":"SŠ","lang":"cs" } 
   ],
   "ads": [
     { "text":"Hraj v Plzni americkou vybíjenou!","url":"https://dbpilsen.cz","durationSec":20 },
