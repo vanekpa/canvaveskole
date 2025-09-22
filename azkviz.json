@@ -249,7 +249,7 @@
     { "letter":"K","prompt":"Jak se jinak nazývá frekvence, tedy počet kmitů za jednotku času?","correct":"Kmitočet","alt":["kmitočet","frekvence"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"L","prompt":"Jak se nazývá jednoduchý zdroj světla, například žárovka?","correct":"Lampa","alt":["lampa"],"category":"Fyzika","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"L","prompt":"Jak se nazývá zařízení, které vytváří intenzivní paprsek koherentního světla?","correct":"Laser","alt":["laser"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
-    { "letter":"L","prompt":"Jak se obecně nazývá vše, co má hmotnost a objem a skládá se z částic?","correct":"Látka","alt":["látka"],"category":"Fyzika","difficulty":"ZŠ1","lang":"cs" },
+    { "letter":"L","prompt":"Jak se obecně nazývá vše, co nemá hmotnost i objem, ale skládá se z částic?","correct":"Látka","alt":["látka"],"category":"Fyzika","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"L","prompt":"Jak se nazývá jev, při kterém látka vyzařuje světlo po předchozím pohlcení energie?","correct":"Luminiscence","alt":["luminiscence"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
     { "letter":"L","prompt":"Jak se nazývá zákon popisující vztah mezi tlakem, objemem a teplotou plynu, pojmenovaný po francouzském vědci?","correct":"Laplaceův zákon","alt":["laplaceův zákon"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
     { "letter":"L","prompt":"Jak se nazývá jev, při kterém světlo mění směr na rozhraní dvou prostředí?","correct":"Lomení světla","alt":["lomení světla","lom světla"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
