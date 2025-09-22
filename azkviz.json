@@ -106,7 +106,7 @@
     { "letter":"E","prompt":"Jak se nazývá kabel používaný k propojení počítače se sítí LAN?","correct":"Ethernet","alt":["ethernet","ethernetový kabel"],"category":"Informatika","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"F","prompt":"Jak se nazývá proces dýchání rostlin za světla?","correct":"Fotosyntéza","alt":[],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"F","prompt":"Objevil penicilin (příjmení)?","correct":"Flemming","alt":["Flemming", "flemming"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
-    { "letter":"F","prompt":"Jak se nazývá proces přeměny neústrojných látek na látky ústrojné","correct":"FOTOSYNTÉZA","alt":["FOTOSYNTÉZA", "FOTOSYNTÉZA"],"category":"Přírodověda","difficulty":"Sš","lang":"cs" },
+    { "letter":"F","prompt":"Jak se nazývá proces přeměny neústrojných látek na látky ústrojné","correct":"FOTOSYNTÉZA","alt":["FOTOSYNTÉZA", "FOTOSYNTÉZA"],"category":"Přírodověda","difficulty":"SŠ","lang":"cs" },
     { "letter":"F","prompt":"Jak jinak označujeme rostliny či soubor rostlinných druhů (latinský název)?","correct":"Flóra","alt":["Flóra", "flóra"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"F","prompt":"Jak se nazývá bezpečnostní prvek, který chrání počítačovou síť před neoprávněným přístupem?","correct":"Firewall","alt":["firewall"],"category":"Informatika","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"F","prompt":"Jak se nazývá software uložený přímo v hardwaru zařízení, například v routeru nebo tiskárně?","correct":"Firmware","alt":["firmware"],"category":"Informatika","difficulty":"SŠ","lang":"cs" },
