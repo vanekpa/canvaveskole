@@ -701,7 +701,7 @@
   { "letter":"Z","prompt":"Name one of the largest cities in Shandong, China, starting with Z.","correct":"Zibo","alt":["zibo"],"category":"Geography - Capitals","difficulty":"SŠ","lang":"en" },
   { "letter":"A","prompt":"Jak se jmenuje sestra Elsy z pohádky Frozen?","correct":"Anna","alt":["anna"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"B","prompt":"Jak se jmenuje chlapec, který snědl hrášek a unesli ho lišák a vlk?","correct":"Budulínek","alt":["budulínek"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
-  { "letter":"Č","prompt":"Jak se jmenuje dívka, která nosila červený čepeček a potkala vlka?","correct":"Červená Karkulka","alt":["červená karkulka"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
+  { "letter":"C","prompt":"Jak se jmenuje dívka, která nosila červený čepeček a potkala vlka?","correct":"Červená Karkulka","alt":["červená karkulka"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"Č","prompt":"Jaká bytost je hlavní postavou v mnoha českých pohádkách?","correct":"Čert","alt":["čert"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"D","prompt":"Jak se nazývá bytost, která se objevuje po tření kouzelné lampy?","correct":"Džin","alt":["džin","genie"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"E","prompt":"Jak se jmenuje motýl z pohádky Maková panenka?","correct":"Emanuel","alt":["emanuel"],"category":"Pohádky","difficulty":"ZŠ1","lang":"cs" },
