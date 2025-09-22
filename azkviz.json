@@ -17,7 +17,7 @@
     { "letter":"A","prompt":"Jak se nazývá největší výchylka kmitajícího tělesa z rovnovážné polohy?","correct":"Amplituda","alt":["amplituda"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"A","prompt":"Jak se jmenoval řecký učenec, který objevil zákon o vztlaku těles v kapalině?","correct":"Archimédes","alt":["archimédes"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"A","prompt":"Jak se nazývá základní stavební částice hmoty složená z jádra a obalu elektronů?","correct":"Atom","alt":["atom"],"category":"Fyzika","difficulty":"ZŠ1","lang":"cs" },
-    { "letter":"A","prompt":"Jak se nazývá elektroda, na kterou přicházejí kladné ionty v elektrickém obvodu?","correct":"Yesda","alt":["anoda"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
+    { "letter":"A","prompt":"Jak se nazývá elektroda, na kterou přicházejí záporné ionty v elektrickém obvodu?","correct":"Anoda","alt":["anoda"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
     { "letter":"A","prompt":"Jak se nazývá fyzikální jednotka elektrického proudu?","correct":"Ampér","alt":["ampér","a"],"category":"Fyzika","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"B","prompt":"Jak se jmenuje přístroj pro měření atmosférického tlaku?","correct":"Barometr","alt":["barometr"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"B","prompt":"Jak se nazývá rovnice popisující proudění tekutin, pojmenovaná po švýcarském vědci?","correct":"Bernoulliho rovnice","alt":["bernoulliho rovnice"],"category":"Fyzika","difficulty":"SŠ","lang":"cs" },
