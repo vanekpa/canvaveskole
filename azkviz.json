@@ -528,7 +528,7 @@
     { "letter":"G","prompt":"Jaký sport se hraje na jamky s holemi a míčkem?","correct":"Golf","alt":["golf"],"category":"Sport","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"H","prompt":"Kde se v roce 1930 konaly Hry Commonwealthu?","correct":"Hamilton, Kanada","alt":["hamilton","hamilton, kanada"],"category":"Sport","difficulty":"SŠ","lang":"cs" },
     { "letter":"H","prompt":"Jak se nazývá sedmičlenný míčový sport hraný v hale s brankami?","correct":"Házená","alt":["házená","hazená","hazena"],"category":"Sport","difficulty":"ZŠ1","lang":"cs" },
-    { "letter":"H","prompt":"Který švédský brankář NHL je známý jako „The King“?","correct":"Henrik Lundqvist","alt":["henrik lundqvist","lundqvist"],"category":"Sport","difficulty":"SŠ","lang":"cs" },
+    { "letter":"H","prompt":"Který švédský brankář NHL je známý jako „The King“, křestí začíná na H, příjmení na K?","correct":"Henrik Lundqvist","alt":["henrik lundqvist","lundqvist"],"category":"Sport","difficulty":"SŠ","lang":"cs" },
     { "letter":"CH","prompt":"Který londýnský klub přezdívaný „Blues“ hraje na Stamford Bridge?","correct":"Chelsea","alt":["chelsea","chelsea fc"],"category":"Sport","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"CH","prompt":"Který tým NBA proslavil Michael Jordan?","correct":"Chicago Bulls","alt":["chicago bulls","bulls"],"category":"Sport","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"CH","prompt":"Která země prohrála finále MS ve fotbale 2018 s Francií?","correct":"Chorvatsko","alt":["chorvatsko"],"category":"Sport","difficulty":"ZŠ2","lang":"cs" },
