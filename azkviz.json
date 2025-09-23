@@ -241,7 +241,7 @@
     { "letter":"K","prompt":"Jak se nazývá proces zmenšování velikosti souborů, například obrázků nebo videí?","correct":"Komprese","alt":["komprese","komprese dat"],"category":"Informatika","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"K","prompt":"Jak se nazývá digitální měna, která funguje na technologii blockchain?","correct":"Kryptoměna","alt":["kryptoměna","kryptoměny"],"category":"Informatika","difficulty":"SŠ","lang":"cs" },
     { "letter":"K","prompt":"Jak se nazývá převod dat do jiné podoby, například textu do čísel, pro účely zpracování nebo šifrování?","correct":"Kódování","alt":["kódování"],"category":"Informatika","difficulty":"ZŠ2","lang":"cs" },
-    { "letter":"K","prompt":"Jak se nazývá rozdíl mezi nejsvětlejší a nejtmavší částí obrazu na monitoru?","correct":"Kontrast","alt":["kontrast"],"category":"Informatika","difficulty":"ZŠ1","lang":"cs" },
+    { "letter":"K","prompt":"Jak se nazývá veličina, která uvádí rozdíl mezi nejsvětlejším a nejtmavším bodem obrazu např. monitoru.","correct":"Kontrast","alt":["kontrast"],"category":"Informatika","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"K","prompt":"Jak se na platformě YouTube nazývá osobní stránka tvůrce, kde jsou shromážděna všechna jeho nahraná videa?","correct":"Kanál","alt":["kanál"],"category":"Informatika","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"K","prompt":"Jak se nazývá energie tělesa, kterou má díky svému pohybu?","correct":"Kinetická energie","alt":["kinetická energie"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"K","prompt":"Jak se jmenuje základní jednotka termodynamické teploty v soustavě SI?","correct":"Kelvin","alt":["kelvin","k"],"category":"Fyzika","difficulty":"ZŠ2","lang":"cs" },
