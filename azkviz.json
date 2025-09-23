@@ -1395,7 +1395,6 @@
   { "letter":"G","prompt":"Jak se anglicky nazývá zlatý míček používaný při famfrpálu?","correct":"Golden snitch","alt":["golden snitch","snitch","zlatonka"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"G","prompt":"Jak se jmenuje kouzelnická banka v Příčné ulici?","correct":"Gringotts","alt":["gringotts","gringottova banka"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"G","prompt":"Jak se anglicky jmenuje kolej Nebelvíru?","correct":"Gryffindor","alt":["gryffindor","nebelvir"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" }
-]
   ],
   "yesno": [
     { "prompt":"Světlo je rychlejší než zvuk.","answer_bool":true,"category":"Fyzika","difficulty":"ZŠ1","lang":"cs" },
