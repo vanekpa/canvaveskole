@@ -1385,7 +1385,7 @@
   { "letter":"A","prompt":"Jaký ozbrojený sbor spadá pod Ministerstvo obrany ČR?","correct":"Armáda ČR","alt":["armáda čr","armada cr"],"category":"Česká republika","difficulty":"SŠ","lang":"cs" },
   { "letter":"A","prompt":"Jaká komodita se vyrábí v Mladé Boleslavi?","correct":"Auta","alt":["auto","škoda auto","skoda auto"],"category":"Česká republika","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"B","prompt":"Jaké je druhé největší město v ČR?","correct":"Brno","alt":["brno"],"category":"Česká republika","difficulty":"ZŠ2","lang":"cs" },
-  { "letter":"B","prompt":"Jaká název nese významná bitva, která roku 1620 proběhla u kousek Prahy?","correct":"Bitva na Bílé hoře","alt":["bílá hora","bila hora"],"category":"Česká republnika","difficulty":"SŠ","lang":"cs" },
+  { "letter":"B","prompt":"Jaký název nese významná bitva, která roku 1620 proběhla na našem území?","correct":"Bitva na Bílé hoře","alt":["bílá hora","bila hora"],"category":"Česká republika","difficulty":"SŠ","lang":"cs" },
   { "letter":"B","prompt":"Jak se jmenuje český státní pivovar vyrábějící pivo?","correct":"Budweiser Budvar","alt":["budweiser","budvar"],"category":"Česká republika","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"B","prompt":"Jak se jmenuje řeka, která vzniká soutokem čtyř dalších v Plzni?","correct":"Berounka","alt":["berounka"],"category":"Česká republika","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"C","prompt":"Karel IV. byl známý také jaké Římský...","correct":"Císař","alt":["císař"],"category":"Česká republika","difficulty":"ZŠ2","lang":"cs" },
