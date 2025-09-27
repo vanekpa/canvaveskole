@@ -1775,8 +1775,8 @@
   { "prompt":"Když hledáš ‚den Eingang‘, hledáš východ z budovy.","answer_bool":false,"category":"Německý jazyk - Cestování","difficulty":"ZŠ2","lang":"cs" }
   ],
   "ads": [
-    { "text":"Hraj v Plzni americkou vybíjenou!","url":"https://dbpilsen.cz","durationSec":20 },
-    { "text":"Únikové hry ve škole - mrkni na web a měj přehled!","url":"https://unikovkyveskole.cz","durationSec":20 },
-    { "text":"Nakladatelství pro základní školy, které nabízí učitelům vše potřebné pro moderní a smysluplnou výuku.","url":"https://www.vividbooks.com/","durationSec":20 }
+    { "text":"Hraj v Plzni americkou vybíjenou!","url":"https://dbpilsen.cz","durationSec":0 },
+    { "text":"Únikové hry ve škole - mrkni na web a měj přehled!","url":"https://unikovkyveskole.cz","durationSec":0 },
+    { "text":"Nakladatelství pro základní školy, které nabízí učitelům vše potřebné pro moderní a smysluplnou výuku.","url":"https://www.vividbooks.com/","durationSec":0 }
   ]
 }
