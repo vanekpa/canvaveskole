@@ -1,0 +1,2478 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Úniková hra - HESLO</title>
+<style>
+  body {
+    box-sizing: border-box;
+  }
+  
+  :root{
+    --bg:#00a8cf; --white:#fff; --muted:rgba(255,255,255,.8); --muted2:rgba(255,255,255,.6);
+  }
+  html,body{height:100%}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--white);overflow:hidden}
+  .screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:opacity 0.8s ease-in-out, transform 0.8s ease-in-out;opacity:1;transform:translateY(0)}
+  .hidden{opacity:0;transform:translateY(-20px);pointer-events:none}
+  .screen.slide-out{opacity:0;transform:translateY(-50px)}
+  .screen.slide-in{opacity:1;transform:translateY(0)}
+  
+  /* LOCK */
+  .lock-wrap{position:relative;width:100%;height:100%;cursor:pointer}
+  .lock-logo{position:absolute;left:50%;top:33%;transform:translateX(-50%);display:flex;align-items:center;gap:18px}
+  .lock-logo .txt{font-weight:800;font-size:48px}
+  .lock-logo .arrow{background:var(--white);color:#20899b;font-weight:900;border-radius:6px 0 6px 6px;padding:12px 22px 10px;clip-path:polygon(0 0, 86% 0, 100% 50%, 86% 100%, 0 100%);} 
+  .lock-help{position:absolute;right:24px;bottom:24px;text-align:right;font-size:14px;line-height:1.25;color:var(--muted2)}
+  .lock-time{position:absolute;left:24px;bottom:24px;font-size:64px;font-weight:700;letter-spacing:1px}
+  .lock-date{position:absolute;left:26px;bottom:84px;font-size:22px;color:var(--muted)}
+  .hint-any{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);font-size:14px;color:var(--muted2)}
+
+  /* LOGIN */
+  .login-card{background:none;border:none;box-shadow:none;padding:0;text-align:center;width:auto}
+  .avatar{width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-grid;place-items:center;margin:0 auto 20px;font-size:48px}
+  .username{font-weight:600;font-size:26px;margin:0 0 10px}
+  .input-row{display:flex;flex-direction:column;gap:12px;align-items:center;margin:20px 0}
+  /* stejná metrika pro všechny prvky */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  /* sjednocení výšky input+šipky */
+  .login-input {
+    --row-h: 40px;          /* můžeš klidně změnit na 42–44px podle chuti */
+    height: var(--row-h);
+    display: flex;
+    align-items: stretch;   /* ať se děti natáhnou na celou výšku */
+    width:340px;max-width:85vw;
+    border-radius: 4px;
+    overflow: hidden;
+    gap: 0;
+  }
+
+  .login-input input {
+    flex: 1;
+    min-width: 0;           /* CRUCIAL fix pro flexbox overflow */
+    height: 100%;           /* stejná výška jako kontejner */
+    padding: 0 12px;        /* vertikální padding pryč, ať sedí výška */
+    border: none;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .login-input.user input{background:#fff;color:#000}
+  .login-input.pass input{background:#003840;color:#fff}
+
+  .login-input.pass .password-controls {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    gap: 0;
+  }
+  
+  .login-input.pass .eye-btn {
+    all: unset;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 8px;
+    min-width: 36px;
+    background: none;
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    line-height: 1;
+    font-size: 14px;
+  }
+  
+  .login-input.pass .eye-btn.visible {
+    display: grid;
+    place-items: center;
+  }
+  
+  .login-input.pass .eye-btn:hover {
+    color: rgba(255,255,255,0.9);
+  }
+  
+  .login-input.pass .submit-btn {
+    all: unset;
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: 0 14px;
+    min-width: 44px;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 18px;
+  }
+  
+  .login-input.pass .submit-btn:hover {
+    background: rgba(255,255,255,0.28);
+  }
+  input::placeholder{color:#666}
+  .input-group{margin:6px 0}
+  .input-group input{width:300px;max-width:80vw;padding:8px 10px;border-radius:4px;border:1px solid #ccc;background:#fff;color:#000;font-size:16px;outline:none}
+  .other-user-form{margin-top:20px}
+  .domain-info{margin-top:20px;font-size:14px;color:var(--muted)}
+  .domain-info p{margin:5px 0}
+  .domain-info a{color:var(--white);text-decoration:underline}
+  .domain-info a:hover{color:#2bc4d0}
+  button{background:none;border:none;font-size:28px;margin-top:10px;cursor:pointer;color:white;padding:5px}
+  button:hover{color:#2bc4d0}
+  .account-tiles{position:absolute;left:18px;bottom:24px;display:flex;flex-direction:column;gap:10px}
+  .acct{display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.18);padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.15);font-size:14px;cursor:pointer}
+  .acct:hover{background:rgba(0,0,0,.25)}
+  .acct .dot{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.5);display:grid;place-items:center;font-size:12px;font-weight:bold}
+  .corner-icons{position:absolute;right:18px;bottom:18px;display:flex;gap:10px;opacity:.85}
+  .corner-icons .icon{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.18);display:grid;place-items:center;border:1px solid rgba(255,255,255,.2);cursor:pointer;font-size:16px}
+  .corner-icons .icon:hover{background:rgba(255,255,255,.25)}
+
+  /* DESKTOP */
+  .desktop{position:absolute;inset:0;background:linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);display:flex;flex-direction:column}
+  .desktop.custom-bg{background-image:var(--custom-wallpaper);background-size:cover;background-position:center}
+  
+  /* Taskbar */
+  .taskbar{position:absolute;bottom:0;left:0;right:0;height:48px;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);display:flex;align-items:center;padding:0 8px;border-top:1px solid rgba(255,255,255,0.1)}
+  .start-btn{display:flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(255,255,255,0.1);border-radius:6px;cursor:pointer;color:white;font-weight:600;transition:background 0.2s}
+  .start-btn:hover{background:rgba(255,255,255,0.2)}
+  .start-icon{font-size:18px}
+  .start-text{font-size:14px}
+  .taskbar-apps{display:flex;gap:4px;margin-left:16px}
+  .app-btn{width:40px;height:40px;display:grid;place-items:center;background:rgba(255,255,255,0.1);border-radius:6px;cursor:pointer;font-size:18px;transition:background 0.2s}
+  .app-btn:hover{background:rgba(255,255,255,0.2)}
+  .system-tray{margin-left:auto;display:flex;align-items:center;gap:8px;color:white}
+  .tray-icon{padding:4px;cursor:pointer;opacity:0.8;transition:opacity 0.2s}
+  .tray-icon:hover{opacity:1}
+  .tray-time{font-weight:600;font-size:14px;padding:4px 8px}
+  
+  /* Desktop Icons */
+  .desktop-icons{position:absolute;top:20px;left:20px;display:grid;gap:20px;grid-template-columns:repeat(auto-fit, 80px)}
+  .desktop-icon{display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px;border-radius:8px;cursor:pointer;transition:background 0.2s;color:white;text-align:center}
+  .desktop-icon:hover{background:rgba(255,255,255,0.1)}
+  .icon-image{font-size:32px;margin-bottom:4px}
+  .icon-label{font-size:12px;line-height:1.2;word-wrap:break-word;max-width:80px}
+  
+  /* Start Menu */
+  .start-menu{position:absolute;bottom:56px;left:8px;width:320px;background:rgba(0,0,0,0.9);backdrop-filter:blur(20px);border-radius:12px;border:1px solid rgba(255,255,255,0.1);color:white;box-shadow:0 20px 40px rgba(0,0,0,0.5)}
+  .start-menu.hidden{display:none}
+  .start-header{padding:16px;border-bottom:1px solid rgba(255,255,255,0.1)}
+  .user-info{display:flex;align-items:center;gap:12px}
+  .user-avatar{width:40px;height:40px;background:rgba(255,255,255,0.2);border-radius:50%;display:grid;place-items:center;font-size:20px}
+  .user-name{font-weight:600;font-size:16px}
+  .start-apps{padding:8px 0}
+  .start-app{display:flex;align-items:center;gap:12px;padding:12px 16px;cursor:pointer;transition:background 0.2s}
+  .start-app:hover{background:rgba(255,255,255,0.1)}
+  .app-icon{font-size:20px;width:24px;text-align:center}
+  .app-name{font-size:14px}
+  .start-footer{padding:8px;border-top:1px solid rgba(255,255,255,0.1)}
+  .power-btn{display:flex;align-items:center;gap:12px;padding:12px 16px;cursor:pointer;transition:background 0.2s;border-radius:6px}
+  .power-btn:hover{background:rgba(255,255,255,0.1)}
+  .power-icon{font-size:18px}
+  .power-text{font-size:14px}
+  
+  .error-msg{color:#ffcccc;font-size:14px;margin-top:10px;min-height:20px;text-shadow:1px 1px 2px rgba(0,0,0,0.5)}
+  
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  
+  /* NOTES MODAL */
+  .notes-modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:1000;transition:opacity 0.3s ease}
+  .notes-content{background:#fff;color:#333;border-radius:12px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+  .notes-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px 0;border-bottom:1px solid #eee;margin-bottom:20px}
+  .notes-header h3{margin:0;font-size:20px;color:#333}
+  .close-btn{all:unset;cursor:pointer;font-size:24px;color:#666;padding:4px;line-height:1}
+  .close-btn:hover{color:#333}
+  .notes-body{padding:0 24px 24px;line-height:1.6}
+  .notes-body p{margin:0 0 16px}
+  .notes-body code{background:#f5f5f5;padding:2px 6px;border-radius:4px;font-family:monospace;color:#d63384}
+  
+  /* SYSTEM MODAL */
+  .sys-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);z-index:1100}
+  .sys-modal.hidden{display:none}
+  .sys-card{background:#fff;color:#222;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.35);width:min(520px,92vw);max-height:80vh;overflow:auto}
+  .sys-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid #eee}
+  .sys-head h3{margin:0;font-size:18px}
+  .sys-close{all:unset;cursor:pointer;font-size:22px;line-height:1;color:#666;padding:4px 8px}
+  .sys-close:hover{color:#111}
+  .sys-body{padding:16px 18px;line-height:1.55}
+  .sys-body p{margin:0 0 10px}
+  .sys-body code{background:#f6f6f6;padding:2px 6px;border-radius:4px}
+  
+  .overlay{
+    position:fixed; inset:0; display:grid; place-items:center;
+    padding:16px; background:rgba(0,0,0,.35); z-index:2000;
+  }
+  .overlay.hidden{ display:none }
+
+  .glass-card{
+    backdrop-filter:saturate(120%) blur(14px);
+    background:rgba(0,0,0,.16);
+    border:1px solid rgba(255,255,255,.12);
+    width:min(680px,92vw); border-radius:18px; padding:24px 22px; color:#fff;
+    max-height:80vh; overflow:auto;
+  }
+  .glass-card h2{margin:0 0 10px;font-size:22px;font-weight:700}
+  .glass-card p{margin:0 0 12px;color:rgba(255,255,255,.9)}
+  .glass-card input{
+    width:100%;
+    border:1px solid rgba(255,255,255,.35);
+    background:rgba(3,3,3,.16);
+    color:#fff;
+    border-radius:8px;
+    padding:10px 12px;
+    font-size:16px;
+    outline:none;
+    margin:6px 0;
+    box-sizing:border-box;
+  }
+  .btn-primary, .btn-secondary{
+    all:unset; cursor:pointer; border-radius:10px; padding:10px 14px; font-weight:800;
+  }
+  .btn-primary{ background:#2bc4d0; color:#003e44 }
+  .btn-secondary{ background:rgba(255,255,255,.14); color:#fff }
+  .btn-primary:hover{ filter:brightness(.95) }
+  .btn-secondary:hover{ background:rgba(255,255,255,.22) }
+  .btn-primary:disabled{
+    background:rgba(255,255,255,.2);
+    color:rgba(255,255,255,.5);
+    cursor:not-allowed;
+  }
+  .meter{height:8px;background:rgba(255,255,255,.18);border-radius:999px;overflow:hidden;margin:6px 0}
+  .meter i{display:block;height:100%;width:0;background:#2bc4d0;transition:width .2s ease}
+  .rule-list{list-style:none;margin:10px 0 0;padding:0}
+  .rule-list li{font-size:14px;color:rgba(255,255,255,.75);margin:4px 0;position:relative;padding-left:22px}
+  .rule-list li::before{content:"✗";position:absolute;left:0;color:#eee;background:rgba(255,255,255,.12);width:20px;height:20px;display:grid;place-items:center;border-radius:6px}
+  .rule-list li.ok{color:#c9ffd9}
+  .rule-list li.ok::before{content:"✓";color:#2ecc71;background:rgba(46,204,113,.25)}
+
+  body.modal-open{ overflow:hidden }
+  .timer{position:fixed;right:12px;top:12px;background:rgba(0,0,0,.5);color:#fff;padding:8px 12px;border-radius:8px;font-weight:700;z-index:3000}
+  
+  /* locked start items */
+  .redfx{pointer-events:none;position:fixed;inset:0;mix-blend-mode:screen;background:radial-gradient(1200px 800px at 60% 20%,rgba(255,0,0,.22),transparent 60%),radial-gradient(700px 500px at 30% 80%,rgba(255,60,60,.18),transparent 60%);animation:redblink 5s infinite;z-index:3000}
+  @keyframes redblink{0%,100%{opacity:.12;filter:brightness(1)} 45%{opacity:.35;filter:brightness(1.15)} 50%{opacity:.65;filter:brightness(1.35)} 55%{opacity:.35;filter:brightness(1.15)}}
+  .start-app.locked{opacity:.32;filter:grayscale(.6)}
+  .start-app.done{background:rgba(40,200,100,.18)}
+  .wallpaper-note{position:fixed;left:0;right:0;top:0;padding:12px;text-align:center;font-weight:700;z-index:2500;transition:all .3s;color:#fff}
+  .wallpaper-note.warn{background:rgba(200,30,30,.95)}
+  .start-app.locked{ opacity:.32; filter:grayscale(.6); cursor:not-allowed; }
+
+  /* výraznější red-studio overlay */
+  .redfx{
+    pointer-events:none;
+    position:fixed; inset:0;
+    mix-blend-mode:screen;
+    background:
+      radial-gradient(1200px 800px at 60% 20%, rgba(255,0,0,.28), transparent 60%),
+      radial-gradient(700px 500px at 30% 80%, rgba(255,60,60,.22), transparent 60%),
+      radial-gradient(500px 300px at 85% 65%, rgba(255,90,90,.18), transparent 60%);
+    animation:redblink 5s infinite, redsweep 12s linear infinite;
+    z-index:3000;
+  }
+  @keyframes redblink{
+    0%,100%{opacity:.12;filter:brightness(1)}
+    45%{opacity:.35;filter:brightness(1.15)}
+    50%{opacity:.70;filter:brightness(1.35)}
+    55%{opacity:.35;filter:brightness(1.15)}
+  }
+  @keyframes redsweep{
+    0%{background-position: 60% 20%, 30% 80%, 85% 65%}
+    50%{background-position: 65% 25%, 25% 75%, 80% 60%}
+    100%{background-position: 60% 20%, 30% 80%, 85% 65%}
+  }
+
+  .start-app{position:relative; overflow:hidden; transition:transform .15s, background .25s, box-shadow .25s;}
+  .start-app.done{
+    background:linear-gradient(180deg, rgba(46,204,113,.22), rgba(46,204,113,.08));
+    box-shadow:0 0 0 1px rgba(46,204,113,.45), 0 10px 18px rgba(46,204,113,.18);
+  }
+  .start-app.done::after{
+    content:"✓";
+    position:absolute; right:12px; top:10px;
+    font-weight:900; font-size:14px;
+    background:rgba(46,204,113,.85); color:#073;
+    border-radius:8px; padding:2px 6px; border:1px solid rgba(255,255,255,.5);
+  }
+  .start-app.done.pulse{ animation:donePulse 900ms ease-out 1; }
+  @keyframes donePulse{
+    0%{ box-shadow:0 0 0 0 rgba(46,204,113,.65); transform:scale(1.00); }
+    70%{ box-shadow:0 0 0 14px rgba(46,204,113,0); transform:scale(1.02); }
+    100%{ box-shadow:0 0 0 0 rgba(46,204,113,0); transform:scale(1.00); }
+  }
+
+  /* Final lock styles */
+  .final-lock{
+    background:linear-gradient(135deg, rgba(43,196,208,.2), rgba(43,196,208,.05));
+    border:2px solid rgba(43,196,208,.6);
+    box-shadow:0 0 20px rgba(43,196,208,.3);
+  }
+  @keyframes lockPulse{
+    0%{ box-shadow:0 0 20px rgba(43,196,208,.3); transform:scale(1); }
+    50%{ box-shadow:0 0 30px rgba(43,196,208,.6); transform:scale(1.05); }
+    100%{ box-shadow:0 0 20px rgba(43,196,208,.3); transform:scale(1); }
+  }
+
+  /* Final lock overlay */
+  .final-lock-overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,.85);display:grid;place-items:center;
+    z-index:5000;backdrop-filter:blur(8px);
+  }
+  .final-lock-card{
+    background:linear-gradient(135deg, #0a0a0a, #1a1a2e);
+    border:2px solid #2bc4d0;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 0 50px rgba(43,196,208,.4), inset 0 0 30px rgba(43,196,208,.1);
+    color:#fff;
+    max-width:600px;
+    width:90%;
+  }
+  .final-lock-title{
+    text-align:center;
+    font-size:28px;
+    font-weight:800;
+    margin:0 0 20px;
+    color:#2bc4d0;
+    text-shadow:0 0 10px rgba(43,196,208,.5);
+  }
+  .lock-segments{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:10px;
+    margin:20px 0;
+  }
+  .lock-segment{
+    position:relative;
+    background:rgba(43,196,208,.1);
+    border:2px solid rgba(43,196,208,.3);
+    border-radius:10px;
+    padding:15px 8px;
+    text-align:center;
+    transition:all 0.3s ease;
+  }
+  .lock-segment:focus-within{
+    border-color:#2bc4d0;
+    box-shadow:0 0 15px rgba(43,196,208,.5);
+    background:rgba(43,196,208,.2);
+  }
+  .lock-segment input{
+    all:unset;
+    width:100%;
+    text-align:center;
+    font-size:18px;
+    font-weight:700;
+    color:#2bc4d0;
+    text-transform:uppercase;
+  }
+  .lock-segment input::placeholder{
+    color:rgba(43,196,208,.5);
+    font-weight:400;
+  }
+  .lock-segment.error{
+    border-color:#ff4757;
+    background:rgba(255,71,87,.1);
+    animation:shake 0.5s ease-in-out;
+  }
+  .lock-segment.success{
+    border-color:#2ecc71;
+    background:rgba(46,204,113,.1);
+  }
+  .lock-segment-label{
+    position:absolute;
+    top:-8px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#0a0a0a;
+    padding:2px 8px;
+    font-size:10px;
+    color:rgba(43,196,208,.8);
+    border-radius:4px;
+  }
+  .lock-controls{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    margin-top:25px;
+  }
+  .lock-btn{
+    all:unset;
+    cursor:pointer;
+    padding:12px 25px;
+    border-radius:10px;
+    font-weight:700;
+    transition:all 0.3s ease;
+    text-align:center;
+    min-width:100px;
+  }
+  .lock-btn.primary{
+    background:linear-gradient(135deg, #2bc4d0, #1e90ff);
+    color:#003e44;
+    box-shadow:0 4px 15px rgba(43,196,208,.3);
+  }
+  .lock-btn.primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(43,196,208,.4);
+  }
+  .lock-btn.secondary{
+    background:rgba(255,255,255,.1);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.2);
+  }
+  .lock-btn.secondary:hover{
+    background:rgba(255,255,255,.2);
+  }
+  .lock-message{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+    min-height:20px;
+  }
+  .lock-message.error{
+    color:#ff4757;
+  }
+  .lock-message.success{
+    color:#2ecc71;
+  }
+  .lock-hints{
+    background:rgba(43,196,208,.05);
+    border:1px solid rgba(43,196,208,.2);
+    border-radius:10px;
+    padding:15px;
+    margin:15px 0;
+    font-size:13px;
+    line-height:1.4;
+  }
+  .lock-hints h4{
+    margin:0 0 10px;
+    color:#2bc4d0;
+    font-size:14px;
+  }
+  @keyframes shake{
+    0%,100%{transform:translateX(0)}
+    25%{transform:translateX(-5px)}
+    75%{transform:translateX(5px)}
+  }
+</style>
+</head>
+<body>
+  <!-- SCREEN 1: LOCK -->
+  <div class="screen" id="lockScreen">
+    <div class="lock-wrap" tabindex="0" onclick="goLogin()" onkeydown="if(event.key==='Enter') goLogin()">
+      <div class="lock-logo">
+        <div class="txt">Digitální</div>
+        <div class="arrow">Peklo</div>
+      </div>
+      <div class="lock-date" id="lockDate">úterý 30. září</div>
+      <div class="lock-time" id="lockTime">9:22</div>
+      <div class="hint-any">Klikni, nebo stiskni Enter pro přihlášení</div>
+      <div class="lock-help">
+        Správa informačních<br /> technologií města Peklo<br /><br />
+        Helpline: 666 666 666<br />
+        http://canvaveskole.cz<br />
+        www.peklo-edu.cz
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: LOGIN -->
+  <div class="screen hidden" id="loginScreen">
+    <div class="login-card">
+      <div class="avatar">👤</div>
+      <div class="username">Jan Novák</div>
+      <div class="login-input pass" id="normalLogin">
+        <input type="password" id="password" placeholder="Heslo" autocomplete="current-password">
+        <div class="password-controls">
+          <button type="button" class="eye-btn" id="eyeBtn" aria-label="Zobrazit heslo">👁</button>
+          <button type="button" class="submit-btn" id="btnGo" aria-label="Přihlásit">→</button>
+        </div>
+      </div>
+      <div class="error-msg" id="errorMsg"></div>
+      
+      <div class="other-user-form hidden" id="otherUserForm">
+        <div class="input-row">
+          <div class="login-input user">
+            <input type="text" id="username" placeholder="Uživatelské jméno" autocomplete="username">
+          </div>
+          <div class="login-input pass">
+            <input type="password" id="otherPassword" placeholder="Heslo" autocomplete="current-password">
+            <div class="password-controls">
+              <button type="button" class="eye-btn" id="eyeBtnOther" aria-label="Zobrazit heslo">👁</button>
+              <button type="button" class="submit-btn" id="btnGoOther">→</button>
+            </div>
+          </div>
+        </div>
+        <div class="error-msg" id="errorMsgOther"></div>
+        <div class="domain-info">
+          <p>Přihlásit se k doméně: <strong>PEKLO-EDU</strong></p>
+          <p><a href="#" onclick="showDomainHelp()">Jak se přihlásit k jiné doméně?</a></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="account-tiles">
+      <div class="acct" onclick="switchUser('admin')">
+        <div class="dot">A</div>
+        <span>Administrator</span>
+      </div>
+      <div class="acct" onclick="switchUser('other')">
+        <div class="dot">?</div>
+        <span>Jiný uživatel</span>
+      </div>
+    </div>
+    
+    <div class="corner-icons">
+      <div class="icon" title="Síť" onclick="showNetworkInfo()">📶</div>
+      <div class="icon" title="Napájení" onclick="showBatteryInfo()">🔋</div>
+      <div class="icon" title="Poznámky" onclick="showNotes()">📝</div>
+      <div class="icon" title="Nastavení" onclick="showSettingsInfo()">⚙️</div>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: DESKTOP -->
+  <div class="screen hidden" id="desktopScreen">
+    <div class="desktop">
+      <!-- Taskbar -->
+      <div class="taskbar">
+        <div class="start-btn" onclick="toggleStartMenu()">
+          <span class="start-icon">🪟</span>
+          <span class="start-text">Start</span>
+        </div>
+        <div class="taskbar-apps">
+          <div class="app-btn" title="Poznámkový blok" onclick="openNotepad()">📝</div>
+        </div>
+        <div class="system-tray">
+          <div class="tray-icon" title="Síť">📶</div>
+          <div class="tray-icon" title="Zvuk">🔊</div>
+          <div class="tray-icon" title="Baterie">🔋</div>
+          <div class="tray-time" id="desktopTime">9:22</div>
+        </div>
+      </div>
+
+      <!-- Desktop Icons -->
+      <div class="desktop-icons">
+        <div class="desktop-icon" ondblclick="openRecycleBin()">
+          <div class="icon-image">🗑️</div>
+          <div class="icon-label">Koš</div>
+        </div>
+        <div class="desktop-icon" ondblclick="openSecretFolder()">
+          <div class="icon-image">📂</div>
+          <div class="icon-label">Tajné_soubory</div>
+        </div>
+      </div>
+
+      <!-- Start Menu -->
+      <div class="start-menu hidden" id="startMenu">
+        <div class="start-header">
+          <div class="user-info">
+            <div class="user-avatar">👤</div>
+            <div class="user-name" id="desktopUserName">Jan Novák</div>
+          </div>
+        </div>
+        <div class="start-apps">
+          <div class="start-app" data-app="notepad" onclick="openNotepad()">
+            <span class="app-icon">📝</span>
+            <span class="app-name">Poznámkový blok</span>
+          </div>
+          <div class="start-app" data-app="settings" onclick="openSettings()">
+            <span class="app-icon">⚙️</span>
+            <span class="app-name">Nastavení</span>
+          </div>
+          <div class="start-app" data-app="quiz" onclick="openQuiz()">
+            <span class="app-icon">🧩</span>
+            <span class="app-name">Síto hesel</span>
+          </div>
+          <div class="start-app" data-app="wifi" onclick="openWifiTask()">
+            <span class="app-icon">📶</span>
+            <span class="app-name">Wi-Fi přízraky</span>
+          </div>
+          <div class="start-app" data-app="phish" onclick="openPhishingTask()">
+            <span class="app-icon">🎣</span>
+            <span class="app-name">Lov phishingu</span>
+          </div>
+          <div class="start-app" data-app="fa" onclick="open2FATask()">
+            <span class="app-icon">🔐</span>
+            <span class="app-name">Dvoufaktorová brána</span>
+          </div>
+          <div class="start-app" data-app="file" onclick="openFileTask()">
+            <span class="app-icon">📁</span>
+            <span class="app-name">Souborová past</span>
+          </div>
+          <div class="start-app" data-app="privacy" onclick="openPrivacyTask()">
+            <span class="app-icon">🛡️</span>
+            <span class="app-name">Štít soukromí</span>
+          </div>
+        </div>
+        <div class="start-footer">
+          <div class="power-btn" onclick="showLogoutConfirm()">
+            <span class="power-icon">⏻</span>
+            <span class="power-text">Odhlásit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTES MODAL -->
+  <div class="notes-modal hidden" id="notesModal">
+    <div class="notes-content">
+      <div class="notes-header">
+        <h3>📝 Poznámky pro přihlášení</h3>
+        <button class="close-btn" onclick="hideNotes()">×</button>
+      </div>
+      <div class="notes-body">
+        <p><strong>Vítej na 666. základní škole</strong> – jen vyvolení mohou vstoupit do systému.</p>
+        <p>Tvůj login vždy začíná číslem <strong>666.</strong>, za ním píšeš část svého příjmení a křestního jména.</p>
+        <p><strong>Například ředitel Pavel Šulc se přihlašuje takto:</strong><br>
+        login: <code>666.sulcpa</code><br>
+        email: <code>sulcpa@zs666.peklo-edu.cz</code></p>
+        <p><strong>Tvoje heslo je:</strong> <code>afRikA+66.</code></p>
+        <p><em>Neusínej na vavřínech – tenhle klíč brzy ztratí platnost a systém tě donutí vytvořit nové, silnější heslo.</em></p>
+        <p><strong>Pamatuj:</strong> kdo nedodrží pravidla, ten bránu školy neotevře.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SYSTEM MODAL (univerzální pro ⚙️/🔋/📶) -->
+  <div class="sys-modal hidden" id="sysModal" role="dialog" aria-modal="true" aria-labelledby="sysTitle">
+    <div class="sys-card">
+      <div class="sys-head">
+        <h3 id="sysTitle">System</h3>
+        <button class="sys-close" type="button" onclick="closeSys()">×</button>
+      </div>
+      <div class="sys-body" id="sysBody"></div>
+    </div>
+  </div>
+
+  <!-- OVERLAY pro expiraci / změnu hesla -->
+  <div class="overlay hidden" id="pwdOverlay">
+    <!-- Expirace -->
+    <div class="glass-card" id="pwdExpire">
+      <h2>Platnost hesla vypršela</h2>
+      <p>Pro pokračování je nutné zadat nové heslo.</p>
+      <div style="text-align:right;margin-top:16px;">
+        <button class="btn-secondary" onclick="cancelPwd()">Storno</button>
+        <button class="btn-primary" onclick="showPwdChange()">OK</button>
+      </div>
+    </div>
+
+    <!-- Formulář změny hesla -->
+    <div class="glass-card hidden" id="pwdChange">
+      <h2>Změna hesla</h2>
+      <input id="pwdNew" type="password" placeholder="Nové heslo" oninput="validatePwd()">
+      <input id="pwdNew2" type="password" placeholder="Potvrď heslo" oninput="validatePwd()">
+      <div class="meter"><i id="pwdMeter"></i></div>
+      <ul class="rule-list" id="rules">
+        <li data-r="len">Min. 10 znaků</li>
+        <li data-r="case">Velké i malé písmeno</li>
+        <li data-r="num">Číslo</li>
+        <li data-r="sym">Speciální znak</li>
+        <li data-r="old">Dost odlišné od starého (min. 3 změny; ne jen přidat znak)</li>
+        <li data-r="match">Shoda hesel</li>
+      </ul>
+      <div style="text-align:right;margin-top:12px;">
+        <button class="btn-primary" id="pwdSave" onclick="savePwd()" disabled>Uložit</button>
+      </div>
+      <div id="pwdErr" style="margin-top:8px;color:#ffcccc;font-size:14px;"></div>
+    </div>
+  </div>
+
+  <script>
+    // Unified password fragments system
+    window.finalKeyParts = Object.assign(window.finalKeyParts || {}, { ev:null, ro:null, pa:null, plus:null, school:null, month:null });
+
+    function setPart(k,v){
+      window.finalKeyParts[k] = String(v);
+      try{ dispatchEvent(new CustomEvent('final:changed',{detail:{k,v}})); }catch(_){}
+    }
+    
+    // Compatibility proxy for existing code
+    function storeKeyPart(k,v){ setPart(k,v); }
+
+    function monthMM(d=new Date()){ const m=d.getMonth()+1; return (m<10?'0':'')+m; }
+
+    function buildFinalPassword(){
+      // slož EVROPA z dílků (pokud některý dílek chybí, použij prázdný string)
+      const ev = (finalKeyParts.ev||'').toString();
+      const ro = (finalKeyParts.ro||'').toString();
+      const pa = (finalKeyParts.pa||'').toString();
+      const region = (ev + ro + pa).toUpperCase(); // očekáváme EVROPA
+      // matematické znaménko - uloženo jako text (např. '+' nebo 'PLUS' nebo 'matematické znaménko')
+      const sign = (finalKeyParts.plus && String(finalKeyParts.plus).trim()) ? String(finalKeyParts.plus) : '+';
+      // school number pevně: 777 (uložení úkolu wifi by měl volat storeKeyPart('school','777'))
+      const school = finalKeyParts.school || '777';
+      const fixed = '111';
+      const mm = finalKeyParts.month || (new Date().getMonth()+1).toString().padStart(2,'0');
+      return String(region + sign + school + fixed + mm);
+    }
+    
+    // Compatibility aliases
+    function buildFinalTarget(){ return buildFinalPassword(); }
+    function checkFinalInput(input){
+      const t = buildFinalPassword().toUpperCase();
+      const v = String(input||'').replace(/\s+/g,'').toUpperCase();
+      return v===t;
+    }
+    
+    /* jednoduchá kontrola, zda máme všechny netriviální dílky (MM se ber tady jako dynamické) */
+    function hasAllKeyParts(){
+      const need = ['ev','ro','pa','plus','school'];
+      return need.every(k => !!finalKeyParts[k]);
+    }
+
+    function getFinalProgress(){
+      const need=['ev','ro','pa','plus','school'];
+      const have=need.filter(k=>!!window.finalKeyParts[k]).length;
+      return {have, need:need.length, done:have===need.length};
+    }
+
+    function showFinalProgress(){
+      const p=getFinalProgress();
+      alert(
+        `Dílky: ${p.have}/${p.need}\n`+
+        `Region: ${(window.finalKeyParts.ev||'__')+(window.finalKeyParts.ro||'__')+(window.finalKeyParts.pa||'__')}\n`+
+        `Znak: ${window.finalKeyParts.plus?'+':'(chybí)'}\n`+
+        `Škola: ${window.finalKeyParts.school||'(?)'}\n`+
+        `Měsíc: ${(window.finalKeyParts.month||monthMM())}\n`+
+        `Cíl: ${buildFinalTarget()}`
+      );
+    }
+
+    // Hodiny a datum na lock screenu
+    const timeEl = document.getElementById('lockTime');
+    const dateEl = document.getElementById('lockDate');
+    const CZ_DAYS = ['neděle','pondělí','úterý','středa','čtvrtek','pátek','sobota'];
+    const CZ_MONTHS = ['ledna','února','března','dubna','května','června','července','srpna','září','října','listopadu','prosince'];
+    function tick(){
+      const d=new Date();
+      timeEl.textContent = d.toLocaleTimeString('cs-CZ',{hour:'2-digit',minute:'2-digit'});
+      dateEl.textContent = `${CZ_DAYS[d.getDay()]} ${d.getDate()}. ${CZ_MONTHS[d.getMonth()]}`;
+    }
+    setInterval(tick, 1000); tick();
+
+    // Wallpaper configuration
+    const WALLPAPER_JSON_URL = 'https://example.com/wallpaper-config.json'; // Change this URL
+    
+    async function loadWallpaper() {
+      try {
+        const response = await fetch(WALLPAPER_JSON_URL);
+        const config = await response.json();
+        if (config.wallpaper_url) {
+          document.documentElement.style.setProperty('--custom-wallpaper', `url(${config.wallpaper_url})`);
+          const desktop = document.querySelector('.desktop');
+          if (desktop) desktop.classList.add('custom-bg');
+        }
+      } catch (e) {
+        console.log('Using default wallpaper');
+      }
+    }
+    
+    // Load wallpaper when desktop is shown
+    addEventListener('DOMContentLoaded', loadWallpaper);
+
+    function show(el){ 
+      const element = document.getElementById(el);
+      element.classList.remove('hidden');
+      element.classList.add('slide-in');
+    }
+    
+    function hide(el){ 
+      const element = document.getElementById(el);
+      element.classList.add('slide-out');
+      setTimeout(() => {
+        element.classList.add('hidden');
+        element.classList.remove('slide-out', 'slide-in');
+      }, 800);
+    }
+
+    // Přechod 1: Lock → Login (klik nebo Enter)
+    const lockScreen = document.getElementById('lockScreen');
+    function goLogin(){ 
+      hide('lockScreen'); 
+      setTimeout(() => {
+        show('loginScreen'); 
+        setTimeout(()=>document.getElementById('password').focus(), 200);
+      }, 400);
+    }
+    lockScreen.addEventListener('click', goLogin);
+    lockScreen.addEventListener('keydown', (e)=>{ if(e.key==='Enter') goLogin(); });
+
+    // Přechod 2: Login → Prázdná plocha (Enter nebo klik na šipku). Bez kontroly hesla.
+    const pass = document.getElementById('password');
+    document.getElementById('btnGo').addEventListener('click', proceed);
+    pass.addEventListener('keydown', e=>{ if(e.key==='Enter') proceed(); });
+    
+    // Funkce pro jiného uživatele
+    document.getElementById('btnGoOther').addEventListener('click', proceed);
+    document.getElementById('username').addEventListener('keydown', e=>{ if(e.key==='Enter') document.getElementById('otherPassword').focus(); });
+    document.getElementById('otherPassword').addEventListener('keydown', e=>{ if(e.key==='Enter') proceed(); });
+    
+    // Funkce pro zobrazení/skrytí hesla
+    function togglePasswordVisibility(inputId, eyeBtnId) {
+      const input = document.getElementById(inputId);
+      const eyeBtn = document.getElementById(eyeBtnId);
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        eyeBtn.textContent = '🙈';
+        eyeBtn.setAttribute('aria-label', 'Skrýt heslo');
+      } else {
+        input.type = 'password';
+        eyeBtn.textContent = '👁';
+        eyeBtn.setAttribute('aria-label', 'Zobrazit heslo');
+      }
+    }
+    
+    // Funkce pro zobrazení/skrytí očíčka podle obsahu hesla
+    function toggleEyeVisibility(inputId, eyeBtnId) {
+      const input = document.getElementById(inputId);
+      const eyeBtn = document.getElementById(eyeBtnId);
+      
+      if (input.value.length > 0) {
+        eyeBtn.classList.add('visible');
+      } else {
+        eyeBtn.classList.remove('visible');
+        // Resetovat typ na password když je prázdné
+        input.type = 'password';
+        eyeBtn.textContent = '👁';
+        eyeBtn.setAttribute('aria-label', 'Zobrazit heslo');
+      }
+    }
+    
+    // Přidání event listenerů pro očíčka
+    document.getElementById('eyeBtn').addEventListener('click', () => {
+      togglePasswordVisibility('password', 'eyeBtn');
+    });
+    
+    document.getElementById('eyeBtnOther').addEventListener('click', () => {
+      togglePasswordVisibility('otherPassword', 'eyeBtnOther');
+    });
+    
+    // Sledování změn v heslovém poli
+    document.getElementById('password').addEventListener('input', () => {
+      toggleEyeVisibility('password', 'eyeBtn');
+    });
+    
+    document.getElementById('otherPassword').addEventListener('input', () => {
+      toggleEyeVisibility('otherPassword', 'eyeBtnOther');
+    });
+    
+    function proceed() {
+      const currentUser = document.querySelector('.username').textContent;
+      let username, password;
+      let errorElement;
+      
+      if (currentUser === 'Administrator') {
+        // Administrator má heslo 12345678
+        password = document.getElementById('password').value;
+        if (password === '12345678') {
+          hide('loginScreen'); 
+          setTimeout(() => { show('desktopScreen'); enableRedFX(); }, 400);
+          return;
+        } else {
+          document.getElementById('errorMsg').textContent = 'Nesprávné heslo pro Administratora.';
+          return;
+        }
+      } else if (document.getElementById('otherUserForm').classList.contains('hidden')) {
+        // Normální uživatel Jan Novák
+        password = document.getElementById('password').value;
+        document.getElementById('errorMsg').textContent = 'Přístup odepřen. Zkuste jiného uživatele.';
+        return;
+      } else {
+        // Jiný uživatel - kontrola 666. loginu a hesla
+        username = document.getElementById('username').value;
+        password = document.getElementById('otherPassword').value;
+        errorElement = document.getElementById('errorMsgOther');
+        
+        // Kontrola loginu
+        const isValidLogin = username.startsWith('666.') && username.length > 4;
+        const isValidEmail = username.includes('@zs666.peklo-edu.cz') && !username.startsWith('@');
+        const isValidPassword = password === 'afRikA+66.';
+        
+        if (!isValidLogin && !isValidEmail) {
+          errorElement.textContent = 'Login musí začínat "666." nebo být email končící "@zs666.peklo-edu.cz"';
+          return;
+        }
+        
+        if (!isValidPassword) {
+          errorElement.textContent = 'Nesprávné heslo. Zkontroluj poznámky.';
+          return;
+        }
+        
+        // Úspěšné přihlášení - ale nejprve zkontrolovat expiraci hesla
+        openPwdExpire(username, password);
+      }
+    }
+    
+    function showDomainHelp() {
+      openSys('Doménová pomoc', '<p>Pro přihlášení k jiné doméně kontaktujte správce systému na čísle <strong>378 03 5555</strong>.</p>');
+    }
+    
+    // System modal helpers
+    function openSys(title, html){
+      const m = document.getElementById('sysModal');
+      document.getElementById('sysTitle').textContent = title;
+      document.getElementById('sysBody').innerHTML = html;
+      m.classList.remove('hidden');
+    }
+    
+    function closeSys(){ 
+      document.getElementById('sysModal').classList.add('hidden'); 
+    }
+
+    function notifyNext(msg){
+      let extra = '';
+      if (typeof getFinalProgress === 'function') {
+        const p = getFinalProgress();
+        extra = `<p style="opacity:.8">Dílky hesla: <b>${p.have}/${p.need}</b></p>`;
+      }
+      openSys('Pokračuj', `<p>${msg || 'Úkol je splněn.'}</p><p>Další úkol najdeš v nabídce Start.</p>${extra}`);
+    }
+
+    window.openNextTask = function(){
+      notifyNext();
+    };
+    
+    function showSettingsInfo(){
+      openSys('⚙️ Nastavení',
+        `<p>Přístup k&nbsp;nastavení je z bezpečnostních důvodů uzamčen.</p>
+         <p>Nejprve ověř svoji identitu.</p>
+         <p><em>Chceš měnit systém? Nejprve musíš dokázat, že sem opravdu patříš.</em></p>`);
+    }
+
+    function showNetworkInfo(){
+      openSys('📶 Internetové připojení',
+        `<p>Síť <strong>PEKLO-NET</strong> je dostupná.</p>
+         <p>Přístup povolen jen pro přihlášené uživatele.</p>
+         <p>Další nalezeno: <code>Shadow666</code>. Bez hesla se dovnitř nedostaneš.</p>`);
+    }
+
+    function showBatteryInfo(){
+      openSys('🔋 Baterie',
+        `<p>Úroveň: <strong>666&nbsp;%</strong></p>
+         <p><em>Energie pekelné školy nikdy nedojde.</em></p>`);
+    }
+    
+    function showNotes() {
+      document.getElementById('notesModal').classList.remove('hidden');
+    }
+    
+    function hideNotes() {
+      document.getElementById('notesModal').classList.add('hidden');
+    }
+    
+    // Přepínání uživatelů
+    function switchUser(userType) {
+      const usernames = {
+        'admin': 'Administrator',
+        'other': 'Jiný uživatel',
+        'user': 'Jan Novák'
+      };
+      
+      const currentUser = usernames[userType] || 'Jan Novák';
+      document.querySelector('.username').textContent = currentUser;
+      document.getElementById('password').value = '';
+      
+      // Skrýt očíčko když se vymaže heslo
+      document.getElementById('eyeBtn').classList.remove('visible');
+      
+      // Vymazat chybové zprávy
+      document.getElementById('errorMsg').textContent = '';
+      document.getElementById('errorMsgOther').textContent = '';
+      
+      // Změna avataru podle uživatele
+      const avatarEmojis = {
+        'Administrator': '👨‍💼',
+        'Jiný uživatel': '❓',
+        'Jan Novák': '👨‍💻'
+      };
+      document.querySelector('.avatar').textContent = avatarEmojis[currentUser] || '👤';
+      
+      // Přepínání mezi normálním a rozšířeným formulářem
+      if (userType === 'other') {
+        document.getElementById('normalLogin').classList.add('hidden');
+        document.getElementById('otherUserForm').classList.remove('hidden');
+        setTimeout(() => document.getElementById('username').focus(), 100);
+      } else {
+        document.getElementById('normalLogin').classList.remove('hidden');
+        document.getElementById('otherUserForm').classList.add('hidden');
+        setTimeout(() => document.getElementById('password').focus(), 100);
+      }
+    }
+
+    // Aktualizace času na desktopu
+    function updateDesktopTime() {
+      const desktopTimeEl = document.getElementById('desktopTime');
+      if (desktopTimeEl) {
+        const d = new Date();
+        desktopTimeEl.textContent = d.toLocaleTimeString('cs-CZ', {hour: '2-digit', minute: '2-digit'});
+      }
+    }
+    setInterval(updateDesktopTime, 1000);
+    
+    // Desktop funkce
+    function toggleStartMenu() {
+      const startMenu = document.getElementById('startMenu');
+      startMenu.classList.toggle('hidden');
+    }
+    
+    function openFileExplorer() {
+      document.getElementById('startMenu').classList.add('hidden');
+      openSys('📁 Průzkumník souborů', '<p>Průzkumník souborů se načítá...</p><p><em>Přístup k některým složkám může být omezen.</em></p>');
+    }
+    
+    function openNotepad() {
+      document.getElementById('startMenu').classList.add('hidden');
+      openSys('📝 Poznámkový blok', '<p>Tady je sepsáno vše, co zapomeneš 5 sekund po zavření této obrazovky.</p>');
+    }
+    
+    function openCalculator() {
+      document.getElementById('startMenu').classList.add('hidden');
+      openSys('🧮 Kalkulačka', '<p>Kalkulačka se načítá...</p><p><em>Základní matematické operace.</em></p>');
+    }
+    
+    function openSettings() {
+      document.getElementById('startMenu').classList.add('hidden');
+      openSys('⚙️ Nastavení', '<p>Nastavení systému se načítá...</p><p><em>Přístup k pokročilým nastavením je omezen.</em></p>');
+    }
+    
+    function openRecycleBin() {
+      openSys('🗑️ Koš', '<p>Koš je prázdný.</p><p><strong>Varování:</strong> Tento odpad není recyklovatelný. Jsou to jen tvoje špatná rozhodnutí.</p>');
+    }
+    
+    function openSecretFolder() {
+      openSys('📂 Tajné soubory', '<p>🔒 Přístup odepřen</p><p><em>Fajn, podívej se. Ale jestli se to provalí, tak já jsem jenom text a ty jsi ten, kdo to kliknul.</em></p>');
+    }
+    
+    function showLogoutConfirm() {
+      document.getElementById('startMenu').classList.add('hidden');
+      openSys('Odhlášení', '<p>Opravdu se chcete odhlásit?</p><p><em>Všechny neuložené změny budou ztraceny.</em></p><div style="text-align:right;margin-top:16px;"><button onclick="closeSys()" style="all:unset;cursor:pointer;border-radius:6px;padding:8px 12px;background:rgba(0,0,0,.1);color:#666;margin-right:8px;">Zrušit</button><button onclick="doLogout()" style="all:unset;cursor:pointer;border-radius:6px;padding:8px 12px;background:#dc3545;color:#fff;">Odhlásit</button></div>');
+    }
+    
+    function doLogout() {
+      closeSys();
+      hide('desktopScreen');
+      setTimeout(() => {
+        show('loginScreen');
+        // Vyčistit formuláře ale zachovat uživatele
+        document.getElementById('password').value = '';
+        document.getElementById('otherPassword').value = '';
+        document.getElementById('username').value = '';
+        document.getElementById('errorMsg').textContent = '';
+        document.getElementById('errorMsgOther').textContent = '';
+        // Skrýt očíčka
+        document.getElementById('eyeBtn').classList.remove('visible');
+        document.getElementById('eyeBtnOther').classList.remove('visible');
+        // Zaměřit na heslo
+        setTimeout(() => document.getElementById('password').focus(), 200);
+      }, 400);
+    }
+    
+    // Password expiration functions
+    let _expLogin = '';
+    let _expOldPass = '';
+
+    function openPwdExpire(login, oldPass){
+      _expLogin = login; _expOldPass = oldPass;
+      document.getElementById('pwdOverlay').classList.remove('hidden');
+      document.getElementById('pwdExpire').classList.remove('hidden');
+      document.getElementById('pwdChange').classList.add('hidden');
+      document.body.classList.add('modal-open');
+    }
+    
+    function cancelPwd(){
+      document.getElementById('pwdOverlay').classList.add('hidden');
+      document.body.classList.remove('modal-open');
+      setTimeout(()=>{ hide('desktopScreen'); show('loginScreen'); },300);
+    }
+    
+    function showPwdChange(){
+      document.getElementById('pwdExpire').classList.add('hidden');
+      document.getElementById('pwdChange').classList.remove('hidden');
+      ['pwdNew','pwdNew2'].forEach(id=>document.getElementById(id).value='');
+      document.getElementById('pwdErr').textContent='';
+      document.querySelectorAll('#rules li').forEach(li=>li.classList.remove('ok'));
+      document.getElementById('pwdMeter').style.width='0%';
+      document.getElementById('pwdSave').disabled=true;
+      setTimeout(()=>document.getElementById('pwdNew').focus(),50);
+    }
+    
+    function escapeRegExp(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+    // Levenshtein – kolik úprav je potřeba k převodu řetězce A→B
+    function levenshtein(a,b){
+      a=String(a||''); b=String(b||'');
+      const m=a.length, n=b.length;
+      const dp=Array.from({length:m+1},()=>Array(n+1).fill(0));
+      for(let i=0;i<=m;i++) dp[i][0]=i;
+      for(let j=0;j<=n;j++) dp[0][j]=j;
+      for(let i=1;i<=m;i++){
+        for(let j=1;j<=n;j++){
+          const cost = a[i-1]===b[j-1] ? 0 : 1;
+          dp[i][j] = Math.min(
+            dp[i-1][j]+1,     // delete
+            dp[i][j-1]+1,     // insert
+            dp[i-1][j-1]+cost // replace
+          );
+        }
+      }
+      return dp[m][n];
+    }
+
+    // Je nové heslo jen triviální varianta starého?
+    function isTrivialVariant(oldP,newP){
+      if(!oldP || !newP) return false;
+      const o=String(oldP).toLowerCase();
+      const n=String(newP).toLowerCase();
+
+      // staré je podřetězec nového (přidán znak/znaky na zač./konci)
+      if(n.includes(o)) return true;
+
+      // staré ± 1–2 znaky na zač./konci (rychlý check)
+      const end = new RegExp('^'+escapeRegExp(o)+'[\\s\\S]{1,2}$');
+      const beg = new RegExp('^[\\s\\S]{1,2}'+escapeRegExp(o)+'$');
+      if(end.test(n) || beg.test(n)) return true;
+
+      // příliš podobné: méně než 3 úpravy (vložit/smazat/nahradit)
+      return levenshtein(o,n) < 3;
+    }
+
+    function validatePwd(){
+      const p = document.getElementById('pwdNew').value;
+      const p2 = document.getElementById('pwdNew2').value;
+
+      const tooSimilar = isTrivialVariant(_expOldPass, p);
+
+      const rules = {
+        len:  p.length >= 10,
+        case: /[A-Z]/.test(p) && /[a-z]/.test(p),
+        num:  /\d/.test(p),
+        sym:  /[^A-Za-z0-9]/.test(p),
+        match: p && p === p2,
+        // místo "není stejné" teď vynucujeme "není triviální varianta"
+        old:  p && !tooSimilar
+      };
+
+      let score=0;
+      Object.entries(rules).forEach(([k,v])=>{
+        const el=document.querySelector(`#rules [data-r="${k}"]`);
+        el.classList.toggle('ok', v);
+        if(v) score+=Math.round(100/6);
+      });
+
+      document.getElementById('pwdMeter').style.width=Math.min(score,100)+'%';
+      document.getElementById('pwdSave').disabled = score < 100;
+
+      // doplň vysvětlení, když je problém právě v "old"
+      const err = document.getElementById('pwdErr');
+      if(!rules.old && p){
+        err.textContent = 'Nové heslo je příliš podobné starému (zkus víc změn než jen přidat znak).';
+      } else if(!rules.match && p2){
+        err.textContent = 'Hesla se neshodují.';
+      } else {
+        err.textContent = '';
+      }
+    }
+    
+    function savePwd(){
+      if(document.getElementById('pwdSave').disabled) return;
+      document.getElementById('pwdErr').textContent='Heslo měníme…';
+      setTimeout(()=>{
+        document.getElementById('pwdOverlay').classList.add('hidden');
+        document.body.classList.remove('modal-open');
+        hide('loginScreen'); 
+        setTimeout(()=>{
+          show('desktopScreen');
+          enableRedFX();
+          updateDesktopTime();
+          startTimer(25);
+          
+          // Aktualizovat jméno uživatele na desktopu
+          const desktopUserName = document.getElementById('desktopUserName');
+          if (_expLogin.includes('@')) {
+            const username = _expLogin.split('@')[0];
+            desktopUserName.textContent = username;
+          } else if (_expLogin.startsWith('666.')) {
+            desktopUserName.textContent = _expLogin;
+          } else {
+            desktopUserName.textContent = _expLogin;
+          }
+        },300);
+      },700);
+    }
+    
+    // Timer v pravém horním rohu
+    function startTimer(minutes=25){
+      const el=document.createElement('div'); el.className='timer'; el.id='gameTimer';
+      document.body.appendChild(el);
+      let t=minutes*60;
+      const tick=()=>{ const mm=String(Math.floor(t/60)).padStart(2,'0'); const ss=String(t%60).padStart(2,'0'); el.textContent=`⏱ ${mm}:${ss}`; if(t--<=0){ clearInterval(iv); el.style.background='rgba(200,50,50,.9)'; showTimeoutEvent(); } };
+      tick(); const iv=setInterval(tick,1000);
+    }
+    function showTimeoutEvent(){ openSys('Upozornění','Čas vypršel — pekelné zjevení stahuje obrazovku...'); }
+    
+    function enableRedFX(){
+      if (!document.querySelector('.redfx')) {
+        const fx = document.createElement('div');
+        fx.className = 'redfx';
+        document.body.appendChild(fx);
+      }
+      // výrazná hláška přes horní banner
+      showBreach('⚠️ POČÍTAČOVÁ SÍŤ BYLA NAPADENA. Otevři Start a plň bezpečnostní úkoly.');
+    }
+
+    function showBreach(msg){
+      let n = document.querySelector('.wallpaper-note');
+      if (!n) {
+        n = document.createElement('div');
+        n.className = 'wallpaper-note warn';
+        document.body.appendChild(n);
+      }
+      n.style.opacity = '1';
+      n.textContent = msg;
+      // postupné zmizení
+      setTimeout(()=>{ n.style.transition='opacity .6s'; n.style.opacity='0'; }, 5200);
+      setTimeout(()=>{ n.remove?.(); }, 6000);
+    }
+    
+    // Zavření start menu při kliknutí mimo něj
+    document.addEventListener('click', (e) => {
+      const startMenu = document.getElementById('startMenu');
+      const startBtn = document.querySelector('.start-btn');
+      
+      if (!startMenu.classList.contains('hidden') && 
+          !startMenu.contains(e.target) && 
+          !startBtn.contains(e.target)) {
+        startMenu.classList.add('hidden');
+      }
+    });
+
+    // ESC pro návrat na úvodní obrazovku nebo zavření poznámek
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        // Pokud je otevřený password overlay, zavři ho
+        if (!document.getElementById('pwdOverlay').classList.contains('hidden')) {
+          cancelPwd();
+          return;
+        }
+        // Pokud je otevřený system modal, zavři ho
+        if (!document.getElementById('sysModal').classList.contains('hidden')) {
+          closeSys();
+          return;
+        }
+        // Pokud jsou otevřené poznámky, zavři je
+        if (!document.getElementById('notesModal').classList.contains('hidden')) {
+          hideNotes();
+          return;
+        }
+        // Pokud je otevřené start menu, zavři ho
+        if (!document.getElementById('startMenu').classList.contains('hidden')) {
+          document.getElementById('startMenu').classList.add('hidden');
+          return;
+        }
+        // Jinak skrýt všechny obrazovky
+        hide('loginScreen');
+        hide('desktopScreen');
+        // Zobrazit úvodní obrazovku
+        setTimeout(() => show('lockScreen'), 400);
+      }
+    });
+
+    (function(){
+    const base = ['quiz','wifi','file'], late = ['privacy','fa'];
+
+    // už žádné state.parts – jediný zdroj pravdy je window.finalKeyParts
+    let state = { done: new Set(), note: 'ČÁSTI HESLA\n' };
+
+    // (žádné window.setPart ani window.buildFinalPassword uvnitř IIFE!)
+    function ensureDesktop(){
+      const d = document.querySelector('.desktop-icons');
+      if(!d) return;
+
+      // 1) Jediná ikona ČTIMNĚ.txt
+      if(!document.getElementById('readme-note')){
+        const n = document.createElement('div');
+        n.id = 'readme-note';
+        n.className = 'desktop-icon';
+        n.innerHTML = '<div class="icon-image">📄</div><div class="icon-label">ČTIMNĚ.txt</div>';
+        n.ondblclick = () => openNoteWindow();
+        d.appendChild(n);
+      }
+
+      // 2) „Tento počítač" (pokud chceš)
+      if(![...d.children].some(x=>/Tento počítač/i.test(x.textContent))){
+        const pc=document.createElement('div');
+        pc.className='desktop-icon';
+        pc.innerHTML='<div class="icon-image">💻</div><div class="icon-label">Tento počítač</div>';
+        pc.ondblclick=()=>openSys('Tento počítač','<p><b>Autor:</b> Mgr. Patrik Vaněk<br>vanek@canvaveskole.com<br><a href="https://www.canvaveskole.com" target="_blank" rel="noopener noreferrer" style="color:#2bc4d0;text-decoration:underline;">www.canvaveskole.com</a></p><p><b>Síť:</b> SSID: PEKLO-NET • DHCP: 666.0.0.1 • Brána: 66.6.66.1 • DNS: 13.13.13.13</p><p><b>Segmenty:</b> HellLab-24 • ShadowGrid-48 • TeacherCore-12</p>');
+        d.prepend(pc);
+      }
+
+      // 3) Finální zámek (pouze pokud jsou všechny úkoly hotové)
+      if(state.done.size >= 5 && !document.getElementById('final-lock-icon')){
+        const lock = document.createElement('div');
+        lock.id = 'final-lock-icon';
+        lock.className = 'desktop-icon final-lock';
+        lock.innerHTML = '<div class="icon-image">🔐</div><div class="icon-label">Finální zámek</div>';
+        lock.ondblclick = () => openFinalLock();
+        lock.style.cssText = 'position:fixed;right:20px;top:20px;z-index:1000;animation:lockPulse 2s infinite;';
+        document.body.appendChild(lock);
+      }
+    }
+
+    // textová „databáze" poznámky
+    let _readmeText = 'ČÁSTI HESLA\n\nMusíš najít skryté úkoly, splnit je a opět obnovit bezpečnostní protokol pekelné školy!\n';
+
+    // otevřít a ukázat aktuální obsah
+    function openNoteWindow(){
+      openSys('ČTIMNĚ.txt', '<pre style="white-space:pre-wrap">'+_readmeText+'</pre>');
+    }
+
+    // přidávání řádků do existující poznámky (bez vytváření nové ikony)
+    function addDesktopNote(line){
+      if(line) _readmeText += '\n' + line;
+      ensureDesktop();
+    }
+    
+    // Export pro použití mimo IIFE
+    window.addDesktopNote = addDesktopNote;
+
+    function appendNote(line){addDesktopNote(line);}
+    function redFX(){if(document.querySelector('.redfx'))return;document.body.appendChild(Object.assign(document.createElement('div'),{className:'redfx'}))}
+    function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+    function refreshStart(){
+      const flow = ['quiz','wifi','file','phish','privacy','fa']; // pořadí
+      const menu = [...document.querySelectorAll('.start-app[data-app]')];
+
+      // kdo je další
+      const nextId = flow.find(id => !state.done.has(id));
+
+      menu.forEach(item => {
+        const id = item.dataset.app;
+        if(!flow.includes(id)) return; // systémové věci (notepad, settings) neřešíme
+
+        // výchozí: zamknout
+        item.classList.remove('done','pulse');
+        item.classList.toggle('locked', true);
+        item.onclick = () => {};
+
+        // hotové
+        if(state.done.has(id)){
+          item.classList.remove('locked');
+          item.classList.add('done');     // zelené podbarvení
+          return;
+        }
+
+        // právě další je aktivní
+        if(id === nextId){
+          item.classList.remove('locked');
+          const fn = window['open' + id.charAt(0).toUpperCase() + id.slice(1) + (id==='quiz'?'':'Task')];
+          item.onclick = () => { if(typeof fn==='function') fn(); };
+        }
+      });
+    }
+    function startFlow(){
+     const first=base[Math.floor(Math.random()*base.length)];
+     state.startFirst=first; refreshStart(); redFX(); ensureDesktop();
+    }
+
+
+
+    /* přidání hotového úkolu
+       volá se z jednotlivých scoreX() přes token mapování */
+    window.unlock = function(token){
+      const map = {'EV':'quiz','777':'wifi','+':'file','PA':'privacy','RO':'phish','2FA':'fa'};
+      const id = map[token] || token;          // povol i přímé volání unlock('quiz')
+
+      if(!id) return;
+
+      // zapiš stav
+      state.done.add(id);
+
+      // force refresh desktop -> vytvoří finální ikonku pokud je hotovo >=5
+      try { addDesktopNote(''); } catch(e) { /* fallback: nic */ }
+
+      // zelený „pulse"
+      const el = document.querySelector(`.start-app[data-app="${id}"]`);
+      if(el){
+        el.classList.add('done');
+        el.classList.remove('locked');
+        el.classList.add('pulse');
+        setTimeout(()=>el.classList.remove('pulse'), 900);
+      }
+
+      // přepočítej dostupnost dalších
+      refreshStart();
+    };
+    ['DOMContentLoaded','load'].forEach(e=>addEventListener(e,()=>{
+     const mo=new MutationObserver(()=>{if(!document.getElementById('desktopScreen').classList.contains('hidden')){startFlow();mo.disconnect()}});
+     mo.observe(document.body,{subtree:true,attributes:true});
+    }));
+    // Bezpečná globální funkce pro udělování pečetí
+    window.grantSeal = function(name, part){
+      try {
+        window.addDesktopNote && window.addDesktopNote('PEČEŤ: ' + name + (part ? (' ['+part+']') : ''));
+      } catch(e) { /* no-op */ }
+    };
+    window.showToast=window.showToast||function(){};
+    const _pOpen=window.openPhishingTask; window.openPhishingTask=function(){ if(!base.every(b=>state.done.has(b))) return; _pOpen?_pOpen():void 0 };
+    const _pScore=window.scorePhish; window.scorePhish=function(){ const was=document.querySelectorAll('.start-app').length; _pScore&&_pScore(); setTimeout(()=>{ const app=[...document.querySelectorAll('.start-app')].find(a=>/Lov phishingu/i.test(a.textContent)); if(app) app.classList.add('done'); },10) };
+    const _renderPrivacy=window.renderPrivacy; window.renderPrivacy=function(){ if(typeof shuffle!=='function'){window.shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}} if(Array.isArray(window.P_SETTINGS)) window.P_SETTINGS=shuffle(window.P_SETTINGS); _renderPrivacy&&_renderPrivacy(); };
+    })();
+  </script>
+
+  <!-- QUIZ 1/2: Síto hesel (obal vlož před </body>) -->
+  <div id="quizOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+    <div class="glass-card" id="quizCard">
+      <h2 id="quizTitle" style="margin:0 0 10px">Síto hesel</h2>
+      <div id="quizRoot"></div>
+    </div>
+  </div>
+
+  <style>
+  /* Classifier chips UI */
+  .classif-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px;align-items:start;max-height:360px;overflow:auto;padding:6px}
+  .classif-chip{
+    display:flex;flex-direction:column;gap:6px;padding:10px;border-radius:12px;
+    border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);
+    cursor:pointer;user-select:none;min-height:72px;align-items:flex-start;
+    transition:all 0.2s ease;
+  }
+  .classif-chip:hover{background:rgba(255,255,255,.08);transform:translateY(-1px)}
+  .classif-chip.selected{background:linear-gradient(135deg, rgba(43,196,208,.15), rgba(43,196,208,.06));border-color:#2bc4d0;box-shadow:0 0 0 1px #2bc4d0}
+  .classif-chip .title{font-weight:700;margin-bottom:2px;font-size:14px;line-height:1.2}
+  .classif-chip .snippet{font-size:13px;opacity:.85;line-height:1.2;max-height:38px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .classif-chip .meta{font-size:12px;color:rgba(255,255,255,.6);margin-top:auto;font-weight:500}
+  .classif-root{display:grid;gap:12px}
+  .classif-instr{font-size:15px;line-height:1.3}
+  .classif-controls{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-top:12px}
+  .classif-progress{flex:1;height:8px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden;margin-left:12px}
+  .classif-progress i{display:block;height:100%;width:0;transition:width .25s ease;background:#2bc4d0}
+  .classif-feedback{min-height:20px;font-size:14px;margin-top:8px}
+  .small-btn{all:unset;cursor:pointer;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,.08);font-weight:800}
+  .small-btn.primary{background:linear-gradient(135deg,#2bc4d0,#1e90ff);color:#003e44}
+  .small-btn.warn{background:rgba(255,255,255,.06);color:#fff}
+  @media (max-width:640px){ 
+    .classif-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;max-height:300px} 
+    .classif-chip{min-height:80px;padding:8px}
+    .classif-chip .title{font-size:13px}
+    .classif-chip .snippet{font-size:12px;max-height:32px}
+  }
+  @media (max-width:420px){ 
+    .classif-grid{grid-template-columns:1fr;gap:6px;max-height:280px} 
+    .classif-chip{min-height:60px}
+  }
+  </style>
+
+  <script>
+  const PW_ITEMS=[
+   {id:'i1',txt:'Dlouhé alespoň 15 znaků',cat:'strong'},
+   {id:'i2',txt:'Kombinace malých i VELKÝCH písmen, čísel a symbolů',cat:'strong'},
+   {id:'i3',txt:'Tři náhodná slova (např. kůň–jablko–měsíc)',cat:'strong'},
+   {id:'i4',txt:'Těžké uhodnout',cat:'strong'},
+   {id:'i5',txt:'12345',cat:'weak'},
+   {id:'i6',txt:'Slovo „heslo"',cat:'weak'},
+   {id:'i7',txt:'Oblíbená barva / zvíře',cat:'weak'},
+   {id:'i8',txt:'Osobní informace (jméno, datum narození)',cat:'weak'}
+  ];
+
+  /* ===== Generic chip classifier (no drag&drop) ===== */
+  function renderChipClassifier({rootId, items, pickPredicate, instrOptions, title, successCb, failCb, minPct=80}) {
+    const root = document.getElementById(rootId);
+    if(!root) return;
+    
+    // shuffle copy so order differs each run
+    const list = items.slice();
+    for(let i=list.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [list[i],list[j]]=[list[j],list[i]]; }
+
+    const pickSelect = Math.random() < 0.5; // true -> "Označ ty, které X" where X = predicate true
+    const instr = (instrOptions && instrOptions.length) ? instrOptions[ pickSelect ? 0 : 1 ] : 
+                  (pickSelect ? 'Označ položky, které patří do cíle.' : 'Označ položky, které NEpatří do cíle.');
+
+    // render
+    root.innerHTML = `
+      <div class="classif-root">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <strong style="font-size:16px">${title||''}</strong>
+            <div class="classif-instr" id="${rootId}_instr">${instr}</div>
+          </div>
+          <div style="min-width:240px;display:flex;align-items:center;gap:8px">
+            <button class="small-btn warn" id="${rootId}_reset">reset</button>
+            <button class="small-btn primary" id="${rootId}_submit">Odevzdat</button>
+          </div>
+        </div>
+
+        <div class="classif-grid" id="${rootId}_grid" aria-live="polite"></div>
+        <div style="display:flex;align-items:center">
+          <div id="${rootId}_status" class="classif-feedback"></div>
+          <div class="classif-progress" aria-hidden="true"><i id="${rootId}_bar"></i></div>
+        </div>
+      </div>
+    `;
+
+    const grid = document.getElementById(`${rootId}_grid`);
+    const bar  = document.getElementById(`${rootId}_bar`);
+    const status = document.getElementById(`${rootId}_status`);
+
+    // build chips
+    list.forEach(it=>{
+      // label text: try several fields
+      const label = it.sub || it.name || it.txt || it.from || ('item-'+it.id);
+      const snippet = it.body ? (it.body.replace(/\s+/g,' ').slice(0,120) + (it.body.length > 120 ? '...' : '')) : 
+                      it.desc ? (it.desc.replace(/\s+/g,' ').slice(0,120) + (it.desc.length > 120 ? '...' : '')) : '';
+      const meta = it.from ? it.from : (it.type ? it.type.toUpperCase() : '');
+      const fullContent = it.body || it.desc || '';
+      
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'classif-chip';
+      chip.dataset.id = it.id;
+      chip.title = fullContent ? fullContent.replace(/"/g, '&quot;') : label;
+      
+      let chipContent = `<div class="title">${label}</div>`;
+      if(snippet) chipContent += `<div class="snippet">${snippet}</div>`;
+      if(meta) chipContent += `<div class="meta">${meta}</div>`;
+      
+      chip.innerHTML = chipContent;
+      chip.onclick = () => {
+        chip.classList.toggle('selected');
+        updateProgress();
+      };
+      chip.addEventListener('keydown', (e)=>{ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); chip.click(); } });
+      grid.appendChild(chip);
+    });
+
+    function updateProgress(){
+      // spočítat pouze správná označení (true positives)
+      const targets = list.filter(it => pickPredicate(it)).map(i=>i.id);
+      const picked = Array.from(grid.querySelectorAll('.classif-chip.selected')).map(n=>n.dataset.id);
+      const truePos = picked.filter(id => targets.includes(id)).length;
+      const targetCount = targets.length;
+      const pct = targetCount ? Math.round((truePos/targetCount)*100) : 0;
+      bar.style.width = Math.min(100, pct)+'%';
+      status.textContent = `Správné: ${truePos}/${targetCount} (${pct}%)`;
+    }
+    updateProgress();
+
+    // reset
+    document.getElementById(`${rootId}_reset`).onclick = ()=> {
+      grid.querySelectorAll('.classif-chip.selected').forEach(c=>c.classList.remove('selected'));
+      status.textContent = 'resetováno';
+      bar.style.width = '0%';
+      setTimeout(()=> updateProgress(), 80);
+    };
+
+    // submit logic
+    document.getElementById(`${rootId}_submit`).onclick = ()=> {
+      const targets = list.filter(it => pickPredicate(it)).map(i=>i.id);
+      const picked = Array.from(grid.querySelectorAll('.classif-chip.selected')).map(n=>n.dataset.id);
+      const truePos = picked.filter(id => targets.includes(id)).length;
+      const falsePos = picked.length - truePos;
+      const falseNeg = targets.length - truePos;
+      const pct = targets.length ? Math.round((truePos/targets.length)*100) : 0;
+      
+      // Check if instruction was inverted (pickSelect false means "mark opposite")
+      const actualTruePos = pickSelect ? truePos : (list.length - picked.length - (targets.length - truePos));
+      const actualFalsePos = pickSelect ? falsePos : picked.filter(id => !targets.includes(id)).length;
+      const actualFalseNeg = pickSelect ? falseNeg : targets.filter(id => picked.includes(id)).length;
+      
+      if(pct >= minPct && (minPct < 100 || falsePos === 0)){
+        status.innerHTML = `<span style="color:#7eff9c">Skvělé! ${pct}% — ${truePos}/${targets.length} správně.</span>`;
+        if(typeof successCb === 'function') successCb({pct,correct:truePos,total:targets.length});
+      } else {
+        let errorMsg = `Chyby: `;
+        if(falsePos > 0) errorMsg += `+${falsePos} špatně označeno, `;
+        if(falseNeg > 0) errorMsg += `-${falseNeg} vynecháno, `;
+        errorMsg += `(${pct}%). Zkus to znovu.`;
+        status.innerHTML = `<span style="color:#ffb3b3">${errorMsg}</span>`;
+        if(typeof failCb === 'function') failCb({pct,correct:truePos,total:targets.length,falsePos,falseNeg});
+      }
+    };
+  }
+
+  /* ===== Use for Síto hesel (optional variant) =====
+     - treat PW_ITEMS, with pickPredicate: item.cat==='strong'
+  */
+  function openQuiz(){
+    document.getElementById('quizOverlay').classList.remove('hidden');
+    document.body.classList.add('modal-open');
+    renderChipClassifier({
+      rootId:'quizRoot',
+      items: PW_ITEMS,
+      pickPredicate: (i) => i.cat === 'strong',
+      instrOptions: ['Označ tvrzení, která by mohla sedět na SILNÉ heslo.','Označ tvrzení, která by mohla sedět na SLABÉ heslo.'],
+      title: 'Síto hesel',
+      minPct: 80,
+      allowFalsePositives: true,
+      successCb: ({pct})=>{
+        grantEV && grantEV();
+        setTimeout(()=>{ closeQuiz(); notifyNext(); },900);
+      },
+      failCb: ({pct})=>{
+        setTimeout(()=>{ openQuiz(); },900);
+      }
+    });
+  }
+  
+  function closeQuiz(){
+    document.getElementById('quizOverlay').classList.add('hidden');
+    document.body.classList.remove('modal-open');
+  }
+
+  /* pomocné – můžeš napojit na vlastní HUD / panel učitele */
+  // grantSeal je nyní definována globálně v IIFE
+
+
+
+  function openNextTask(){
+    // sem napoj pokračování (např. otevři Wi-Fi úkol)
+    // příklad:
+    if(typeof openWifiTask==='function'){ openWifiTask(); return; }
+    // fallback – jen informační modal, pokud další úkol ještě není
+    if(typeof openSys==='function'){
+      openSys('Pokračuj','<p>Další úkol je připraven v nabídce Start.</p>');
+    }
+  }
+
+  /* volitelné: externí API pro přidání nových sad kartiček */
+  function setQuizItems(items){
+    if(!Array.isArray(items)||!items.length) return;
+    // očekává [{id,txt,cat:'strong'|'weak'}, ...]
+    items.forEach((it,idx)=>{ if(!it.id) it.id='ext'+idx; });
+    window.PW_ITEMS=items;
+    if(document.getElementById('quizOverlay') && !document.getElementById('quizOverlay').classList.contains('hidden')){
+      renderQuiz();
+    }
+  }
+  </script>
+
+  <script>
+  /* HOOK: zavolej po úspěchu úkolu „Síla hesel" */
+  function grantEV(){
+    setPart('ev','EV');
+    try{ grantSeal && grantSeal('Lovec silných hesel', 'EV'); }catch(e){}
+    if(typeof showToast==='function') showToast('🔡 Získáno: EV');
+    if(typeof unlock==='function') unlock('EV');
+  }
+  </script>
+
+  <!-- WIFI TASK -->
+  <div id="wifiOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="wifiTitle">
+    <div class="glass-card" id="wifiCard">
+      <h2 id="wifiTitle" style="margin:0 0 10px">Wi-Fi přízraky</h2>
+      <div id="wifiRoot"></div>
+    </div>
+  </div>
+
+  <style>
+  .wifi-wrap{display:grid;gap:10px}
+  .wifi-list{display:grid;gap:8px}
+  .wifi-row{
+    display:flex;align-items:center;gap:10px;padding:12px;border-radius:10px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);
+    cursor:pointer;transition:all 0.2s ease;position:relative;
+  }
+  .wifi-row:hover{
+    background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.25);
+    transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.2);
+  }
+  .wifi-row:focus-within{
+    outline:2px solid #2bc4d0;outline-offset:2px;
+  }
+  .wifi-row[aria-checked="true"]{
+    background:rgba(43,196,208,.15);border-color:#2bc4d0;
+    box-shadow:0 0 0 1px #2bc4d0, 0 4px 12px rgba(43,196,208,.3);
+    transform:scale(1.02);
+  }
+  .wifi-row input[type="radio"]{
+    position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer;
+  }
+  .wifi-signal{
+    display:flex;gap:1px;align-items:end;width:20px;height:16px;
+  }
+  .wifi-signal span{
+    background:rgba(255,255,255,.6);border-radius:1px;
+  }
+  .wifi-signal .bar1{width:2px;height:4px}
+  .wifi-signal .bar2{width:2px;height:8px}
+  .wifi-signal .bar3{width:2px;height:12px}
+  .wifi-signal .bar4{width:2px;height:16px}
+  .wifi-row[aria-checked="true"] .wifi-signal span{background:#2bc4d0}
+  .wifi-info{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+  .wifi-name{font-weight:600;font-size:15px}
+  .wifi-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+  .wifi-badge{
+    font-size:11px;padding:3px 8px;border-radius:12px;font-weight:600;
+    background:rgba(0,0,0,.4);color:#fff;border:1px solid rgba(255,255,255,.2);
+  }
+  .wifi-badge.security{background:rgba(46,204,113,.2);color:#2ecc71;border-color:#2ecc71}
+  .wifi-badge.open{background:rgba(231,76,60,.2);color:#e74c3c;border-color:#e74c3c}
+  .wifi-badge.warning{background:rgba(230,126,34,.2);color:#e67e22;border-color:#e67e22}
+  .wifi-controls{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+  .wifi-portal{display:grid;gap:10px}
+  .wifi-check{display:flex;align-items:center;gap:8px;padding:8px;border-radius:8px;background:rgba(255,255,255,.06)}
+  .wifi-msg{margin-top:8px;font-size:14px;display:flex;align-items:center;gap:6px}
+  
+  @media (max-width: 360px) {
+    .wifi-row{padding:16px 12px}
+    .wifi-badges{margin-top:6px}
+    .wifi-badge{padding:4px 10px;font-size:12px}
+  }
+  </style>
+
+  <script>
+  function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+  
+  let WIFI_NETWORKS=[
+    {id:'n1', ssid:'PEKLO-NET', sec:'WPA3', hint:'Školní síť', trust:'good', signal:4},
+    {id:'n2', ssid:'PEKLO-free', sec:'OPEN', hint:'Bez hesla (NEBEZPEČNÉ)', trust:'bad', signal:3},
+    {id:'n3', ssid:'Shadow666', sec:'WPA2', hint:'Podezřelé klonování (vyhnout se)', trust:'bad', signal:2},
+    {id:'n4', ssid:'Hotspot_Martin', sec:'WPA2', hint:'Soukromý hotspot', trust:'bad', signal:3}
+  ];
+  WIFI_NETWORKS = shuffle(WIFI_NETWORKS);
+
+  let _wifiSelected=null;
+
+  function openWifiTask(){
+    renderWifiSelect();
+    document.getElementById('wifiOverlay').classList.remove('hidden');
+    document.body.classList.add('modal-open');
+  }
+  function closeWifiTask(){
+    document.getElementById('wifiOverlay').classList.add('hidden');
+    document.body.classList.remove('modal-open');
+  }
+
+  function renderWifiSelect(){
+    const root=document.getElementById('wifiRoot');
+    const rows=WIFI_NETWORKS.map(n=>{
+      const signalBars = Array.from({length:4}, (_, i) => 
+        `<span class="bar${i+1}" style="opacity:${i < n.signal ? 1 : 0.3}"></span>`
+      ).join('');
+      
+      const secBadgeClass = n.sec === 'OPEN' ? 'open' : 
+                           n.trust === 'bad' ? 'warning' : 'security';
+      
+      return `
+        <label class="wifi-row" aria-label="Síť ${n.ssid}">
+          <input type="radio" name="wifiPick" value="${n.id}" aria-label="${n.ssid} - ${n.hint}">
+          <div class="wifi-signal">${signalBars}</div>
+          <div class="wifi-info">
+            <div class="wifi-name">${n.ssid}</div>
+            <div class="wifi-badges">
+              <span class="wifi-badge ${secBadgeClass}">${n.sec}</span>
+              <span class="wifi-badge">${n.hint}</span>
+            </div>
+          </div>
+        </label>`;
+    }).join('');
+    
+    root.innerHTML=`
+      <div class="wifi-wrap">
+        <p>Vyber síť, ke které se bezpečně připojíš. Pak pokračuj na portál a ověř, že je to opravdu školní stránka.</p>
+        <div class="wifi-list">${rows}</div>
+        <div class="wifi-controls">
+          <button class="btn-secondary" onclick="closeWifiTask()">Zavřít</button>
+          <button class="btn-primary" id="wifiConnectBtn" onclick="wifiConnect()">Připojit</button>
+        </div>
+        <div class="wifi-msg" id="wifiMsg"></div>
+      </div>`;
+    _wifiSelected=null;
+    setWifiMsg('');
+    
+    // Přidání event listenerů pro aria-checked
+    document.querySelectorAll('input[name="wifiPick"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        document.querySelectorAll('.wifi-row').forEach(row => row.removeAttribute('aria-checked'));
+        if(this.checked) {
+          this.closest('.wifi-row').setAttribute('aria-checked', 'true');
+        }
+      });
+    });
+  }
+
+  function setWifiMsg(t,ok){
+    const el=document.getElementById('wifiMsg'); if(!el) return;
+    const icon = ok ? '✅' : '⚠️';
+    el.innerHTML = `${icon} ${t}`;
+    el.style.color=ok?'#7eff9c':'#ffcccc';
+  }
+
+  function wifiConnect(){
+    const checked=document.querySelector('input[name="wifiPick"]:checked');
+    const btn = document.getElementById('wifiConnectBtn');
+    
+    if(!checked){ 
+      setWifiMsg('Vyber síť.',false); 
+      return; 
+    }
+    
+    _wifiSelected=WIFI_NETWORKS.find(n=>n.id===checked.value);
+    
+    if(_wifiSelected.trust==='bad'){
+      setWifiMsg(`Síť "${_wifiSelected.ssid}" je nebezpečná! Zkus jinou.`,false);
+      return;
+    }
+    
+    // Zobrazit loading stav
+    btn.disabled = true;
+    btn.textContent = 'Připojuji...';
+    setWifiMsg('Připojuji k bezpečné síti...',true);
+    
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Připojit';
+      renderPortalCheck();
+    }, 1200);
+  }
+
+  function renderPortalCheck(){
+    const root=document.getElementById('wifiRoot');
+    const fakeHost = _wifiSelected?.ssid==='PEKLO-NET' ? 'portal.zs666.peklo-edu.cz' : 'peklo-login-security.net';
+    const isHttps = _wifiSelected?.ssid==='PEKLO-NET';
+    root.innerHTML=`
+      <div class="wifi-portal">
+        <p>Kontrola přihlašovací stránky (captive portal):</p>
+        <div class="wifi-check"><input id="chkHttps" type="checkbox"> <label for="chkHttps">Adresa začíná <code>https://</code> (secure)</label></div>
+        <div class="wifi-check"><input id="chkDomain" type="checkbox"> <label for="chkDomain">Doména odpovídá škole: <code>zs666.peklo-edu.cz</code></label></div>
+        <div style="padding:10px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)">
+          <div>Adresa stránky: <code>${isHttps?'https://':'http://'}${fakeHost}/login</code></div>
+          <div>Certifikát: ${isHttps?'platný ✅':'neplatný/žádný ⚠️'}</div>
+        </div>
+        <div class="wifi-controls">
+          <button class="btn-secondary" onclick="renderWifiSelect()">Zpět</button>
+          <button class="btn-primary" onclick="wifiScore()">Potvrdit</button>
+        </div>
+        <div class="wifi-msg" id="wifiMsg"></div>
+      </div>`;
+    setWifiMsg('Zatrhni správná tvrzení a potvrď.',true);
+  }
+
+  function wifiScore(){
+    // správná síť je PEKLO-NET (WPA3) + správně označené https a doména školy
+    const netOk = _wifiSelected && _wifiSelected.ssid==='PEKLO-NET' && _wifiSelected.sec==='WPA3';
+    const chkHttps = document.getElementById('chkHttps')?.checked;
+    const chkDomain = document.getElementById('chkDomain')?.checked;
+    const bothOk = netOk && chkHttps && chkDomain;
+
+    if(bothOk){
+      setWifiMsg('Správně! Bezpečné připojení ověřeno. Dílek hesla: 777',true);
+      storeKeyPart('school', '777');
+      grantSeal && grantSeal('Strážce sítě', '777');
+      if(typeof unlock==='function') unlock('777');
+      setTimeout(()=>{ closeWifiTask(); notifyNext(); },900);
+    }else{
+      setWifiMsg('Pozor! Něco není v pořádku. Vracíme tě na začátek cvičení.',false);
+      setTimeout(()=>{ renderWifiSelect(); },900);
+    }
+  }
+
+  /* volitelná veřejná funkce pro spuštění z nabídky Start / ikony */
+  function openWifiFromDesktop(){ openWifiTask(); }
+  </script>
+
+  <!-- PHISHING 1/2 -->
+  <div id="phishOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="phishTitle">
+    <div class="glass-card" id="phishCard">
+      <h2 id="phishTitle" style="margin:0 0 10px">Lov phishingu</h2>
+      <div id="phishRoot"></div>
+    </div>
+  </div>
+
+
+
+  <script>
+  const MAIL_ITEMS=[
+   {id:'m1',from:'noreply@bank.cz',sub:'Urgent: potvrď platbu',body:'Klikni a potvrď platbu do 24 hodin, jinak bude účet zablokován. Urgentní akce vyžadována!',phish:true},
+   {id:'m2',from:'ucebnice@zs666.peklo-edu.cz',sub:'Úkol ke stažení',body:'Najdeš zadání v příloze. Odevzdání do pátku 18:00.',phish:false},
+   {id:'m3',from:'support@goog1e.com',sub:'Zabezpečte účet',body:'Přihlaste se přes odkaz a ověřte identitu. Podezřelá aktivita detekována.',phish:true},
+   {id:'m4',from:'kolega@zs666.peklo-edu.cz',sub:'Sdílení dokumentu',body:'Otevři dokument v Drive - společný projekt na příští týden.',phish:false},
+   {id:'m5',from:'promo@super-slevy.com',sub:'Vyhrál jsi telefon!',body:'Vyplň formulář pro výhru iPhone 15 Pro! Pouze dnes, limitovaná nabídka!',phish:true},
+   {id:'m6',from:'admin@zs666.peklo-edu.cz',sub:'Změna rozvrhu',body:'Nový rozvrh v pdf příloze. Platí od pondělí 4.11.',phish:false}
+  ];
+
+  function openPhishingTask(){ renderPhishing(); document.getElementById('phishOverlay').classList.remove('hidden'); document.body.classList.add('modal-open'); }
+  function closePhishingTask(){ document.getElementById('phishOverlay').classList.add('hidden'); document.body.classList.remove('modal-open'); }
+
+  function renderPhishing(){
+    renderChipClassifier({
+      rootId: 'phishRoot',
+      items: MAIL_ITEMS,
+      pickPredicate: item => item.phish === true,
+      instrOptions: [
+        'Označ všechny PHISHING e-maily (podvodné)',
+        'Označ všechny DŮVĚRYHODNÉ e-maily'
+      ],
+      title: 'Lov phishingu',
+      minPct: 100,
+      allowFalsePositives: false,
+      successCb: ({pct}) => {
+        storeKeyPart('ro', 'RO');
+        try{ grantSeal && grantSeal('Lovec phishingu', 'RO'); }catch(e){}
+        if(typeof unlock==='function') unlock('RO');
+        setTimeout(() => { closePhishingTask(); notifyNext(); }, 900);
+      },
+      failCb: ({pct}) => {
+        setTimeout(() => { renderPhishing(); }, 900);
+      }
+    });
+  }
+
+  /* volitelné: doplnění nové sady mailů z JSON */
+  function setPhishItems(items){
+    if(!Array.isArray(items) || !items.length) return;
+    items.forEach((it,idx)=>{ if(!it.id) it.id='p'+idx; });
+    window.MAIL_ITEMS = items;
+    if(document.getElementById('phishOverlay') && !document.getElementById('phishOverlay').classList.contains('hidden')){
+      renderPhishing();
+    }
+  }
+
+  /* fallbacky (pokud v projektu nejsou) */
+  // grantSeal je nyní definována globálně v IIFE
+  if(typeof openNextTask !== 'function'){
+    window.openNextTask = function(){ if(typeof openSys==='function') openSys('Info','Další úkol bude brzy dostupný.'); };
+  }
+  </script>
+
+  <!-- 2FA TASK: Dvoufaktorová brána -->
+  <div id="faOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="faTitle">
+    <div class="glass-card" id="faCard">
+      <h2 id="faTitle" style="margin:0 0 10px">Dvoufaktorová brána</h2>
+      <div id="faRoot"></div>
+    </div>
+  </div>
+
+  <style>
+  .fa-wrap{display:grid;gap:10px}
+  .fa-hints{display:grid;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px}
+  .fa-row{display:flex;gap:10px;align-items:center}
+  .fa-row input[type=text]{flex:1;border:1px solid rgba(255,255,255,.35);background:rgba(3,3,3,.16);color:#fff;border-radius:8px;padding:10px 12px;font-size:16px;outline:none}
+  .fa-controls{display:flex;gap:8px;justify-content:flex-end}
+  .fa-msg{font-size:14px;margin-top:8px}
+  .hint{font-size:14px;opacity:.9}
+  .bad{color:#ffcccc}
+  .good{color:#7eff9c}
+  </style>
+
+  <script>
+  /* 2FA: postupné nápovědy */
+  const FA_HINTS = [
+    "1) Zjisti délku slova EVROPA.",
+    "2) Kolik samohlásek ve slově EVROPA?",
+    "3) Číslo školy (hledej v úkolech).",
+    "4) Nakonec měsíc (MM).",
+  ];
+
+  /* otevření/zavření 2FA */
+  function open2FATask(){
+    render2FA();
+    document.getElementById('faOverlay').classList.remove('hidden');
+    document.body.classList.add('modal-open');
+  }
+  function close2FATask(){
+    document.getElementById('faOverlay').classList.add('hidden');
+    document.body.classList.remove('modal-open');
+  }
+
+  function render2FA(){
+    const root=document.getElementById('faRoot');
+    root.innerHTML=`<div class="fa-wrap"><p>Brána vyžaduje 6místný kód. Klikni pro postupnou nápovědu.</p>
+     <div id="faHints" style="cursor:pointer;padding:8px;border-radius:8px;background:rgba(255,255,255,0.03);min-height:60px"></div>
+     <div class="fa-row"><input id="faCode" maxlength=6 placeholder="Zadej kód"><button class="btn-primary" onclick="submit2FA()">Ověřit</button></div>
+     <div class="fa-controls"><button class="btn-secondary" onclick="close2FATask()">Zavřít</button></div><div id="faMsg" class="fa-msg"></div></div>`;
+    let idx=0; const hintsEl=document.getElementById('faHints');
+    function next(){ if(idx<FA_HINTS.length){ const p=document.createElement('div'); p.className='hint'; p.textContent=FA_HINTS[idx++]; hintsEl.appendChild(p); } }
+    // klikni kamkoliv do hint boxu pro další
+    hintsEl.addEventListener('click', next);
+    // první hint
+    next();
+  }
+
+  /* submit2FA: přesměrování na finální zámek */
+  function submit2FA(){
+    const v=(document.getElementById('faCode').value||'').replace(/\D/g,'');
+    if(v.length!==6){ setFAMsg('Kód musí mít 6 číslic.', false); return; }
+    // Sestavíme očekávaný kód z buildFinalPassword a pak z něj vytáhneme posledních 6 číslic
+    const target = buildFinalPassword().replace(/\s+/g,'').toUpperCase();
+    const digits = target.replace(/\D/g,''); // odstraníme písmena => necháme jen čísla
+    const expect = digits.slice(-6);
+    if(v === expect){
+      setFAMsg('Ověřeno. Přesměrování na finální zámek…', true);
+      try{ grantSeal && grantSeal('Strážce identity', '2FA'); }catch(e){}
+      if(typeof unlock==='function') unlock('2FA');
+      setTimeout(()=>{ close2FATask(); openFinalLock(); },700);
+    } else {
+      setFAMsg('Nesprávný kód. Zkontroluj úkoly a nápovědy.', false);
+    }
+  }
+  function setFAMsg(t,ok){ const el=document.getElementById('faMsg'); if(!el) return; el.textContent=t; el.style.color= ok? '#7eff9c':'#ffcccc'; }
+
+  /* volitelný launcher z dalšího úkolu */
+  if(typeof openNextTask==='function'){ /* můžeš sem napojit řetězení */ }
+  </script>
+
+  <!-- FILE TASK: Souborová past -->
+  <div id="fileOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="fileTitle">
+    <div class="glass-card" id="fileCard">
+      <h2 id="fileTitle" style="margin:0 0 10px">Souborová past</h2>
+      <div id="fileRoot"></div>
+    </div>
+  </div>
+
+
+
+  <script>
+  const FILE_ITEMS=[
+   {id:'f1',name:'zadani.pdf',type:'PDF',desc:'Úkol pro matematiku - bezpečný dokument',danger:false},
+   {id:'f2',name:'stahuj.exe',type:'EXE',desc:'Spustitelný soubor z neznámého zdroje - může obsahovat malware',danger:true},
+   {id:'f3',name:'foto.jpg',type:'JPG',desc:'Obrázek z akce školy - ověřený zdroj',danger:false},
+   {id:'f4',name:'rozvrh.xlsm',type:'XLSM',desc:'Excel s makry - může spouštět škodlivý kód',danger:true},
+   {id:'f5',name:'update.zip',type:'ZIP',desc:'Archiv obsahuje .exe soubory - podezřelý',danger:true},
+   {id:'f6',name:'plan.pdf',type:'PDF',desc:'Aktualizovaný plán od učitele - důvěryhodný',danger:false}
+  ];
+
+  /* ===== Use for File Task (replaces DnD) ===== */
+  function openFileTask(){
+    document.getElementById('fileOverlay').classList.remove('hidden');
+    document.body.classList.add('modal-open');
+    renderChipClassifier({
+      rootId:'fileRoot',
+      items: FILE_ITEMS,
+      pickPredicate: (f) => !!f.danger,
+      instrOptions: ['Označ všechny NEBEZPEČNÉ soubory (neotvírat)', 'Označ všechny BEZPEČNÉ soubory'],
+      title: 'Souborová past',
+      minPct: 100,
+      allowFalsePositives: false,
+      successCb: ({pct})=>{
+        storeKeyPart && storeKeyPart('plus','+');
+        try{ grantSeal && grantSeal('Strážce souborů','+'); }catch(e){}
+        if(typeof unlock==='function') unlock('+');
+        setTimeout(()=>{ closeFileTask(); notifyNext(); },900);
+      },
+      failCb: ({pct})=>{
+        setTimeout(()=>{ openFileTask(); },900);
+      }
+    });
+  }
+  function closeFileTask(){ document.getElementById('fileOverlay').classList.add('hidden'); document.body.classList.remove('modal-open'); }
+
+  /* volitelné API: nahrání jiné sady souborů (např. z JSON) */
+  function setFileItems(items){
+    if(!Array.isArray(items)||!items.length) return;
+    items.forEach((it,idx)=>{ if(!it.id) it.id='f'+idx; if(typeof it.danger!=='boolean') it.danger=false; });
+    window.FILE_ITEMS=items;
+    if(document.getElementById('fileOverlay') && !document.getElementById('fileOverlay').classList.contains('hidden')){
+      renderFileTask();
+    }
+  }
+
+  /* fallbacky pro pečeť/řetězení (pokud v projektu nejsou) */
+  // grantSeal je nyní definována globálně v IIFE
+  if(typeof openPrivacyTask!=='function'){ window.openPrivacyTask=function(){ if(typeof openSys==='function') openSys('Další','Úkol soukromí je připraven.'); }; }
+  </script>
+
+  <!-- PRIVACY SHIELD -->
+  <div id="privacyOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="pTitle">
+    <div class="glass-card" style="max-width:520px">
+      <h2 id="pTitle" style="margin:0 0 10px">🛡️ Štít soukromí</h2>
+      <div id="pRoot"></div>
+    </div>
+  </div>
+
+  <!-- FINAL LOCK -->
+  <div id="finalLockOverlay" class="final-lock-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="finalLockTitle">
+    <div class="final-lock-card">
+      <h1 id="finalLockTitle" class="final-lock-title">🔐 FINÁLNÍ ZÁMEK</h1>
+      <div class="lock-hints">
+        <h4>Zadej získané dílky hesla:</h4>
+        <div>Kontinent • matematické znaménko • číslo školy+111 • MM - aktuální měsíc</div>
+      </div>
+      <div class="lock-segments">
+        <div class="lock-segment">
+          <div class="lock-segment-label">Dílek 1</div>
+          <input id="seg1" maxlength="2" placeholder="••" autocomplete="off">
+        </div>
+        <div class="lock-segment">
+          <div class="lock-segment-label">Dílek 2</div>
+          <input id="seg2" maxlength="2" placeholder="••" autocomplete="off">
+        </div>
+        <div class="lock-segment">
+          <div class="lock-segment-label">Dílek 3</div>
+          <input id="seg3" maxlength="2" placeholder="••" autocomplete="off">
+        </div>
+        <div class="lock-segment">
+          <div class="lock-segment-label">Dílek 4</div>
+          <input id="seg4" maxlength="1" placeholder="•" autocomplete="off">
+        </div>
+        <div class="lock-segment">
+          <div class="lock-segment-label">Dílek 5</div>
+          <input id="seg5" maxlength="3" placeholder="•••" autocomplete="off">
+        </div>
+        <div class="lock-segment">
+          <div class="lock-segment-label">Dílek 6</div>
+          <input id="seg6" maxlength="2" placeholder="••" autocomplete="off">
+        </div>
+      </div>
+      <div class="lock-controls">
+        <button class="lock-btn secondary" onclick="closeFinalLock()">Zavřít</button>
+        <button class="lock-btn primary" onclick="validateFinalLock()">Odemknout</button>
+      </div>
+      <div id="lockMessage" class="lock-message"></div>
+    </div>
+  </div>
+
+  <!-- FINAL LOCK (old version kept for compatibility) -->
+  <div id="finalOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="finalTitle">
+    <div class="glass-card" style="max-width:520px">
+      <h2 id="finalTitle" style="margin:0 0 10px">🔐 Velký zámek</h2>
+      <div id="finalRoot"></div>
+    </div>
+  </div>
+
+  <style>
+  .final-wrap{display:grid;gap:10px}
+  .final-hints{display:grid;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px}
+  .final-row{display:grid;gap:8px}
+  .final-row input{border:1px solid rgba(255,255,255,.35);background:rgba(3,3,3,.16);color:#fff;border-radius:8px;padding:10px 12px;font-size:16px;outline:none}
+  .final-ctrl{display:flex;gap:8px;justify-content:flex-end}
+  .final-msg{font-size:14px;margin-top:6px}
+  .hint{font-size:14px;opacity:.9}
+
+  .p-wrap{display:grid;gap:10px}
+  .p-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;background:rgba(255,255,255,.03);margin-bottom:8px}
+  .p-row span{font-size:14px;line-height:1.3}
+  .p-ctrl{display:flex;gap:8px;justify-content:flex-end}
+  .p-msg{font-size:14px;margin-top:6px}
+  .p-ok{outline:2px solid #7eff9c}
+  .p-bad{outline:2px solid #ff9b9b}
+  .toggle{position:relative;width:42px;height:22px;background:#444;border-radius:22px;cursor:pointer;transition:background .3s;appearance:none;border:none;outline:none}
+  .toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.3s}
+  .toggle:checked{background:#2bc4d0}
+  .toggle:checked::after{left:23px}
+  </style>
+
+  <script>
+  function openFinalTask(){ 
+    renderFinal(); 
+    document.getElementById('finalOverlay').classList.remove('hidden'); 
+    document.body.classList.add('modal-open'); 
+  }
+  function closeFinalTask(){ 
+    document.getElementById('finalOverlay').classList.add('hidden'); 
+    document.body.classList.remove('modal-open'); 
+  }
+
+  function renderFinal(){
+    const r=document.getElementById('finalRoot');
+    const collectedParts = Object.entries(window.finalKeyParts)
+      .filter(([key, value]) => value !== null)
+      .map(([key, value]) => `<span style="color:#7eff9c">${value}</span>`)
+      .join(' ');
+    
+    const expectedPassword = buildFinalPassword();
+    
+    r.innerHTML=`
+      <div class="final-wrap">
+        <p>Poskládej <strong>tajnou frázi</strong> z dílků, které jsi získal během úkolů:</p>
+        <div class="final-hints">
+          <div class="hint">Získané dílky: ${collectedParts || '<em>žádné zatím</em>'}</div>
+          <div class="hint">1) <strong>EV</strong> - ze "Síto hesel" (správné hodnocení hesel)</div>
+          <div class="hint">2) <strong>RO</strong> - z "Lov phishingu" (rozpoznání podvodných mailů)</div>
+          <div class="hint">3) <strong>PA</strong> - ze "Štít soukromí" (správné nastavení)</div>
+          <div class="hint">4) <strong>+</strong> - ze "Souborová past" (matematické znaménko)</div>
+          <div class="hint">5) <strong>777</strong> - z "Wi-Fi přízraky" (číslo školy)</div>
+          <div class="hint">6) <strong>111</strong> - pevná část</div>
+          <div class="hint">7) <strong>${monthMM()}</strong> - aktuální měsíc</div>
+          <div class="hint">Spojeno: <code>${expectedPassword}</code></div>
+        </div>
+        <div class="final-row">
+          <input id="finalInput" type="text" placeholder="Např. EVROPA+777111MM" autocomplete="off">
+          <div class="final-ctrl">
+            <button class="btn-secondary" onclick="closeFinalTask()">Zavřít</button>
+            <button class="btn-primary" onclick="checkFinal()">Odemknout</button>
+          </div>
+          <div id="finalMsg" class="final-msg"></div>
+        </div>
+      </div>`;
+    setFinalMsg(hasAllKeyParts() ? 'Všechny dílky získány! Zkontroluj a odemkni.' : 'Některé dílky ještě chybí. Dokonč všechny úkoly.');
+    setTimeout(()=>document.getElementById('finalInput').focus(),100);
+  }
+
+  function norm(s){ return (s||'').trim().replace(/\s+/g,''); }
+  function setFinalMsg(t,ok){ 
+    const m=document.getElementById('finalMsg'); 
+    if(!m) return; 
+    m.textContent=t; 
+    m.style.color=ok?'#7eff9c':'#ffcccc'; 
+  }
+
+  function checkFinal(){
+    const userInput = norm(document.getElementById('finalInput').value);
+    const expectedPassword = buildFinalPassword();
+    
+    if(!hasAllKeyParts()){
+      setFinalMsg('❌ Nejprve dokonči všechny úkoly a získej všechny dílky hesla!',false);
+      return;
+    }
+    
+    if(userInput === expectedPassword){
+      setFinalMsg('✅ Odemčeno! Portál se otevírá…',true);
+      try{ grantSeal && grantSeal('Mistr brány'); }catch(e){}
+      setTimeout(()=>{ 
+        closeFinalTask(); 
+        if(typeof openSys==='function'){ 
+          openSys('🎉 Gratulace','Splnil(a) jsi všechny zkoušky! Jsi nyní certifikovaný strážce digitální bezpečnosti.'); 
+        } 
+      },900);
+    }else{
+      const missing = Object.entries(finalKeyParts)
+        .filter(([key, value]) => value === null)
+        .map(([key]) => key);
+      
+      if(missing.length > 0){
+        setFinalMsg(`❌ Chybí dílky: ${missing.join(', ')}. Dokonči příslušné úkoly.`,false);
+      }else{
+        setFinalMsg(`❌ Nesprávně zadáno. Očekáváno: ${expectedPassword}`,false);
+      }
+    }
+  }
+
+  // Enter key support
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !document.getElementById('finalOverlay').classList.contains('hidden')) {
+      const input = document.getElementById('finalInput');
+      if (input && document.activeElement === input) {
+        checkFinal();
+      }
+    }
+  });
+
+  // Privacy Shield Task
+  const P_SETTINGS=[
+    {id:'prv',label:'Profil viditelný jen pro přátele',should:true},
+    {id:'tag',label:'Schvalovat označení na fotkách',should:true},
+    {id:'loc',label:'Sdílení polohy u příspěvků',should:false},
+    {id:'dm', label:'Přijímat zprávy od všech',should:false},
+    {id:'ad', label:'Personalizované reklamy (sledování)',should:false},
+    {id:'two',label:'Upozornění při přihlášení z nového zařízení',should:true},
+  ];
+
+  function openPrivacyTask(){ renderPrivacy(); document.getElementById('privacyOverlay').classList.remove('hidden'); document.body.classList.add('modal-open'); }
+  function closePrivacyTask(){ document.getElementById('privacyOverlay').classList.add('hidden'); document.body.classList.remove('modal-open'); }
+
+  function renderPrivacy(){
+    const r=document.getElementById('pRoot');
+
+    // vytvoříme kopii P_SETTINGS (aby originál s .should zůstal neporušen)
+    const settings = P_SETTINGS.map(s => ({...s}));
+
+    // zamícháme pořadí, aby byl vždy jiný layout
+    shuffle(settings);
+
+    // přiřadíme náhodné počáteční hodnoty (true/false)
+    // Tyto hodnoty jsou jen počáteční stav checkboxů, neočekává se, že budou
+    // odpovídat s.should — hráč musí upravit, aby seděly.
+    settings.forEach(s => {
+      s.initial = Math.random() < 0.5; // ~50/50 true/false
+    });
+
+    // vytvoří řádky podle zamíchaného a náhodně nastaveného pořadí
+    const rows = settings.map(s => `
+      <div class="p-row" data-id="${s.id}">
+        <span>${s.label}</span>
+        <input class="toggle" type="checkbox" id="sw_${s.id}" ${s.initial ? 'checked' : ''}>
+      </div>
+    `).join('');
+
+    r.innerHTML=`
+      <div class="p-wrap">
+        <p>Nastav profil tak, aby byl <b>bezpečný</b>. Pak stiskni Ověřit.</p>
+        ${rows}
+        <div class="p-ctrl">
+          <button class="btn-secondary" onclick="closePrivacyTask()">Zavřít</button>
+          <button class="btn-primary" onclick="scorePrivacy()">Ověřit</button>
+        </div>
+        <div id="pMsg" class="p-msg"></div>
+      </div>`;
+
+    setPMsg('U tří položek má být vypnuto, u tří zapnuto.');
+  }
+
+  function scorePrivacy(){
+    let ok=0;
+    P_SETTINGS.forEach(s=>{
+      const row=document.querySelector(`.p-row[data-id="${s.id}"]`);
+      const cur=document.getElementById(`sw_${s.id}`).checked;
+      const good=cur===s.should; row.classList.toggle('p-ok',good); row.classList.toggle('p-bad',!good);
+      if(good) ok++;
+    });
+    if(ok===P_SETTINGS.length){
+      setPMsg('✅ Správně! Tvé soukromí je v bezpečí. Dílek hesla: PA',true);
+      storeKeyPart('pa', 'PA');
+      try{ grantSeal && grantSeal('Strážce soukromí', 'PA'); }catch(e){}
+      if(typeof unlock==='function') unlock('PA');
+      setTimeout(()=>{ closePrivacyTask(); notifyNext('Skvělé! Získal(a) jsi všech pět pečetí. Jdi k finálnímu zámku!'); },900);
+    }else{
+      setPMsg(`Něco nesedí (${ok}/${P_SETTINGS.length}). Uprav přepínače.`,false);
+    }
+  }
+
+  function setPMsg(t,good){const el=document.getElementById('pMsg'); if(!el) return; el.textContent=t; el.style.color=good?'#7eff9c':'#ffcccc';}
+  </script>
+
+  <script>
+    // alias pro start menu → přesměruje na skutečnou funkci
+    window.openPhishTask = function(){ 
+      if (typeof window.openPhishingTask === 'function') window.openPhishingTask();
+    };
+
+    // Final Lock Functions
+    function openFinalLock(){
+      document.getElementById('finalLockOverlay').classList.remove('hidden');
+      document.body.classList.add('modal-open');
+      
+      // Clear all fields - no pre-filling
+      document.getElementById('seg1').value = '';
+      document.getElementById('seg2').value = '';
+      document.getElementById('seg3').value = '';
+      document.getElementById('seg4').value = '';
+      document.getElementById('seg5').value = '';
+      document.getElementById('seg6').value = '';
+      
+      // Focus first field
+      setTimeout(() => document.getElementById('seg1').focus(), 100);
+      
+      setLockMessage('Zadej všechny dílky hesla pro odemknutí finální brány.');
+    }
+
+    function closeFinalLock(){
+      document.getElementById('finalLockOverlay').classList.add('hidden');
+      document.body.classList.remove('modal-open');
+    }
+
+    function validateFinalLock(){
+      const segments = document.querySelectorAll('.lock-segment');
+      const values = [
+        document.getElementById('seg1').value.toUpperCase().trim(),
+        document.getElementById('seg2').value.toUpperCase().trim(),
+        document.getElementById('seg3').value.toUpperCase().trim(),
+        document.getElementById('seg4').value.trim(),
+        document.getElementById('seg5').value.trim(),
+        document.getElementById('seg6').value.padStart(2, '0').trim()
+      ];
+      
+      // Expected values: EV + RO + PA + + + 777 + 11 + MM
+      const currentMonth = monthMM();
+      const expectedValues = ['EV', 'RO', 'PA', '+', '777', currentMonth];
+      
+      let allCorrect = true;
+      let errors = [];
+      
+      // Check each field individually
+      values.forEach((value, index) => {
+        const segment = segments[index];
+        segment.classList.remove('error', 'success');
+        
+        if(!value) {
+          segment.classList.add('error');
+          allCorrect = false;
+          errors.push(`Chybí dílek ${index + 1}`);
+        } else if(value !== expectedValues[index]) {
+          segment.classList.add('error');
+          allCorrect = false;
+        } else {
+          segment.classList.add('success');
+        }
+      });
+      
+      // If all correct, show success
+      if(allCorrect && values.every((val, idx) => val === expectedValues[idx])) {
+        setLockMessage('🎉 ZÁMEK ODEMČEN! Gratulace, prošel jsi všemi zkouškami!', 'success');
+        
+        // Add final seal
+        try {
+          if(typeof grantSeal === 'function') {
+            grantSeal('Mistr finální brány', 'KOMPLETNÍ');
+          }
+        } catch(e) {}
+        
+        // Show victory message after delay
+        setTimeout(() => {
+          closeFinalLock();
+          if(typeof openSys === 'function') {
+            openSys('🏆 VÍTĚZSTVÍ', 
+              '<div style="text-align:center;padding:20px;">' +
+              '<h3 style="color:#2ecc71;margin:0 0 15px;">Gratulace!</h3>' +
+              '<p>Úspěšně jsi prošel všemi bezpečnostními zkouškami a odemkl finální bránu.</p>' +
+              '<p><strong>Jsi nyní certifikovaný strážce digitální bezpečnosti!</strong></p>' +
+              '<p style="margin-top:20px;font-size:14px;opacity:0.8;">Získané dovednosti: Rozpoznávání silných hesel • Detekce phishingu • Bezpečné Wi-Fi připojení • Ochrana souborů • Nastavení soukromí</p>' +
+              '</div>'
+            );
+          }
+        }, 2000);
+        
+      } else {
+        if(errors.length > 0) {
+          setLockMessage(`❌ ${errors.join(', ')}.`, 'error');
+        } else {
+          setLockMessage('❌ Nesprávná kombinace. Zkontroluj získané dílky v úkolech.', 'error');
+        }
+      }
+      
+      // Shake animation for errors
+      if(!allCorrect) {
+        setTimeout(() => {
+          segments.forEach(seg => seg.classList.remove('error'));
+        }, 500);
+      }
+    }
+
+    function setLockMessage(text, type = '') {
+      const messageEl = document.getElementById('lockMessage');
+      if(!messageEl) return;
+      
+      messageEl.textContent = text;
+      messageEl.className = 'lock-message' + (type ? ' ' + type : '');
+    }
+
+    // Auto-advance to next field on input
+    document.addEventListener('DOMContentLoaded', () => {
+      const segments = ['seg1', 'seg2', 'seg3', 'seg4', 'seg5', 'seg6'];
+      
+      segments.forEach((segId, index) => {
+        const input = document.getElementById(segId);
+        if(!input) return;
+        
+        input.addEventListener('input', (e) => {
+          const value = e.target.value;
+          const maxLength = parseInt(e.target.getAttribute('maxlength'));
+          
+          // Auto-advance to next field when max length reached
+          if(value.length === maxLength && index < segments.length - 1) {
+            const nextInput = document.getElementById(segments[index + 1]);
+            if(nextInput) {
+              setTimeout(() => nextInput.focus(), 50);
+            }
+          }
+        });
+        
+        // Handle backspace to go to previous field
+        input.addEventListener('keydown', (e) => {
+          if(e.key === 'Backspace' && e.target.value === '' && index > 0) {
+            const prevInput = document.getElementById(segments[index - 1]);
+            if(prevInput) {
+              setTimeout(() => prevInput.focus(), 50);
+            }
+          }
+          
+          // Handle Enter to validate
+          if(e.key === 'Enter') {
+            validateFinalLock();
+          }
+        });
+      });
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987a9a90436db374',t:'MTc1OTMwNzQ4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
