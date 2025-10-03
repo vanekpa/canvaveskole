@@ -1,0 +1,455 @@
+{
+  "meta": {
+    "generated_at": "2025-10-03",
+    "locale": "cs-CZ",
+    "version": "1.1",
+    "description": "Rozšířený dataset pro BankApp – simulace života. Obsahuje intro texty, emaily, SMS, faktury, akce, náhodné události a konfigurace phishingových kampaní."
+  },
+  "intro": {
+    "welcomeText": "Vítejte v BankApp – edukační simulaci života a bankovních povinností.",
+    "subtitle": "Vyzkoušej si, jak funguje běžný rozpočet, 2FA a jak rozpoznat podvodné zprávy.",
+    "instructions": [
+      "Přihlaste se do své bankovní aplikace (libovolné uživatelské jméno a heslo pro demo).",
+      "Potvrďte přihlášení pomocí SMS nebo emailového kódu (2FA).",
+      "Spravujte účet: plaťte účty, potvrzujte transakce a sledujte zůstatek.",
+      "Dávejte pozor na phishingové útoky — některé zprávy jsou FAKE.",
+      "Učitel bude mít přístup k logu pokusů a chyb žáků."
+    ],
+    "teacherNote": "Učitel může sledovat logy žáků a vyhodnocovat jejich reakce na phishing a platební příkazy. Doporučené úkoly najdete v poli `teacherTasks`.",
+    "learningObjectives": [
+      "Praxe v zadávání platebních příkazů a potvrzování 2FA.",
+      "Rozpoznání phishingových emailů a podvodných SMS.",
+      "Řízení osobního rozpočtu: příjmy, fixní náklady, úspory a neočekávané výdaje."
+    ]
+  },
+  "config": {
+    "dataUrlExample": "/data/simdata.json",
+    "phishingCampaignChancePerDay": 0.12,
+    "randomEventChancePerDay": 0.08,
+    "autoWithdrawOnDue": true,
+    "allowManualPayment": true,
+    "otpFormat": "6-digit",
+    "testOtps": [
+      "111111",
+      "222222",
+      "333333"
+    ]
+  },
+  "teacherTasks": [
+    {
+      "id": "task-1",
+      "title": "Rozpočet na měsíc",
+      "description": "Sestav rozpočet pro jednočlennou domácnost na 30 dní. Zohledni nájem, energie, internet, jídlo a zábavu.",
+      "expectedOutcomes": [
+        "Student zaplatí všechny faktury včas nebo zaznamená důsledky jejich opožděné platby.",
+        "Student vysvětlí rozdíl mezi fixními a variabilními náklady."
+      ],
+      "points": 10
+    },
+    {
+      "id": "task-2",
+      "title": "Phishing workshop",
+      "description": "Identifikujte 5 podezřelých zpráv v inboxu a zdůvodněte, proč jsou nebezpečné.",
+      "expectedOutcomes": [
+        "Student identifikuje odesílatele, odkaz a stylistické znaky phishingu."
+      ],
+      "points": 8
+    }
+  ],
+  "emails": [
+    {
+      "id": 101,
+      "from": "bank@demo.cz",
+      "subject": "Měsíční výpis účtu",
+      "body": "Dobrý den, v příloze naleznete výpis vašeho účtu. Pokud nerozumíte položkám, kontaktujte podporu.",
+      "date": "2025-09-30",
+      "phishing": false,
+      "tags": [
+        "statement"
+      ]
+    },
+    {
+      "id": 102,
+      "from": "noreply@netflix.cz",
+      "subject": "Prodloužení předplatného",
+      "body": "Vaše předplatné končí, klikněte sem pro obnovu služby: http://netflix.re-new/abc",
+      "date": "2025-10-02",
+      "phishing": true,
+      "tags": [
+        "subscription"
+      ]
+    },
+    {
+      "id": 103,
+      "from": "it@school.edu",
+      "subject": "Školní oznámení",
+      "body": "Zítra proběhne cvičení evakuace, sledujte pokyny v systému.",
+      "date": "2025-10-03",
+      "phishing": false,
+      "tags": [
+        "school"
+      ]
+    },
+    {
+      "id": 104,
+      "from": "support@energy-company.cz",
+      "subject": "Notifikace o změně tarifu",
+      "body": "Důležité: od příštího měsíce se mění způsob fakturace. Přihlaste se pro detail.",
+      "date": "2025-10-05",
+      "phishing": false,
+      "tags": [
+        "utility"
+      ]
+    },
+    {
+      "id": 105,
+      "from": "accounts@landlord.cz",
+      "subject": "Upomínka - Nájem",
+      "body": "Dobrý den, připomínáme, že nájem bude splatný 5. dne tohoto měsíce. Pokud již platba proběhla, ignorujte.",
+      "date": "2025-10-04",
+      "phishing": false,
+      "tags": [
+        "reminder"
+      ]
+    },
+    {
+      "id": 106,
+      "from": "promo@shopping.cz",
+      "subject": "Velký výprodej — pouze dnes!",
+      "body": "Exkluzivní nabídka. Klikněte pro získání slevy 70%: http://scam.shop/offer",
+      "date": "2025-10-06",
+      "phishing": true,
+      "tags": [
+        "promo"
+      ]
+    },
+    {
+      "id": 107,
+      "from": "security@bank-demo.cz",
+      "subject": "Podezřelá aktivita na účtu",
+      "body": "Zaznamenali jsme pokus o přihlášení. Pokud jste to nebyli vy, okamžitě změňte heslo na: http://bank-security.recover/login",
+      "date": "2025-10-07",
+      "phishing": true,
+      "tags": [
+        "security"
+      ]
+    },
+    {
+      "id": 108,
+      "from": "events@city.cz",
+      "subject": "Volná místa na fotbalový turnaj",
+      "body": "Přihlaste svůj tým na sobotní turnaj. Startovné 150 Kč.",
+      "date": "2025-10-02",
+      "phishing": false,
+      "tags": [
+        "events"
+      ]
+    },
+    {
+      "id": 109,
+      "from": "billing@streaming.cz",
+      "subject": "Aktualizace platební metody",
+      "body": "Vaše platba neproběhla. Aktualizujte platební údaje zde: http://streaming.pay/update",
+      "date": "2025-10-08",
+      "phishing": true,
+      "tags": [
+        "billing"
+      ]
+    },
+    {
+      "id": 110,
+      "from": "noreply@lottery.cz",
+      "subject": "Vyhráli jste soutěž!",
+      "body": "Gratulujeme! Vyhráli jste 1000 Kč. Odeberte výhru kliknutím zde: http://lottery.claim/xyz (POZOR: falešné!)",
+      "date": "2025-10-09",
+      "phishing": true,
+      "tags": [
+        "scam",
+        "promo"
+      ]
+    }
+  ],
+  "sms": [
+    {
+      "id": 201,
+      "from": "BankApp",
+      "text": "Váš kód: 482913",
+      "date": "2025-10-01",
+      "phishing": false
+    },
+    {
+      "id": 202,
+      "from": "FakeBank",
+      "text": "Potvrďte převod: odkaz http://scam.fake/123",
+      "date": "2025-10-02",
+      "phishing": true
+    },
+    {
+      "id": 203,
+      "from": "Delivery",
+      "text": "Vaše zásilka je připravena k vyzvednutí. Kód: ZAS123",
+      "date": "2025-10-03",
+      "phishing": false
+    },
+    {
+      "id": 204,
+      "from": "Bank-security",
+      "text": "URGENT: Změňte heslo nyní: http://bank.login.reset",
+      "date": "2025-10-04",
+      "phishing": true
+    },
+    {
+      "id": 205,
+      "from": "Employer",
+      "text": "Výplata připravena: 1500 Kč. Termín 2025-10-05.",
+      "date": "2025-10-05",
+      "phishing": false
+    }
+  ],
+  "bills": [
+    {
+      "id": "bill-1",
+      "name": "Nájem",
+      "amount": 6500,
+      "period_days": 30,
+      "next_due_day": 5,
+      "category": "fixed"
+    },
+    {
+      "id": "bill-2",
+      "name": "Energie",
+      "amount": 2200,
+      "period_days": 30,
+      "next_due_day": 10,
+      "category": "fixed"
+    },
+    {
+      "id": "bill-3",
+      "name": "Internet",
+      "amount": 500,
+      "period_days": 30,
+      "next_due_day": 15,
+      "category": "fixed"
+    },
+    {
+      "id": "bill-4",
+      "name": "Netflix",
+      "amount": 250,
+      "period_days": 30,
+      "next_due_day": 20,
+      "category": "subscription"
+    },
+    {
+      "id": "bill-5",
+      "name": "Mobil",
+      "amount": 350,
+      "period_days": 30,
+      "next_due_day": 25,
+      "category": "subscription"
+    }
+  ],
+  "actions": [
+    {
+      "id": "work",
+      "title": "Jdi do práce",
+      "time_days": 1,
+      "income": 1500,
+      "description": "Odnes si peníze z výplaty."
+    },
+    {
+      "id": "football",
+      "title": "Jdi na fotbal",
+      "time_days": 0,
+      "cost": 80,
+      "description": "Zábava s týmem."
+    },
+    {
+      "id": "cinema",
+      "title": "Jdi do kina",
+      "time_days": 0,
+      "cost": 180,
+      "description": "Večerní film."
+    },
+    {
+      "id": "party",
+      "title": "Jdi na party",
+      "time_days": 0,
+      "cost": 300,
+      "description": "Noc venku."
+    },
+    {
+      "id": "shopping",
+      "title": "Nakup jídlo",
+      "time_days": 0,
+      "cost": 1200,
+      "description": "Zásoby na týden."
+    },
+    {
+      "id": "save",
+      "title": "Ušetři částku",
+      "time_days": 0,
+      "cost": 0,
+      "description": "Přesuň peníze na spoření.",
+      "special": "prompt_amount"
+    }
+  ],
+  "randomEvents": [
+    {
+      "id": "evt-illness",
+      "title": "Návštěva lékaře",
+      "description": "Nečekaná nemoc - platba za ošetření a léky.",
+      "impact": {
+        "cost": 800
+      },
+      "probability": 0.03,
+      "tags": [
+        "health"
+      ]
+    },
+    {
+      "id": "evt-carRepair",
+      "title": "Oprava kola",
+      "description": "Poškozené kolo, nutná oprava.",
+      "impact": {
+        "cost": 400
+      },
+      "probability": 0.05,
+      "tags": [
+        "repair"
+      ]
+    },
+    {
+      "id": "evt-bonus",
+      "title": "Bonus v práci",
+      "description": "Dostal/a jsi bonus za dobrou práci.",
+      "impact": {
+        "income": 1000
+      },
+      "probability": 0.02,
+      "tags": [
+        "income"
+      ]
+    },
+    {
+      "id": "evt-fine",
+      "title": "Pokuta",
+      "description": "Dostal/a jsi pokutu za porušení pravidel - 300 Kč.",
+      "impact": {
+        "cost": 300
+      },
+      "probability": 0.02,
+      "tags": [
+        "fine"
+      ]
+    },
+    {
+      "id": "evt-utilityOutage",
+      "title": "Výpadek energie",
+      "description": "Krátkodobý výpadek, dojde k částečné kompenzaci od dodavatele (−150 Kč).",
+      "impact": {
+        "income": 150
+      },
+      "probability": 0.01,
+      "tags": [
+        "utility"
+      ]
+    },
+    {
+      "id": "evt-scamCall",
+      "title": "Podezřelý hovor",
+      "description": "Dostáváte hovor od neznámého čísla s žádostí o sdělení citlivých údajů.",
+      "impact": {
+        "cost": 0
+      },
+      "probability": 0.04,
+      "tags": [
+        "scam",
+        "call"
+      ]
+    }
+  ],
+  "phishingCampaigns": [
+    {
+      "id": "phish-1",
+      "name": "Falešný bankovní link",
+      "channels": [
+        "email",
+        "sms"
+      ],
+      "template": {
+        "subject": "Bezpečnostní upozornění - ověření účtu",
+        "body": "Z bezpečnostních důvodů ověřte své přihlášení kliknutím zde: http://bank-secure.verify/{token}",
+        "sms": "BANK: ověřte účet: http://bank-secure.verify/{token}"
+      },
+      "severity": "high"
+    },
+    {
+      "id": "phish-2",
+      "name": "Falešná soutěž",
+      "channels": [
+        "email"
+      ],
+      "template": {
+        "subject": "Vyhráli jste! Proplatíme výhru",
+        "body": "Gratulujeme, vyhráli jste 1000 Kč. Klikněte pro výběr výhry: http://lottery.claim/{token}"
+      },
+      "severity": "medium"
+    }
+  ],
+  "uiText": {
+    "login": {
+      "title": "Přihlášení do BankApp",
+      "usernamePlaceholder": "Uživatelské jméno",
+      "passwordPlaceholder": "Heslo",
+      "loginButton": "Přihlásit se",
+      "2faInfo": "Po přihlášení vám přijde kód na mobil nebo do emailu."
+    },
+    "buttons": {
+      "pay": "Zaplatit",
+      "confirm": "Potvrdit",
+      "cancel": "Zrušit",
+      "perform": "Proveď"
+    },
+    "notifications": {
+      "paymentSuccess": "Platba proběhla úspěšně.",
+      "paymentFail": "Platba se nezdařila, zkontrolujte OTP a heslo.",
+      "phishingWarn": "Pozor: tato zpráva vypadá podezřele."
+    }
+  },
+  "puzzles": [
+    {
+      "id": "pz-1",
+      "title": "Hádanka: Bezpečný PIN",
+      "question": "Které z následujících PINů je nejslabší? A) 1234 B) 4829 C) 1973 D) 8642",
+      "answer": "A",
+      "explanation": "1234 je nejoblíbenější a nejsnadněji uhodnutelný PIN."
+    },
+    {
+      "id": "pz-2",
+      "title": "Otázka: Falešný odkaz",
+      "question": "Co uděláš jako první, když ti přijde email s odkazem na obnovu účtu? (1) Kliknu; (2) Zkontroluji odesílatele a hover; (3) Zavolám na číslo ze zprávy; (4) Pošlu zprávu příteli.",
+      "answer": "2",
+      "explanation": "Nejprve zkontroluj odesílatele a odkaz bez kliknutí (hover nebo zkopírování do Notepadu)."
+    }
+  ],
+  "examplePaymentTemplates": [
+    {
+      "id": "tpl-1",
+      "payee": "Landlord",
+      "account": "CZ6508000000001234567899",
+      "amount_field": "amount",
+      "variable_fields": [
+        "variable_symbol"
+      ],
+      "description": "Nájem za měsíc X"
+    },
+    {
+      "id": "tpl-2",
+      "payee": "Energie a.s.",
+      "account": "CZ6508000000009876543210",
+      "amount_field": "amount",
+      "description": "Faktura energie - variabilní symbol: {vs}"
+    }
+  ],
+  "comments": "Tento soubor je návrh. Pro produkční použití zajistěte CORS, validaci a bezpečné ukládání citlivých údajů."
+}
