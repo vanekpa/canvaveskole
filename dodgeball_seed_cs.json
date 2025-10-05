@@ -1,0 +1,1331 @@
+{
+  "version": "0.3.0",
+  "meta": {
+    "game_name": "Dodgeball Manager",
+    "default_locale": "cs-CZ"
+  },
+  "enums": {
+    "genders": [
+      "men",
+      "women",
+      "mixed"
+    ],
+    "positions": [
+      "thrower",
+      "catcher",
+      "blocker",
+      "universal"
+    ],
+    "handedness": [
+      "right",
+      "left",
+      "ambidextrous"
+    ],
+    "staff_roles": [
+      "head_coach",
+      "assistant_coach",
+      "physio",
+      "analyst",
+      "manager"
+    ]
+  },
+  "game_modes": {
+    "men": {
+      "id": "men",
+      "display_name_cs": "Muži",
+      "composition": null
+    },
+    "women": {
+      "id": "women",
+      "display_name_cs": "Ženy",
+      "composition": null
+    },
+    "mixed": {
+      "id": "mixed",
+      "display_name_cs": "Mixy",
+      "composition": {
+        "men": 3,
+        "women": 3
+      }
+    }
+  },
+  "roster_rules": {
+    "squad_size": 16,
+    "on_court": 6,
+    "bench": 6,
+    "staff_min": 0,
+    "substitutions": {
+      "allowed": true,
+      "timing": "between_sets_only"
+    }
+  },
+  "rules": {
+    "balls_in_play": 5,
+    "court_size_m": {
+      "length": 16,
+      "width": 8
+    },
+    "set": {
+      "max_duration_seconds": 180,
+      "ends_when": [
+        "team_eliminated",
+        "timer_end"
+      ]
+    },
+    "match": {
+      "halves": 2,
+      "half_duration_seconds": 1200,
+      "unlimited_sets": true,
+      "overtime": {
+        "enabled": true,
+        "trigger": "draw_after_regulation_points",
+        "format": {
+          "type": "single_set",
+          "set_duration_seconds": 180,
+          "scoring": "decide_winner_only"
+        },
+        "sudden_death": {
+          "enabled": true,
+          "trigger": "draw_at_ot_buzzer",
+          "win_condition": "first_net_advantage_event",
+          "count_as": "match_win"
+        }
+      }
+    },
+    "scoring": {
+      "per_set": {
+        "win_elimination": {
+          "winner": 2,
+          "loser": 0
+        },
+        "win_more_players_at_buzzer": {
+          "winner": 2,
+          "loser": 0
+        },
+        "draw_same_players_at_buzzer": {
+          "home": 1,
+          "away": 1
+        }
+      }
+    },
+    "infractions": {
+      "foot_fault": true,
+      "stalling_limit_seconds": 10
+    }
+  },
+  "simulation": {
+    "rng": {
+      "base_variance": 0.05,
+      "momentum_factor": 0.08,
+      "home_advantage": 0.03,
+      "clutch_bonus": 0.02
+    },
+    "weights": {
+      "attack_index": {
+        "hazeni": 0.45,
+        "taktika": 0.25,
+        "forma": 0.2,
+        "moralka": 0.1
+      },
+      "defense_index": {
+        "uhybani": 0.35,
+        "chytani": 0.35,
+        "blokovani": 0.2,
+        "reakce": 0.1
+      },
+      "physical_index": {
+        "fyzicka_sila": 0.34,
+        "kondice": 0.33,
+        "rychlost": 0.33
+      },
+      "overall": {
+        "attack": 0.4,
+        "defense": 0.4,
+        "physical": 0.2
+      }
+    },
+    "morale": {
+      "win_boost": 3,
+      "loss_drop": 3,
+      "min": 0,
+      "max": 100
+    },
+    "injuries": {
+      "base_injury_rate_per_match": 0.03,
+      "fatigue_threshold": 60,
+      "fatigue_injury_multiplier": 1.5
+    },
+    "progression": {
+      "training_gain_per_week": 0.4,
+      "form_decay_after_loss": 2,
+      "form_boost_after_win": 2
+    }
+  },
+  "finances": {
+    "currency": "CZK",
+    "ticket_base_price": 120,
+    "sponsor_tiers": [
+      "local",
+      "regional",
+      "national",
+      "european"
+    ],
+    "transfer_tax_rate": 0.05,
+    "academy": {
+      "enabled": true,
+      "base_monthly_cost": 50000,
+      "youth_intake_per_season": 4
+    }
+  },
+  "world": {
+    "countries": [
+      {
+        "id": 100,
+        "name": "Česko",
+        "code": "CZE",
+        "region": "Central Europe",
+        "status": "ON"
+      }
+    ],
+    "leagues": [
+      {
+        "id": 201,
+        "name": "Česká Dodgeballová liga - 1. liga",
+        "short": "CDL1",
+        "country_id": 100,
+        "tier": 1,
+        "status": "ON",
+        "gender_mode": "men"
+      },
+      {
+        "id": 202,
+        "name": "Česká Dodgeballová liga - 2. liga",
+        "short": "CDL2",
+        "country_id": 100,
+        "tier": 2,
+        "status": "ON",
+        "gender_mode": "men"
+      }
+    ],
+    "clubs": [
+      {
+        "id": 300,
+        "name": "Pilsen Beasts",
+        "city": "Plzeň",
+        "country_id": 100,
+        "league_id": 201,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1000,\"name\":\"Aleš Veselý\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"thrower\",\"attributes\":{\"uhybani\":72,\"chytani\":70,\"hazeni\":69,\"blokovani\":63,\"taktika\":61,\"fyzicka_sila\":89,\"rychlost\":60,\"reakce\":82},\"meta\":{\"forma\":61,\"moralka\":60,\"zraneni\":false,\"kondice\":72,\"zkušenosti\":33},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1001,\"name\":\"Štěpán Špaček\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"thrower\",\"attributes\":{\"uhybani\":90,\"chytani\":67,\"hazeni\":89,\"blokovani\":81,\"taktika\":69,\"fyzicka_sila\":83,\"rychlost\":72,\"reakce\":55},\"meta\":{\"forma\":84,\"moralka\":85,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":64},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1002,\"name\":\"David Fiala\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"catcher\",\"attributes\":{\"uhybani\":68,\"chytani\":76,\"hazeni\":61,\"blokovani\":60,\"taktika\":79,\"fyzicka_sila\":61,\"rychlost\":77,\"reakce\":77},\"meta\":{\"forma\":79,\"moralka\":68,\"zraneni\":false,\"kondice\":95,\"zkušenosti\":22},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1003,\"name\":\"Jaroslav Zima\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"thrower\",\"attributes\":{\"uhybani\":79,\"chytani\":60,\"hazeni\":90,\"blokovani\":73,\"taktika\":78,\"fyzicka_sila\":67,\"rychlost\":59,\"reakce\":57},\"meta\":{\"forma\":81,\"moralka\":67,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":38},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1004,\"name\":\"Ondřej Kučera\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"universal\",\"attributes\":{\"uhybani\":72,\"chytani\":84,\"hazeni\":78,\"blokovani\":65,\"taktika\":78,\"fyzicka_sila\":77,\"rychlost\":68,\"reakce\":72},\"meta\":{\"forma\":82,\"moralka\":89,\"zraneni\":false,\"kondice\":91,\"zkušenosti\":61},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1005,\"name\":\"Patrik Marek\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"catcher\",\"attributes\":{\"uhybani\":65,\"chytani\":84,\"hazeni\":79,\"blokovani\":72,\"taktika\":90,\"fyzicka_sila\":69,\"rychlost\":75,\"reakce\":58},\"meta\":{\"forma\":67,\"moralka\":86,\"zraneni\":false,\"kondice\":71,\"zkušenosti\":71},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1006,\"name\":\"Daniel Fiala\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"thrower\",\"attributes\":{\"uhybani\":68,\"chytani\":75,\"hazeni\":68,\"blokovani\":86,\"taktika\":80,\"fyzicka_sila\":84,\"rychlost\":64,\"reakce\":71},\"meta\":{\"forma\":64,\"moralka\":67,\"zraneni\":false,\"kondice\":93,\"zkušenosti\":55},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1007,\"name\":\"Filip Pazdera\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"universal\",\"attributes\":{\"uhybani\":80,\"chytani\":78,\"hazeni\":69,\"blokovani\":63,\"taktika\":87,\"fyzicka_sila\":86,\"rychlost\":60,\"reakce\":58},\"meta\":{\"forma\":87,\"moralka\":63,\"zraneni\":false,\"kondice\":74,\"zkušenosti\":60},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1008,\"name\":\"Radek Forejt\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"thrower\",\"attributes\":{\"uhybani\":79,\"chytani\":79,\"hazeni\":84,\"blokovani\":88,\"taktika\":71,\"fyzicka_sila\":90,\"rychlost\":55,\"reakce\":62},\"meta\":{\"forma\":81,\"moralka\":88,\"zraneni\":false,\"kondice\":87,\"zkušenosti\":68},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1009,\"name\":\"Aleš Král\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"thrower\",\"attributes\":{\"uhybani\":73,\"chytani\":82,\"hazeni\":65,\"blokovani\":84,\"taktika\":55,\"fyzicka_sila\":71,\"rychlost\":87,\"reakce\":66},\"meta\":{\"forma\":76,\"moralka\":89,\"zraneni\":false,\"kondice\":73,\"zkušenosti\":75},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1010,\"name\":\"Adam Koller\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"catcher\",\"attributes\":{\"uhybani\":64,\"chytani\":78,\"hazeni\":65,\"blokovani\":89,\"taktika\":88,\"fyzicka_sila\":55,\"rychlost\":75,\"reakce\":86},\"meta\":{\"forma\":60,\"moralka\":63,\"zraneni\":false,\"kondice\":81,\"zkušenosti\":76},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1011,\"name\":\"Ondřej Dvořák\",\"gender_mode\":\"men\",\"club_id\":300,\"position\":\"catcher\",\"attributes\":{\"uhybani\":60,\"chytani\":60,\"hazeni\":86,\"blokovani\":59,\"taktika\":89,\"fyzicka_sila\":63,\"rychlost\":63,\"reakce\":85},\"meta\":{\"forma\":90,\"moralka\":77,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":36},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5000,
+              "name": "Patrik Forejt",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 300,
+              "skills": {
+                "taktika": 90,
+                "motivace": 66,
+                "trénink": 89,
+                "scouting": 72
+              }
+            },
+            {
+              "id": 5001,
+              "name": "Jiří Pokorný",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 300,
+              "skills": {
+                "taktika": 82,
+                "motivace": 69,
+                "trénink": 72,
+                "scouting": 76
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 301,
+        "name": "Praha Comets",
+        "city": "Praha",
+        "country_id": 100,
+        "league_id": 201,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1012,\"name\":\"Aleš Kříž\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"universal\",\"attributes\":{\"uhybani\":88,\"chytani\":83,\"hazeni\":62,\"blokovani\":70,\"taktika\":69,\"fyzicka_sila\":59,\"rychlost\":76,\"reakce\":56},\"meta\":{\"forma\":78,\"moralka\":77,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":57},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1013,\"name\":\"Petr Černý\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"thrower\",\"attributes\":{\"uhybani\":69,\"chytani\":59,\"hazeni\":57,\"blokovani\":76,\"taktika\":59,\"fyzicka_sila\":87,\"rychlost\":70,\"reakce\":72},\"meta\":{\"forma\":81,\"moralka\":75,\"zraneni\":false,\"kondice\":76,\"zkušenosti\":54},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1014,\"name\":\"Jiří Šebek\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"universal\",\"attributes\":{\"uhybani\":70,\"chytani\":85,\"hazeni\":81,\"blokovani\":67,\"taktika\":61,\"fyzicka_sila\":61,\"rychlost\":82,\"reakce\":77},\"meta\":{\"forma\":73,\"moralka\":73,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":75},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1015,\"name\":\"Jan Kučera\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"thrower\",\"attributes\":{\"uhybani\":80,\"chytani\":76,\"hazeni\":61,\"blokovani\":70,\"taktika\":67,\"fyzicka_sila\":67,\"rychlost\":89,\"reakce\":83},\"meta\":{\"forma\":64,\"moralka\":73,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":37},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1016,\"name\":\"Ondřej Černý\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"universal\",\"attributes\":{\"uhybani\":90,\"chytani\":61,\"hazeni\":58,\"blokovani\":89,\"taktika\":55,\"fyzicka_sila\":60,\"rychlost\":70,\"reakce\":65},\"meta\":{\"forma\":73,\"moralka\":75,\"zraneni\":false,\"kondice\":85,\"zkušenosti\":33},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1017,\"name\":\"Jan Marek\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"universal\",\"attributes\":{\"uhybani\":55,\"chytani\":79,\"hazeni\":71,\"blokovani\":84,\"taktika\":73,\"fyzicka_sila\":82,\"rychlost\":90,\"reakce\":86},\"meta\":{\"forma\":64,\"moralka\":66,\"zraneni\":false,\"kondice\":79,\"zkušenosti\":33},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1018,\"name\":\"Roman Zima\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"thrower\",\"attributes\":{\"uhybani\":75,\"chytani\":58,\"hazeni\":58,\"blokovani\":85,\"taktika\":87,\"fyzicka_sila\":88,\"rychlost\":65,\"reakce\":58},\"meta\":{\"forma\":90,\"moralka\":76,\"zraneni\":false,\"kondice\":72,\"zkušenosti\":74},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1019,\"name\":\"Tomáš Špaček\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"thrower\",\"attributes\":{\"uhybani\":70,\"chytani\":80,\"hazeni\":62,\"blokovani\":70,\"taktika\":57,\"fyzicka_sila\":60,\"rychlost\":81,\"reakce\":88},\"meta\":{\"forma\":70,\"moralka\":89,\"zraneni\":false,\"kondice\":78,\"zkušenosti\":33},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1020,\"name\":\"Josef Urban\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"catcher\",\"attributes\":{\"uhybani\":71,\"chytani\":80,\"hazeni\":63,\"blokovani\":74,\"taktika\":84,\"fyzicka_sila\":75,\"rychlost\":59,\"reakce\":55},\"meta\":{\"forma\":74,\"moralka\":79,\"zraneni\":false,\"kondice\":88,\"zkušenosti\":26},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1021,\"name\":\"Vojtěch Jelínek\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"blocker\",\"attributes\":{\"uhybani\":63,\"chytani\":77,\"hazeni\":59,\"blokovani\":70,\"taktika\":78,\"fyzicka_sila\":73,\"rychlost\":65,\"reakce\":83},\"meta\":{\"forma\":86,\"moralka\":77,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":39},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1022,\"name\":\"Aleš Říha\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"thrower\",\"attributes\":{\"uhybani\":90,\"chytani\":74,\"hazeni\":61,\"blokovani\":63,\"taktika\":71,\"fyzicka_sila\":62,\"rychlost\":61,\"reakce\":90},\"meta\":{\"forma\":64,\"moralka\":68,\"zraneni\":false,\"kondice\":79,\"zkušenosti\":58},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1023,\"name\":\"Josef Král\",\"gender_mode\":\"men\",\"club_id\":301,\"position\":\"catcher\",\"attributes\":{\"uhybani\":71,\"chytani\":87,\"hazeni\":86,\"blokovani\":71,\"taktika\":58,\"fyzicka_sila\":60,\"rychlost\":82,\"reakce\":72},\"meta\":{\"forma\":61,\"moralka\":60,\"zraneni\":false,\"kondice\":80,\"zkušenosti\":69},\"nationality\":\"CZE\",\"handedness\":\"right\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5002,
+              "name": "Aleš Beneš",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 301,
+              "skills": {
+                "taktika": 65,
+                "motivace": 83,
+                "trénink": 74,
+                "scouting": 72
+              }
+            },
+            {
+              "id": 5003,
+              "name": "Josef Forejt",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 301,
+              "skills": {
+                "taktika": 77,
+                "motivace": 60,
+                "trénink": 63,
+                "scouting": 57
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 302,
+        "name": "Brno Smashers",
+        "city": "Brno",
+        "country_id": 100,
+        "league_id": 201,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1024,\"name\":\"Josef Němec\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"thrower\",\"attributes\":{\"uhybani\":78,\"chytani\":90,\"hazeni\":64,\"blokovani\":82,\"taktika\":63,\"fyzicka_sila\":57,\"rychlost\":74,\"reakce\":78},\"meta\":{\"forma\":88,\"moralka\":89,\"zraneni\":false,\"kondice\":95,\"zkušenosti\":75},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1025,\"name\":\"Václav Jelínek\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"catcher\",\"attributes\":{\"uhybani\":61,\"chytani\":77,\"hazeni\":90,\"blokovani\":81,\"taktika\":64,\"fyzicka_sila\":70,\"rychlost\":65,\"reakce\":66},\"meta\":{\"forma\":88,\"moralka\":73,\"zraneni\":false,\"kondice\":70,\"zkušenosti\":31},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1026,\"name\":\"David Bláha\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"catcher\",\"attributes\":{\"uhybani\":72,\"chytani\":65,\"hazeni\":61,\"blokovani\":79,\"taktika\":57,\"fyzicka_sila\":85,\"rychlost\":69,\"reakce\":67},\"meta\":{\"forma\":86,\"moralka\":89,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":42},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1027,\"name\":\"Ondřej Krejčí\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"thrower\",\"attributes\":{\"uhybani\":67,\"chytani\":80,\"hazeni\":76,\"blokovani\":72,\"taktika\":59,\"fyzicka_sila\":72,\"rychlost\":77,\"reakce\":87},\"meta\":{\"forma\":72,\"moralka\":81,\"zraneni\":false,\"kondice\":87,\"zkušenosti\":41},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1028,\"name\":\"Lukáš Beneš\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"catcher\",\"attributes\":{\"uhybani\":71,\"chytani\":57,\"hazeni\":61,\"blokovani\":82,\"taktika\":77,\"fyzicka_sila\":75,\"rychlost\":82,\"reakce\":87},\"meta\":{\"forma\":63,\"moralka\":72,\"zraneni\":false,\"kondice\":88,\"zkušenosti\":32},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1029,\"name\":\"Jan Forejt\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"thrower\",\"attributes\":{\"uhybani\":88,\"chytani\":89,\"hazeni\":67,\"blokovani\":78,\"taktika\":82,\"fyzicka_sila\":59,\"rychlost\":76,\"reakce\":75},\"meta\":{\"forma\":81,\"moralka\":87,\"zraneni\":false,\"kondice\":73,\"zkušenosti\":66},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1030,\"name\":\"Štěpán Dvořáček\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"universal\",\"attributes\":{\"uhybani\":75,\"chytani\":80,\"hazeni\":73,\"blokovani\":90,\"taktika\":63,\"fyzicka_sila\":67,\"rychlost\":81,\"reakce\":79},\"meta\":{\"forma\":81,\"moralka\":83,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":59},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1031,\"name\":\"Adam Šimek\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"thrower\",\"attributes\":{\"uhybani\":74,\"chytani\":73,\"hazeni\":68,\"blokovani\":82,\"taktika\":75,\"fyzicka_sila\":84,\"rychlost\":83,\"reakce\":83},\"meta\":{\"forma\":81,\"moralka\":66,\"zraneni\":false,\"kondice\":86,\"zkušenosti\":50},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1032,\"name\":\"Jakub Procházka\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"blocker\",\"attributes\":{\"uhybani\":87,\"chytani\":76,\"hazeni\":60,\"blokovani\":70,\"taktika\":74,\"fyzicka_sila\":69,\"rychlost\":67,\"reakce\":64},\"meta\":{\"forma\":60,\"moralka\":61,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":50},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1033,\"name\":\"Tomáš Štěpánek\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"universal\",\"attributes\":{\"uhybani\":67,\"chytani\":79,\"hazeni\":86,\"blokovani\":80,\"taktika\":70,\"fyzicka_sila\":64,\"rychlost\":55,\"reakce\":61},\"meta\":{\"forma\":84,\"moralka\":73,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":31},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1034,\"name\":\"Štěpán Štěpánek\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"thrower\",\"attributes\":{\"uhybani\":90,\"chytani\":70,\"hazeni\":62,\"blokovani\":84,\"taktika\":63,\"fyzicka_sila\":84,\"rychlost\":88,\"reakce\":90},\"meta\":{\"forma\":79,\"moralka\":70,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":77},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1035,\"name\":\"Patrik Koller\",\"gender_mode\":\"men\",\"club_id\":302,\"position\":\"universal\",\"attributes\":{\"uhybani\":90,\"chytani\":83,\"hazeni\":65,\"blokovani\":85,\"taktika\":83,\"fyzicka_sila\":71,\"rychlost\":70,\"reakce\":72},\"meta\":{\"forma\":84,\"moralka\":84,\"zraneni\":false,\"kondice\":86,\"zkušenosti\":51},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5004,
+              "name": "Ondřej Fiala",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 302,
+              "skills": {
+                "taktika": 74,
+                "motivace": 62,
+                "trénink": 82,
+                "scouting": 64
+              }
+            },
+            {
+              "id": 5005,
+              "name": "Ondřej Fiala",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 302,
+              "skills": {
+                "taktika": 70,
+                "motivace": 70,
+                "trénink": 88,
+                "scouting": 72
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 303,
+        "name": "Ostrava Blizzards",
+        "city": "Ostrava",
+        "country_id": 100,
+        "league_id": 201,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1036,\"name\":\"Tomáš Horák\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"catcher\",\"attributes\":{\"uhybani\":69,\"chytani\":79,\"hazeni\":64,\"blokovani\":68,\"taktika\":59,\"fyzicka_sila\":81,\"rychlost\":81,\"reakce\":76},\"meta\":{\"forma\":77,\"moralka\":74,\"zraneni\":false,\"kondice\":83,\"zkušenosti\":23},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1037,\"name\":\"Matěj Kolář\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"thrower\",\"attributes\":{\"uhybani\":79,\"chytani\":85,\"hazeni\":55,\"blokovani\":77,\"taktika\":74,\"fyzicka_sila\":79,\"rychlost\":81,\"reakce\":89},\"meta\":{\"forma\":83,\"moralka\":83,\"zraneni\":false,\"kondice\":87,\"zkušenosti\":71},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1038,\"name\":\"Ondřej Havel\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"catcher\",\"attributes\":{\"uhybani\":72,\"chytani\":82,\"hazeni\":86,\"blokovani\":56,\"taktika\":79,\"fyzicka_sila\":76,\"rychlost\":80,\"reakce\":65},\"meta\":{\"forma\":86,\"moralka\":74,\"zraneni\":false,\"kondice\":74,\"zkušenosti\":59},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1039,\"name\":\"Petr Šimek\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"thrower\",\"attributes\":{\"uhybani\":60,\"chytani\":82,\"hazeni\":63,\"blokovani\":84,\"taktika\":66,\"fyzicka_sila\":58,\"rychlost\":71,\"reakce\":79},\"meta\":{\"forma\":70,\"moralka\":66,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":40},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1040,\"name\":\"Daniel Fiala\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"universal\",\"attributes\":{\"uhybani\":71,\"chytani\":60,\"hazeni\":85,\"blokovani\":56,\"taktika\":89,\"fyzicka_sila\":58,\"rychlost\":77,\"reakce\":69},\"meta\":{\"forma\":80,\"moralka\":62,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":61},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1041,\"name\":\"Petr Růžička\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"catcher\",\"attributes\":{\"uhybani\":56,\"chytani\":64,\"hazeni\":70,\"blokovani\":63,\"taktika\":85,\"fyzicka_sila\":62,\"rychlost\":68,\"reakce\":84},\"meta\":{\"forma\":82,\"moralka\":68,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":43},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1042,\"name\":\"Patrik Špaček\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"thrower\",\"attributes\":{\"uhybani\":65,\"chytani\":74,\"hazeni\":61,\"blokovani\":56,\"taktika\":74,\"fyzicka_sila\":79,\"rychlost\":80,\"reakce\":67},\"meta\":{\"forma\":62,\"moralka\":78,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":73},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1043,\"name\":\"Ondřej Kučera\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"blocker\",\"attributes\":{\"uhybani\":62,\"chytani\":57,\"hazeni\":77,\"blokovani\":89,\"taktika\":82,\"fyzicka_sila\":78,\"rychlost\":59,\"reakce\":87},\"meta\":{\"forma\":80,\"moralka\":70,\"zraneni\":false,\"kondice\":70,\"zkušenosti\":74},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1044,\"name\":\"Marek Kučera\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"universal\",\"attributes\":{\"uhybani\":78,\"chytani\":84,\"hazeni\":64,\"blokovani\":82,\"taktika\":66,\"fyzicka_sila\":88,\"rychlost\":72,\"reakce\":89},\"meta\":{\"forma\":84,\"moralka\":75,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":47},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1045,\"name\":\"Roman Fiala\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"blocker\",\"attributes\":{\"uhybani\":70,\"chytani\":60,\"hazeni\":72,\"blokovani\":83,\"taktika\":70,\"fyzicka_sila\":84,\"rychlost\":79,\"reakce\":76},\"meta\":{\"forma\":60,\"moralka\":75,\"zraneni\":false,\"kondice\":80,\"zkušenosti\":31},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1046,\"name\":\"Michal Hájek\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"blocker\",\"attributes\":{\"uhybani\":76,\"chytani\":72,\"hazeni\":72,\"blokovani\":90,\"taktika\":55,\"fyzicka_sila\":88,\"rychlost\":67,\"reakce\":60},\"meta\":{\"forma\":67,\"moralka\":83,\"zraneni\":false,\"kondice\":83,\"zkušenosti\":51},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1047,\"name\":\"Ondřej Volf\",\"gender_mode\":\"men\",\"club_id\":303,\"position\":\"universal\",\"attributes\":{\"uhybani\":83,\"chytani\":56,\"hazeni\":60,\"blokovani\":73,\"taktika\":69,\"fyzicka_sila\":80,\"rychlost\":70,\"reakce\":74},\"meta\":{\"forma\":81,\"moralka\":78,\"zraneni\":false,\"kondice\":81,\"zkušenosti\":50},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5006,
+              "name": "Štěpán Hájek",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 303,
+              "skills": {
+                "taktika": 73,
+                "motivace": 83,
+                "trénink": 77,
+                "scouting": 65
+              }
+            },
+            {
+              "id": 5007,
+              "name": "Václav Štěpánek",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 303,
+              "skills": {
+                "taktika": 68,
+                "motivace": 69,
+                "trénink": 68,
+                "scouting": 62
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 304,
+        "name": "Liberec Lynx",
+        "city": "Liberec",
+        "country_id": 100,
+        "league_id": 201,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1048,\"name\":\"Lukáš Pokorný\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"blocker\",\"attributes\":{\"uhybani\":62,\"chytani\":89,\"hazeni\":66,\"blokovani\":67,\"taktika\":68,\"fyzicka_sila\":85,\"rychlost\":72,\"reakce\":88},\"meta\":{\"forma\":79,\"moralka\":69,\"zraneni\":false,\"kondice\":73,\"zkušenosti\":73},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1049,\"name\":\"Adam Krejčí\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"blocker\",\"attributes\":{\"uhybani\":66,\"chytani\":74,\"hazeni\":55,\"blokovani\":89,\"taktika\":63,\"fyzicka_sila\":72,\"rychlost\":57,\"reakce\":58},\"meta\":{\"forma\":77,\"moralka\":69,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":80},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1050,\"name\":\"Aleš Havel\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"thrower\",\"attributes\":{\"uhybani\":55,\"chytani\":73,\"hazeni\":85,\"blokovani\":85,\"taktika\":83,\"fyzicka_sila\":76,\"rychlost\":66,\"reakce\":58},\"meta\":{\"forma\":68,\"moralka\":90,\"zraneni\":false,\"kondice\":85,\"zkušenosti\":27},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1051,\"name\":\"Daniel Havel\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"thrower\",\"attributes\":{\"uhybani\":58,\"chytani\":64,\"hazeni\":64,\"blokovani\":74,\"taktika\":60,\"fyzicka_sila\":70,\"rychlost\":62,\"reakce\":90},\"meta\":{\"forma\":84,\"moralka\":73,\"zraneni\":false,\"kondice\":89,\"zkušenosti\":58},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1052,\"name\":\"Ondřej Říha\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"universal\",\"attributes\":{\"uhybani\":83,\"chytani\":83,\"hazeni\":74,\"blokovani\":82,\"taktika\":74,\"fyzicka_sila\":58,\"rychlost\":61,\"reakce\":68},\"meta\":{\"forma\":80,\"moralka\":66,\"zraneni\":false,\"kondice\":78,\"zkušenosti\":62},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1053,\"name\":\"Jakub Růžička\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"catcher\",\"attributes\":{\"uhybani\":90,\"chytani\":59,\"hazeni\":65,\"blokovani\":55,\"taktika\":81,\"fyzicka_sila\":83,\"rychlost\":85,\"reakce\":73},\"meta\":{\"forma\":61,\"moralka\":67,\"zraneni\":false,\"kondice\":79,\"zkušenosti\":65},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1054,\"name\":\"Josef Štěpánek\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"thrower\",\"attributes\":{\"uhybani\":69,\"chytani\":71,\"hazeni\":67,\"blokovani\":82,\"taktika\":62,\"fyzicka_sila\":89,\"rychlost\":69,\"reakce\":64},\"meta\":{\"forma\":89,\"moralka\":68,\"zraneni\":false,\"kondice\":74,\"zkušenosti\":24},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1055,\"name\":\"Jakub Dvořáček\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"blocker\",\"attributes\":{\"uhybani\":83,\"chytani\":62,\"hazeni\":84,\"blokovani\":74,\"taktika\":80,\"fyzicka_sila\":72,\"rychlost\":87,\"reakce\":89},\"meta\":{\"forma\":75,\"moralka\":74,\"zraneni\":false,\"kondice\":72,\"zkušenosti\":58},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1056,\"name\":\"Matěj Urban\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"blocker\",\"attributes\":{\"uhybani\":56,\"chytani\":60,\"hazeni\":69,\"blokovani\":56,\"taktika\":72,\"fyzicka_sila\":57,\"rychlost\":66,\"reakce\":85},\"meta\":{\"forma\":76,\"moralka\":80,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":78},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1057,\"name\":\"Jakub Pazdera\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"universal\",\"attributes\":{\"uhybani\":86,\"chytani\":60,\"hazeni\":85,\"blokovani\":77,\"taktika\":81,\"fyzicka_sila\":76,\"rychlost\":75,\"reakce\":61},\"meta\":{\"forma\":87,\"moralka\":65,\"zraneni\":false,\"kondice\":80,\"zkušenosti\":46},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1058,\"name\":\"Marek Sedláček\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"universal\",\"attributes\":{\"uhybani\":90,\"chytani\":57,\"hazeni\":84,\"blokovani\":60,\"taktika\":75,\"fyzicka_sila\":71,\"rychlost\":75,\"reakce\":62},\"meta\":{\"forma\":84,\"moralka\":72,\"zraneni\":false,\"kondice\":86,\"zkušenosti\":72},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1059,\"name\":\"Radek Zima\",\"gender_mode\":\"men\",\"club_id\":304,\"position\":\"universal\",\"attributes\":{\"uhybani\":81,\"chytani\":58,\"hazeni\":67,\"blokovani\":88,\"taktika\":78,\"fyzicka_sila\":86,\"rychlost\":83,\"reakce\":58},\"meta\":{\"forma\":66,\"moralka\":68,\"zraneni\":false,\"kondice\":87,\"zkušenosti\":28},\"nationality\":\"CZE\",\"handedness\":\"left\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5008,
+              "name": "Jaroslav Havel",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 304,
+              "skills": {
+                "taktika": 63,
+                "motivace": 60,
+                "trénink": 80,
+                "scouting": 74
+              }
+            },
+            {
+              "id": 5009,
+              "name": "Ondřej Marek",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 304,
+              "skills": {
+                "taktika": 69,
+                "motivace": 77,
+                "trénink": 60,
+                "scouting": 72
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 305,
+        "name": "Olomouc Warriors",
+        "city": "Olomouc",
+        "country_id": 100,
+        "league_id": 201,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1060,\"name\":\"Matěj Procházka\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"catcher\",\"attributes\":{\"uhybani\":62,\"chytani\":84,\"hazeni\":62,\"blokovani\":64,\"taktika\":86,\"fyzicka_sila\":73,\"rychlost\":87,\"reakce\":72},\"meta\":{\"forma\":73,\"moralka\":86,\"zraneni\":false,\"kondice\":85,\"zkušenosti\":50},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1061,\"name\":\"Jaroslav Holý\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"catcher\",\"attributes\":{\"uhybani\":79,\"chytani\":67,\"hazeni\":87,\"blokovani\":63,\"taktika\":59,\"fyzicka_sila\":72,\"rychlost\":81,\"reakce\":76},\"meta\":{\"forma\":89,\"moralka\":85,\"zraneni\":false,\"kondice\":86,\"zkušenosti\":37},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1062,\"name\":\"Adam Dvořáček\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"universal\",\"attributes\":{\"uhybani\":64,\"chytani\":83,\"hazeni\":89,\"blokovani\":85,\"taktika\":77,\"fyzicka_sila\":76,\"rychlost\":90,\"reakce\":89},\"meta\":{\"forma\":72,\"moralka\":74,\"zraneni\":false,\"kondice\":80,\"zkušenosti\":75},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1063,\"name\":\"Josef Růžička\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"universal\",\"attributes\":{\"uhybani\":69,\"chytani\":81,\"hazeni\":57,\"blokovani\":75,\"taktika\":85,\"fyzicka_sila\":79,\"rychlost\":79,\"reakce\":64},\"meta\":{\"forma\":75,\"moralka\":90,\"zraneni\":false,\"kondice\":71,\"zkušenosti\":28},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1064,\"name\":\"Roman Král\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"thrower\",\"attributes\":{\"uhybani\":83,\"chytani\":61,\"hazeni\":88,\"blokovani\":84,\"taktika\":55,\"fyzicka_sila\":64,\"rychlost\":81,\"reakce\":64},\"meta\":{\"forma\":62,\"moralka\":75,\"zraneni\":false,\"kondice\":95,\"zkušenosti\":36},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1065,\"name\":\"Patrik Šimek\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"thrower\",\"attributes\":{\"uhybani\":76,\"chytani\":89,\"hazeni\":79,\"blokovani\":75,\"taktika\":86,\"fyzicka_sila\":89,\"rychlost\":57,\"reakce\":59},\"meta\":{\"forma\":67,\"moralka\":80,\"zraneni\":false,\"kondice\":91,\"zkušenosti\":78},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1066,\"name\":\"Ondřej Procházka\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"universal\",\"attributes\":{\"uhybani\":61,\"chytani\":61,\"hazeni\":83,\"blokovani\":65,\"taktika\":74,\"fyzicka_sila\":56,\"rychlost\":57,\"reakce\":75},\"meta\":{\"forma\":85,\"moralka\":61,\"zraneni\":false,\"kondice\":79,\"zkušenosti\":42},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1067,\"name\":\"Matěj Němec\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"catcher\",\"attributes\":{\"uhybani\":88,\"chytani\":81,\"hazeni\":66,\"blokovani\":65,\"taktika\":66,\"fyzicka_sila\":60,\"rychlost\":79,\"reakce\":70},\"meta\":{\"forma\":75,\"moralka\":89,\"zraneni\":false,\"kondice\":88,\"zkušenosti\":29},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1068,\"name\":\"Jaroslav Beneš\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"universal\",\"attributes\":{\"uhybani\":71,\"chytani\":55,\"hazeni\":84,\"blokovani\":73,\"taktika\":89,\"fyzicka_sila\":65,\"rychlost\":59,\"reakce\":83},\"meta\":{\"forma\":90,\"moralka\":71,\"zraneni\":false,\"kondice\":88,\"zkušenosti\":39},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1069,\"name\":\"Matěj Beneš\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"universal\",\"attributes\":{\"uhybani\":74,\"chytani\":67,\"hazeni\":79,\"blokovani\":85,\"taktika\":61,\"fyzicka_sila\":70,\"rychlost\":79,\"reakce\":77},\"meta\":{\"forma\":78,\"moralka\":69,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":38},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1070,\"name\":\"Radek Šimek\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"blocker\",\"attributes\":{\"uhybani\":55,\"chytani\":58,\"hazeni\":86,\"blokovani\":73,\"taktika\":69,\"fyzicka_sila\":77,\"rychlost\":69,\"reakce\":67},\"meta\":{\"forma\":79,\"moralka\":68,\"zraneni\":false,\"kondice\":91,\"zkušenosti\":68},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1071,\"name\":\"Radek Horák\",\"gender_mode\":\"men\",\"club_id\":305,\"position\":\"thrower\",\"attributes\":{\"uhybani\":57,\"chytani\":74,\"hazeni\":83,\"blokovani\":57,\"taktika\":78,\"fyzicka_sila\":63,\"rychlost\":60,\"reakce\":73},\"meta\":{\"forma\":70,\"moralka\":83,\"zraneni\":false,\"kondice\":83,\"zkušenosti\":31},\"nationality\":\"CZE\",\"handedness\":\"right\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5010,
+              "name": "Martin Zima",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 305,
+              "skills": {
+                "taktika": 88,
+                "motivace": 71,
+                "trénink": 76,
+                "scouting": 71
+              }
+            },
+            {
+              "id": 5011,
+              "name": "Filip Marek",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 305,
+              "skills": {
+                "taktika": 68,
+                "motivace": 89,
+                "trénink": 86,
+                "scouting": 85
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 306,
+        "name": "Hradec Vipers",
+        "city": "Hradec Králové",
+        "country_id": 100,
+        "league_id": 201,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1072,\"name\":\"Marek Sedláček\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"blocker\",\"attributes\":{\"uhybani\":62,\"chytani\":84,\"hazeni\":59,\"blokovani\":64,\"taktika\":69,\"fyzicka_sila\":80,\"rychlost\":90,\"reakce\":78},\"meta\":{\"forma\":62,\"moralka\":85,\"zraneni\":false,\"kondice\":82,\"zkušenosti\":20},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1073,\"name\":\"Vojtěch Veselý\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"universal\",\"attributes\":{\"uhybani\":78,\"chytani\":71,\"hazeni\":79,\"blokovani\":78,\"taktika\":61,\"fyzicka_sila\":69,\"rychlost\":85,\"reakce\":56},\"meta\":{\"forma\":79,\"moralka\":88,\"zraneni\":false,\"kondice\":87,\"zkušenosti\":40},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1074,\"name\":\"Ondřej Černý\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"universal\",\"attributes\":{\"uhybani\":74,\"chytani\":81,\"hazeni\":62,\"blokovani\":63,\"taktika\":57,\"fyzicka_sila\":57,\"rychlost\":74,\"reakce\":86},\"meta\":{\"forma\":63,\"moralka\":63,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":76},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1075,\"name\":\"Martin Kolář\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"universal\",\"attributes\":{\"uhybani\":78,\"chytani\":89,\"hazeni\":81,\"blokovani\":64,\"taktika\":81,\"fyzicka_sila\":61,\"rychlost\":86,\"reakce\":81},\"meta\":{\"forma\":90,\"moralka\":90,\"zraneni\":false,\"kondice\":78,\"zkušenosti\":22},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1076,\"name\":\"Václav Jelínek\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"universal\",\"attributes\":{\"uhybani\":83,\"chytani\":70,\"hazeni\":78,\"blokovani\":61,\"taktika\":78,\"fyzicka_sila\":89,\"rychlost\":77,\"reakce\":58},\"meta\":{\"forma\":72,\"moralka\":68,\"zraneni\":false,\"kondice\":76,\"zkušenosti\":27},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1077,\"name\":\"Tomáš Jelínek\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"thrower\",\"attributes\":{\"uhybani\":58,\"chytani\":76,\"hazeni\":70,\"blokovani\":63,\"taktika\":68,\"fyzicka_sila\":59,\"rychlost\":90,\"reakce\":68},\"meta\":{\"forma\":78,\"moralka\":66,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":41},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1078,\"name\":\"Patrik Novák\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"blocker\",\"attributes\":{\"uhybani\":64,\"chytani\":63,\"hazeni\":89,\"blokovani\":71,\"taktika\":66,\"fyzicka_sila\":62,\"rychlost\":56,\"reakce\":63},\"meta\":{\"forma\":60,\"moralka\":71,\"zraneni\":false,\"kondice\":95,\"zkušenosti\":70},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1079,\"name\":\"Roman Urban\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"thrower\",\"attributes\":{\"uhybani\":66,\"chytani\":71,\"hazeni\":58,\"blokovani\":63,\"taktika\":81,\"fyzicka_sila\":88,\"rychlost\":62,\"reakce\":59},\"meta\":{\"forma\":75,\"moralka\":74,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":43},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1080,\"name\":\"Roman Kučera\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"universal\",\"attributes\":{\"uhybani\":87,\"chytani\":69,\"hazeni\":57,\"blokovani\":88,\"taktika\":74,\"fyzicka_sila\":84,\"rychlost\":56,\"reakce\":58},\"meta\":{\"forma\":75,\"moralka\":87,\"zraneni\":false,\"kondice\":82,\"zkušenosti\":47},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1081,\"name\":\"Lukáš Havel\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"universal\",\"attributes\":{\"uhybani\":59,\"chytani\":60,\"hazeni\":75,\"blokovani\":64,\"taktika\":59,\"fyzicka_sila\":63,\"rychlost\":72,\"reakce\":90},\"meta\":{\"forma\":82,\"moralka\":70,\"zraneni\":false,\"kondice\":82,\"zkušenosti\":58},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1082,\"name\":\"Adam Štěpánek\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"universal\",\"attributes\":{\"uhybani\":61,\"chytani\":62,\"hazeni\":90,\"blokovani\":68,\"taktika\":82,\"fyzicka_sila\":83,\"rychlost\":69,\"reakce\":81},\"meta\":{\"forma\":70,\"moralka\":86,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":45},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1083,\"name\":\"Jiří Kučera\",\"gender_mode\":\"men\",\"club_id\":306,\"position\":\"blocker\",\"attributes\":{\"uhybani\":82,\"chytani\":75,\"hazeni\":71,\"blokovani\":78,\"taktika\":64,\"fyzicka_sila\":85,\"rychlost\":59,\"reakce\":60},\"meta\":{\"forma\":86,\"moralka\":62,\"zraneni\":false,\"kondice\":72,\"zkušenosti\":47},\"nationality\":\"CZE\",\"handedness\":\"right\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5012,
+              "name": "Jiří Kříž",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 306,
+              "skills": {
+                "taktika": 85,
+                "motivace": 64,
+                "trénink": 77,
+                "scouting": 56
+              }
+            },
+            {
+              "id": 5013,
+              "name": "Roman Holý",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 306,
+              "skills": {
+                "taktika": 77,
+                "motivace": 70,
+                "trénink": 81,
+                "scouting": 58
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 307,
+        "name": "Pardubice Rockets",
+        "city": "Pardubice",
+        "country_id": 100,
+        "league_id": 201,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1084,\"name\":\"Matěj Hájek\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"universal\",\"attributes\":{\"uhybani\":58,\"chytani\":73,\"hazeni\":74,\"blokovani\":77,\"taktika\":61,\"fyzicka_sila\":87,\"rychlost\":68,\"reakce\":64},\"meta\":{\"forma\":81,\"moralka\":75,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":74},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1085,\"name\":\"Václav Holý\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"blocker\",\"attributes\":{\"uhybani\":62,\"chytani\":72,\"hazeni\":69,\"blokovani\":82,\"taktika\":90,\"fyzicka_sila\":90,\"rychlost\":56,\"reakce\":72},\"meta\":{\"forma\":60,\"moralka\":65,\"zraneni\":false,\"kondice\":78,\"zkušenosti\":64},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1086,\"name\":\"David Hájek\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"thrower\",\"attributes\":{\"uhybani\":66,\"chytani\":64,\"hazeni\":80,\"blokovani\":59,\"taktika\":64,\"fyzicka_sila\":56,\"rychlost\":60,\"reakce\":88},\"meta\":{\"forma\":66,\"moralka\":72,\"zraneni\":false,\"kondice\":83,\"zkušenosti\":49},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1087,\"name\":\"Jakub Kříž\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"blocker\",\"attributes\":{\"uhybani\":75,\"chytani\":60,\"hazeni\":58,\"blokovani\":64,\"taktika\":65,\"fyzicka_sila\":58,\"rychlost\":60,\"reakce\":72},\"meta\":{\"forma\":74,\"moralka\":81,\"zraneni\":false,\"kondice\":83,\"zkušenosti\":51},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1088,\"name\":\"Jaroslav Bláha\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"blocker\",\"attributes\":{\"uhybani\":68,\"chytani\":87,\"hazeni\":62,\"blokovani\":77,\"taktika\":82,\"fyzicka_sila\":62,\"rychlost\":73,\"reakce\":86},\"meta\":{\"forma\":76,\"moralka\":81,\"zraneni\":false,\"kondice\":79,\"zkušenosti\":22},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1089,\"name\":\"Daniel Špaček\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"thrower\",\"attributes\":{\"uhybani\":55,\"chytani\":68,\"hazeni\":74,\"blokovani\":68,\"taktika\":63,\"fyzicka_sila\":71,\"rychlost\":73,\"reakce\":75},\"meta\":{\"forma\":63,\"moralka\":60,\"zraneni\":false,\"kondice\":85,\"zkušenosti\":67},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1090,\"name\":\"Jakub Horák\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"universal\",\"attributes\":{\"uhybani\":89,\"chytani\":69,\"hazeni\":87,\"blokovani\":90,\"taktika\":77,\"fyzicka_sila\":59,\"rychlost\":80,\"reakce\":57},\"meta\":{\"forma\":73,\"moralka\":60,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":78},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1091,\"name\":\"David Šebek\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"universal\",\"attributes\":{\"uhybani\":80,\"chytani\":81,\"hazeni\":73,\"blokovani\":62,\"taktika\":80,\"fyzicka_sila\":56,\"rychlost\":75,\"reakce\":65},\"meta\":{\"forma\":85,\"moralka\":90,\"zraneni\":false,\"kondice\":89,\"zkušenosti\":49},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1092,\"name\":\"Václav Procházka\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"universal\",\"attributes\":{\"uhybani\":61,\"chytani\":70,\"hazeni\":82,\"blokovani\":80,\"taktika\":88,\"fyzicka_sila\":60,\"rychlost\":80,\"reakce\":74},\"meta\":{\"forma\":83,\"moralka\":70,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":41},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1093,\"name\":\"Tomáš Koller\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"thrower\",\"attributes\":{\"uhybani\":88,\"chytani\":87,\"hazeni\":67,\"blokovani\":77,\"taktika\":77,\"fyzicka_sila\":64,\"rychlost\":70,\"reakce\":61},\"meta\":{\"forma\":64,\"moralka\":68,\"zraneni\":false,\"kondice\":76,\"zkušenosti\":31},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1094,\"name\":\"Martin Černý\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"catcher\",\"attributes\":{\"uhybani\":86,\"chytani\":84,\"hazeni\":83,\"blokovani\":75,\"taktika\":75,\"fyzicka_sila\":64,\"rychlost\":83,\"reakce\":59},\"meta\":{\"forma\":75,\"moralka\":74,\"zraneni\":false,\"kondice\":90,\"zkušenosti\":39},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1095,\"name\":\"Roman Dvořák\",\"gender_mode\":\"men\",\"club_id\":307,\"position\":\"blocker\",\"attributes\":{\"uhybani\":87,\"chytani\":59,\"hazeni\":74,\"blokovani\":84,\"taktika\":83,\"fyzicka_sila\":57,\"rychlost\":58,\"reakce\":78},\"meta\":{\"forma\":86,\"moralka\":69,\"zraneni\":false,\"kondice\":72,\"zkušenosti\":61},\"nationality\":\"CZE\",\"handedness\":\"right\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5014,
+              "name": "Patrik Špaček",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 307,
+              "skills": {
+                "taktika": 76,
+                "motivace": 72,
+                "trénink": 74,
+                "scouting": 73
+              }
+            },
+            {
+              "id": 5015,
+              "name": "Vojtěch Novotný",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 307,
+              "skills": {
+                "taktika": 74,
+                "motivace": 89,
+                "trénink": 85,
+                "scouting": 73
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 308,
+        "name": "České Budějovice Hornets",
+        "city": "České Budějovice",
+        "country_id": 100,
+        "league_id": 201,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1096,\"name\":\"Aleš Pokorný\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"blocker\",\"attributes\":{\"uhybani\":85,\"chytani\":87,\"hazeni\":64,\"blokovani\":58,\"taktika\":83,\"fyzicka_sila\":61,\"rychlost\":76,\"reakce\":60},\"meta\":{\"forma\":76,\"moralka\":80,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":22},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1097,\"name\":\"Josef Vaněk\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"universal\",\"attributes\":{\"uhybani\":88,\"chytani\":88,\"hazeni\":65,\"blokovani\":78,\"taktika\":78,\"fyzicka_sila\":73,\"rychlost\":79,\"reakce\":81},\"meta\":{\"forma\":84,\"moralka\":70,\"zraneni\":false,\"kondice\":91,\"zkušenosti\":58},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1098,\"name\":\"Aleš Král\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"thrower\",\"attributes\":{\"uhybani\":76,\"chytani\":61,\"hazeni\":90,\"blokovani\":79,\"taktika\":73,\"fyzicka_sila\":71,\"rychlost\":64,\"reakce\":76},\"meta\":{\"forma\":62,\"moralka\":78,\"zraneni\":false,\"kondice\":91,\"zkušenosti\":29},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1099,\"name\":\"Adam Šimek\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"catcher\",\"attributes\":{\"uhybani\":60,\"chytani\":74,\"hazeni\":90,\"blokovani\":79,\"taktika\":76,\"fyzicka_sila\":63,\"rychlost\":88,\"reakce\":60},\"meta\":{\"forma\":80,\"moralka\":81,\"zraneni\":false,\"kondice\":83,\"zkušenosti\":52},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1100,\"name\":\"Petr Kříž\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"blocker\",\"attributes\":{\"uhybani\":66,\"chytani\":68,\"hazeni\":76,\"blokovani\":86,\"taktika\":67,\"fyzicka_sila\":69,\"rychlost\":63,\"reakce\":64},\"meta\":{\"forma\":62,\"moralka\":69,\"zraneni\":false,\"kondice\":95,\"zkušenosti\":26},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1101,\"name\":\"Vojtěch Říha\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"thrower\",\"attributes\":{\"uhybani\":76,\"chytani\":63,\"hazeni\":79,\"blokovani\":64,\"taktika\":65,\"fyzicka_sila\":66,\"rychlost\":65,\"reakce\":83},\"meta\":{\"forma\":61,\"moralka\":73,\"zraneni\":false,\"kondice\":81,\"zkušenosti\":63},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1102,\"name\":\"Ondřej Vaněk\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"blocker\",\"attributes\":{\"uhybani\":83,\"chytani\":69,\"hazeni\":89,\"blokovani\":70,\"taktika\":74,\"fyzicka_sila\":85,\"rychlost\":67,\"reakce\":78},\"meta\":{\"forma\":81,\"moralka\":90,\"zraneni\":false,\"kondice\":88,\"zkušenosti\":48},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1103,\"name\":\"Adam Kolář\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"universal\",\"attributes\":{\"uhybani\":65,\"chytani\":67,\"hazeni\":63,\"blokovani\":71,\"taktika\":58,\"fyzicka_sila\":85,\"rychlost\":78,\"reakce\":90},\"meta\":{\"forma\":89,\"moralka\":63,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":74},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1104,\"name\":\"Lukáš Sedláček\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"thrower\",\"attributes\":{\"uhybani\":65,\"chytani\":72,\"hazeni\":83,\"blokovani\":87,\"taktika\":64,\"fyzicka_sila\":82,\"rychlost\":60,\"reakce\":69},\"meta\":{\"forma\":86,\"moralka\":74,\"zraneni\":false,\"kondice\":81,\"zkušenosti\":79},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1105,\"name\":\"Matěj Dvořák\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"universal\",\"attributes\":{\"uhybani\":87,\"chytani\":78,\"hazeni\":70,\"blokovani\":79,\"taktika\":60,\"fyzicka_sila\":78,\"rychlost\":69,\"reakce\":56},\"meta\":{\"forma\":70,\"moralka\":89,\"zraneni\":false,\"kondice\":73,\"zkušenosti\":73},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1106,\"name\":\"Aleš Král\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"catcher\",\"attributes\":{\"uhybani\":63,\"chytani\":57,\"hazeni\":73,\"blokovani\":85,\"taktika\":63,\"fyzicka_sila\":85,\"rychlost\":83,\"reakce\":55},\"meta\":{\"forma\":88,\"moralka\":62,\"zraneni\":false,\"kondice\":70,\"zkušenosti\":36},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1107,\"name\":\"Martin Holý\",\"gender_mode\":\"men\",\"club_id\":308,\"position\":\"universal\",\"attributes\":{\"uhybani\":62,\"chytani\":73,\"hazeni\":70,\"blokovani\":74,\"taktika\":62,\"fyzicka_sila\":58,\"rychlost\":70,\"reakce\":81},\"meta\":{\"forma\":80,\"moralka\":85,\"zraneni\":false,\"kondice\":89,\"zkušenosti\":49},\"nationality\":\"CZE\",\"handedness\":\"right\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5016,
+              "name": "Lukáš Havel",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 308,
+              "skills": {
+                "taktika": 79,
+                "motivace": 77,
+                "trénink": 60,
+                "scouting": 75
+              }
+            },
+            {
+              "id": 5017,
+              "name": "Štěpán Šebek",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 308,
+              "skills": {
+                "taktika": 67,
+                "motivace": 82,
+                "trénink": 64,
+                "scouting": 64
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 309,
+        "name": "Plzeň Pythons",
+        "city": "Plzeň",
+        "country_id": 100,
+        "league_id": 201,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1108,\"name\":\"Matěj Novák\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"blocker\",\"attributes\":{\"uhybani\":70,\"chytani\":81,\"hazeni\":66,\"blokovani\":60,\"taktika\":88,\"fyzicka_sila\":78,\"rychlost\":59,\"reakce\":88},\"meta\":{\"forma\":77,\"moralka\":76,\"zraneni\":false,\"kondice\":95,\"zkušenosti\":52},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1109,\"name\":\"Petr Kolář\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"universal\",\"attributes\":{\"uhybani\":57,\"chytani\":79,\"hazeni\":78,\"blokovani\":71,\"taktika\":56,\"fyzicka_sila\":77,\"rychlost\":59,\"reakce\":77},\"meta\":{\"forma\":67,\"moralka\":83,\"zraneni\":false,\"kondice\":91,\"zkušenosti\":60},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1110,\"name\":\"Roman Král\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"catcher\",\"attributes\":{\"uhybani\":57,\"chytani\":77,\"hazeni\":89,\"blokovani\":76,\"taktika\":66,\"fyzicka_sila\":84,\"rychlost\":85,\"reakce\":66},\"meta\":{\"forma\":85,\"moralka\":64,\"zraneni\":false,\"kondice\":72,\"zkušenosti\":65},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1111,\"name\":\"Jan Sedláček\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"catcher\",\"attributes\":{\"uhybani\":57,\"chytani\":67,\"hazeni\":57,\"blokovani\":75,\"taktika\":74,\"fyzicka_sila\":87,\"rychlost\":80,\"reakce\":89},\"meta\":{\"forma\":75,\"moralka\":68,\"zraneni\":false,\"kondice\":71,\"zkušenosti\":68},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1112,\"name\":\"Michal Sedláček\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"blocker\",\"attributes\":{\"uhybani\":58,\"chytani\":76,\"hazeni\":72,\"blokovani\":62,\"taktika\":78,\"fyzicka_sila\":82,\"rychlost\":80,\"reakce\":83},\"meta\":{\"forma\":88,\"moralka\":90,\"zraneni\":false,\"kondice\":82,\"zkušenosti\":41},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1113,\"name\":\"Marek Havel\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"blocker\",\"attributes\":{\"uhybani\":88,\"chytani\":72,\"hazeni\":60,\"blokovani\":82,\"taktika\":60,\"fyzicka_sila\":82,\"rychlost\":66,\"reakce\":89},\"meta\":{\"forma\":69,\"moralka\":70,\"zraneni\":false,\"kondice\":73,\"zkušenosti\":25},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1114,\"name\":\"Radek Sedláček\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"blocker\",\"attributes\":{\"uhybani\":83,\"chytani\":82,\"hazeni\":65,\"blokovani\":83,\"taktika\":77,\"fyzicka_sila\":83,\"rychlost\":57,\"reakce\":77},\"meta\":{\"forma\":79,\"moralka\":73,\"zraneni\":false,\"kondice\":78,\"zkušenosti\":60},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1115,\"name\":\"Tomáš Šimek\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"blocker\",\"attributes\":{\"uhybani\":87,\"chytani\":65,\"hazeni\":56,\"blokovani\":64,\"taktika\":83,\"fyzicka_sila\":57,\"rychlost\":63,\"reakce\":59},\"meta\":{\"forma\":67,\"moralka\":84,\"zraneni\":false,\"kondice\":90,\"zkušenosti\":43},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1116,\"name\":\"Daniel Šebek\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"thrower\",\"attributes\":{\"uhybani\":64,\"chytani\":83,\"hazeni\":78,\"blokovani\":78,\"taktika\":83,\"fyzicka_sila\":59,\"rychlost\":63,\"reakce\":88},\"meta\":{\"forma\":71,\"moralka\":72,\"zraneni\":false,\"kondice\":80,\"zkušenosti\":61},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1117,\"name\":\"Ondřej Veselý\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"thrower\",\"attributes\":{\"uhybani\":66,\"chytani\":86,\"hazeni\":88,\"blokovani\":79,\"taktika\":90,\"fyzicka_sila\":62,\"rychlost\":71,\"reakce\":71},\"meta\":{\"forma\":82,\"moralka\":74,\"zraneni\":false,\"kondice\":76,\"zkušenosti\":59},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1118,\"name\":\"Josef Havel\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"catcher\",\"attributes\":{\"uhybani\":62,\"chytani\":63,\"hazeni\":59,\"blokovani\":83,\"taktika\":66,\"fyzicka_sila\":83,\"rychlost\":60,\"reakce\":75},\"meta\":{\"forma\":81,\"moralka\":71,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":24},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1119,\"name\":\"Vojtěch Sedláček\",\"gender_mode\":\"men\",\"club_id\":309,\"position\":\"blocker\",\"attributes\":{\"uhybani\":65,\"chytani\":66,\"hazeni\":78,\"blokovani\":87,\"taktika\":69,\"fyzicka_sila\":62,\"rychlost\":67,\"reakce\":63},\"meta\":{\"forma\":67,\"moralka\":85,\"zraneni\":false,\"kondice\":85,\"zkušenosti\":21},\"nationality\":\"CZE\",\"handedness\":\"left\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5018,
+              "name": "Vojtěch Šebek",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 309,
+              "skills": {
+                "taktika": 71,
+                "motivace": 74,
+                "trénink": 85,
+                "scouting": 72
+              }
+            },
+            {
+              "id": 5019,
+              "name": "Martin Procházka",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 309,
+              "skills": {
+                "taktika": 62,
+                "motivace": 69,
+                "trénink": 72,
+                "scouting": 77
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 310,
+        "name": "Karlovy Vary Wolves",
+        "city": "Karlovy Vary",
+        "country_id": 100,
+        "league_id": 202,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1120,\"name\":\"Jiří Volf\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"universal\",\"attributes\":{\"uhybani\":81,\"chytani\":59,\"hazeni\":63,\"blokovani\":75,\"taktika\":59,\"fyzicka_sila\":83,\"rychlost\":84,\"reakce\":88},\"meta\":{\"forma\":71,\"moralka\":64,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":55},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1121,\"name\":\"Roman Pospíšil\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"catcher\",\"attributes\":{\"uhybani\":82,\"chytani\":87,\"hazeni\":58,\"blokovani\":62,\"taktika\":88,\"fyzicka_sila\":64,\"rychlost\":74,\"reakce\":65},\"meta\":{\"forma\":65,\"moralka\":70,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":34},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1122,\"name\":\"Štěpán Sedláček\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"thrower\",\"attributes\":{\"uhybani\":71,\"chytani\":67,\"hazeni\":90,\"blokovani\":72,\"taktika\":63,\"fyzicka_sila\":74,\"rychlost\":89,\"reakce\":60},\"meta\":{\"forma\":76,\"moralka\":80,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":57},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1123,\"name\":\"Martin Marek\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"blocker\",\"attributes\":{\"uhybani\":57,\"chytani\":56,\"hazeni\":60,\"blokovani\":57,\"taktika\":71,\"fyzicka_sila\":68,\"rychlost\":81,\"reakce\":56},\"meta\":{\"forma\":75,\"moralka\":88,\"zraneni\":false,\"kondice\":90,\"zkušenosti\":54},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1124,\"name\":\"Aleš Dvořáček\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"universal\",\"attributes\":{\"uhybani\":70,\"chytani\":80,\"hazeni\":74,\"blokovani\":84,\"taktika\":59,\"fyzicka_sila\":58,\"rychlost\":65,\"reakce\":83},\"meta\":{\"forma\":73,\"moralka\":75,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":33},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1125,\"name\":\"Patrik Němec\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"blocker\",\"attributes\":{\"uhybani\":75,\"chytani\":77,\"hazeni\":80,\"blokovani\":63,\"taktika\":78,\"fyzicka_sila\":87,\"rychlost\":90,\"reakce\":61},\"meta\":{\"forma\":70,\"moralka\":67,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":27},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1126,\"name\":\"Jaroslav Růžička\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"catcher\",\"attributes\":{\"uhybani\":61,\"chytani\":58,\"hazeni\":73,\"blokovani\":79,\"taktika\":81,\"fyzicka_sila\":70,\"rychlost\":65,\"reakce\":75},\"meta\":{\"forma\":89,\"moralka\":78,\"zraneni\":false,\"kondice\":93,\"zkušenosti\":40},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1127,\"name\":\"Jakub Havel\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"universal\",\"attributes\":{\"uhybani\":86,\"chytani\":74,\"hazeni\":86,\"blokovani\":56,\"taktika\":60,\"fyzicka_sila\":80,\"rychlost\":87,\"reakce\":84},\"meta\":{\"forma\":90,\"moralka\":67,\"zraneni\":false,\"kondice\":76,\"zkušenosti\":57},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1128,\"name\":\"Jan Dvořák\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"blocker\",\"attributes\":{\"uhybani\":86,\"chytani\":85,\"hazeni\":73,\"blokovani\":89,\"taktika\":55,\"fyzicka_sila\":61,\"rychlost\":82,\"reakce\":63},\"meta\":{\"forma\":88,\"moralka\":68,\"zraneni\":false,\"kondice\":93,\"zkušenosti\":43},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1129,\"name\":\"Václav Novotný\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"universal\",\"attributes\":{\"uhybani\":58,\"chytani\":90,\"hazeni\":67,\"blokovani\":78,\"taktika\":90,\"fyzicka_sila\":73,\"rychlost\":59,\"reakce\":79},\"meta\":{\"forma\":76,\"moralka\":74,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":55},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1130,\"name\":\"Patrik Veselý\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"catcher\",\"attributes\":{\"uhybani\":61,\"chytani\":80,\"hazeni\":78,\"blokovani\":76,\"taktika\":90,\"fyzicka_sila\":78,\"rychlost\":64,\"reakce\":67},\"meta\":{\"forma\":79,\"moralka\":76,\"zraneni\":false,\"kondice\":82,\"zkušenosti\":52},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1131,\"name\":\"Jan Novotný\",\"gender_mode\":\"men\",\"club_id\":310,\"position\":\"catcher\",\"attributes\":{\"uhybani\":76,\"chytani\":85,\"hazeni\":88,\"blokovani\":84,\"taktika\":64,\"fyzicka_sila\":87,\"rychlost\":63,\"reakce\":75},\"meta\":{\"forma\":89,\"moralka\":79,\"zraneni\":false,\"kondice\":80,\"zkušenosti\":30},\"nationality\":\"CZE\",\"handedness\":\"left\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5020,
+              "name": "Patrik Dvořáček",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 310,
+              "skills": {
+                "taktika": 78,
+                "motivace": 70,
+                "trénink": 76,
+                "scouting": 81
+              }
+            },
+            {
+              "id": 5021,
+              "name": "Štěpán Zima",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 310,
+              "skills": {
+                "taktika": 75,
+                "motivace": 82,
+                "trénink": 78,
+                "scouting": 64
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 311,
+        "name": "Zlín Foxes",
+        "city": "Zlín",
+        "country_id": 100,
+        "league_id": 202,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1132,\"name\":\"Marek Svoboda\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"blocker\",\"attributes\":{\"uhybani\":76,\"chytani\":62,\"hazeni\":81,\"blokovani\":74,\"taktika\":56,\"fyzicka_sila\":85,\"rychlost\":71,\"reakce\":69},\"meta\":{\"forma\":83,\"moralka\":61,\"zraneni\":false,\"kondice\":88,\"zkušenosti\":50},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1133,\"name\":\"Štěpán Kolář\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"catcher\",\"attributes\":{\"uhybani\":70,\"chytani\":57,\"hazeni\":62,\"blokovani\":67,\"taktika\":56,\"fyzicka_sila\":83,\"rychlost\":75,\"reakce\":81},\"meta\":{\"forma\":64,\"moralka\":73,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":33},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1134,\"name\":\"Štěpán Volf\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"thrower\",\"attributes\":{\"uhybani\":63,\"chytani\":88,\"hazeni\":68,\"blokovani\":90,\"taktika\":75,\"fyzicka_sila\":85,\"rychlost\":88,\"reakce\":79},\"meta\":{\"forma\":70,\"moralka\":90,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":49},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1135,\"name\":\"David Zima\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"blocker\",\"attributes\":{\"uhybani\":71,\"chytani\":85,\"hazeni\":67,\"blokovani\":70,\"taktika\":72,\"fyzicka_sila\":90,\"rychlost\":74,\"reakce\":69},\"meta\":{\"forma\":90,\"moralka\":69,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":38},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1136,\"name\":\"Michal Havel\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"blocker\",\"attributes\":{\"uhybani\":85,\"chytani\":77,\"hazeni\":90,\"blokovani\":72,\"taktika\":73,\"fyzicka_sila\":62,\"rychlost\":89,\"reakce\":79},\"meta\":{\"forma\":88,\"moralka\":72,\"zraneni\":false,\"kondice\":81,\"zkušenosti\":69},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1137,\"name\":\"Adam Novotný\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"blocker\",\"attributes\":{\"uhybani\":60,\"chytani\":77,\"hazeni\":83,\"blokovani\":71,\"taktika\":85,\"fyzicka_sila\":68,\"rychlost\":67,\"reakce\":89},\"meta\":{\"forma\":68,\"moralka\":89,\"zraneni\":false,\"kondice\":87,\"zkušenosti\":64},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1138,\"name\":\"Martin Kučera\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"catcher\",\"attributes\":{\"uhybani\":70,\"chytani\":58,\"hazeni\":88,\"blokovani\":69,\"taktika\":69,\"fyzicka_sila\":58,\"rychlost\":61,\"reakce\":81},\"meta\":{\"forma\":70,\"moralka\":82,\"zraneni\":false,\"kondice\":85,\"zkušenosti\":26},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1139,\"name\":\"Martin Novák\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"catcher\",\"attributes\":{\"uhybani\":81,\"chytani\":85,\"hazeni\":85,\"blokovani\":67,\"taktika\":73,\"fyzicka_sila\":75,\"rychlost\":73,\"reakce\":58},\"meta\":{\"forma\":89,\"moralka\":84,\"zraneni\":false,\"kondice\":72,\"zkušenosti\":61},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1140,\"name\":\"Ondřej Zima\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"thrower\",\"attributes\":{\"uhybani\":66,\"chytani\":81,\"hazeni\":66,\"blokovani\":57,\"taktika\":80,\"fyzicka_sila\":86,\"rychlost\":66,\"reakce\":73},\"meta\":{\"forma\":88,\"moralka\":61,\"zraneni\":false,\"kondice\":70,\"zkušenosti\":39},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1141,\"name\":\"Patrik Kučera\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"blocker\",\"attributes\":{\"uhybani\":73,\"chytani\":84,\"hazeni\":89,\"blokovani\":88,\"taktika\":86,\"fyzicka_sila\":63,\"rychlost\":87,\"reakce\":84},\"meta\":{\"forma\":68,\"moralka\":66,\"zraneni\":false,\"kondice\":95,\"zkušenosti\":27},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1142,\"name\":\"Jakub Štěpánek\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"blocker\",\"attributes\":{\"uhybani\":66,\"chytani\":55,\"hazeni\":76,\"blokovani\":73,\"taktika\":67,\"fyzicka_sila\":66,\"rychlost\":80,\"reakce\":82},\"meta\":{\"forma\":76,\"moralka\":70,\"zraneni\":false,\"kondice\":72,\"zkušenosti\":45},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1143,\"name\":\"Lukáš Pospíšil\",\"gender_mode\":\"men\",\"club_id\":311,\"position\":\"catcher\",\"attributes\":{\"uhybani\":85,\"chytani\":75,\"hazeni\":70,\"blokovani\":55,\"taktika\":71,\"fyzicka_sila\":79,\"rychlost\":70,\"reakce\":83},\"meta\":{\"forma\":84,\"moralka\":68,\"zraneni\":false,\"kondice\":80,\"zkušenosti\":39},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5022,
+              "name": "Jiří Šebek",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 311,
+              "skills": {
+                "taktika": 60,
+                "motivace": 68,
+                "trénink": 80,
+                "scouting": 66
+              }
+            },
+            {
+              "id": 5023,
+              "name": "Josef Růžička",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 311,
+              "skills": {
+                "taktika": 61,
+                "motivace": 81,
+                "trénink": 63,
+                "scouting": 69
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 312,
+        "name": "Jihlava Titans",
+        "city": "Jihlava",
+        "country_id": 100,
+        "league_id": 202,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1144,\"name\":\"Adam Marek\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"universal\",\"attributes\":{\"uhybani\":87,\"chytani\":74,\"hazeni\":62,\"blokovani\":73,\"taktika\":78,\"fyzicka_sila\":69,\"rychlost\":69,\"reakce\":63},\"meta\":{\"forma\":75,\"moralka\":64,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":67},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1145,\"name\":\"Václav Bláha\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"universal\",\"attributes\":{\"uhybani\":89,\"chytani\":68,\"hazeni\":70,\"blokovani\":60,\"taktika\":88,\"fyzicka_sila\":83,\"rychlost\":88,\"reakce\":78},\"meta\":{\"forma\":62,\"moralka\":89,\"zraneni\":false,\"kondice\":88,\"zkušenosti\":27},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1146,\"name\":\"Vojtěch Koller\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"catcher\",\"attributes\":{\"uhybani\":89,\"chytani\":64,\"hazeni\":65,\"blokovani\":75,\"taktika\":88,\"fyzicka_sila\":83,\"rychlost\":62,\"reakce\":68},\"meta\":{\"forma\":82,\"moralka\":78,\"zraneni\":false,\"kondice\":85,\"zkušenosti\":25},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1147,\"name\":\"Jaroslav Dvořák\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"universal\",\"attributes\":{\"uhybani\":63,\"chytani\":87,\"hazeni\":81,\"blokovani\":84,\"taktika\":58,\"fyzicka_sila\":90,\"rychlost\":84,\"reakce\":74},\"meta\":{\"forma\":83,\"moralka\":60,\"zraneni\":false,\"kondice\":82,\"zkušenosti\":36},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1148,\"name\":\"Jiří Jelínek\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"thrower\",\"attributes\":{\"uhybani\":57,\"chytani\":82,\"hazeni\":77,\"blokovani\":59,\"taktika\":89,\"fyzicka_sila\":58,\"rychlost\":59,\"reakce\":85},\"meta\":{\"forma\":61,\"moralka\":69,\"zraneni\":false,\"kondice\":83,\"zkušenosti\":31},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1149,\"name\":\"Aleš Bláha\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"blocker\",\"attributes\":{\"uhybani\":79,\"chytani\":83,\"hazeni\":79,\"blokovani\":79,\"taktika\":60,\"fyzicka_sila\":89,\"rychlost\":63,\"reakce\":77},\"meta\":{\"forma\":63,\"moralka\":65,\"zraneni\":false,\"kondice\":87,\"zkušenosti\":45},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1150,\"name\":\"Martin Krejčí\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"thrower\",\"attributes\":{\"uhybani\":56,\"chytani\":74,\"hazeni\":84,\"blokovani\":89,\"taktika\":82,\"fyzicka_sila\":89,\"rychlost\":79,\"reakce\":69},\"meta\":{\"forma\":67,\"moralka\":74,\"zraneni\":false,\"kondice\":81,\"zkušenosti\":29},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1151,\"name\":\"Michal Veselý\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"thrower\",\"attributes\":{\"uhybani\":81,\"chytani\":56,\"hazeni\":70,\"blokovani\":68,\"taktika\":59,\"fyzicka_sila\":61,\"rychlost\":57,\"reakce\":83},\"meta\":{\"forma\":79,\"moralka\":81,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":75},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1152,\"name\":\"Ondřej Novotný\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"universal\",\"attributes\":{\"uhybani\":83,\"chytani\":69,\"hazeni\":89,\"blokovani\":68,\"taktika\":58,\"fyzicka_sila\":63,\"rychlost\":87,\"reakce\":73},\"meta\":{\"forma\":67,\"moralka\":86,\"zraneni\":false,\"kondice\":93,\"zkušenosti\":56},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1153,\"name\":\"Roman Špaček\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"blocker\",\"attributes\":{\"uhybani\":70,\"chytani\":74,\"hazeni\":64,\"blokovani\":88,\"taktika\":69,\"fyzicka_sila\":81,\"rychlost\":74,\"reakce\":72},\"meta\":{\"forma\":61,\"moralka\":77,\"zraneni\":false,\"kondice\":88,\"zkušenosti\":76},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1154,\"name\":\"Jakub Forejt\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"universal\",\"attributes\":{\"uhybani\":58,\"chytani\":77,\"hazeni\":79,\"blokovani\":88,\"taktika\":75,\"fyzicka_sila\":81,\"rychlost\":81,\"reakce\":64},\"meta\":{\"forma\":69,\"moralka\":72,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":68},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1155,\"name\":\"Marek Růžička\",\"gender_mode\":\"men\",\"club_id\":312,\"position\":\"catcher\",\"attributes\":{\"uhybani\":74,\"chytani\":64,\"hazeni\":84,\"blokovani\":58,\"taktika\":90,\"fyzicka_sila\":81,\"rychlost\":81,\"reakce\":90},\"meta\":{\"forma\":76,\"moralka\":64,\"zraneni\":false,\"kondice\":82,\"zkušenosti\":35},\"nationality\":\"CZE\",\"handedness\":\"left\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5024,
+              "name": "Michal Král",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 312,
+              "skills": {
+                "taktika": 80,
+                "motivace": 62,
+                "trénink": 89,
+                "scouting": 69
+              }
+            },
+            {
+              "id": 5025,
+              "name": "Václav Procházka",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 312,
+              "skills": {
+                "taktika": 77,
+                "motivace": 83,
+                "trénink": 86,
+                "scouting": 61
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 313,
+        "name": "Ústí nad Labem Sharks",
+        "city": "Ústí nad Labem",
+        "country_id": 100,
+        "league_id": 202,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1156,\"name\":\"Jan Fiala\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"universal\",\"attributes\":{\"uhybani\":57,\"chytani\":59,\"hazeni\":67,\"blokovani\":90,\"taktika\":68,\"fyzicka_sila\":85,\"rychlost\":68,\"reakce\":76},\"meta\":{\"forma\":69,\"moralka\":90,\"zraneni\":false,\"kondice\":70,\"zkušenosti\":33},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1157,\"name\":\"Jiří Veselý\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"universal\",\"attributes\":{\"uhybani\":70,\"chytani\":68,\"hazeni\":80,\"blokovani\":70,\"taktika\":90,\"fyzicka_sila\":75,\"rychlost\":73,\"reakce\":79},\"meta\":{\"forma\":74,\"moralka\":77,\"zraneni\":false,\"kondice\":90,\"zkušenosti\":42},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1158,\"name\":\"Filip Kříž\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"universal\",\"attributes\":{\"uhybani\":84,\"chytani\":61,\"hazeni\":85,\"blokovani\":75,\"taktika\":68,\"fyzicka_sila\":78,\"rychlost\":75,\"reakce\":81},\"meta\":{\"forma\":61,\"moralka\":78,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":67},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1159,\"name\":\"Petr Beneš\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"universal\",\"attributes\":{\"uhybani\":73,\"chytani\":64,\"hazeni\":67,\"blokovani\":76,\"taktika\":69,\"fyzicka_sila\":79,\"rychlost\":70,\"reakce\":86},\"meta\":{\"forma\":77,\"moralka\":80,\"zraneni\":false,\"kondice\":91,\"zkušenosti\":41},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1160,\"name\":\"Marek Havel\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"universal\",\"attributes\":{\"uhybani\":65,\"chytani\":77,\"hazeni\":65,\"blokovani\":63,\"taktika\":89,\"fyzicka_sila\":86,\"rychlost\":66,\"reakce\":89},\"meta\":{\"forma\":80,\"moralka\":90,\"zraneni\":false,\"kondice\":71,\"zkušenosti\":53},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1161,\"name\":\"Tomáš Dvořák\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"thrower\",\"attributes\":{\"uhybani\":81,\"chytani\":63,\"hazeni\":69,\"blokovani\":59,\"taktika\":64,\"fyzicka_sila\":55,\"rychlost\":68,\"reakce\":87},\"meta\":{\"forma\":74,\"moralka\":71,\"zraneni\":false,\"kondice\":71,\"zkušenosti\":59},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1162,\"name\":\"Radek Volf\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"universal\",\"attributes\":{\"uhybani\":56,\"chytani\":55,\"hazeni\":89,\"blokovani\":90,\"taktika\":81,\"fyzicka_sila\":55,\"rychlost\":56,\"reakce\":88},\"meta\":{\"forma\":83,\"moralka\":68,\"zraneni\":false,\"kondice\":87,\"zkušenosti\":38},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1163,\"name\":\"Štěpán Forejt\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"catcher\",\"attributes\":{\"uhybani\":61,\"chytani\":61,\"hazeni\":88,\"blokovani\":64,\"taktika\":70,\"fyzicka_sila\":67,\"rychlost\":88,\"reakce\":71},\"meta\":{\"forma\":86,\"moralka\":71,\"zraneni\":false,\"kondice\":78,\"zkušenosti\":70},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1164,\"name\":\"Tomáš Kříž\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"universal\",\"attributes\":{\"uhybani\":84,\"chytani\":70,\"hazeni\":69,\"blokovani\":74,\"taktika\":60,\"fyzicka_sila\":57,\"rychlost\":60,\"reakce\":80},\"meta\":{\"forma\":72,\"moralka\":72,\"zraneni\":false,\"kondice\":87,\"zkušenosti\":50},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1165,\"name\":\"Aleš Novák\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"catcher\",\"attributes\":{\"uhybani\":60,\"chytani\":86,\"hazeni\":82,\"blokovani\":76,\"taktika\":61,\"fyzicka_sila\":88,\"rychlost\":57,\"reakce\":69},\"meta\":{\"forma\":66,\"moralka\":88,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":76},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1166,\"name\":\"Marek Fiala\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"thrower\",\"attributes\":{\"uhybani\":59,\"chytani\":72,\"hazeni\":89,\"blokovani\":57,\"taktika\":66,\"fyzicka_sila\":75,\"rychlost\":56,\"reakce\":68},\"meta\":{\"forma\":78,\"moralka\":64,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":72},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1167,\"name\":\"Daniel Černý\",\"gender_mode\":\"men\",\"club_id\":313,\"position\":\"blocker\",\"attributes\":{\"uhybani\":65,\"chytani\":70,\"hazeni\":79,\"blokovani\":89,\"taktika\":76,\"fyzicka_sila\":79,\"rychlost\":63,\"reakce\":60},\"meta\":{\"forma\":76,\"moralka\":83,\"zraneni\":false,\"kondice\":81,\"zkušenosti\":23},\"nationality\":\"CZE\",\"handedness\":\"right\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5026,
+              "name": "Matěj Krejčí",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 313,
+              "skills": {
+                "taktika": 86,
+                "motivace": 62,
+                "trénink": 70,
+                "scouting": 74
+              }
+            },
+            {
+              "id": 5027,
+              "name": "Patrik Špaček",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 313,
+              "skills": {
+                "taktika": 72,
+                "motivace": 84,
+                "trénink": 70,
+                "scouting": 55
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 314,
+        "name": "Teplice Eagles",
+        "city": "Teplice",
+        "country_id": 100,
+        "league_id": 202,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1168,\"name\":\"Aleš Fiala\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"universal\",\"attributes\":{\"uhybani\":86,\"chytani\":69,\"hazeni\":77,\"blokovani\":90,\"taktika\":79,\"fyzicka_sila\":82,\"rychlost\":66,\"reakce\":79},\"meta\":{\"forma\":62,\"moralka\":84,\"zraneni\":false,\"kondice\":89,\"zkušenosti\":38},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1169,\"name\":\"Josef Černý\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"thrower\",\"attributes\":{\"uhybani\":72,\"chytani\":64,\"hazeni\":79,\"blokovani\":64,\"taktika\":79,\"fyzicka_sila\":75,\"rychlost\":78,\"reakce\":61},\"meta\":{\"forma\":62,\"moralka\":60,\"zraneni\":false,\"kondice\":79,\"zkušenosti\":48},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1170,\"name\":\"Filip Kučera\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"catcher\",\"attributes\":{\"uhybani\":60,\"chytani\":66,\"hazeni\":82,\"blokovani\":83,\"taktika\":90,\"fyzicka_sila\":90,\"rychlost\":87,\"reakce\":81},\"meta\":{\"forma\":63,\"moralka\":60,\"zraneni\":false,\"kondice\":72,\"zkušenosti\":42},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1171,\"name\":\"Tomáš Špaček\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"blocker\",\"attributes\":{\"uhybani\":79,\"chytani\":55,\"hazeni\":73,\"blokovani\":81,\"taktika\":79,\"fyzicka_sila\":60,\"rychlost\":90,\"reakce\":70},\"meta\":{\"forma\":78,\"moralka\":76,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":63},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1172,\"name\":\"Jakub Horák\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"blocker\",\"attributes\":{\"uhybani\":74,\"chytani\":72,\"hazeni\":86,\"blokovani\":64,\"taktika\":59,\"fyzicka_sila\":65,\"rychlost\":82,\"reakce\":72},\"meta\":{\"forma\":73,\"moralka\":69,\"zraneni\":false,\"kondice\":85,\"zkušenosti\":70},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1173,\"name\":\"Václav Beneš\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"catcher\",\"attributes\":{\"uhybani\":86,\"chytani\":67,\"hazeni\":84,\"blokovani\":61,\"taktika\":63,\"fyzicka_sila\":74,\"rychlost\":55,\"reakce\":80},\"meta\":{\"forma\":70,\"moralka\":86,\"zraneni\":false,\"kondice\":89,\"zkušenosti\":44},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1174,\"name\":\"Jaroslav Král\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"universal\",\"attributes\":{\"uhybani\":63,\"chytani\":74,\"hazeni\":75,\"blokovani\":67,\"taktika\":85,\"fyzicka_sila\":75,\"rychlost\":66,\"reakce\":80},\"meta\":{\"forma\":90,\"moralka\":70,\"zraneni\":false,\"kondice\":79,\"zkušenosti\":67},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1175,\"name\":\"Aleš Havel\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"catcher\",\"attributes\":{\"uhybani\":75,\"chytani\":79,\"hazeni\":72,\"blokovani\":80,\"taktika\":78,\"fyzicka_sila\":62,\"rychlost\":67,\"reakce\":89},\"meta\":{\"forma\":65,\"moralka\":81,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":55},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1176,\"name\":\"Jiří Štěpánek\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"catcher\",\"attributes\":{\"uhybani\":83,\"chytani\":73,\"hazeni\":59,\"blokovani\":81,\"taktika\":86,\"fyzicka_sila\":63,\"rychlost\":74,\"reakce\":70},\"meta\":{\"forma\":68,\"moralka\":81,\"zraneni\":false,\"kondice\":74,\"zkušenosti\":65},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1177,\"name\":\"Daniel Černý\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"universal\",\"attributes\":{\"uhybani\":85,\"chytani\":80,\"hazeni\":89,\"blokovani\":87,\"taktika\":81,\"fyzicka_sila\":89,\"rychlost\":57,\"reakce\":78},\"meta\":{\"forma\":82,\"moralka\":88,\"zraneni\":false,\"kondice\":95,\"zkušenosti\":54},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1178,\"name\":\"Aleš Procházka\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"thrower\",\"attributes\":{\"uhybani\":70,\"chytani\":77,\"hazeni\":65,\"blokovani\":57,\"taktika\":80,\"fyzicka_sila\":76,\"rychlost\":82,\"reakce\":61},\"meta\":{\"forma\":60,\"moralka\":63,\"zraneni\":false,\"kondice\":78,\"zkušenosti\":34},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1179,\"name\":\"Jiří Říha\",\"gender_mode\":\"men\",\"club_id\":314,\"position\":\"catcher\",\"attributes\":{\"uhybani\":83,\"chytani\":78,\"hazeni\":80,\"blokovani\":84,\"taktika\":87,\"fyzicka_sila\":64,\"rychlost\":77,\"reakce\":56},\"meta\":{\"forma\":75,\"moralka\":63,\"zraneni\":false,\"kondice\":79,\"zkušenosti\":46},\"nationality\":\"CZE\",\"handedness\":\"right\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5028,
+              "name": "Lukáš Němec",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 314,
+              "skills": {
+                "taktika": 71,
+                "motivace": 69,
+                "trénink": 70,
+                "scouting": 69
+              }
+            },
+            {
+              "id": 5029,
+              "name": "Michal Říha",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 314,
+              "skills": {
+                "taktika": 75,
+                "motivace": 71,
+                "trénink": 75,
+                "scouting": 58
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 315,
+        "name": "Opava Owls",
+        "city": "Opava",
+        "country_id": 100,
+        "league_id": 202,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1180,\"name\":\"Jaroslav Vaněk\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"blocker\",\"attributes\":{\"uhybani\":59,\"chytani\":74,\"hazeni\":57,\"blokovani\":62,\"taktika\":56,\"fyzicka_sila\":76,\"rychlost\":61,\"reakce\":65},\"meta\":{\"forma\":89,\"moralka\":83,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":53},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1181,\"name\":\"Vojtěch Marek\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"blocker\",\"attributes\":{\"uhybani\":90,\"chytani\":82,\"hazeni\":84,\"blokovani\":69,\"taktika\":80,\"fyzicka_sila\":66,\"rychlost\":66,\"reakce\":82},\"meta\":{\"forma\":72,\"moralka\":60,\"zraneni\":false,\"kondice\":93,\"zkušenosti\":59},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1182,\"name\":\"Jaroslav Pazdera\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"universal\",\"attributes\":{\"uhybani\":79,\"chytani\":55,\"hazeni\":68,\"blokovani\":68,\"taktika\":72,\"fyzicka_sila\":59,\"rychlost\":61,\"reakce\":89},\"meta\":{\"forma\":65,\"moralka\":71,\"zraneni\":false,\"kondice\":80,\"zkušenosti\":32},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1183,\"name\":\"Lukáš Beneš\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"universal\",\"attributes\":{\"uhybani\":88,\"chytani\":75,\"hazeni\":79,\"blokovani\":80,\"taktika\":62,\"fyzicka_sila\":77,\"rychlost\":77,\"reakce\":84},\"meta\":{\"forma\":79,\"moralka\":65,\"zraneni\":false,\"kondice\":91,\"zkušenosti\":65},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1184,\"name\":\"Patrik Pazdera\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"thrower\",\"attributes\":{\"uhybani\":63,\"chytani\":75,\"hazeni\":62,\"blokovani\":70,\"taktika\":74,\"fyzicka_sila\":62,\"rychlost\":66,\"reakce\":78},\"meta\":{\"forma\":82,\"moralka\":64,\"zraneni\":false,\"kondice\":86,\"zkušenosti\":44},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1185,\"name\":\"Patrik Horák\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"universal\",\"attributes\":{\"uhybani\":82,\"chytani\":66,\"hazeni\":86,\"blokovani\":89,\"taktika\":66,\"fyzicka_sila\":90,\"rychlost\":65,\"reakce\":86},\"meta\":{\"forma\":69,\"moralka\":64,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":40},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1186,\"name\":\"Patrik Dvořák\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"blocker\",\"attributes\":{\"uhybani\":55,\"chytani\":86,\"hazeni\":63,\"blokovani\":67,\"taktika\":79,\"fyzicka_sila\":90,\"rychlost\":87,\"reakce\":86},\"meta\":{\"forma\":73,\"moralka\":81,\"zraneni\":false,\"kondice\":85,\"zkušenosti\":46},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1187,\"name\":\"Jaroslav Havel\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"catcher\",\"attributes\":{\"uhybani\":60,\"chytani\":56,\"hazeni\":69,\"blokovani\":73,\"taktika\":57,\"fyzicka_sila\":72,\"rychlost\":69,\"reakce\":89},\"meta\":{\"forma\":69,\"moralka\":65,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":49},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1188,\"name\":\"Jiří Havel\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"thrower\",\"attributes\":{\"uhybani\":62,\"chytani\":72,\"hazeni\":89,\"blokovani\":78,\"taktika\":89,\"fyzicka_sila\":57,\"rychlost\":83,\"reakce\":89},\"meta\":{\"forma\":66,\"moralka\":73,\"zraneni\":false,\"kondice\":73,\"zkušenosti\":67},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1189,\"name\":\"Ondřej Dvořáček\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"thrower\",\"attributes\":{\"uhybani\":83,\"chytani\":71,\"hazeni\":77,\"blokovani\":60,\"taktika\":83,\"fyzicka_sila\":62,\"rychlost\":70,\"reakce\":68},\"meta\":{\"forma\":85,\"moralka\":83,\"zraneni\":false,\"kondice\":88,\"zkušenosti\":64},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1190,\"name\":\"Josef Forejt\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"catcher\",\"attributes\":{\"uhybani\":63,\"chytani\":68,\"hazeni\":68,\"blokovani\":58,\"taktika\":77,\"fyzicka_sila\":89,\"rychlost\":72,\"reakce\":89},\"meta\":{\"forma\":65,\"moralka\":70,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":38},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1191,\"name\":\"Roman Fiala\",\"gender_mode\":\"men\",\"club_id\":315,\"position\":\"thrower\",\"attributes\":{\"uhybani\":63,\"chytani\":81,\"hazeni\":58,\"blokovani\":72,\"taktika\":63,\"fyzicka_sila\":63,\"rychlost\":70,\"reakce\":64},\"meta\":{\"forma\":82,\"moralka\":70,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":68},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5030,
+              "name": "Daniel Havel",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 315,
+              "skills": {
+                "taktika": 64,
+                "motivace": 78,
+                "trénink": 80,
+                "scouting": 63
+              }
+            },
+            {
+              "id": 5031,
+              "name": "Aleš Bláha",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 315,
+              "skills": {
+                "taktika": 72,
+                "motivace": 74,
+                "trénink": 62,
+                "scouting": 75
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 316,
+        "name": "Třinec Bears",
+        "city": "Třinec",
+        "country_id": 100,
+        "league_id": 202,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1192,\"name\":\"Tomáš Šimek\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"blocker\",\"attributes\":{\"uhybani\":78,\"chytani\":84,\"hazeni\":86,\"blokovani\":75,\"taktika\":55,\"fyzicka_sila\":60,\"rychlost\":84,\"reakce\":77},\"meta\":{\"forma\":87,\"moralka\":62,\"zraneni\":false,\"kondice\":95,\"zkušenosti\":54},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1193,\"name\":\"Michal Forejt\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"catcher\",\"attributes\":{\"uhybani\":86,\"chytani\":72,\"hazeni\":75,\"blokovani\":73,\"taktika\":76,\"fyzicka_sila\":90,\"rychlost\":63,\"reakce\":86},\"meta\":{\"forma\":85,\"moralka\":70,\"zraneni\":false,\"kondice\":91,\"zkušenosti\":68},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1194,\"name\":\"Jan Kučera\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"universal\",\"attributes\":{\"uhybani\":56,\"chytani\":62,\"hazeni\":65,\"blokovani\":83,\"taktika\":84,\"fyzicka_sila\":55,\"rychlost\":82,\"reakce\":67},\"meta\":{\"forma\":82,\"moralka\":89,\"zraneni\":false,\"kondice\":74,\"zkušenosti\":76},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1195,\"name\":\"Adam Marek\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"blocker\",\"attributes\":{\"uhybani\":60,\"chytani\":78,\"hazeni\":71,\"blokovani\":60,\"taktika\":78,\"fyzicka_sila\":65,\"rychlost\":58,\"reakce\":80},\"meta\":{\"forma\":80,\"moralka\":69,\"zraneni\":false,\"kondice\":93,\"zkušenosti\":64},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1196,\"name\":\"Matěj Procházka\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"thrower\",\"attributes\":{\"uhybani\":55,\"chytani\":68,\"hazeni\":85,\"blokovani\":59,\"taktika\":63,\"fyzicka_sila\":69,\"rychlost\":88,\"reakce\":83},\"meta\":{\"forma\":60,\"moralka\":60,\"zraneni\":false,\"kondice\":92,\"zkušenosti\":41},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1197,\"name\":\"Matěj Horák\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"universal\",\"attributes\":{\"uhybani\":59,\"chytani\":69,\"hazeni\":79,\"blokovani\":60,\"taktika\":61,\"fyzicka_sila\":61,\"rychlost\":75,\"reakce\":78},\"meta\":{\"forma\":88,\"moralka\":69,\"zraneni\":false,\"kondice\":74,\"zkušenosti\":44},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1198,\"name\":\"Aleš Němec\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"thrower\",\"attributes\":{\"uhybani\":88,\"chytani\":55,\"hazeni\":65,\"blokovani\":83,\"taktika\":77,\"fyzicka_sila\":68,\"rychlost\":64,\"reakce\":81},\"meta\":{\"forma\":79,\"moralka\":81,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":75},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1199,\"name\":\"Tomáš Kučera\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"catcher\",\"attributes\":{\"uhybani\":62,\"chytani\":79,\"hazeni\":77,\"blokovani\":82,\"taktika\":75,\"fyzicka_sila\":63,\"rychlost\":70,\"reakce\":72},\"meta\":{\"forma\":80,\"moralka\":62,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":55},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1200,\"name\":\"Patrik Špaček\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"blocker\",\"attributes\":{\"uhybani\":56,\"chytani\":74,\"hazeni\":68,\"blokovani\":88,\"taktika\":87,\"fyzicka_sila\":67,\"rychlost\":80,\"reakce\":73},\"meta\":{\"forma\":80,\"moralka\":61,\"zraneni\":false,\"kondice\":95,\"zkušenosti\":77},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1201,\"name\":\"Marek Kolář\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"thrower\",\"attributes\":{\"uhybani\":70,\"chytani\":86,\"hazeni\":59,\"blokovani\":88,\"taktika\":55,\"fyzicka_sila\":78,\"rychlost\":75,\"reakce\":63},\"meta\":{\"forma\":72,\"moralka\":87,\"zraneni\":false,\"kondice\":88,\"zkušenosti\":46},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1202,\"name\":\"Vojtěch Pospíšil\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"universal\",\"attributes\":{\"uhybani\":59,\"chytani\":56,\"hazeni\":59,\"blokovani\":55,\"taktika\":71,\"fyzicka_sila\":68,\"rychlost\":57,\"reakce\":58},\"meta\":{\"forma\":90,\"moralka\":85,\"zraneni\":false,\"kondice\":82,\"zkušenosti\":52},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1203,\"name\":\"Aleš Koller\",\"gender_mode\":\"men\",\"club_id\":316,\"position\":\"universal\",\"attributes\":{\"uhybani\":82,\"chytani\":80,\"hazeni\":60,\"blokovani\":89,\"taktika\":89,\"fyzicka_sila\":64,\"rychlost\":72,\"reakce\":60},\"meta\":{\"forma\":69,\"moralka\":62,\"zraneni\":false,\"kondice\":86,\"zkušenosti\":78},\"nationality\":\"CZE\",\"handedness\":\"right\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5032,
+              "name": "Martin Zima",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 316,
+              "skills": {
+                "taktika": 70,
+                "motivace": 72,
+                "trénink": 78,
+                "scouting": 75
+              }
+            },
+            {
+              "id": 5033,
+              "name": "Aleš Černý",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 316,
+              "skills": {
+                "taktika": 69,
+                "motivace": 82,
+                "trénink": 73,
+                "scouting": 78
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 317,
+        "name": "Znojmo Ravens",
+        "city": "Znojmo",
+        "country_id": 100,
+        "league_id": 202,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1204,\"name\":\"Ondřej Dvořák\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"catcher\",\"attributes\":{\"uhybani\":60,\"chytani\":82,\"hazeni\":62,\"blokovani\":84,\"taktika\":58,\"fyzicka_sila\":74,\"rychlost\":66,\"reakce\":62},\"meta\":{\"forma\":60,\"moralka\":82,\"zraneni\":false,\"kondice\":74,\"zkušenosti\":64},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1205,\"name\":\"Jakub Havel\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"blocker\",\"attributes\":{\"uhybani\":88,\"chytani\":88,\"hazeni\":71,\"blokovani\":65,\"taktika\":78,\"fyzicka_sila\":63,\"rychlost\":72,\"reakce\":62},\"meta\":{\"forma\":84,\"moralka\":88,\"zraneni\":false,\"kondice\":70,\"zkušenosti\":41},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1206,\"name\":\"Filip Říha\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"thrower\",\"attributes\":{\"uhybani\":71,\"chytani\":59,\"hazeni\":86,\"blokovani\":84,\"taktika\":87,\"fyzicka_sila\":78,\"rychlost\":58,\"reakce\":86},\"meta\":{\"forma\":87,\"moralka\":78,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":43},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1207,\"name\":\"Filip Kučera\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"thrower\",\"attributes\":{\"uhybani\":69,\"chytani\":87,\"hazeni\":55,\"blokovani\":57,\"taktika\":55,\"fyzicka_sila\":70,\"rychlost\":57,\"reakce\":85},\"meta\":{\"forma\":71,\"moralka\":72,\"zraneni\":false,\"kondice\":74,\"zkušenosti\":31},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1208,\"name\":\"Vojtěch Bláha\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"catcher\",\"attributes\":{\"uhybani\":75,\"chytani\":70,\"hazeni\":81,\"blokovani\":75,\"taktika\":72,\"fyzicka_sila\":59,\"rychlost\":78,\"reakce\":62},\"meta\":{\"forma\":76,\"moralka\":81,\"zraneni\":false,\"kondice\":71,\"zkušenosti\":31},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1209,\"name\":\"Štěpán Novotný\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"universal\",\"attributes\":{\"uhybani\":59,\"chytani\":84,\"hazeni\":73,\"blokovani\":74,\"taktika\":75,\"fyzicka_sila\":60,\"rychlost\":90,\"reakce\":84},\"meta\":{\"forma\":60,\"moralka\":71,\"zraneni\":false,\"kondice\":76,\"zkušenosti\":38},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1210,\"name\":\"Adam Růžička\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"universal\",\"attributes\":{\"uhybani\":78,\"chytani\":86,\"hazeni\":67,\"blokovani\":89,\"taktika\":70,\"fyzicka_sila\":64,\"rychlost\":55,\"reakce\":81},\"meta\":{\"forma\":60,\"moralka\":67,\"zraneni\":false,\"kondice\":87,\"zkušenosti\":42},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1211,\"name\":\"Josef Novák\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"blocker\",\"attributes\":{\"uhybani\":55,\"chytani\":79,\"hazeni\":74,\"blokovani\":61,\"taktika\":68,\"fyzicka_sila\":88,\"rychlost\":70,\"reakce\":81},\"meta\":{\"forma\":75,\"moralka\":90,\"zraneni\":false,\"kondice\":71,\"zkušenosti\":29},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1212,\"name\":\"Filip Procházka\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"thrower\",\"attributes\":{\"uhybani\":69,\"chytani\":88,\"hazeni\":81,\"blokovani\":78,\"taktika\":84,\"fyzicka_sila\":60,\"rychlost\":61,\"reakce\":87},\"meta\":{\"forma\":64,\"moralka\":80,\"zraneni\":false,\"kondice\":82,\"zkušenosti\":24},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1213,\"name\":\"Roman Dvořák\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"universal\",\"attributes\":{\"uhybani\":63,\"chytani\":70,\"hazeni\":73,\"blokovani\":71,\"taktika\":75,\"fyzicka_sila\":80,\"rychlost\":75,\"reakce\":75},\"meta\":{\"forma\":74,\"moralka\":68,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":24},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1214,\"name\":\"Martin Pazdera\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"thrower\",\"attributes\":{\"uhybani\":64,\"chytani\":61,\"hazeni\":65,\"blokovani\":83,\"taktika\":84,\"fyzicka_sila\":75,\"rychlost\":81,\"reakce\":62},\"meta\":{\"forma\":77,\"moralka\":71,\"zraneni\":false,\"kondice\":94,\"zkušenosti\":33},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1215,\"name\":\"Adam Štěpánek\",\"gender_mode\":\"men\",\"club_id\":317,\"position\":\"blocker\",\"attributes\":{\"uhybani\":62,\"chytani\":60,\"hazeni\":65,\"blokovani\":74,\"taktika\":57,\"fyzicka_sila\":68,\"rychlost\":75,\"reakce\":64},\"meta\":{\"forma\":62,\"moralka\":82,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":42},\"nationality\":\"CZE\",\"handedness\":\"left\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5034,
+              "name": "Štěpán Dvořák",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 317,
+              "skills": {
+                "taktika": 81,
+                "motivace": 69,
+                "trénink": 68,
+                "scouting": 81
+              }
+            },
+            {
+              "id": 5035,
+              "name": "Jakub Svoboda",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 317,
+              "skills": {
+                "taktika": 90,
+                "motivace": 72,
+                "trénink": 87,
+                "scouting": 69
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 318,
+        "name": "Kladno Knights",
+        "city": "Kladno",
+        "country_id": 100,
+        "league_id": 202,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1216,\"name\":\"Vojtěch Holý\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"catcher\",\"attributes\":{\"uhybani\":61,\"chytani\":84,\"hazeni\":61,\"blokovani\":63,\"taktika\":62,\"fyzicka_sila\":55,\"rychlost\":58,\"reakce\":69},\"meta\":{\"forma\":64,\"moralka\":66,\"zraneni\":false,\"kondice\":82,\"zkušenosti\":43},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1217,\"name\":\"Aleš Procházka\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"blocker\",\"attributes\":{\"uhybani\":59,\"chytani\":56,\"hazeni\":59,\"blokovani\":67,\"taktika\":83,\"fyzicka_sila\":63,\"rychlost\":60,\"reakce\":76},\"meta\":{\"forma\":63,\"moralka\":61,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":23},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1218,\"name\":\"Roman Forejt\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"universal\",\"attributes\":{\"uhybani\":86,\"chytani\":56,\"hazeni\":79,\"blokovani\":82,\"taktika\":66,\"fyzicka_sila\":77,\"rychlost\":68,\"reakce\":66},\"meta\":{\"forma\":68,\"moralka\":68,\"zraneni\":false,\"kondice\":84,\"zkušenosti\":76},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1219,\"name\":\"Jan Růžička\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"blocker\",\"attributes\":{\"uhybani\":86,\"chytani\":81,\"hazeni\":90,\"blokovani\":85,\"taktika\":58,\"fyzicka_sila\":60,\"rychlost\":72,\"reakce\":79},\"meta\":{\"forma\":64,\"moralka\":73,\"zraneni\":false,\"kondice\":76,\"zkušenosti\":61},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1220,\"name\":\"Ondřej Zima\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"thrower\",\"attributes\":{\"uhybani\":79,\"chytani\":77,\"hazeni\":85,\"blokovani\":89,\"taktika\":86,\"fyzicka_sila\":77,\"rychlost\":87,\"reakce\":75},\"meta\":{\"forma\":72,\"moralka\":68,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":21},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1221,\"name\":\"Patrik Krejčí\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"thrower\",\"attributes\":{\"uhybani\":72,\"chytani\":58,\"hazeni\":85,\"blokovani\":88,\"taktika\":77,\"fyzicka_sila\":69,\"rychlost\":65,\"reakce\":61},\"meta\":{\"forma\":67,\"moralka\":81,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":37},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1222,\"name\":\"Jiří Dvořák\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"catcher\",\"attributes\":{\"uhybani\":79,\"chytani\":77,\"hazeni\":66,\"blokovani\":66,\"taktika\":70,\"fyzicka_sila\":75,\"rychlost\":77,\"reakce\":56},\"meta\":{\"forma\":82,\"moralka\":82,\"zraneni\":false,\"kondice\":81,\"zkušenosti\":80},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1223,\"name\":\"Roman Němec\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"catcher\",\"attributes\":{\"uhybani\":86,\"chytani\":89,\"hazeni\":74,\"blokovani\":66,\"taktika\":86,\"fyzicka_sila\":57,\"rychlost\":60,\"reakce\":58},\"meta\":{\"forma\":67,\"moralka\":79,\"zraneni\":false,\"kondice\":77,\"zkušenosti\":21},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1224,\"name\":\"Marek Novák\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"blocker\",\"attributes\":{\"uhybani\":67,\"chytani\":63,\"hazeni\":76,\"blokovani\":66,\"taktika\":75,\"fyzicka_sila\":58,\"rychlost\":56,\"reakce\":64},\"meta\":{\"forma\":78,\"moralka\":82,\"zraneni\":false,\"kondice\":74,\"zkušenosti\":69},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1225,\"name\":\"Štěpán Kříž\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"thrower\",\"attributes\":{\"uhybani\":78,\"chytani\":80,\"hazeni\":61,\"blokovani\":76,\"taktika\":74,\"fyzicka_sila\":75,\"rychlost\":63,\"reakce\":65},\"meta\":{\"forma\":83,\"moralka\":90,\"zraneni\":false,\"kondice\":83,\"zkušenosti\":70},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1226,\"name\":\"Marek Urban\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"catcher\",\"attributes\":{\"uhybani\":90,\"chytani\":77,\"hazeni\":69,\"blokovani\":66,\"taktika\":79,\"fyzicka_sila\":74,\"rychlost\":73,\"reakce\":63},\"meta\":{\"forma\":65,\"moralka\":83,\"zraneni\":false,\"kondice\":70,\"zkušenosti\":80},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1227,\"name\":\"Roman Šimek\",\"gender_mode\":\"men\",\"club_id\":318,\"position\":\"thrower\",\"attributes\":{\"uhybani\":66,\"chytani\":75,\"hazeni\":69,\"blokovani\":61,\"taktika\":86,\"fyzicka_sila\":64,\"rychlost\":76,\"reakce\":59},\"meta\":{\"forma\":67,\"moralka\":71,\"zraneni\":false,\"kondice\":80,\"zkušenosti\":30},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5036,
+              "name": "Tomáš Král",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 318,
+              "skills": {
+                "taktika": 74,
+                "motivace": 60,
+                "trénink": 68,
+                "scouting": 61
+              }
+            },
+            {
+              "id": 5037,
+              "name": "Ondřej Černý",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 318,
+              "skills": {
+                "taktika": 71,
+                "motivace": 68,
+                "trénink": 85,
+                "scouting": 58
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 319,
+        "name": "Mladá Boleslav Meteors",
+        "city": "Mladá Boleslav",
+        "country_id": 100,
+        "league_id": 202,
+        "status": "ON",
+        "gender_mode": "men",
+        "stadium_id": null,
+        "roster": {
+          "players_inline_json": [
+            "{\"id\":1228,\"name\":\"Jiří Novák\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"thrower\",\"attributes\":{\"uhybani\":79,\"chytani\":83,\"hazeni\":81,\"blokovani\":65,\"taktika\":81,\"fyzicka_sila\":86,\"rychlost\":79,\"reakce\":77},\"meta\":{\"forma\":77,\"moralka\":72,\"zraneni\":false,\"kondice\":73,\"zkušenosti\":73},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1229,\"name\":\"Roman Krejčí\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"catcher\",\"attributes\":{\"uhybani\":83,\"chytani\":59,\"hazeni\":57,\"blokovani\":73,\"taktika\":56,\"fyzicka_sila\":75,\"rychlost\":71,\"reakce\":61},\"meta\":{\"forma\":62,\"moralka\":70,\"zraneni\":false,\"kondice\":75,\"zkušenosti\":76},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1230,\"name\":\"Jakub Černý\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"thrower\",\"attributes\":{\"uhybani\":76,\"chytani\":85,\"hazeni\":56,\"blokovani\":82,\"taktika\":65,\"fyzicka_sila\":82,\"rychlost\":65,\"reakce\":58},\"meta\":{\"forma\":63,\"moralka\":70,\"zraneni\":false,\"kondice\":76,\"zkušenosti\":32},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1231,\"name\":\"Josef Holý\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"blocker\",\"attributes\":{\"uhybani\":73,\"chytani\":74,\"hazeni\":70,\"blokovani\":61,\"taktika\":58,\"fyzicka_sila\":80,\"rychlost\":90,\"reakce\":86},\"meta\":{\"forma\":64,\"moralka\":61,\"zraneni\":false,\"kondice\":81,\"zkušenosti\":20},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1232,\"name\":\"Tomáš Sedláček\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"universal\",\"attributes\":{\"uhybani\":67,\"chytani\":61,\"hazeni\":56,\"blokovani\":68,\"taktika\":65,\"fyzicka_sila\":73,\"rychlost\":60,\"reakce\":85},\"meta\":{\"forma\":87,\"moralka\":63,\"zraneni\":false,\"kondice\":79,\"zkušenosti\":70},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1233,\"name\":\"Marek Havel\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"blocker\",\"attributes\":{\"uhybani\":60,\"chytani\":89,\"hazeni\":79,\"blokovani\":66,\"taktika\":78,\"fyzicka_sila\":79,\"rychlost\":78,\"reakce\":66},\"meta\":{\"forma\":74,\"moralka\":61,\"zraneni\":false,\"kondice\":78,\"zkušenosti\":48},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1234,\"name\":\"Filip Krejčí\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"blocker\",\"attributes\":{\"uhybani\":58,\"chytani\":64,\"hazeni\":61,\"blokovani\":60,\"taktika\":77,\"fyzicka_sila\":89,\"rychlost\":81,\"reakce\":69},\"meta\":{\"forma\":77,\"moralka\":61,\"zraneni\":false,\"kondice\":82,\"zkušenosti\":72},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1235,\"name\":\"Matěj Zima\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"universal\",\"attributes\":{\"uhybani\":70,\"chytani\":85,\"hazeni\":74,\"blokovani\":60,\"taktika\":80,\"fyzicka_sila\":57,\"rychlost\":87,\"reakce\":88},\"meta\":{\"forma\":85,\"moralka\":78,\"zraneni\":false,\"kondice\":91,\"zkušenosti\":59},\"nationality\":\"CZE\",\"handedness\":\"right\"}",
+            "{\"id\":1236,\"name\":\"Lukáš Vaněk\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"catcher\",\"attributes\":{\"uhybani\":65,\"chytani\":68,\"hazeni\":67,\"blokovani\":63,\"taktika\":57,\"fyzicka_sila\":82,\"rychlost\":60,\"reakce\":82},\"meta\":{\"forma\":66,\"moralka\":86,\"zraneni\":false,\"kondice\":90,\"zkušenosti\":29},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1237,\"name\":\"Filip Urban\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"thrower\",\"attributes\":{\"uhybani\":60,\"chytani\":79,\"hazeni\":90,\"blokovani\":80,\"taktika\":90,\"fyzicka_sila\":75,\"rychlost\":72,\"reakce\":88},\"meta\":{\"forma\":74,\"moralka\":89,\"zraneni\":false,\"kondice\":70,\"zkušenosti\":70},\"nationality\":\"CZE\",\"handedness\":\"ambidextrous\"}",
+            "{\"id\":1238,\"name\":\"Patrik Pazdera\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"universal\",\"attributes\":{\"uhybani\":62,\"chytani\":81,\"hazeni\":64,\"blokovani\":64,\"taktika\":61,\"fyzicka_sila\":61,\"rychlost\":61,\"reakce\":73},\"meta\":{\"forma\":87,\"moralka\":77,\"zraneni\":false,\"kondice\":81,\"zkušenosti\":76},\"nationality\":\"CZE\",\"handedness\":\"left\"}",
+            "{\"id\":1239,\"name\":\"Filip Kolář\",\"gender_mode\":\"men\",\"club_id\":319,\"position\":\"universal\",\"attributes\":{\"uhybani\":85,\"chytani\":57,\"hazeni\":66,\"blokovani\":72,\"taktika\":80,\"fyzicka_sila\":64,\"rychlost\":80,\"reakce\":57},\"meta\":{\"forma\":72,\"moralka\":88,\"zraneni\":false,\"kondice\":80,\"zkušenosti\":64},\"nationality\":\"CZE\",\"handedness\":\"right\"}"
+          ],
+          "coaches": [
+            {
+              "id": 5038,
+              "name": "Jan Volf",
+              "role": "head_coach",
+              "nationality": "CZE",
+              "club_id": 319,
+              "skills": {
+                "taktika": 89,
+                "motivace": 68,
+                "trénink": 88,
+                "scouting": 66
+              }
+            },
+            {
+              "id": 5039,
+              "name": "Petr Král",
+              "role": "assistant_coach",
+              "nationality": "CZE",
+              "club_id": 319,
+              "skills": {
+                "taktika": 86,
+                "motivace": 85,
+                "trénink": 69,
+                "scouting": 64
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "stadiums": []
+  },
+  "people": {
+    "players": [],
+    "coaches": [],
+    "referees": []
+  },
+  "competitions": {
+    "domestic": [
+      {
+        "id": 7001,
+        "name": "Česká liga – sezóna 2025/26",
+        "country_id": 100,
+        "leagues": [
+          "CDL1",
+          "CDL2"
+        ],
+        "status": "ON",
+        "season": "2025/26"
+      }
+    ],
+    "international": {
+      "club": [],
+      "national": []
+    }
+  },
+  "scheduling": {
+    "season_start_month": 9,
+    "season_end_month": 6,
+    "match_days": [
+      "Sat",
+      "Sun"
+    ]
+  },
+  "engine_hooks": {
+    "tie_allowed": false,
+    "max_sets": 5,
+    "timeout_per_set_seconds": 60
+  }
+}
