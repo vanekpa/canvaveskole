@@ -99,7 +99,7 @@
       "type": "lock",
       "lock": {
         "mode": "arrows",
-        "input": { "keyboard": "arrows", "length": 5, "show_buttons": true },
+        "input": { "keyboard": "arrows", "length": 4, "show_buttons": true },
         "answer": ["↑","↓","←","→"],
         "attempts": 3,
         "hint": "Podívej se na pořadí dekorací: balónky (nahoře), kelímky (dole), písek (dole), houpačka (vlevo), skluzavka (vpravo)."
