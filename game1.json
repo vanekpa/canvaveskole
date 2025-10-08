@@ -64,7 +64,11 @@
         "story": "„Happy Birthday to Keyla! Její oblíbená část oslavy je ______.“"
       },
       "ui": {
-        "background_img": "https://cdn.pixabay.com/photo/2024/03/27/20/29/ai-generated-8659879_960_720.jpg",
+        "background_imgs": [
+          "https://media.istockphoto.com/id/472336288/cs/fotografie/zaost%C5%99en%C3%A9-pozad%C3%AD-office-open-corridor.jpg?s=1024x1024&w=is&k=20&c=7Gyk6lWQ2KEFuT5sUOWob1XtgUKhh2NbUIUlqyOyTbY=",
+          "https://i.imgur.com/Dlai2Ni.png",
+          "https://i.imgur.com/MkKQ8wg.png"
+        ],
         "icon": "abc"
       },
       "next_on_success": "p-123",
