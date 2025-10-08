@@ -42,7 +42,7 @@
         "badge": "story"
       },
       "ui": {
-        "background_img": "bg/classroom_welcome.jpg",
+        "background_img": "https://cdn.pixabay.com/photo/2024/03/27/20/30/ai-generated-8659888_1280.jpg",
         "header_icons": ["story","abc","123","arrows","colors","shapes","cryptex","win"]
       },
       "next_on_success": "p-abc",
@@ -64,7 +64,7 @@
         "story": "„Happy Birthday to Keyla! Její oblíbená část oslavy je ______.“"
       },
       "ui": {
-        "background_img": "bg/kitchen_birthday.jpg",
+        "background_img": "https://cdn.pixabay.com/photo/2024/03/27/20/29/ai-generated-8659879_960_720.jpg",
         "icon": "abc"
       },
       "next_on_success": "p-123",
@@ -85,7 +85,7 @@
         "title": "Číselný zámek (123)",
         "story": "Na dortu napočítej svíčky a přičti 2000. (nebo prostě zadej rok 2025 v demu 🙂)"
       },
-      "ui": { "background_img": "bg/cake_table.jpg", "icon": "123" },
+      "ui": { "background_img": "https://www.vyletnik.cz/wp-content/uploads/2024/04/detska-oslava.png", "icon": "123" },
       "next_on_success": "p-arrows",
       "next_on_fail": "p-123"
     },
