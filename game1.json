@@ -16,7 +16,7 @@
     "keyboards": {
       "numeric": { "layout": "0123456789", "max_len": 6 },
       "alpha": { "layout": "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "max_len": 12 },
-      "arrows": { "layout": ["U","D","L","R"], "max_len": 8 },
+      "arrows": { "layout": ["↑","↓","←","→"], "max_len": 8 },
       "colors": { "layout_ref": "colors", "max_len": 8 },
       "shapes": { "layout_ref": "shapes", "max_len": 8 },
       "cryptex": {
@@ -65,7 +65,7 @@
       },
       "ui": {
         "background_imgs": [
-          "https://media.istockphoto.com/id/472336288/cs/fotografie/zaost%C5%99en%C3%A9-pozad%C3%AD-office-open-corridor.jpg?s=1024x1024&w=is&k=20&c=7Gyk6lWQ2KEFuT5sUOWob1XtgUKhh2NbUIUlqyOyTbY=",
+          "https://i.imgur.com/MkKQ8wg.png",
           "https://i.imgur.com/Dlai2Ni.png",
           "https://i.imgur.com/MkKQ8wg.png"
         ],
@@ -100,8 +100,8 @@
       "lock": {
         "mode": "arrows",
         "input": { "keyboard": "arrows", "length": 5, "show_buttons": true },
-        "answer": ["U","D","D","L","R"],
-        "attempts": 0,
+        "answer": ["↑","↓","←","→"],
+        "attempts": 3,
         "hint": "Podívej se na pořadí dekorací: balónky (nahoře), kelímky (dole), písek (dole), houpačka (vlevo), skluzavka (vpravo)."
       },
       "info": {
