@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "game_id": "sample-escape-001",
+    "title": "Witty's / Keyla Demo",
+    "version": "0.1.0",
+    "locale": "cs-CZ",
+    "start_page": "p-intro",
+    "_note": "Ukázkový průlet všemi typy zámků v jedné hře."
+  },
+
+  "assets": {
+    "colors": ["red", "blue", "green", "yellow", "purple", "orange"],
+    "shapes": ["circle", "square", "triangle", "star", "heart", "diamond"],
+    "arrows": { "up": "U", "down": "D", "left": "L", "right": "R" },
+
+    "keyboards": {
+      "numeric": { "layout": "0123456789", "max_len": 6 },
+      "alpha": { "layout": "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "max_len": 12 },
+      "arrows": { "layout": ["U","D","L","R"], "max_len": 8 },
+      "colors": { "layout_ref": "colors", "max_len": 8 },
+      "shapes": { "layout_ref": "shapes", "max_len": 8 },
+      "cryptex": {
+        "_note": "Definice koleček kryptexu – každé kolečko má vlastní sadu znaků.",
+        "wheels": [
+          "ABCDEFGH",
+          "NOPQRSTU",
+          "VWXYZ012",
+          "3456789*"
+        ]
+      }
+    }
+  },
+
+  "pages": [
+    {
+      "id": "p-intro",
+      "type": "info",
+      "info": {
+        "title": "Vítej!",
+        "text": "V této ukázce si vyzkoušíš různé typy zámků. Postupuj podle ikon nahoře a odemykej další místnosti.",
+        "tips": ["Hledej nápovědu v obrázku i textu.", "Zámek se pokaždé objeví dole."],
+        "badge": "story"
+      },
+      "ui": {
+        "background_img": "bg/classroom_welcome.jpg",
+        "header_icons": ["story","abc","123","arrows","colors","shapes","cryptex","win"]
+      },
+      "next_on_success": "p-abc",
+      "_note": "Info stránka nevyžaduje vstup – hra může rovnou zobrazit tlačítko Pokračovat."
+    },
+
+    {
+      "id": "p-abc",
+      "type": "lock",
+      "lock": {
+        "mode": "text",
+        "input": { "keyboard": "alpha", "case_sensitive": false, "placeholder": "Zadej slovo" },
+        "answer": "CAKE",
+        "attempts": 0,
+        "hint": "Keyla má ráda narozeninový dort. (anglicky)"
+      },
+      "info": {
+        "title": "Textový zámek (ABC)",
+        "story": "„Happy Birthday to Keyla! Její oblíbená část oslavy je ______.“"
+      },
+      "ui": {
+        "background_img": "bg/kitchen_birthday.jpg",
+        "icon": "abc"
+      },
+      "next_on_success": "p-123",
+      "next_on_fail": "p-abc"
+    },
+
+    {
+      "id": "p-123",
+      "type": "lock",
+      "lock": {
+        "mode": "numeric",
+        "input": { "keyboard": "numeric", "length": 4 },
+        "answer": "2025",
+        "attempts": 3,
+        "hint": "Rok, kdy tato ukázka vznikla."
+      },
+      "info": {
+        "title": "Číselný zámek (123)",
+        "story": "Na dortu napočítej svíčky a přičti 2000. (nebo prostě zadej rok 2025 v demu 🙂)"
+      },
+      "ui": { "background_img": "bg/cake_table.jpg", "icon": "123" },
+      "next_on_success": "p-arrows",
+      "next_on_fail": "p-123"
+    },
+
+    {
+      "id": "p-arrows",
+      "type": "lock",
+      "lock": {
+        "mode": "arrows",
+        "input": { "keyboard": "arrows", "length": 5, "show_buttons": true },
+        "answer": ["U","D","D","L","R"],
+        "attempts": 0,
+        "hint": "Podívej se na pořadí dekorací: balónky (nahoře), kelímky (dole), písek (dole), houpačka (vlevo), skluzavka (vpravo)."
+      },
+      "info": {
+        "title": "Směrový zámek",
+        "story": "Projdi hřištěm ve správném směru."
+      },
+      "ui": { "background_img": "bg/playground_list.jpg", "icon": "arrows" },
+      "next_on_success": "p-colors",
+      "next_on_fail": "p-arrows"
+    },
+
+    {
+      "id": "p-colors",
+      "type": "lock",
+      "lock": {
+        "mode": "colors",
+        "input": { "keyboard": "colors", "length": 4, "show_names": true },
+        "answer": ["purple","yellow","blue","green"],
+        "attempts": 0,
+        "hint": "Podívej se na barvy svíček zleva doprava."
+      },
+      "info": {
+        "title": "Barevný zámek",
+        "story": "Zadej pořadí barev, které vidíš."
+      },
+      "ui": { "background_img": "bg/candles_banner.jpg", "icon": "colors" },
+      "next_on_success": "p-shapes",
+      "next_on_fail": "p-colors"
+    },
+
+    {
+      "id": "p-shapes",
+      "type": "lock",
+      "lock": {
+        "mode": "shapes",
+        "input": { "keyboard": "shapes", "length": 3 },
+        "answer": ["triangle","circle","square"],
+        "attempts": 0,
+        "hint": "Geometrické vlaječky: špičatá, kulatá, hranatá."
+      },
+      "info": { "title": "Zámek s tvary", "story": "Podívej se na vlaječky u stolu s dortem." },
+      "ui": { "background_img": "bg/party_tent.jpg", "icon": "shapes" },
+      "next_on_success": "p-cryptex",
+      "next_on_fail": "p-shapes"
+    },
+
+    {
+      "id": "p-cryptex",
+      "type": "lock",
+      "lock": {
+        "mode": "cryptex",
+        "input": { "wheels_ref": "cryptex", "length": 4 },
+        "answer": ["A","R","T","Y"],
+        "attempts": 5,
+        "hint": "Slovo souvisí s narozeninovou ‚p…‘ (party). První písmeno je A kvůli sadám na kolečkách."
+      },
+      "info": {
+        "title": "Kryptex",
+        "story": "Nastav správné písmeno na každém kolečku."
+      },
+      "ui": { "background_img": "bg/cryptex_dark.jpg", "icon": "cryptex" },
+      "next_on_success": "p-win",
+      "next_on_fail": "p-cryptex"
+    },
+
+    {
+      "id": "p-win",
+      "type": "info",
+      "info": {
+        "title": "Vyhráno! 🎉",
+        "text": "Všechny zámky jsou otevřené. Paráda!",
+        "reward": { "type": "badge", "label": "Master of Locks" }
+      },
+      "ui": {
+        "background_img": "bg/party_group.jpg",
+        "fx": ["confetti","sparkle"],
+        "icon": "win"
+      },
+      "next_on_success": null
+    }
+  ]
+}
