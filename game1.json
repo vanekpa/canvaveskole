@@ -9,8 +9,8 @@
   },
 
   "assets": {
-    "colors": ["red", "blue", "green", "yellow", "purple", "orange"],
-    "shapes": ["circle", "square", "triangle", "star", "heart", "diamond"],
+    "colors": ["red","orange","yellow","green","blue","purple","pink","brown"],
+    "shapes": ["◯","■","▲","★","❤","◆"],
     "arrows": { "up": "U", "down": "D", "left": "L", "right": "R" },
 
     "keyboards": {
@@ -118,7 +118,7 @@
       "type": "lock",
       "lock": {
         "mode": "colors",
-        "input": { "keyboard": "colors", "length": 4, "show_names": true },
+        "input": { "keyboard": "colors", "length": 4, "show_names": false },
         "answer": ["purple","yellow","blue","green"],
         "attempts": 0,
         "hint": "Podívej se na barvy svíček zleva doprava."
@@ -127,7 +127,7 @@
         "title": "Barevný zámek",
         "story": "Zadej pořadí barev, které vidíš."
       },
-      "ui": { "background_img": "bg/candles_banner.jpg", "icon": "colors" },
+      "ui": { "background_img": "https://i.imgur.com/L7VnEJJ.png", "icon": "colors" },
       "next_on_success": "p-shapes",
       "next_on_fail": "p-colors"
     },
@@ -138,12 +138,12 @@
       "lock": {
         "mode": "shapes",
         "input": { "keyboard": "shapes", "length": 3 },
-        "answer": ["triangle","circle","square"],
+        "answer": ["▲","◯","■"],
         "attempts": 0,
         "hint": "Geometrické vlaječky: špičatá, kulatá, hranatá."
       },
       "info": { "title": "Zámek s tvary", "story": "Podívej se na vlaječky u stolu s dortem." },
-      "ui": { "background_img": "bg/party_tent.jpg", "icon": "shapes" },
+      "ui": { "background_img": "https://i.imgur.com/L7VnEJJ.png", "icon": "shapes" },
       "next_on_success": "p-cryptex",
       "next_on_fail": "p-shapes"
     },
