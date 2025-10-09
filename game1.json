@@ -73,7 +73,7 @@
       "ui": {
         "icon": "story",
         "background_img": "https://cdn.pixabay.com/photo/2024/03/27/20/30/ai-generated-8659888_1280.jpg",
-        "header_icons": ["story","abc","123","arrows","colors","shapes","cryptex","win"]
+        "header_icons": ["i","abc","123","arrows","colors","shapes","cryptex","win"]
       },
       "next_on_success": "p-abc",
       "_note": "Info stránka nevyžaduje vstup – hra může rovnou zobrazit tlačítko Pokračovat."
