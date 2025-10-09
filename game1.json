@@ -5,7 +5,14 @@
     "version": "0.1.0",
     "locale": "cs-CZ",
     "start_page": "p-intro",
-    "_note": "Ukázkový průlet všemi typy zámků v jedné hře."
+    "_note": "Ukázkový průlet všemi typy zámků v jedné hře.",
+    "timer": {
+    "enabled": true,
+    "seconds": 9500,
+    "warning_at": 60,
+    "show": true,
+    "lose_page": "p-timeout"
+  }
   },
 
   "assets": {
