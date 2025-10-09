@@ -56,7 +56,7 @@
         "badge": "story"
       },
       "ui": {
-        "icon": "story",
+        "icon": "lose",
         "background_img": "bg/timeout.jpg"
       },
       "next_on_success": "p-intro"
