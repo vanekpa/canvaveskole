@@ -22,10 +22,10 @@
       "cryptex": {
         "_note": "Definice koleček kryptexu – každé kolečko má vlastní sadu znaků.",
         "wheels": [
-          "ABCDEFGH",
-          "NOPQRSTU",
-          "VWXYZ012",
-          "3456789*"
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         ]
       }
     }
