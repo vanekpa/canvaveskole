@@ -18,6 +18,14 @@
   "assets": {
     "colors": ["red","orange","yellow","green","blue","purple","pink","brown"],
     "shapes": ["◯","■","▲","★","❤","◆"],
+    "shape_svgs": {
+    "◯": "<svg viewBox='0 0 80 80'><circle cx='40' cy='40' r='30' fill='#8BD3DD' stroke='#1E293B' stroke-width='6'/></svg>",
+    "■": "<svg viewBox='0 0 80 80'><rect x='12' y='12' width='56' height='56' rx='10' fill='#FBBF24' stroke='#1E293B' stroke-width='6'/></svg>",
+    "▲": "<svg viewBox='0 0 80 80'><polygon points='40,10 70,70 10,70' fill='#34D399' stroke='#1E293B' stroke-width='6'/></svg>",
+    "★": "<svg viewBox='0 0 80 80'><path d='M40 8l9 20 22 3-16 15 4 22-19-10-19 10 4-22L9 31l22-3z' fill='#A78BFA' stroke='#1E293B' stroke-width='6'/></svg>",
+    "❤": "<svg viewBox='0 0 80 80'><path d='M40 68C5 45 16 18 34 20c6 1 9 5 6 8 3-3 6-7 12-8 18-2 29 25-12 48z' fill='#FB7185' stroke='#1E293B' stroke-width='6'/></svg>",
+    "◆": "<svg viewBox='0 0 80 80'><polygon points='40,6 74,40 40,74 6,40' fill='#60A5FA' stroke='#1E293B' stroke-width='6'/></svg>"
+  },
     "arrows": { "up": "U", "down": "D", "left": "L", "right": "R" },
 
     "keyboards": {
