@@ -105,50 +105,41 @@
       "next_on_fail": "p-123-1"
     },
 
-    {
-      "id": "p-abc",
+     {
+      "id": "p-ABC-2",
       "type": "lock",
       "lock": {
         "mode": "text",
-        "input": { "keyboard": "alpha", "case_sensitive": false, "placeholder": "Zadej slovo" },
-        "answer": "CAKE",
-        "attempts": 0,
-        "hint": "Keyla má ráda narozeninový dort. (anglicky)"
-      },
-      "info": {
-        "title": "Textový zámek (ABC)",
-        "story": "„Happy Birthday to Keyla! Její oblíbená část oslavy je ______.“"
-      },
-      "ui": {
-        "background_imgs": [
-          "https://i.imgur.com/MkKQ8wg.png",
-          "https://i.imgur.com/Dlai2Ni.png",
-          "https://i.imgur.com/MkKQ8wg.png"
-        ],
-        "icon": "abc"
-      },
-      "next_on_success": "p-123",
-      "next_on_fail": "p-abc"
-    },
-
-    {
-      "id": "p-123",
-      "type": "lock",
-      "lock": {
-        "mode": "numeric",
-        "input": { "keyboard": "numeric", "length": 4 },
-        "answer": "2025",
+        "input": { "keyboard": "alpha", "case_sensitive": false, "placeholder": "Zadej správnoé slovo" },
+        "answer": "PARTY",
         "attempts": 3,
-        "hint": "Rok, kdy tato ukázka vznikla."
+        "hint": "Kdo pozná, co mám dneska připraveno, zjistí, proč jsme se vlastně sešli. Děti si začaly všímat drobností kolem sebe… a pomalu jim začínalo docházet, jaké slovo Adélka skrývá."
       },
       "info": {
-        "title": "Číselný zámek (123)",
+        "title": "Číselný zámek",
         "story": "Na dortu napočítej svíčky a přičti 2000. (nebo prostě zadej rok 2025 v demu 🙂)"
       },
-      "ui": { "background_img": "https://www.vyletnik.cz/wp-content/uploads/2024/04/detska-oslava.png", "icon": "123" },
-      "next_on_success": "p-arrows",
-      "next_on_fail": "p-123"
+      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/2.png", "icon": "abc" },
+      "next_on_success": "p-SHAPES-3",
+      "next_on_fail": "p-ABC-2"
     },
+
+       {
+      "id": "p-SHAPES-3",
+      "type": "lock",
+      "lock": {
+        "mode": "shapes",
+        "input": { "keyboard": "shapes", "length": 3 },
+        "answer": ["▲","◯","■"],
+        "attempts": 0,
+        "hint": "Geometrické vlaječky: špičatá, kulatá, hranatá."
+      },
+      "info": { "title": "Zámek s tvary", "story": "Podívej se na vlaječky u stolu s dortem." },
+      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/3.png", "icon": "shapes" },
+      "next_on_success": "p-cryptex",
+      "next_on_fail": "p-SHAPES-3"
+    }, 
+
 
     {
       "id": "p-arrows",
