@@ -166,7 +166,7 @@
       "lock": {
         "mode": "colors",
         "input": { "keyboard": "colors", "length": 5, "show_names": false },
-        "answer": ["green","red","orange","purple","blue"],
+        "answer": ["green","red","orange","pink","blue"],
         "attempts": 2,
         "hint": "Z hudebního pokoje se ozvala veselá melodie. Podlaha se změnila v pestrobarevný parket, který jemně svítil pod každým krokem. „Každá barva má své kouzlo,“ mrkla Adélka."
       },
