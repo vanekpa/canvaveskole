@@ -4,7 +4,7 @@
   "title": "🎃 Adélčino halloweenské dobrodružství",
   "version": "0.1.0",
   "locale": "cs-CZ",
-  "start_page": "p-intro",
+  "start_page": "p-intro-1",
   "_note": "Ukázkový průlet všemi typy zámků v jedné hře.",
   "timer": {
     "enabled": true,
