@@ -1,25 +1,26 @@
 {
-  "meta": {
-    "game_id": "sample-escape-001",
-    "title": "🎃 Adélčino halloweenské dobrodružství",
-    "version": "0.1.0",
-    "locale": "cs-CZ",
-    "start_page": "p-intro",
-    "_note": "Ukázkový průlet všemi typy zámků v jedné hře.",
-    "timer": {
+"meta": {
+  "game_id": "sample-escape-001",
+  "title": "🎃 Adélčino halloweenské dobrodružství",
+  "version": "0.1.0",
+  "locale": "cs-CZ",
+  "start_page": "p-intro",
+  "_note": "Ukázkový průlet všemi typy zámků v jedné hře.",
+  "timer": {
     "enabled": true,
     "seconds": 1080,
     "warning_at": 120,
     "show": true,
-    "lose_page": "p-timeout",
-    "author": {
+    "lose_page": "p-timeout"
+  },
+  "author": {
     "name": "Patrik Vaněk",
     "logo": "https://raw.githubusercontent.com/vanekpa/canvaveskole/refs/heads/main/eg_logo.png",
     "url": "https://unikovkyveskole.cz/",
     "text": "Patrik Vaněk",
     "position": "bottom-left"
-              }
   }
+}
   },
 
   "assets": {
