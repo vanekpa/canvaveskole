@@ -66,7 +66,7 @@
       "type": "info",
       "info": {
         "title": "🎃 Adélčino halloweenské dobrodružství",
-        "text": "Milí kamarádi, dnes vás čeká překvapení! Přijďte za mnou na zahradu starého domu, kde začíná naše Halloweenské dobrodružství. – Adélka 🕸️",
+        "text": "Milí kamarádi, dnes vás čeká překvapení! Přijďte za mnou na zahradu mého domu, kde začíná naše Halloweenské dobrodružství. – Adélka 🕸️",
         "tips": ["Hledej nápovědu v obrázku i textu.", "Zámek se pokaždé objeví dole."],
         "badge": "story"
       },
@@ -77,6 +77,25 @@
       },
       "next_on_success": "p-abc",
       "_note": "Info stránka nevyžaduje vstup – hra může rovnou zobrazit tlačítko Pokračovat."
+    },
+
+        {
+      "id": "p-123",
+      "type": "lock",
+      "lock": {
+        "mode": "numeric",
+        "input": { "keyboard": "numeric", "length": 3 },
+        "answer": "465",
+        "attempts": 3,
+        "hint": "Na zahradě to vypadalo, jako by tu Adélka trénovala kouzla. Každá dýně svítila jiným světlem, netopýři kroužili nad hlavami a kočky se schovávaly pod keři."
+      },
+      "info": {
+        "title": "Číselný zámek",
+        "story": "Na dortu napočítej svíčky a přičti 2000. (nebo prostě zadej rok 2025 v demu 🙂)"
+      },
+      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/1.png", "icon": "123" },
+      "next_on_success": "p-arrows",
+      "next_on_fail": "p-123"
     },
 
     {
