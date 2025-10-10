@@ -129,12 +129,12 @@
       "type": "lock",
       "lock": {
         "mode": "shapes",
-        "input": { "keyboard": "shapes", "length": 3 },
-        "answer": ["▲","◯","■"],
-        "attempts": 0,
-        "hint": "Geometrické vlaječky: špičatá, kulatá, hranatá."
+        "input": { "keyboard": "shapes", "length": 6 },
+        "answer": ["★","◆","▲","■","◯","❤"],
+        "attempts": 2,
+        "hint": "V kuchyni stály řady lahviček s barevnými nápoji. „Každý má rád jinou příchuť,“ zasmála se, „a já jsem namíchala ty nejoblíbenější!“"
       },
-      "info": { "title": "Zámek s tvary", "story": "Podívej se na vlaječky u stolu s dortem." },
+      "info": { "title": "", "story": "Vyřešte tuto matematickou hádanku!" },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/3.png", "icon": "shapes" },
       "next_on_success": "p-cryptex",
       "next_on_fail": "p-SHAPES-3"
