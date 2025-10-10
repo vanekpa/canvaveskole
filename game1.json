@@ -11,7 +11,7 @@
     "seconds": 1080,
     "warning_at": 120,
     "show": true,
-    "lose_page": "p-timeout"
+    "lose_page": "p-timeout",
     "author": {
     "name": "Patrik Vaněk",
     "logo": "https://raw.githubusercontent.com/vanekpa/canvaveskole/refs/heads/main/eg_logo.png",
