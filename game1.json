@@ -185,7 +185,7 @@
       "lock": {
         "mode": "cryptex",
         "input": { "wheels_ref": "cryptex", "length": 4 },
-        "answer": ["A","R","T","Y"],
+        "answer": ["D","U","C","H"],
         "attempts": 5,
         "hint": "Slovo souvisí s narozeninovou ‚p…‘ (party). První písmeno je A kvůli sadám na kolečkách."
       },
@@ -199,7 +199,7 @@
         "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/7.png"
                         ],
       "icon": "cryptex"
-    }
+    },
       "next_on_success": "p-WIN",
       "next_on_fail": "p-CRYPTEX-6"
     },
