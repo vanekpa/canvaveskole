@@ -136,28 +136,28 @@
       },
       "info": { "title": "", "story": "Vyřešte tuto matematickou hádanku!" },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/3.png", "icon": "shapes" },
-      "next_on_success": "p-cryptex",
+      "next_on_success": "p-ARROWS-4",
       "next_on_fail": "p-SHAPES-3"
     }, 
 
 
     {
-      "id": "p-arrows",
+      "id": "p-ARROWS-4",
       "type": "lock",
       "lock": {
         "mode": "arrows",
-        "input": { "keyboard": "arrows", "length": 4, "show_buttons": true },
-        "answer": ["↑","↓","←","→"],
+        "input": { "keyboard": "arrows", "length": 5, "show_buttons": true },
+        "answer": ["→","↓","→","→","↑"],
         "attempts": 3,
-        "hint": "Podívej se na pořadí dekorací: balónky (nahoře), kelímky (dole), písek (dole), houpačka (vlevo), skluzavka (vpravo)."
+        "hint": "Najednou se z rohu ozvalo písknutí. Dvířka skříně se pootevřela a zevnitř vykoukli pavoučci. Pomůžete Adélce vymést je ven? Začňete pod kloboukem."
       },
       "info": {
-        "title": "Směrový zámek",
-        "story": "Projdi hřištěm ve správném směru."
+        "title": "",
+        "story": "Začni hezky ve směru zametání."
       },
-      "ui": { "background_img": "https://i.imgur.com/CTBkpQF.png", "icon": "arrows" },
+      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/4.png", "icon": "arrows" },
       "next_on_success": "p-colors",
-      "next_on_fail": "p-arrows"
+      "next_on_fail": "p-ARROWS-4"
     },
 
     {
@@ -177,22 +177,6 @@
       "ui": { "background_img": "https://i.imgur.com/L7VnEJJ.png", "icon": "colors" },
       "next_on_success": "p-shapes",
       "next_on_fail": "p-colors"
-    },
-
-    {
-      "id": "p-shapes",
-      "type": "lock",
-      "lock": {
-        "mode": "shapes",
-        "input": { "keyboard": "shapes", "length": 3 },
-        "answer": ["▲","◯","■"],
-        "attempts": 0,
-        "hint": "Geometrické vlaječky: špičatá, kulatá, hranatá."
-      },
-      "info": { "title": "Zámek s tvary", "story": "Podívej se na vlaječky u stolu s dortem." },
-      "ui": { "background_img": "https://i.imgur.com/L7VnEJJ.png", "icon": "shapes" },
-      "next_on_success": "p-cryptex",
-      "next_on_fail": "p-shapes"
     },
 
     {
@@ -223,7 +207,7 @@
         "reward": { "type": "badge", "label": "Master of Locks" }
       },
       "ui": {
-        "background_img": "https://i.imgur.com/SRxY5wU.gif",
+        "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/8.png",
         "fx": ["confetti","sparkle"],
         "icon": "win"
       },
