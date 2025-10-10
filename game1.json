@@ -66,10 +66,10 @@
         "icon": "lose",
         "background_img": "bg/timeout.jpg"
       },
-      "next_on_success": "p-intro"
+      "next_on_success": "p-intro-1"
     },
     {
-      "id": "p-intro",
+      "id": "p-intro-1",
       "type": "info",
       "info": {
         "title": "🎃 Adélčino halloweenské dobrodružství",
@@ -200,8 +200,25 @@
                         ],
       "icon": "cryptex"
     },
-      "next_on_success": "p-win",
+      "next_on_success": "p-intro-2",
       "next_on_fail": "p-CRYPTEX-6"
+    },
+    
+    {
+     "id": "p-intro-2",
+      "type": "info",
+      "info": {
+        "title": "Gratulujeme!",
+        "text": "Kamarádi, zvládli jste to! Podařilo se Vám otevřít truhličku a zasloužíte si odměnu!",
+        "tips": ["Pokračujte dál a najděte paní učitelku, která se ukrývá někde na chodbě."],
+        "badge": "story"
+      },
+      "ui": {
+        "icon": "story",
+        "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/8.png",
+      },
+      "next_on_success": "p-win",
+      "_note": "Info stránka nevyžaduje vstup – hra může rovnou zobrazit tlačítko Pokračovat."
     },
 
     {
