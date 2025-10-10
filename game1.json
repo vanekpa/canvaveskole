@@ -101,7 +101,7 @@
         "story": "Na dortu napočítej svíčky a přičti 2000. (nebo prostě zadej rok 2025 v demu 🙂)"
       },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/1.png", "icon": "123" },
-      "next_on_success": "p-abc",
+      "next_on_success": "p-ABC-2",
       "next_on_fail": "p-123-1"
     },
 
