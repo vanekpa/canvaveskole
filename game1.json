@@ -187,7 +187,7 @@
         "input": { "wheels_ref": "cryptex", "length": 4 },
         "answer": ["D","U","C","H"],
         "attempts": 5,
-        "hint": "Slovo souvisí s narozeninovou ‚p…‘ (party). První písmeno je A kvůli sadám na kolečkách."
+        "hint": "Splnili jste skoro všechny úkoly a zbývá už jen poslední, abyste se dostali do kouzelné truhličky."
       },
       "info": {
         "title": "Kryptex",
@@ -200,7 +200,7 @@
                         ],
       "icon": "cryptex"
     },
-      "next_on_success": "p-WIN",
+      "next_on_success": "p-win",
       "next_on_fail": "p-CRYPTEX-6"
     },
 
