@@ -156,31 +156,31 @@
         "story": "Začni hezky ve směru zametání."
       },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/4.png", "icon": "arrows" },
-      "next_on_success": "p-colors",
+      "next_on_success": "p-COLORS-5",
       "next_on_fail": "p-ARROWS-4"
     },
 
     {
-      "id": "p-colors",
+      "id": "p-COLORS-5",
       "type": "lock",
       "lock": {
         "mode": "colors",
-        "input": { "keyboard": "colors", "length": 4, "show_names": false },
-        "answer": ["purple","yellow","blue","green"],
-        "attempts": 0,
-        "hint": "Podívej se na barvy svíček zleva doprava."
+        "input": { "keyboard": "colors", "length": 5, "show_names": false },
+        "answer": ["green","red","orange","purple","blue"],
+        "attempts": 2,
+        "hint": "Z hudebního pokoje se ozvala veselá melodie. Podlaha se změnila v pestrobarevný parket, který jemně svítil pod každým krokem. „Každá barva má své kouzlo,“ mrkla Adélka."
       },
       "info": {
         "title": "Barevný zámek",
         "story": "Zadej pořadí barev, které vidíš."
       },
-      "ui": { "background_img": "https://i.imgur.com/L7VnEJJ.png", "icon": "colors" },
-      "next_on_success": "p-shapes",
-      "next_on_fail": "p-colors"
+      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/5.png", "icon": "colors" },
+      "next_on_success": "p-CRYPTEX-6",
+      "next_on_fail": "p-COLORS-5"
     },
 
     {
-      "id": "p-cryptex",
+      "id": "p-CRYPTEX-6",
       "type": "lock",
       "lock": {
         "mode": "cryptex",
@@ -194,8 +194,8 @@
         "story": "Nastav správné písmeno na každém kolečku."
       },
       "ui": { "background_img": "https://i.imgur.com/D1v8yzR.png", "icon": "cryptex" },
-      "next_on_success": "p-win",
-      "next_on_fail": "p-cryptex"
+      "next_on_success": "p-WIN",
+      "next_on_fail": "p-CRYPTEX-6"
     },
 
     {
