@@ -1,15 +1,15 @@
 {
   "meta": {
     "game_id": "sample-escape-001",
-    "title": "Witty's / Keyla Demo",
+    "title": "🎃 Adélčino halloweenské dobrodružství",
     "version": "0.1.0",
     "locale": "cs-CZ",
     "start_page": "p-intro",
     "_note": "Ukázkový průlet všemi typy zámků v jedné hře.",
     "timer": {
     "enabled": true,
-    "seconds": 950,
-    "warning_at": 60,
+    "seconds": 1080,
+    "warning_at": 120,
     "show": true,
     "lose_page": "p-timeout"
   }
@@ -65,14 +65,14 @@
       "id": "p-intro",
       "type": "info",
       "info": {
-        "title": "Vítej!",
-        "text": "V této ukázce si vyzkoušíš různé typy zámků. Postupuj podle ikon nahoře a odemykej další místnosti.",
+        "title": "🎃 Adélčino halloweenské dobrodružství",
+        "text": "Milí kamarádi, dnes vás čeká překvapení! Přijďte za mnou na zahradu starého domu, kde začíná naše Halloweenské dobrodružství. – Adélka 🕸️",
         "tips": ["Hledej nápovědu v obrázku i textu.", "Zámek se pokaždé objeví dole."],
         "badge": "story"
       },
       "ui": {
         "icon": "story",
-        "background_img": "https://cdn.pixabay.com/photo/2024/03/27/20/30/ai-generated-8659888_1280.jpg",
+        "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/1.png",
         "header_icons": ["i","abc","123","arrows","colors","shapes","cryptex","win"]
       },
       "next_on_success": "p-abc",
