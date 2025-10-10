@@ -64,7 +64,7 @@
       },
       "ui": {
         "icon": "lose",
-        "background_img": "bg/timeout.jpg"
+        "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/8.png"
       },
       "next_on_success": "p-intro-1"
     },
@@ -208,7 +208,7 @@
      "id": "p-intro-2",
       "type": "info",
       "info": {
-        "title": "Gratulujeme!",
+        "title": "",
         "text": "Kamarádi, zvládli jste to! Podařilo se Vám otevřít truhličku a zasloužíte si odměnu!",
         "tips": ["Pokračujte dál a najděte paní učitelku, která se ukrývá někde na chodbě."],
         "badge": "story"
