@@ -19,10 +19,9 @@
     "url": "https://unikovkyveskole.cz/",
     "text": "Patrik Vaněk",
     "position": "bottom-left"
-  }
-}
-  },
-
+        }
+    },
+  
   "assets": {
     "colors": ["red","orange","yellow","green","blue","purple","pink","brown"],
     "shapes": ["◯","■","▲","★","❤","◆"],
