@@ -12,6 +12,13 @@
     "warning_at": 120,
     "show": true,
     "lose_page": "p-timeout"
+    "author": {
+    "name": "Patrik Vaněk",
+    "logo": "https://raw.githubusercontent.com/vanekpa/canvaveskole/refs/heads/main/eg_logo.png",
+    "url": "https://unikovkyveskole.cz/",
+    "text": "Patrik Vaněk",
+    "position": "bottom-left"
+              }
   }
   },
 
