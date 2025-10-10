@@ -80,7 +80,7 @@
     },
 
         {
-      "id": "p-123",
+      "id": "p-123-1",
       "type": "lock",
       "lock": {
         "mode": "numeric",
@@ -95,7 +95,7 @@
       },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/1.png", "icon": "123" },
       "next_on_success": "p-abc",
-      "next_on_fail": "p-123"
+      "next_on_fail": "p-123-1"
     },
 
     {
