@@ -193,7 +193,13 @@
         "title": "Kryptex",
         "story": "Nastav správné písmeno na každém kolečku."
       },
-      "ui": { "background_img": "https://i.imgur.com/D1v8yzR.png", "icon": "cryptex" },
+      "ui": {
+      "background_imgs": [
+        "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/6.png",
+        "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/7.png"
+                        ],
+      "icon": "cryptex"
+    }
       "next_on_success": "p-WIN",
       "next_on_fail": "p-CRYPTEX-6"
     },
