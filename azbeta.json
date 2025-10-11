@@ -468,7 +468,6 @@
   ],
   "ads": [
     { "text":"Únikové hry ve škole - mrkni na web a měj přehled!","url":"https://unikovkyveskole.cz","durationSec":20 },
-    { "text":"Tuhle aplikaci můžete zvládnout v Canvě i vy, nebo vaši žáci :)","url":"https://canvaveskole.com/","durationSec":20 },
-    { "text":"Na učitelnici můžete zakoupit tento produkt v plné verzi, kde je více než 2000 otázek.","url":"https://www.ucitelnice.cz/produkt/82052","durationSec":0 }
+    { "text":"Tuhle aplikaci můžete zvládnout v Canvě i vy, nebo vaši žáci :)","url":"https://canvaveskole.com/","durationSec":20 }
   ]
 }
