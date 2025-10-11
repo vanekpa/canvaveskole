@@ -124,7 +124,7 @@
     { "letter":"A","prompt":"Jak se jmenuje kouzelnický vězeňský hrad v Severním moři?","correct":"Azkaban","alt":["azkaban"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"A","prompt":"Jak se jmenuje ředitel Bradavic s fénixem Fawkesem?","correct":"Albus Brumbál","alt":["albus brumbal","brumbál","brumbal"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"A","prompt":"Jaké přivolávací kouzlo používají čarodějové k přitažení předmětu?","correct":"Accio","alt":["accio"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
-  { "letter":"A","prompt":"Jak se jmenuje obří akromantule z Zapovězeného lesa, Hagridův známý?","correct":"Aragog","alt":["aragog"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
+  { "letter":"A","prompt":"Jak se jmenuje obří akromantule ze Zapovězeného lesa, Hagridův známý?","correct":"Aragog","alt":["aragog"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"A","prompt":"Jaké je odemykací kouzlo, které Hermiona použila na zámky?","correct":"Alohomora","alt":["alohomora","alohamora"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"A","prompt":"Jak se jmenuje kletba smrti, jedna ze tří neodpustitelných kleteb?","correct":"Avada Kedavra","alt":["avada kedavra","avadakedavra"],"category":"Harry Potter","difficulty":"SŠ","lang":"cs" },
   { "letter":"B","prompt":"Jak se jmenuje škola čar a kouzel, kterou navštěvuje Harry?","correct":"Bradavice","alt":["bradavice","hogwarts"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
@@ -157,7 +157,7 @@
   { "letter":"G","prompt":"Jak se anglicky nazývá míček používaný při famfrpálu?","correct":"Golden snitch","alt":["golden snitch","snitch","zlatonka"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"G","prompt":"Jak se jmenuje kouzelnická banka v Příčné ulici?","correct":"Gringottovi (U Gringottů)","alt":["gringotts","gringottova banka"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"G","prompt":"Jak se anglicky jmenuje kolej Nebelvíru?","correct":"Gryffindor","alt":["gryffindor","nebelvir"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
-    { "letter":"H","prompt":"Jak se jmenuje hlavní hrdina celé série?","correct":"Harry Potter","alt":["harry potter","harry"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
+  { "letter":"H","prompt":"Jak se jmenuje hlavní hrdina celé série?","correct":"Harry Potter","alt":["harry potter","harry"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"H","prompt":"Jak se jmenuje nejlepší kamarádka Harryho Pottera?","correct":"Hermiona Grangerová","alt":["hermiona grangerova","hermione granger"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"H","prompt":"Jak se jmenuje hajný a učitel péče o kouzelné tvory v Bradavicích?","correct":"Hagrid","alt":["hagrid","rubeus hagrid"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"H","prompt":"Jak se anglicky nazývá předmět, který ukrývá část duše lorda Voldemorta?","correct":"Horcrux","alt":["horcrux","viteál","viteal"],"category":"Harry Potter","difficulty":"SŠ","lang":"cs" },
@@ -179,7 +179,7 @@
   { "letter":"K","prompt":"Jak se jmenuje ředitel Kruvalu, který přivedl své studenty do Bradavic?","correct":"Igor Karkarov","alt":["igor karkarov","karkarov"],"category":"Harry Potter","difficulty":"SŠ","lang":"cs" },
   { "letter":"K","prompt":"Jak se jmenuje bystrozor, člen Fénixova řádu tmavé pleti?","correct":"Kingsley Pastorek","alt":["kingsley pastorek","kingsley shacklebolt"],"category":"Harry Potter","difficulty":"SŠ","lang":"cs" },
   { "letter":"K","prompt":"Jak se jmenuje kočka Hermiony Grangerové?","correct":"Křivonožka","alt":["krivonozka","crookshanks"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
-  { "letter":"L","prompt":"Jak se jmenuje největší nepřítel Harryho Pottera, známý také jako Pán zla?","correct":"Lord Voldemort","alt":["lord voldemort","voldemort"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
+  { "letter":"L","prompt":"Jak se jmenuje největší nepřítel Harryho Pottera, známý také jako Pán zla, celý pseudonym na LV?","correct":"Lord Voldemort","alt":["lord voldemort","voldemort"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"L","prompt":"Jak se jmenuje otec Draca Malfoye?","correct":"Lucius Malfoy","alt":["lucius malfoy","lucius"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"L","prompt":"Jak se jmenovala matka Harryho Pottera?","correct":"Lily Potterová","alt":["lily potterova","lily potter"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"L","prompt":"Jak se jmenuje profesor, který vyučoval Obranu proti černé magii ve 3. ročníku?","correct":"Lupin Remus","alt":["remus lupin","lupin"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
@@ -240,13 +240,13 @@
   { "letter":"V","prompt":"Jak se jmenuje lektvar pravdy, který nutil mluvit upřímně?","correct":"Veritaserum","alt":["veritaserum"],"category":"Harry Potter","difficulty":"SŠ","lang":"cs" },
   { "letter":"V","prompt":"Jak se jmenuje bulharský famfrpálový hráč a šampion?","correct":"Viktor Krum","alt":["viktor krum","krum"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"V","prompt":"Jak se jmenuje největší společenská místnost v Bradavicích?","correct":"Velká síň","alt":["velka sin","great hall"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
-  { "letter":"V","prompt":"Jak se jmenuje strom v areálu Bradavic, který dokáže mlátit?","correct":"Vrba mlátička","alt":["vrba mlaticka","whomping willow"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
+  { "letter":"V","prompt":"Jak se jmenuje strom v areálu Bradavic, která chrání vchod do Chroptící chýše?","correct":"Vrba mlátička","alt":["vrba mlaticka","whomping willow"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"V","prompt":"Jak se jmenuje Harryho strýc z mudlovské rodiny?","correct":"Vernon","alt":["vernon","vernon dursley"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"V","prompt":"Jak se jmenuje spolužák Draca Malfoye, syn Smrtijeda?","correct":"Vincent Crabbe","alt":["vincent crabbe","crabbe"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"W","prompt":"Jak se jmenuje rodina, u které Harry vždy trávil prázdniny?","correct":"Weasleyovi","alt":["weasleyovi","weasley"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"W","prompt":"Jak zní zaklínadlo, kterým se kouzelníci naučili zvedat předměty do vzduchu?","correct":"Wingardium Leviosa","alt":["wingardium leviosa","leviosa"],"category":"Harry Potter","difficulty":"ZŠ1","lang":"cs" },
   { "letter":"W","prompt":"Jak se jmenuje domácí skřítek, která patřila rodině Crouchových?","correct":"Winky","alt":["winky"],"category":"Harry Potter","difficulty":"SŠ","lang":"cs" },
-  { "letter":"W","prompt":"Jak se jmenuje obchod s žertovnými předměty dvojčat Weasleyových?","correct":"Weasleyovic žertovné zboží","alt":["weasleyovic zertovne zbozi","weasleys wizard wheezes"],"category":"Harry Potter","difficulty":"SŠ","lang":"cs" },
+  { "letter":"W","prompt":"Jak se jmenuje obchod s žertovnými předměty, který vlastní bratrská dvojice?","correct":"Weasleyovic žertovné zboží","alt":["weasleyovic zertovne zbozi","weasleys wizard wheezes"],"category":"Harry Potter","difficulty":"SŠ","lang":"cs" },
   { "letter":"W","prompt":"Jak se anglicky řekne kouzelnická hůlka?","correct":"Wand","alt":["wand","hulka"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"W","prompt":"Jak se anglicky řekne čarodějnice?","correct":"Witch","alt":["witch","carodejka"],"category":"Harry Potter","difficulty":"ZŠ2","lang":"cs" },
   { "letter":"X","prompt":"Jak se jmenuje otec Luny Láskorádové, který vydával časopis Jinotaje?","correct":"Xenophilius Láskorád","alt":["xenophilius laskorad","xenophilius lovegood"],"category":"Harry Potter","difficulty":"SŠ","lang":"cs" },
@@ -468,6 +468,7 @@
   ],
   "ads": [
     { "text":"Únikové hry ve škole - mrkni na web a měj přehled!","url":"https://unikovkyveskole.cz","durationSec":20 },
-    { "text":"Na učitelnici můžete zakoupit tento produkt v plné verzi, kde je více než 2000 otázek.","url":"https://www.ucitelnice.cz/produkt/82052","durationSec":30 }
+    { "text":"Tuhle aplikaci můžete zvládnout v Canvě i vy, nebo vaši žáci :)","url":"https://canvaveskole.com/","durationSec":20 },
+    { "text":"Na učitelnici můžete zakoupit tento produkt v plné verzi, kde je více než 2000 otázek.","url":"https://www.ucitelnice.cz/produkt/82052","durationSec":0 }
   ]
 }
