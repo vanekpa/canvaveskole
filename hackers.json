@@ -1,0 +1,310 @@
+{
+  "version": "1.0.0",
+  "defaultLocale": "cs",
+  "supportedLocales": ["cs", "en"],
+
+  "dynamic": {
+    "security": {
+      "encryption": "AES-256",
+      "linkState": "STABLE",
+      "sessionId": "7f3b9c21",
+      "latencyMs": 18
+    },
+    "telemetry": {
+      "trace": false,
+      "track": true,
+      "lock": true
+    },
+    "clock": {
+      "iso": "2025-10-12T10:24:07Z"
+    }
+  },
+
+  "ui": {
+    "cs": {
+      "windowTitle": "Login",
+      "topbar": {
+        "pills": ["LOCK", "TRACE", "TRACK"],
+        "nav": ["HOME", "END", "LINE"],
+        "dials": ["Síť", "Zátěž"]
+      },
+      "ribbon": {
+        "modules": [
+          { "id": "protocol", "label": "PROTOCOL" },
+          { "id": "scope", "label": "WORLD / LOCAL" },
+          { "id": "backtrack", "label": "BACKTRACK" }
+        ]
+      },
+      "terminal": {
+        "headerLeft": "CONSOLE / SECURE",
+        "headerRight": "ENC: {{encryption}} • LINK: {{linkState}}",
+        "message": "MESS WITH THE BEST",
+        "motd": [
+          "Inicializuji handshake… OK",
+          "Načítám profily… 3 nalezeny",
+          "Monitoring aktivní"
+        ]
+      },
+      "loginForm": {
+        "title": "Přihlášení",
+        "usernameLabel": "Uživatelské jméno",
+        "passwordLabel": "Heslo",
+        "usernamePh": "user@domain",
+        "passwordPh": "••••••••",
+        "btnLogin": "Login",
+        "btnBacktrack": "Backtrack",
+        "errors": {
+          "emptyUser": "Vyplň uživatelské jméno.",
+          "emptyPass": "Vyplň heslo.",
+          "invalid": "Neplatné přihlašovací údaje.",
+          "locked": "Účet je dočasně uzamčen."
+        }
+      },
+      "statusTabs": ["RECORDS", "CONNECTION", "SEARCH"],
+      "startMenu": {
+        "title": "START",
+        "subtitle": "Vyber misi",
+        "items": [
+          {
+            "id": "onboarding",
+            "title": "Rychlý briefing",
+            "desc": "3 minuty základů ovládání a bezpečnosti.",
+            "icon": "compass"
+          },
+          {
+            "id": "mission_ping",
+            "title": "Operace: PING",
+            "desc": "Diagnostika sítě a latence.",
+            "icon": "radar"
+          },
+          {
+            "id": "mission_trace",
+            "title": "Operace: TRACE",
+            "desc": "Stopování paketů přes globální uzly.",
+            "icon": "route"
+          },
+          {
+            "id": "sandbox",
+            "title": "Sandbox",
+            "desc": "Bezpečné testovací prostředí.",
+            "icon": "flask"
+          }
+        ]
+      },
+      "icons": [
+        { "id": "lock", "label": "LOCK", "tooltip": "Zamknout relaci" },
+        { "id": "trace", "label": "TRACE", "tooltip": "Zapnout síťové trasování" },
+        { "id": "track", "label": "TRACK", "tooltip": "Sledovat události" },
+        { "id": "protocol", "label": "Protocol", "tooltip": "Volba komunikačního protokolu" },
+        { "id": "scope", "label": "World/Local", "tooltip": "Rozsah působnosti" },
+        { "id": "backtrack", "label": "Backtrack", "tooltip": "Vrátit poslední krok" }
+      ],
+      "a11y": {
+        "terminal": "Zabezpečený terminál",
+        "status": "Stavový panel",
+        "startMenu": "Nabídka Start",
+        "dials": "Analogové ukazatele systému",
+        "form": "Formulář přihlášení"
+      }
+    },
+
+    "en": {
+      "windowTitle": "Login",
+      "topbar": {
+        "pills": ["LOCK", "TRACE", "TRACK"],
+        "nav": ["HOME", "END", "LINE"],
+        "dials": ["Network", "Load"]
+      },
+      "ribbon": {
+        "modules": [
+          { "id": "protocol", "label": "PROTOCOL" },
+          { "id": "scope", "label": "WORLD / LOCAL" },
+          { "id": "backtrack", "label": "BACKTRACK" }
+        ]
+      },
+      "terminal": {
+        "headerLeft": "CONSOLE / SECURE",
+        "headerRight": "ENC: {{encryption}} • LINK: {{linkState}}",
+        "message": "MESS WITH THE BEST",
+        "motd": [
+          "Initializing handshake… OK",
+          "Loading profiles… 3 found",
+          "Monitoring enabled"
+        ]
+      },
+      "loginForm": {
+        "title": "Sign In",
+        "usernameLabel": "Username",
+        "passwordLabel": "Password",
+        "usernamePh": "user@domain",
+        "passwordPh": "••••••••",
+        "btnLogin": "Login",
+        "btnBacktrack": "Backtrack",
+        "errors": {
+          "emptyUser": "Enter your username.",
+          "emptyPass": "Enter your password.",
+          "invalid": "Invalid credentials.",
+          "locked": "Account temporarily locked."
+        }
+      },
+      "statusTabs": ["RECORDS", "CONNECTION", "SEARCH"],
+      "startMenu": {
+        "title": "START",
+        "subtitle": "Choose a mission",
+        "items": [
+          {
+            "id": "onboarding",
+            "title": "Quick Briefing",
+            "desc": "3-minute safety & controls intro.",
+            "icon": "compass"
+          },
+          {
+            "id": "mission_ping",
+            "title": "Operation: PING",
+            "desc": "Network and latency diagnostics.",
+            "icon": "radar"
+          },
+          {
+            "id": "mission_trace",
+            "title": "Operation: TRACE",
+            "desc": "Packet trace across global nodes.",
+            "icon": "route"
+          },
+          {
+            "id": "sandbox",
+            "title": "Sandbox",
+            "desc": "Safe test environment.",
+            "icon": "flask"
+          }
+        ]
+      },
+      "icons": [
+        { "id": "lock", "label": "LOCK", "tooltip": "Lock session" },
+        { "id": "trace", "label": "TRACE", "tooltip": "Enable network tracing" },
+        { "id": "track", "label": "TRACK", "tooltip": "Track events" },
+        { "id": "protocol", "label": "Protocol", "tooltip": "Communication protocol" },
+        { "id": "scope", "label": "World/Local", "tooltip": "Scope of operation" },
+        { "id": "backtrack", "label": "Backtrack", "tooltip": "Undo last step" }
+      ],
+      "a11y": {
+        "terminal": "Secure terminal",
+        "status": "Status bar",
+        "startMenu": "Start menu",
+        "dials": "Analog system gauges",
+        "form": "Sign-in form"
+      }
+    }
+  },
+
+  "quizzes": {
+    "cs": [
+      {
+        "id": "q_proto_1",
+        "difficulty": 1,
+        "question": "Který protokol je vhodný pro bezpečné šifrované spojení v prohlížeči?",
+        "options": ["HTTP", "FTP", "HTTPS", "TELNET"],
+        "correctIndex": 2,
+        "feedback": {
+          "correct": "Správně! HTTPS přidává TLS/SSL vrstvu pro šifrovanou komunikaci.",
+          "incorrect": "Zkus to znovu. Hledej variantu s TLS/SSL."
+        },
+        "next": {
+          "onCorrect": "mission_ping",
+          "onIncorrect": "hint_proto_tls"
+        },
+        "hints": {
+          "hint_proto_tls": "Hledej protokol, který končí na 'S' jako 'secure'."
+        }
+      },
+      {
+        "id": "q_trace_1",
+        "difficulty": 2,
+        "question": "Co ti nejčastěji odhalí nástroj traceroute?",
+        "options": [
+          "Otevřené porty na cíli",
+          "Počet a adresy mezilehlých uzlů",
+          "Rychlost disku serveru",
+          "Verzi operačního systému cíle"
+        ],
+        "correctIndex": 1,
+        "feedback": {
+          "correct": "Přesně tak. Trasy a latence mezi hop-y.",
+          "incorrect": "Ne. Traceroute neměří porty ani OS."
+        },
+        "next": {
+          "onCorrect": "mission_trace",
+          "onIncorrect": "retry"
+        }
+      },
+      {
+        "id": "q_pwd_1",
+        "difficulty": 1,
+        "question": "Jaká volba je nejbezpečnější jako heslo?",
+        "options": [
+          "P@ssw0rd",
+          "Iloveplzen",
+          "hT8#kQ4pZ1_!m",
+          "12345678"
+        ],
+        "correctIndex": 2,
+        "feedback": {
+          "correct": "Nice. Délka + různé znaky + neuhodnutelnost.",
+          "incorrect": "Krátká nebo slovníková hesla jsou snadno prolomitelná."
+        },
+        "next": { "onCorrect": "unlock_bonus", "onIncorrect": "retry" }
+      }
+    ],
+    "en": [
+      {
+        "id": "q_proto_1",
+        "difficulty": 1,
+        "question": "Which protocol is used for secure encrypted browsing?",
+        "options": ["HTTP", "FTP", "HTTPS", "TELNET"],
+        "correctIndex": 2,
+        "feedback": {
+          "correct": "Correct. HTTPS adds TLS/SSL encryption.",
+          "incorrect": "Try again. Look for TLS/SSL."
+        },
+        "next": { "onCorrect": "mission_ping", "onIncorrect": "hint_proto_tls" },
+        "hints": { "hint_proto_tls": "Pick the one ending with 'S' for secure." }
+      },
+      {
+        "id": "q_trace_1",
+        "difficulty": 2,
+        "question": "What does traceroute typically reveal?",
+        "options": [
+          "Open ports on target",
+          "Number and addresses of hops",
+          "Disk speed of server",
+          "Target OS version"
+        ],
+        "correctIndex": 1,
+        "feedback": {
+          "correct": "Exactly: path and latency across hops.",
+          "incorrect": "Nope. Not ports or OS."
+        },
+        "next": { "onCorrect": "mission_trace", "onIncorrect": "retry" }
+      },
+      {
+        "id": "q_pwd_1",
+        "difficulty": 1,
+        "question": "Which is the safest password option?",
+        "options": ["P@ssw0rd", "Iloveplzen", "hT8#kQ4pZ1_!m", "12345678"],
+        "correctIndex": 2,
+        "feedback": {
+          "correct": "Nice. Long, varied, non-guessable.",
+          "incorrect": "Short or dictionary words are weak."
+        },
+        "next": { "onCorrect": "unlock_bonus", "onIncorrect": "retry" }
+      }
+    ]
+  },
+
+  "routes": {
+    "retry": { "action": "showRetry", "params": { "cooldownSec": 2 } },
+    "mission_ping": { "action": "startMission", "params": { "id": "mission_ping" } },
+    "mission_trace": { "action": "startMission", "params": { "id": "mission_trace" } },
+    "unlock_bonus": { "action": "unlock", "params": { "feature": "bonus_console_theme" } },
+    "hint_proto_tls": { "action": "showHint", "params": { "id": "hint_proto_tls" } }
+  }
+}
