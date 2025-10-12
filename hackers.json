@@ -126,6 +126,7 @@
         "headerLeft": "CONSOLE / SECURE",
         "headerRight": "ENC: {{encryption}} • LINK: {{linkState}}",
         "message": "MESS WITH THE BEST",
+        "followup": "DIE LIKE THE REST",
         "motd": [
           "Initializing handshake… OK",
           "Loading profiles… 3 found",
