@@ -235,7 +235,7 @@
       "ui": {
         "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/8.png",
         "full_bleed": true,
-        "reveal_ms": 1500
+        "reveal_ms": 1500,
         "darken": 0.0,
         "fx": ["confetti","sparkle"],
         "icon": "win"
