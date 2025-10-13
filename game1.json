@@ -215,7 +215,10 @@
       },
       "ui": {
         "icon": "story",
-        "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/8.png"
+        "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/8.png",
+        "reveal_ms": 1500
+        "darken": 0.0,
+        "full_bleed": true,
       },
       "next_on_success": "p-win",
       "_note": "Info stránka nevyžaduje vstup – hra může rovnou zobrazit tlačítko Pokračovat."
@@ -231,6 +234,9 @@
       },
       "ui": {
         "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/8.png",
+        "full_bleed": true,
+        "reveal_ms": 1500
+        "darken": 0.0,
         "fx": ["confetti","sparkle"],
         "icon": "win"
       },
