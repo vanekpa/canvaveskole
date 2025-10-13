@@ -98,7 +98,7 @@
       },
       "info": {
         "title": "Číselný zámek",
-        "story": "Na dortu napočítej svíčky a přičti 2000. (nebo prostě zadej rok 2025 v demu 🙂)"
+        "story": "Vítej u Adélky doma, něco se tu odehrává!"
       },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/1.png", "icon": "123" },
       "next_on_success": "p-ABC-2",
@@ -116,8 +116,8 @@
         "hint": "Kdo pozná, co mám dneska připraveno, zjistí, proč jsme se vlastně sešli. Děti si začaly všímat drobností kolem sebe… a pomalu jim začínalo docházet, jaké slovo Adélka skrývá."
       },
       "info": {
-        "title": "Číselný zámek",
-        "story": "Na dortu napočítej svíčky a přičti 2000. (nebo prostě zadej rok 2025 v demu 🙂)"
+        "title": "Textový zámek",
+        "story": "Vítej u Adélky doma, něco se tu odehrává!"
       },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/2.png", "icon": "abc" },
       "next_on_success": "p-SHAPES-3",
