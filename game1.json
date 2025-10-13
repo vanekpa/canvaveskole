@@ -8,8 +8,8 @@
   "_note": "Ukázkový průlet všemi typy zámků v jedné hře.",
   "timer": {
     "enabled": true,
-    "seconds": 1080,
-    "warning_at": 120,
+    "seconds": 1800,
+    "warning_at": 800,
     "show": true,
     "lose_page": "p-timeout"
   },
