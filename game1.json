@@ -98,7 +98,7 @@
       },
       "info": {
         "title": "Číselný zámek",
-        "story": "Vítej u Adélky doma, něco se tu odehrává!"
+        "story": "Na zahradě to vypadalo, jako by tu Adélka trénovala kouzla. Každá dýně svítila jiným světlem, netopýři kroužili nad hlavami a kočky se schovávaly pod keři."
       },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/1.png", "icon": "123" },
       "next_on_success": "p-ABC-2",
@@ -117,7 +117,7 @@
       },
       "info": {
         "title": "Textový zámek",
-        "story": "Vítej u Adélky doma, něco se tu odehrává!"
+        "story": "Kdo pozná, co mám dneska připraveno, zjistí, proč jsme se vlastně sešli. Děti si začaly všímat drobností kolem sebe… a pomalu jim začínalo docházet, jaké slovo Adélka skrývá."
       },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/2.png", "icon": "abc" },
       "next_on_success": "p-SHAPES-3",
@@ -134,7 +134,7 @@
         "attempts": 2,
         "hint": "V kuchyni stály řady lahviček s barevnými nápoji. „Každý má rád jinou příchuť,“ zasmála se, „a já jsem namíchala ty nejoblíbenější!“"
       },
-      "info": { "title": "", "story": "Vyřešte tuto matematickou hádanku!" },
+      "info": { "title": "", "story": "V kuchyni stály řady lahviček s barevnými nápoji. „Každý má rád jinou příchuť,“ zasmála se, „a já jsem namíchala ty nejoblíbenější!“" },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/3.png", "icon": "shapes" },
       "next_on_success": "p-ARROWS-4",
       "next_on_fail": "p-SHAPES-3"
@@ -153,7 +153,7 @@
       },
       "info": {
         "title": "",
-        "story": "Začni hezky ve směru zametání."
+        "story": "Najednou se z rohu ozvalo písknutí. Dvířka skříně se pootevřela a zevnitř vykoukli pavoučci. Pomůžete Adélce vymést je ven? Začňete pod kloboukem."
       },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/4.png", "icon": "arrows" },
       "next_on_success": "p-COLORS-5",
