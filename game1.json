@@ -175,57 +175,12 @@
         "story": "Zadej pořadí barev, které vidíš."
       },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/5.png", "icon": "colors" },
-      "next_on_success": "p-QUIZ-6",
+      "next_on_success": "p-CRYPTEX-6",
       "next_on_fail": "p-COLORS-5"
     },
 
     {
-  "id": "p-QUIZ-6",
-  "type": "lock",
-  "lock": {
-    "mode": "quiz",
-    "pass_ratio": 0.8,
-    "randomize_questions": true,
-    "randomize_answers": true,
-    "limit": 3,
-    "questions": [
-      {
-        "text": "Kdy se slaví Halloween?",
-        "answers": [
-          { "text": "30. října", "correct": false },
-          { "text": "31. října", "correct": true },
-          { "text": "1. listopadu", "correct": false }
-        ]
-      },
-      {
-        "text": "Jaký je tradiční pozdrav koledníků?",
-        "answers": [
-          { "text": "Trick or treat!", "correct": true },
-          { "text": "Happy haunting!", "correct": false },
-          { "text": "Boo or nothing!", "correct": false }
-        ]
-      },
-      {
-        "text": "Z čeho se dělá Jack-o'-lantern?",
-        "answers": [
-          { "text": "Z dýně", "correct": true },
-          { "text": "Z jablka", "correct": false },
-          { "text": "Z melounu", "correct": false }
-        ]
-      }
-    ]
-  },
-  "info": {
-    "title": "Mini kvíz 🎃",
-    "story": "Odemkni zámek — stačí mít aspoň 80 % správně."
-  },
-  "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/1.png", "icon": "lock" },
-  "next_on_success": "p-CRYPTEX-7",
-  "next_on_fail": "p-QUIZ-6"
-},
-
-    {
-      "id": "p-CRYPTEX-7",
+      "id": "p-CRYPTEX-6",
       "type": "lock",
       "lock": {
         "mode": "cryptex",
@@ -246,7 +201,7 @@
       "icon": "cryptex"
     },
       "next_on_success": "p-intro-2",
-      "next_on_fail": "p-CRYPTEX-7"
+      "next_on_fail": "p-CRYPTEX-6"
     },
     
     {
