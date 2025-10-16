@@ -190,19 +190,28 @@
     "limit": 3,
     "questions": [
       {
-        "q": "Kdy se slaví Halloween?",
-        "answers": ["30. října", "31. října", "1. listopadu"],
-        "correct_index": 1
+        "text": "Kdy se slaví Halloween?",
+        "answers": [
+          { "text": "30. října", "correct": false },
+          { "text": "31. října", "correct": true },
+          { "text": "1. listopadu", "correct": false }
+        ]
       },
       {
-        "q": "Jaký je tradiční anglický pozdrav koledníků?",
-        "answers": ["Trick or treat!", "Happy haunting!", "Boo or nothing!"],
-        "correct_index": 0
+        "text": "Jaký je tradiční pozdrav koledníků?",
+        "answers": [
+          { "text": "Trick or treat!", "correct": true },
+          { "text": "Happy haunting!", "correct": false },
+          { "text": "Boo or nothing!", "correct": false }
+        ]
       },
       {
-        "q": "Z čeho se tradičně vyřezává Jack-o'-lantern?",
-        "answers": ["Z dýně", "Z jablka", "Z melounu"],
-        "correct_index": 0
+        "text": "Z čeho se dělá Jack-o'-lantern?",
+        "answers": [
+          { "text": "Z dýně", "correct": true },
+          { "text": "Z jablka", "correct": false },
+          { "text": "Z melounu", "correct": false }
+        ]
       }
     ]
   },
