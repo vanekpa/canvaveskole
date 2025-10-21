@@ -79,7 +79,7 @@
       },
       "ui": {
         "icon": "story",
-        "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/1.png",
+        "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/doprava1.jpg",
         "header_icons": ["i","123","abc","arrows","colors","shapes","cryptex","win"]
       },
       "next_on_success": "p-123-1",
@@ -100,7 +100,7 @@
         "title": "Číselný zámek",
         "story": "Na zahradě to vypadalo, jako by tu Adélka trénovala kouzla. Každá dýně svítila jiným světlem, netopýři kroužili nad hlavami a kočky se schovávaly pod keři."
       },
-      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/1.png", "icon": "123" },
+      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/doprava1.jpg", "icon": "123" },
       "next_on_success": "p-ABC-2",
       "next_on_fail": "p-123-1"
     },
