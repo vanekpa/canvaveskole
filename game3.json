@@ -178,34 +178,41 @@
       "next_on_success": "p-QUIZ-6",
       "next_on_fail": "p-COLORS-5"
     },
-
     {
   "id": "p-QUIZ-6",
   "type": "lock",
   "lock": {
-    "mode": "quiz",
-    "pass_ratio": 0.8,
-    "randomize_questions": true,
-    "randomize_answers": true,
-    "limit": 3,
-    "questions": [
-      {
-        "q": "Kdy se slaví Halloween?",
-        "answers": ["30. října", "31. října", "1. listopadu"],
-        "correct_index": 1
-      },
-      {
-        "q": "Jaký je tradiční anglický pozdrav koledníků?",
-        "answers": ["Trick or treat!", "Happy haunting!", "Boo or nothing!"],
-        "correct_index": 0
-      },
-      {
-        "q": "Z čeho se tradičně vyřezává Jack-o'-lantern?",
-        "answers": ["Z dýně", "Z jablka", "Z melounu"],
-        "correct_index": 0
-      }
-    ]
-  },
+  "mode": "quiz",
+  "draw": 3,
+  "min_ratio": 0.8,
+  "shuffle_on_retry": true,
+  "questions": [
+    {
+      "text": "Kdy se slaví Halloween?",
+      "answers": [
+        { "text": "30. října",   "correct": false },
+        { "text": "31. října",   "correct": true  },
+        { "text": "1. listopadu","correct": false }
+      ]
+    },
+    {
+      "text": "Jaký je tradiční anglický pozdrav koledníků?",
+      "answers": [
+        { "text": "Trick or treat!", "correct": true  },
+        { "text": "Happy haunting!", "correct": false },
+        { "text": "Boo or nothing!", "correct": false }
+      ]
+    },
+    {
+      "text": "Z čeho se tradičně vyřezává Jack-o'-lantern?",
+      "answers": [
+        { "text": "Z dýně",   "correct": true  },
+        { "text": "Z jablka", "correct": false },
+        { "text": "Z melounu","correct": false }
+      ]
+    }
+  ]
+},
   "info": {
     "title": "Mini kvíz 🎃",
     "story": "Odemkni zámek — stačí mít aspoň 80 % správně."
