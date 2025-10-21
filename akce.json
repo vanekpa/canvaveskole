@@ -383,6 +383,30 @@
       }
     },
     {
+      "id": "plzen-mistrovství",
+      "title": "Plzeňské mistrovství základních škol",
+      "dateStart": "2025-11-10",
+      "dateEnd": "2025-11-10",
+      "timeStart": "08:00",
+      "timeEnd": "15:00",
+      "location": "4. ZŠ Plzeň",
+      "categories": ["A"],
+      "type": "Mistrovství základních škol",
+      "highlight": false,
+      "image": "https://i.imgur.com/ZEWclkq.png",
+      "link": null,
+      "description": "1. mistrovství Plzně základních škol v americké vybíjené",
+      "tags": ["trénink", "A tým"],
+      "status": "Školní sport",
+      "color": "#f44336",
+      "repeat": {
+        "frequency": null,
+        "interval": null,
+        "weekdays": [],
+        "until": null,
+      }
+    },
+    {
       "id": "Liga25261",
       "title": "Kategorie Mix - Praha, 1. a 2. liga",
       "dateStart": "2025-11-09",
