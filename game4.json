@@ -91,8 +91,8 @@
       "type": "lock",
       "lock": {
         "mode": "numeric",
-        "input": { "keyboard": "numeric", "length": 3 },
-        "answer": "465",
+        "input": { "keyboard": "numeric", "length": 5 },
+        "answer": "30981",
         "attempts": 3,
         "hint": "Na zahradě to vypadalo, jako by tu Adélka trénovala kouzla. Každá dýně svítila jiným světlem, netopýři kroužili nad hlavami a kočky se schovávaly pod keři."
       },
