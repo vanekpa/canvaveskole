@@ -109,7 +109,7 @@
       "id": "p-SHAPES-2",
       "type": "shapes",
       "lock": {
-        "mode": "numeric",
+        "mode": "shapes",
         "input": { "keyboard": "shapes", "length": 3},
         "answer": ["◯","★"],
         "attempts": 3,
