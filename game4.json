@@ -109,8 +109,8 @@
       "id": "p-ABC-2",
       "type": "lock",
       "lock": {
-        "mode": "text",
-        "input": { "keyboard": "alpha", "case_sensitive": false, "placeholder": "Zadej správnoé slovo" },
+        "mode": "numeric",
+        "input": { "keyboard": "numeric", "length": 5 },
         "answer": "PARTY",
         "attempts": 3,
         "hint": "Kdo pozná, co mám dneska připraveno, zjistí, proč jsme se vlastně sešli. Děti si začaly všímat drobností kolem sebe… a pomalu jim začínalo docházet, jaké slovo Adélka skrývá."
@@ -119,7 +119,7 @@
         "title": "Textový zámek",
         "story": "Kdo pozná, co mám dneska připraveno, zjistí, proč jsme se vlastně sešli. Děti si začaly všímat drobností kolem sebe… a pomalu jim začínalo docházet, jaké slovo Adélka skrývá."
       },
-      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/2.png", "icon": "abc" },
+      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/escapegame/refs/heads/main/15.png", "icon": "abc" },
       "next_on_success": "p-SHAPES-3",
       "next_on_fail": "p-ABC-2"
     },
