@@ -110,8 +110,8 @@
       "type": "shapes",
       "lock": {
         "mode": "shapes",
-        "input": { "keyboard": "shapes", "length": 3},
-        "answer": ["◯","★"],
+        "input": { "keyboard": "shapes", "length": 3 },
+        "answer": ["◯","★","▲"],
         "attempts": 3,
         "hint": "Kdo pozná, co mám dneska připraveno, zjistí, proč jsme se vlastně sešli. Děti si začaly všímat drobností kolem sebe… a pomalu jim začínalo docházet, jaké slovo Adélka skrývá."
       },
@@ -121,7 +121,7 @@
       },
       "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/escapegame/refs/heads/main/15.png", "icon": " " },
       "next_on_success": "p-SHAPES-3",
-      "next_on_fail": "p-ABC-2"
+      "next_on_fail": "p-SHAPES-2"
     },
 
        {
