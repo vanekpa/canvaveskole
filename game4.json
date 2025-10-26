@@ -119,7 +119,7 @@
         "title": "Horská služba",
         "story": "Kdo pozná, co mám dneska připraveno, zjistí, proč jsme se vlastně sešli. Děti si začaly všímat drobností kolem sebe… a pomalu jim začínalo docházet, jaké slovo Adélka skrývá."
       },
-      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/escapegame/refs/heads/main/15.png", "icon": "🔒" },
+      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/escapegame/refs/heads/main/15.png", "icon": " " },
       "next_on_success": "p-SHAPES-3",
       "next_on_fail": "p-ABC-2"
     },
@@ -135,7 +135,7 @@
         "hint": "V kuchyni stály řady lahviček s barevnými nápoji. „Každý má rád jinou příchuť,“ zasmála se Adélka, a říká: „Zlomek + barva v lektvaru. Název, který sedí ke tvaru.”"
       },
       "info": { "title": "", "story": "V kuchyni stály řady lahviček s barevnými nápoji. „Každý má rád jinou příchuť,“ zasmála se Adélka, a říká: „Zlomek + barva v lektvaru. Název, který sedí ke tvaru.”" },
-      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/3.png", "icon": "🔒" },
+      "ui": { "background_img": "https://raw.githubusercontent.com/vanekpa/HalloweenGame/refs/heads/main/3.png", "icon": "" },
       "next_on_success": "p-ARROWS-4",
       "next_on_fail": "p-SHAPES-3"
     }, 
