@@ -1,11 +1,11 @@
 {
 "meta": {
   "game_id": "sample-escape-001",
-  "title": "🏒 Hokejové dobrodružství",
+  "title": "🚁 Drony",
   "version": "0.1.0",
   "locale": "cs-CZ",
   "start_page": "p-intro-1",
-  "_note": "Hra pro 1. stupeň - rozvoj bezpečnostních",
+  "_note": "Hra pro 1. stupeň - Drony 🚁",
   "timer": {
     "enabled": true,
     "seconds": 1800,
@@ -72,14 +72,14 @@
       "id": "p-intro-1",
       "type": "info",
       "info": {
-        "title": "🏒 Hokejové dobrodružství - 1",
-        "text": "🏒 Hokejové dobrodružství  - 2",
-        "tips": ["🏒 Hokejové dobrodružství - 3"],
+        "title": "🚁 Dron - 1",
+        "text": "🚁 Dron - 2",
+        "tips": ["🚁 Dron - 3"],
         "badge": "story"
       },
       "ui": {
         "icon": "story",
-        "background_img": "https://raw.githubusercontent.com/vanekpa/escapegame/refs/heads/main/policie.png",
+        "background_img": "https://i.imgur.com/h1wC6F0.mp4",
         "header_icons": ["i","123","abc","arrows","colors","shapes","cryptex","win"]
       },
       "next_on_success": "p-123-1",
