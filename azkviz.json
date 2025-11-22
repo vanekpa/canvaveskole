@@ -261,7 +261,7 @@
     { "letter":"L","prompt":"Jak se nazývá technologie diod, které svítí a používají se v monitorech či klávesnicích?","correct":"LED","alt":["led","light emitting diode"],"category":"Informatika","difficulty":"ZŠ1","lang":"cs" },
     { "letter":"L","prompt":"Jak se nazývá skriptovací jazyk, který se používá například v herním enginu Roblox?","correct":"Lua","alt":["lua"],"category":"Informatika","difficulty":"SŠ","lang":"cs" },
     { "letter":"L","prompt":"Jak se jmenuje hlavní město Lotyšska?","correct":"Riga","alt":[],"category":"Geografie","difficulty":"SŠ","lang":"cs" },
-    { "letter":"L","prompt":"Který francouzský biolog a chemik stojí za očkováním proti vzteklině?","correct":"Louis Pasteur","alt":["Louis Pasteur", "louis pasteur"],"category":["Přírodověda", "Chemie"],"difficulty":"ZŠ2","lang":"cs" },
+    { "letter":"L","prompt":"Který francouzský biolog a chemik s inicály LP stojí za očkováním proti vzteklině?","correct":"Louis Pasteur","alt":["Louis Pasteur", "louis pasteur"],"category":["Přírodověda"],"difficulty":"ZŠ2","lang":"cs" },
     { "letter":"L","prompt":"Jak říkáme můře, která má na hrudi kresbu lebky?","correct":"Lišaj Smrtihlav","alt":["Lišaj Smrtihlav", "lišaj smrtihlav"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"L","prompt":"Jak se jmenuje pravěká ryba, která přežívá v hlubinách dodnes?","correct":"Latimérie","alt":["latimérie", "Latimérie"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
     { "letter":"L","prompt":"Do které třídy řadíme nezmara obecného?","correct":"Láčkovci","alt":["láčkovci", "Láčkovci"],"category":"Přírodověda","difficulty":"ZŠ2","lang":"cs" },
