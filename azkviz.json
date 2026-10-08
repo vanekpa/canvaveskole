@@ -2034,8 +2034,6 @@
 { "prompt":"Patří sinice mezi bakterie?","answer_bool":true,"category":"Přírodověda - 6. ročník","difficulty":"ZŠ2","lang":"cs" }
   ],
   "ads": [
-    { "text":"Hraj v Plzni americkou vybíjenou!","url":"https://dbpilsen.cz","durationSec":0 },
-    { "text":"Únikové hry ve škole - mrkni na web a měj přehled!","url":"https://unikovkyveskole.cz","durationSec":0 },
-    { "text":"Nakladatelství pro základní školy, které nabízí učitelům vše potřebné pro moderní a smysluplnou výuku.","url":"https://www.vividbooks.com/","durationSec":0 }
+    { "text":"NOVÁ VERZE AZ Kvízu pro Vás - na webu azkviz.peklo-edu.cz - heslo je stejné :) užívejte a děkujeme za podporu.","url":"https://azkviz.peklo-edu.cz/?hra=pekelny-mix","durationSec":20 }
   ]
 }
